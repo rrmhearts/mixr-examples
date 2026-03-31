@@ -2,7 +2,7 @@
 #include "TableRow.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/PairStream.hpp"
 
 using namespace mixr;
 
@@ -28,11 +28,11 @@ int TableRow::line() const
    return BaseClass::line();
 }
 
-void TableRow::line(const int ll)
+int TableRow::line(const int ll)
 {
    BaseClass::line(ll);
    position();
-   return;
+   return BaseClass::line();
 }
 
 int TableRow::column() const
@@ -40,33 +40,33 @@ int TableRow::column() const
    return BaseClass::column();
 }
 
-void TableRow::column(const int cc)
+int TableRow::column(const int cc)
 {
    BaseClass::column(cc);
    position();
-   return;
+   return BaseClass::column();
 }
 
 void  TableRow::put(base::Pair* pp)
 {
-   base::IPairStream* subcomponents{getComponents()};
-   BaseClass::processComponents(subcomponents, typeid(graphics::IReadout), pp);
+   base::PairStream* subcomponents{getComponents()};
+   BaseClass::processComponents(subcomponents, typeid(graphics::AbstractField), pp);
    if (subcomponents != nullptr) subcomponents->unref();
 }
 
 void TableRow::position()
 {
    // position the fields in this table item
-   base::IPairStream* subcomponents{getComponents()};
+   base::PairStream* subcomponents{getComponents()};
    if (subcomponents != nullptr) {
 
       int ln{line()};
       int cp{column()};
 
-      base::IList::Item* item{subcomponents->getFirstItem()};
+      base::List::Item* item{subcomponents->getFirstItem()};
       while (item != nullptr) {
          const auto pair = static_cast<base::Pair*>(item->getValue());
-         const auto ti = static_cast<graphics::IReadout*>(pair->object());
+         const auto ti = static_cast<graphics::AbstractField*>(pair->object());
 
          ti->line(ln);
          ti->column(cp);

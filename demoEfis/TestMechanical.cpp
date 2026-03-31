@@ -1,11 +1,11 @@
 
 #include "TestMechanical.hpp"
 
-#include "mixr/base/qty/util/angle_utils.hpp"
+#include "mixr/base/units/angle_utils.hpp"
 
 // static slew rates
-const double TestMechanical::T1{120.0};
-const double TestMechanical::T2{0.40};
+const double TestMechanical::T1 = 120;
+const double TestMechanical::T2 = 0.40f;
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TestMechanical, "TestMechanical")
 EMPTY_DELETEDATA(TestMechanical)

@@ -3,7 +3,7 @@
 #include <cstdlib>
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
@@ -22,19 +22,19 @@ mixr::glut::GlutDisplay* glutDisplay{};
 // timerFunc() -- Time critical stuff)
 void timerFunc(int)
 {
-   const double dt{1.0 / static_cast<double>(frameRate)};
-   const int millis{static_cast<int>(dt * 1000)};
+   const double dt = 1.0 / static_cast<double>(frameRate);
+   const int millis = static_cast<int>(dt * 1000);
    glutTimerFunc(millis, timerFunc, 1);
 
-   mixr::base::ITimer::updateTimers(static_cast<float>(dt));
+   mixr::base::Timer::updateTimers(static_cast<float>(dt));
    mixr::graphics::Graphic::flashTimer(static_cast<double>(dt));
    glutDisplay->tcFrame(static_cast<double>(dt));
 }
 
 // class factory
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-  mixr::base::IObject* obj{};
+  mixr::base::Object* obj{};
 
   if ( name == Worm::getFactoryName() ) {
     obj = new Worm;
@@ -53,7 +53,7 @@ mixr::glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj = mixr::base::edl_parser(filename, factory, &num_errors);
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"file0.edl"};
+   std::string configFilename = "file0.edl";
 
    // build a display
    glutDisplay = builder(configFilename);

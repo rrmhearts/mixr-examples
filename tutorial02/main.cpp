@@ -1,4 +1,7 @@
 
+/*
+    Using a random number generator.
+*/
 #include <iostream>
 
 #include "Rng.hpp"

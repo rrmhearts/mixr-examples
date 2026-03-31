@@ -1,12 +1,8 @@
 
-#ifndef __TestTwo_HPP__
-#define __TestTwo_HPP__
+#ifndef __TestTwo_H__
+#define __TestTwo_H__
 
 #include "mixr/graphics/Graphic.hpp"
-
-namespace mixr {
-namespace base { class INumber; }
-}
 
 //------------------------------------------------------------------------------
 // Class: TestTwo
@@ -20,7 +16,7 @@ class TestTwo final: public mixr::graphics::Graphic
 public:
     TestTwo();
 
-    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
     void updateTC(const double dt = 0.0) final;
     void updateData(const double dt = 0.0) final;
     void reset() final;
@@ -42,14 +38,14 @@ private:
 
 private:
     // slot table helper methods
-    bool setV1(const mixr::base::INumber* const);
-    bool setV1Rate(const mixr::base::INumber* const);
-    bool setV1Max(const mixr::base::INumber* const);
-    bool setV1Min(const mixr::base::INumber* const);
-    bool setV2(const mixr::base::INumber* const);
-    bool setV2Rate(const mixr::base::INumber* const);
-    bool setV2Max(const mixr::base::INumber* const);
-    bool setV2Min(const mixr::base::INumber* const);
+    bool setV1(const mixr::base::Number* const);
+    bool setV1Rate(const mixr::base::Number* const);
+    bool setV1Max(const mixr::base::Number* const);
+    bool setV1Min(const mixr::base::Number* const);
+    bool setV2(const mixr::base::Number* const);
+    bool setV2Rate(const mixr::base::Number* const);
+    bool setV2Max(const mixr::base::Number* const);
+    bool setV2Min(const mixr::base::Number* const);
 };
 
 #endif

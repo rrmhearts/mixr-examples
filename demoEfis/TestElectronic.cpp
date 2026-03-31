@@ -1,12 +1,13 @@
 
 #include "TestElectronic.hpp"
 
-#include "mixr/base/String.hpp"
-
-#include "mixr/base/qty/util/rate_utils.hpp"
+#include "mixr/base/util/enum_utils.hpp"
+#include "mixr/base/units/LinearVelocity.hpp"
 
 #include "mixr/base/util/math_utils.hpp"
-#include "mixr/base/qty/util/angle_utils.hpp"
+#include "mixr/base/units/angle_utils.hpp"
+
+#include <cmath>
 
 using namespace mixr;
 
@@ -347,11 +348,7 @@ void TestElectronic::updateData(const double dt)
     // course data
     {
         // which course pointer are we using?
-        if (navSource == NavSource::PRIMARY) {
-            send("whichcourseptr", SELECT, false, whichCrsPtrSD);
-        } else {
-            send("whichcourseptr", SELECT, true, whichCrsPtrSD);
-        }
+        send("whichcourseptr", SELECT, base::as_integer(navSource), whichCrsPtrSD);
 
         int curIntCourse{};
         double tempCDI{};
@@ -410,7 +407,7 @@ void TestElectronic::updateData(const double dt)
                 }
             }
 
-            send("primarycoursepointer", SET_COLOR, string->c_str(), priCrsPtrColorSD);
+            send("primarycoursepointer", SET_COLOR, string->getString(), priCrsPtrColorSD);
             // get rid of our string
             string->unref();
         } else {
@@ -437,7 +434,7 @@ void TestElectronic::updateData(const double dt)
                 }
             }
 
-            send("secondarycoursepointer", SET_COLOR, string->c_str(), secCrsPtrColorSD);
+            send("secondarycoursepointer", SET_COLOR, string->getString(), secCrsPtrColorSD);
             // get rid of our string
             string->unref();
         }
@@ -446,9 +443,9 @@ void TestElectronic::updateData(const double dt)
     // our data readouts (TTG, Gs, etc...)
     {
         // which readout are we using
-        send("whichlabel", SELECT, static_cast<int>(readoutMode), roLabelSD);
+        send("whichlabel", SELECT, base::as_integer(readoutMode), roLabelSD);
         // send which readout we are going to use
-        send("whichreadout", SELECT, static_cast<int>(readoutMode), roWhichSD);
+        send("whichreadout", SELECT, base::as_integer(readoutMode), roWhichSD);
 
         // first readout, which is our time to go
         if (readoutMode == ReadoutMode::ND_TTG) {
@@ -466,7 +463,7 @@ void TestElectronic::updateData(const double dt)
         }
         // true air speed
         else if (readoutMode == ReadoutMode::ND_TAS) {
-            int curTAS{mixr::base::nintd(trueAirSpeed * mixr::base::rate::FPS2KTSCC)};
+            int curTAS{mixr::base::nintd(trueAirSpeed * mixr::base::LinearVelocity::FPS2KTSCC)};
             send("trueairspeed", UPDATE_VALUE, curTAS, trueAirSpeedSD);
         }
         // elapsed time
@@ -531,11 +528,7 @@ void TestElectronic::updateData(const double dt)
     // primary and secondary readout indicators (with asterisk)
     {
         // first of all, which position is the asterisk going in (primary or secondary?)
-        if (navSource == NavSource::PRIMARY) {
-            send("whichnavsource", SELECT, false, whichNavSrcSD);
-        } else {
-            send("whichnavsource", SELECT, true, whichNavSrcSD);
-        }
+        send("whichnavsource", SELECT, base::as_integer(navSource), whichNavSrcSD);
 
         // primary nav source selection
         int primaryPos{1};     // 1 is INAV
@@ -584,7 +577,7 @@ void TestElectronic::updateData(const double dt)
         curToFrom = mixr::base::alim(curToFrom + delta, 0.65);
 
         // if we are positive, we are to, negative, from
-        bool whichToFrom{curToFrom > 0.0};
+        bool whichToFrom{curToFrom > 0};
         send("toorfrom", SELECT, whichToFrom, toOrFromSD);
 
         // now send down where to translate

@@ -1,7 +1,7 @@
 
 #include "PriorityArbiter.hpp"
 
-#include "mixr/base/IList.hpp"
+#include "mixr/base/List.hpp"
 
 #include "PlaneAction.hpp"
 #include <iostream>
@@ -15,7 +15,7 @@ EMPTY_CONSTRUCTOR(PriorityArbiter)
 EMPTY_COPYDATA(PriorityArbiter)
 EMPTY_DELETEDATA(PriorityArbiter)
 
-base::ubf::IAction* PriorityArbiter::genComplexAction(base::IList* const actionSet)
+base::ubf::AbstractAction* PriorityArbiter::genComplexAction(base::List* const actionSet)
 {
    const auto complexAction = new PlaneAction;
 
@@ -27,7 +27,7 @@ base::ubf::IAction* PriorityArbiter::genComplexAction(base::IList* const actionS
    int maxPitchTrimVote{};
 
    // process entire action set
-   const base::IList::Item* item{actionSet->getFirstItem()};
+   const base::List::Item* item{actionSet->getFirstItem()};
    while (item != nullptr) {
       const auto action = dynamic_cast<const PlaneAction*>(item->getValue());
       if (action!=nullptr) {
@@ -74,7 +74,7 @@ base::ubf::IAction* PriorityArbiter::genComplexAction(base::IList* const actionS
    return complexAction;
 }
 
-void PriorityArbiter::trimChangeValidation(base::ubf::IAction* const complexAction)
+void PriorityArbiter::trimChangeValidation(base::ubf::AbstractAction* const complexAction)
 {
    const auto action = static_cast<PlaneAction*>(complexAction);
 

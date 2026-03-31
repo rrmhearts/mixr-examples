@@ -1,13 +1,13 @@
 
-#ifndef __Display_HPP__
-#define __Display_HPP__
+#ifndef __Display_H__
+#define __Display_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
-#include "mixr/base/qty/util/length_utils.hpp"
+#include "mixr/base/units/distance_utils.hpp"
 
 namespace mixr {
-namespace base { class IAngle; class Boolean; class Integer; class ILength; }
-namespace terrain { class ITerrain; }
+namespace base { class Angle; class Distance; class Number; }
+namespace terrain { class Terrain; }
 }
 
 class MainWindow;
@@ -20,13 +20,13 @@ class MainWindow;
 // Factory name: TerrainDisplay
 //
 // Slots:
-//    terrain        <terrain::ITerrain>    ! The terrain elevation database
-//    minElevation   <Length>               ! Minimum elevation (Distance) (default: use database max value)
-//    maxElevation   <Length>               ! Maximum elevation (Distance) (default: use database max value)
-//    altitude       <Length>               ! Reference altitude (Distance) (default: 15000 feet)
+//    terrain        <terrain::Terrain>     ! The terrain elevation database
+//    minElevation   <Distance>             ! Minimum elevation (Distance) (default: use database max value)
+//    maxElevation   <Distance>             ! Maximum elevation (Distance) (default: use database max value)
+//    altitude       <Distance>             ! Reference altitude (Distance) (default: 15000 feet)
 //    lookAngle      <Angle>                ! Antenna look angle (Angle) (default: 0 degrees)
 //    beamWidth      <Angle>                ! Antenna Beam Width (Angle) (default: 180 degrees)
-//    colorScale     <Integer>              ! Color scale:  gray(0), color(1), green(2) (default: gray)
+//    colorScale     <Number>               ! Color scale:  gray(0), color(1), green(2) (default: gray)
 //    interpolate    <Boolean>              ! Interpolate flag (default: false)
 //    shadows        <Boolean>              ! Shadow test enabled
 //    aac            <Boolean>              ! Aspect Angle test enabled
@@ -44,7 +44,7 @@ public:
 public:
    Display();
 
-   const mixr::terrain::ITerrain* getTerrain() const              { return terrain; }
+   const mixr::terrain::Terrain* getTerrain() const              { return terrain; }
 
    bool isMinElevValid() const { return haveMinElev; }   // Ture if the min elevation is valid
    double getMinElevation() const { return minElev; }    // Returns the min elevation (meters)
@@ -67,11 +67,11 @@ private:
    bool copyImageMemory(const Display& org);
    void freeImageMemory();
 
-   mixr::terrain::ITerrain* terrain{};                     // Terrain data
+   mixr::terrain::Terrain* terrain{};                      // Terrain data
 
-   double maxElev{15000.0 * mixr::base::length::FT2M};     // Max elevation (meters)
+   double maxElev{15000.0 * mixr::base::distance::FT2M};   // Max elevation (meters)
    double minElev{};                                       // Min elevation (meters)
-   double altitude{15000.0 * mixr::base::length::FT2M};    // Ref altitude (meters)
+   double altitude{15000.0 * mixr::base::distance::FT2M};  // Ref altitude (meters)
    double lookAngle{};                                     // Antenna look angle (degs)
    double beamWidth{180.0};                                // Antenna beam width (degs)
    ColorDepth colorDepth{ColorDepth::GRAY};                // Color scale index; gray, color, green
@@ -97,18 +97,18 @@ private:
 
 private:
    // slot table helper methods
-   bool setSlotTerrain(mixr::terrain::ITerrain* const);
-   bool setSlotMinElevation(const mixr::base::ILength* const);
-   bool setSlotMaxElevation(const mixr::base::ILength* const);
-   bool setSlotAltitude(const mixr::base::ILength* const);
-   bool setSlotLookAngle(const mixr::base::IAngle* const);
-   bool setSlotBeamWidth(const mixr::base::IAngle* const);
-   bool setSlotColorScale(const mixr::base::Integer* const);
-   bool setSlotInterpolate(const mixr::base::Boolean* const);
-   bool setSlotShadowsTest(const mixr::base::Boolean* const);
-   bool setSlotAacTest(const mixr::base::Boolean* const);
-   bool setSlotEarthCurvatureTest(const mixr::base::Boolean* const);
-   bool setSlotTextureTest(const mixr::base::Boolean* const);
+   bool setSlotTerrain(mixr::terrain::Terrain* const);
+   bool setSlotMinElevation(const mixr::base::Distance* const);
+   bool setSlotMaxElevation(const mixr::base::Distance* const);
+   bool setSlotAltitude(const mixr::base::Distance* const);
+   bool setSlotLookAngle(const mixr::base::Angle* const);
+   bool setSlotBeamWidth(const mixr::base::Angle* const);
+   bool setSlotColorScale(const mixr::base::Number* const);
+   bool setSlotInterpolate(const mixr::base::Number* const);
+   bool setSlotShadowsTest(const mixr::base::Number* const);
+   bool setSlotAacTest(const mixr::base::Number* const);
+   bool setSlotEarthCurvatureTest(const mixr::base::Number* const);
+   bool setSlotTextureTest(const mixr::base::Number* const);
 };
 
 #endif

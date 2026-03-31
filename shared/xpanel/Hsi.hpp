@@ -1,6 +1,6 @@
 
-#ifndef __mixr_xpanel_Hsi_HPP__
-#define __mixr_xpanel_Hsi_HPP__
+#ifndef __mixr_xpanel_Hsi_H__
+#define __mixr_xpanel_Hsi_H__
 
 #include "mixr/graphics/Rotators.hpp"
 
@@ -44,16 +44,16 @@ public:
     double getToFrom()    { return toFrom; }
 
     void updateData(const double dt = 0.0) final;
-    bool event(const int event, base::IObject* const obj = nullptr) final;
+    bool event(const int event, base::Object* const obj = nullptr) final;
 
 private:
     // event functions
-    bool onUpdateSelHdgHsi(const base::INumber* const);
-    bool onUpdateSelCrsHsi(const base::INumber* const);
-    bool onUpdateNav1BrgHsi(const base::INumber* const);
-    bool onUpdateNav2BrgHsi(const base::INumber* const);
-    bool onUpdateCdiDotsHsi(const base::INumber* const);
-    bool onUpdateToFromHsi(const base::INumber* const);
+    bool onUpdateSelHdgHsi(const base::Number* const);
+    bool onUpdateSelCrsHsi(const base::Number* const);
+    bool onUpdateNav1BrgHsi(const base::Number* const);
+    bool onUpdateNav2BrgHsi(const base::Number* const);
+    bool onUpdateCdiDotsHsi(const base::Number* const);
+    bool onUpdateToFromHsi(const base::Number* const);
 
     double selHdg{};      // selected heading (degs)
     SendData selHdgSD;

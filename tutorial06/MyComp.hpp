@@ -1,8 +1,8 @@
 
-#ifndef __MyComp_HPP__
-#define __MyComp_HPP__
+#ifndef __MyComp_H__
+#define __MyComp_H__
 
-#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Component.hpp"
 
 namespace mixr {
 namespace base { class String; }
@@ -12,9 +12,9 @@ namespace base { class String; }
 // Class: MyComp
 // Description: example class
 //------------------------------------------------------------------------------
-class MyComp final: public mixr::base::IComponent
+class MyComp final: public mixr::base::Component
 {
-   DECLARE_SUBCLASS(MyComp, mixr::base::IComponent)
+   DECLARE_SUBCLASS(MyComp, mixr::base::Component)
 
 public:
    MyComp();

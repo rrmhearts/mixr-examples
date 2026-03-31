@@ -7,15 +7,16 @@
 
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/IComponent.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
 #include <GL/glut.h>
 
 #include <string>
 #include <cstdlib>
+
+//#define PARSE_TIMING_TEST
 
 // background frame rate
 const int bgRate{10};
@@ -24,13 +25,33 @@ TestStation* testStation{};
 // test station builder
 TestStation* builder(const std::string& filename)
 {
+#ifdef PARSE_TIMING_TEST
+    LARGE_INTEGER cFreq;
+    QueryPerformanceFrequency(&cFreq);
+    LONGLONG freq = cFreq.QuadPart;
+
+    LARGE_INTEGER fcnt;
+    QueryPerformanceCounter(&fcnt);
+    LONGLONG startCnt = fcnt.QuadPart;
+#endif
+
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
+
+#ifdef PARSE_TIMING_TEST
+    QueryPerformanceCounter(&fcnt);
+    LONGLONG endCnt = fcnt.QuadPart;
+    double dfreq = freq;
+    double dcnt = endCnt - startCnt;
+    double dtime{dcnt/dfreq};
+    //double dtime1 = ( dtime * 1000.0 );
+    std::cout << "dtime1 = " << dtime1 << "MS" << std::endl;
+#endif
 
    // test to see if an object was created
    if (obj == nullptr) {
@@ -84,10 +105,10 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"test2a.edl"};
+   std::string configFilename = "test2a.edl";
 
    // parse arguments
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -97,7 +118,7 @@ int main(int argc, char* argv[])
    testStation = builder(configFilename);
 
    // reset the Simulation
-   testStation->event(mixr::base::IComponent::RESET_EVENT);
+   testStation->event(mixr::base::Component::RESET_EVENT);
 
    // set timer for the background tasks
    const double dt{1.0 / static_cast<double>(bgRate)};
@@ -106,7 +127,7 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    testStation->updateData(dt);
    testStation->updateTC(dt);
-   testStation->event(mixr::base::IComponent::RESET_EVENT);
+   testStation->event(mixr::base::Component::RESET_EVENT);
 
    glutTimerFunc(millis, updateDataCB, 1);
 

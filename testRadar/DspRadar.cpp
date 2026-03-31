@@ -2,9 +2,9 @@
 #include "DspRadar.hpp"
 
 #include "mixr/models/system/Antenna.hpp"
-#include "mixr/models/system/IRadar.hpp"
-#include "mixr/models/track/ITrack.hpp"
-#include "mixr/models/system/trackmanager/ITrackMgr.hpp"
+#include "mixr/models/system/Radar.hpp"
+#include "mixr/models/Track.hpp"
+#include "mixr/models/system/trackmanager/TrackManager.hpp"
 
 #include "mixr/base/colors/Hsv.hpp"
 
@@ -44,12 +44,12 @@ void DspRadar::updateData(const double dt)
       antenna = radar->getAntenna();
 
       // Get our track manager
-      const models::ITrackMgr* tm{radar->getTrackManager()};
+      const models::TrackManager* tm{radar->getTrackManager()};
 
       // ---
       // Get the track list and convert them to display coordinates
       if (tm != nullptr) {
-         base::safe_ptr<models::ITrack> trackList[MAX_TRKS];
+         base::safe_ptr<models::Track> trackList[MAX_TRKS];
          int n{tm->getTrackList(trackList, MAX_TRKS)};
          for (int i = 0; i < n; i++) {
             base::Vec3d pos = trackList[i]->getPosition();
@@ -155,7 +155,7 @@ void DspRadar::drawFunc()
 
       // Vertices of the basic symbol
       //static double maxRng = 40000.0;
-      double maxRng{radar->getRange() * base::length::NM2M};
+      double maxRng{radar->getRange() * base::distance::NM2M};
       static double ss{0.05};
 
       // The color
@@ -169,7 +169,7 @@ void DspRadar::drawFunc()
       hsv[0] = 360.0f;
       base::Hsv::hsv2rgb(ntsRGB, hsv);
 
-      for (int i{}; i < nTracks; i++) {
+      for (unsigned int i = 0; i < nTracks; i++) {
          double xp{(base::angle::R2DCC * trkAz[i]) / 30.0};
          double yp{2.0 * trkRng[i]/maxRng};
          if (static_cast<int>(i) == ntsTrk) lcColor3v(ntsRGB.ptr());

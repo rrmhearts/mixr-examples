@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testEvents\Display.hpp" />
+    <ClInclude Include="..\..\testEvents\ObjectHandler.hpp" />
+    <ClInclude Include="..\..\testEvents\TestObject.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\testEvents\Display.cpp" />
+    <ClCompile Include="..\..\testEvents\ObjectHandler.cpp" />
+    <ClCompile Include="..\..\testEvents\TestObject.cpp" />
+    <ClCompile Include="..\..\testEvents\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\testEvents\configs\test.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -2,7 +2,9 @@
 #include <iostream>
 
 #include "Uniform.hpp"
-#include "mixr/base/numeric/INumber.hpp"
+#include "mixr/base/numeric/Number.hpp"
+
+using mixr::base::Number;
 
 IMPLEMENT_SUBCLASS(Uniform,"Uniform")
 EMPTY_DELETEDATA(Uniform)
@@ -14,8 +16,8 @@ BEGIN_SLOTTABLE(Uniform)
 END_SLOTTABLE(Uniform)
 //  map slot table to handles
 BEGIN_SLOT_MAP(Uniform)
-  ON_SLOT(1, setSlotMin, mixr::base::INumber)
-  ON_SLOT(2, setSlotMax, mixr::base::INumber)
+  ON_SLOT(1, setSlotMin, Number)
+  ON_SLOT(2, setSlotMax, Number)
 END_SLOT_MAP()
 
 Uniform::Uniform()
@@ -37,19 +39,19 @@ double Uniform::num()
    return dist(engine);
 }
 
-bool Uniform::setSlotMin(const mixr::base::INumber* const x)
+bool Uniform::setSlotMin(const Number* const x)
 {
    bool ok = false;
    if (x != nullptr)
-      ok = setMin(x->asDouble());
+      ok = setMin(x->getDouble());
    return ok;
 }
 
-bool Uniform::setSlotMax(const mixr::base::INumber* const x)
+bool Uniform::setSlotMax(const Number* const x)
 {
    bool ok = false;
    if (x != nullptr)
-      ok = setMax(x->asDouble());
+      ok = setMax(x->getDouble());
    return ok;
 }
 

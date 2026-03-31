@@ -1,2 +1,2 @@
-Stable version v25.03rc3
+Stable release version v18.01
 

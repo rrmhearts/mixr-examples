@@ -1,12 +1,12 @@
 
-#ifndef __MapDisplay_HPP__
-#define __MapDisplay_HPP__
+#ifndef __MapDisplay_H__
+#define __MapDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 namespace mixr {
 namespace models { class Aircraft; }
-namespace simulation { class IStation; }
+namespace simulation { class Station; }
 }
 
 // -------------------------------------------------------------------------------
@@ -31,10 +31,10 @@ public:
 
 private:
    mixr::models::Aircraft* getOwnship();
-   mixr::simulation::IStation* getStation();
+   mixr::simulation::Station* getStation();
 
    // button hit enumerations
-   enum class Btn:int {
+   enum class Btn {
       DEC_RANGE = 101,           // Increase / decrease the map range (NM)
       INC_RANGE,
       DEC_CMD_AS,                // Increase / decrease the commanded airspeed (Kts - only works with no autopilot mode engaged)
@@ -56,7 +56,7 @@ private:
       CHANGE_AP_MODE             // Change the autopilot mode (Nav/Loiter/FollowTheLead or None)
    };
 
-   mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+   mixr::base::safe_ptr<mixr::simulation::Station> myStation;
 
    int startX{};         // startX of our last mouse position
    int startY{};         // startY of our last mouse position

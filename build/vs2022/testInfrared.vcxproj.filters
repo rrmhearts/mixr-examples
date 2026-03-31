@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\ighosts">
+      <UniqueIdentifier>{9E8E2D9C-0A1A-9B60-132B-1E557F35F760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\interop">
+      <UniqueIdentifier>{5E5055AD-CADB-C271-D3EC-45663FF71E72}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testInfrared\TestComputer.hpp" />
+    <ClInclude Include="..\..\testInfrared\TestDisplay.hpp" />
+    <ClInclude Include="..\..\testInfrared\TestStation.hpp" />
+    <ClInclude Include="..\..\testInfrared\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\testInfrared\TestComputer.cpp" />
+    <ClCompile Include="..\..\testInfrared\TestDisplay.cpp" />
+    <ClCompile Include="..\..\testInfrared\TestStation.cpp" />
+    <ClCompile Include="..\..\testInfrared\factory.cpp" />
+    <ClCompile Include="..\..\testInfrared\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\testInfrared\configs\IrAAMcomponents.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testInfrared\configs\displays.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testInfrared\configs\ighosts\cigi.epp">
+      <Filter>configs\ighosts</Filter>
+    </None>
+    <None Include="..\..\testInfrared\configs\interop\dis.epp">
+      <Filter>configs\interop</Filter>
+    </None>
+    <None Include="..\..\testInfrared\configs\irAtmosphere.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testInfrared\configs\irSignature.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testInfrared\configs\test1.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

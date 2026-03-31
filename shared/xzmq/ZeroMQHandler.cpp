@@ -1,7 +1,6 @@
 
 #include "ZeroMQHandler.hpp"
 #include "ZeroMQContext.hpp"
-
 #include "mixr/base/numeric/Boolean.hpp"
 #include "mixr/base/numeric/Integer.hpp"
 #include "mixr/base/String.hpp"
@@ -387,7 +386,7 @@ bool ZeroMQHandler::setSlotSocketType(const base::String* const msg)
    // Find the token in the map and get the enumeration for use in the
    // initialization of the socket
    bool ok{};
-   if (msg != nullptr) ok = setSocketType(msg->c_str());
+   if (msg != nullptr) ok = setSocketType(*msg);
    return ok;
 }
 
@@ -397,7 +396,7 @@ bool ZeroMQHandler::setSlotConnect(const base::String* const msg)
    // Save the endpoint definition for use in the initialization of
    // the socket
    bool ok{};
-   if (msg != nullptr) ok = setConnect(msg->c_str());
+   if (msg != nullptr) ok = setConnect(*msg);
    return ok;
 }
 
@@ -407,7 +406,7 @@ bool ZeroMQHandler::setSlotAccept(const base::String* const msg)
    // Save the endpoint definition for use in the initialization of
    // the socket
    bool ok{};
-   if (msg != nullptr) ok = setAccept(msg->c_str());
+   if (msg != nullptr) ok = setAccept(*msg);
    return ok;
 }
 
@@ -417,7 +416,7 @@ bool ZeroMQHandler::setSlotNoWait(const base::Boolean* const msg)
    // Save the nowait definition for use in the initialization of the
    // socket
    bool ok{};
-   if (msg != nullptr) ok = setNoWait(msg->asBool());
+   if (msg != nullptr) ok = setNoWait(*msg);
    return ok;
 }
 
@@ -427,7 +426,7 @@ bool ZeroMQHandler::setSlotLinger(const base::Integer* const msg)
    // Save the linger period for use in the initialization of the
    // socket
    bool ok{};
-   if (msg != nullptr) ok = setLinger(msg->asInt());
+   if (msg != nullptr) ok = setLinger(*msg);
    return ok;
 }
 
@@ -437,7 +436,7 @@ bool ZeroMQHandler::setSlotSubscribe(const base::String* const msg)
    // Save the subscribe filter for use in the initialization of the
    // socket.
    bool ok{};
-   if (msg != nullptr) ok = setSubscribe(msg->c_str());
+   if (msg != nullptr) ok = setSubscribe(*msg);
    return ok;
 }
 
@@ -447,7 +446,7 @@ bool ZeroMQHandler::setSlotBackLog(const base::Integer* const msg)
    // Save the connection back log count for use in the initialization
    // of the socket
    bool ok{};
-   if (msg != nullptr) ok = setBackLog(msg->asInt());
+   if (msg != nullptr) ok = setBackLog(*msg);
    return ok;
 }
 
@@ -457,7 +456,7 @@ bool ZeroMQHandler::setSlotIdentity(const base::String* const msg)
    // Save the socket identity for use in the initialization of the
    // socket
    bool ok{};
-   if (msg != nullptr) ok = setIdentity(msg->c_str());
+   if (msg != nullptr) ok = setIdentity(*msg);
    return ok;
 }
 
@@ -467,7 +466,7 @@ bool ZeroMQHandler::setSlotSendBufSize(const base::Integer* const msg)
    // Save the send buffer size for use in the initialization of the
    // socket
    bool ok{};
-   if (msg != nullptr) ok = setSendBufSize(msg->asInt() * 1024);
+   if (msg != nullptr) ok = setSendBufSize(*msg * 1024);
    return ok;
 }
 
@@ -477,7 +476,7 @@ bool ZeroMQHandler::setSlotRecvBufSize(const base::Integer* const msg)
    // Save the receive buffer size for use in the initialization of the
    // socket
    bool ok{};
-   if (msg != nullptr) ok = setRecvBufSize(msg->asInt() * 1024);
+   if (msg != nullptr) ok = setRecvBufSize(*msg * 1024);
    return ok;
 }
 
@@ -487,7 +486,7 @@ bool ZeroMQHandler::setSlotSendHWM(const base::Integer* const msg)
    // Save the send high-water-mark for use in the initialization of the
    // socket
    bool ok{};
-   if (msg != nullptr) ok = setSendHWM(msg->asInt());
+   if (msg != nullptr) ok = setSendHWM (*msg);
    return ok;
 }
 
@@ -497,7 +496,7 @@ bool ZeroMQHandler::setSlotRecvHWM(const base::Integer* const msg)
    // Save the receive high-water-mark for use in the initialization of
    // the socket
    bool ok{};
-   if (msg != nullptr) ok = setRecvHWM(msg->asInt());
+   if (msg != nullptr) ok = setRecvHWM (*msg);
    return ok;
 }
 

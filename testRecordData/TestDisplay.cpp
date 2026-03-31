@@ -6,25 +6,25 @@
 #include "xpanel/DspRwr.hpp"
 #include "xpanel/Pfd.hpp"
 
-#include "xrecorder/XDataRecorder.hpp"
+#include "xrecorder/DataRecorder.hpp"
 #include "xrecorder/dataRecorderTokens.hpp"
 
 #include "mixr/models/player/air/AirVehicle.hpp"
 #include "mixr/models/player/weapon/Missile.hpp"
 
 #include "mixr/models/system/Jammer.hpp"
-#include "mixr/models/system/IRadar.hpp"
+#include "mixr/models/system/Radar.hpp"
 #include "mixr/models/system/Rwr.hpp"
-#include "mixr/models/system/IStoresMgr.hpp"
+#include "mixr/models/system/StoresMgr.hpp"
 #include "mixr/models/sensor/Gmti.hpp"
 #include "mixr/models/sensor/Tws.hpp"
 
-#include "mixr/simulation/ISimulation.hpp"
+#include "mixr/simulation/Simulation.hpp"
 
 #include "mixr/base/numeric/Boolean.hpp"
-#include "mixr/base/IComponent.hpp"
+
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/PairStream.hpp"
 #include "mixr/graphics/SymbolLoader.hpp"
 #include <GL/glut.h>
 
@@ -208,9 +208,9 @@ bool TestDisplay::onRtn2SearchKey()
 bool TestDisplay::onAir2AirKey()
 {
    if (getOwnship() != nullptr) {
-      models::IStoresMgr* sms = getOwnship()->getStoresManagement();
+      models::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != nullptr) {
-         sms->setWeaponDeliveryMode(models::IStoresMgr::A2A);
+         sms->setWeaponDeliveryMode(models::StoresMgr::A2A);
          std::cout << "Set A/A Weapon Mode!" << std::endl;
       }
    }
@@ -221,9 +221,9 @@ bool TestDisplay::onAir2AirKey()
 bool TestDisplay::onAir2GndKey()
 {
    if (getOwnship() != nullptr) {
-      models::IStoresMgr* sms = getOwnship()->getStoresManagement();
+      models::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != nullptr) {
-         sms->setWeaponDeliveryMode(models::IStoresMgr::A2G);
+         sms->setWeaponDeliveryMode(models::StoresMgr::A2G);
          std::cout << "Set A/G Weapon Mode!" << std::endl;
       }
    }
@@ -234,17 +234,17 @@ bool TestDisplay::onAir2GndKey()
 bool TestDisplay::onIncRngKey()
 {
    if (getOwnship() != nullptr) {
-      models::IRadar* rdr = nullptr;
+      models::Radar* rdr = nullptr;
       {
          base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
-         if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+         if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
       }
-      models::IStoresMgr* sms = getOwnship()->getStoresManagement();
+      models::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != nullptr) {
          // But could be GMTI ...
-         if (sms->isWeaponDeliveryMode(models::IStoresMgr::A2G)) {
+         if (sms->isWeaponDeliveryMode(models::StoresMgr::A2G)) {
             base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
-            if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+            if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
          }
       }
       if (rdr != nullptr) {
@@ -261,17 +261,17 @@ bool TestDisplay::onIncRngKey()
 bool TestDisplay::onDecRngKey()
 {
    if (getOwnship() != nullptr) {
-      models::IRadar* rdr = nullptr;
+      models::Radar* rdr = nullptr;
       {
          base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
-         if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+         if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
       }
-      models::IStoresMgr* sms = getOwnship()->getStoresManagement();
+      models::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != nullptr) {
          // But could be GMTI ...
-         if (sms->isWeaponDeliveryMode(models::IStoresMgr::A2G)) {
+         if (sms->isWeaponDeliveryMode(models::StoresMgr::A2G)) {
             base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
-            if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+            if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
          }
       }
       if (rdr != nullptr) {
@@ -299,7 +299,7 @@ bool TestDisplay::onStepOwnshipKey()
 //------------------------------------------------------------------------------
 bool TestDisplay::shutdownNotification()
 {
-   base::IComponent* parent = container();
+   base::Component* parent = container();
    if (parent != nullptr) parent->event(SHUTDOWN_EVENT);
 
    return BaseClass::shutdownNotification();
@@ -321,17 +321,17 @@ void TestDisplay::updateData(const double dt)
    }
    if (rdrDisplay != nullptr && getOwnship() != nullptr) {
       // Default is TWS
-      models::IRadar* rdr = nullptr;
+      models::Radar* rdr = nullptr;
       {
          base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
-         if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+         if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
       }
-      models::IStoresMgr* sms = getOwnship()->getStoresManagement();
+      models::StoresMgr* sms = getOwnship()->getStoresManagement();
       if (sms != nullptr) {
          // But could be GMTI ...
-         if (sms->isWeaponDeliveryMode(models::IStoresMgr::A2G)) {
+         if (sms->isWeaponDeliveryMode(models::StoresMgr::A2G)) {
             base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
-            if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+            if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
          }
       }
       rdrDisplay->setRadar(rdr);
@@ -353,17 +353,17 @@ void TestDisplay::updateData(const double dt)
    // Send flight data to readouts
    if (getOwnship() != nullptr) {
       {
-         models::IRadar* rdr = nullptr;
+         models::Radar* rdr = nullptr;
          {
             base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Tws));
-            if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+            if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
          }
-         models::IStoresMgr* sms = getOwnship()->getStoresManagement();
+         models::StoresMgr* sms = getOwnship()->getStoresManagement();
          if (sms != nullptr) {
             // But could be GMTI ...
-            if (sms->isWeaponDeliveryMode(models::IStoresMgr::A2G)) {
+            if (sms->isWeaponDeliveryMode(models::StoresMgr::A2G)) {
                base::Pair* pair = getOwnship()->getSensorByType(typeid(models::Gmti));
-               if (pair != nullptr) rdr = static_cast<models::IRadar*>(pair->object());
+               if (pair != nullptr) rdr = static_cast<models::Radar*>(pair->object());
             }
          }
          if (rdr != nullptr) range = rdr->getRange();
@@ -427,7 +427,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
     int codes[MAX_TRACKS];              // Work codes: empty(0), matched(1), unmatched(-1)
     double rng2 = (rng * rng);          // Range squared (KM * KM)
 
-    models::IPlayer* newTracks[MAX_TRACKS];     // New tracks to add
+    models::Player* newTracks[MAX_TRACKS];      // New tracks to add
     int nNewTracks = 0;                         // Number of new tracks
 
     // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
@@ -443,18 +443,18 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
     // find all air vehicles within range
     {
         // get the player list
-        simulation::ISimulation* sim = getSimulation();
-        base::IPairStream* plist = sim->getPlayers();
+        simulation::Simulation* sim = getSimulation();
+        base::PairStream* plist = sim->getPlayers();
 
         // search for air vehicles or missiles within range
-        base::IList::Item* item = plist->getFirstItem();
+        base::List::Item* item = plist->getFirstItem();
         while (item != nullptr && nNewTracks < maxTracks) {
 
             const auto pair = static_cast<base::Pair*>(item->getValue());
-            const auto p = static_cast<models::IPlayer*>(pair->object());
+            const auto p = static_cast<models::Player*>(pair->object());
             base::Vec3d rpos = p->getPosition() - getOwnship()->getPosition();
-            const double x = rpos[0] * base::length::M2NM;
-            const double y = rpos[1] * base::length::M2NM;
+            const double x = rpos[0] * base::distance::M2NM;
+            const double y = rpos[1] * base::distance::M2NM;
 
             if (
                p != getOwnship() &&
@@ -512,8 +512,8 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
                 if (newTracks[inew]->isClassType(typeid(models::AirVehicle))) {
                   if (newTracks[inew]->getSensorByType(typeid(models::Jammer)) == nullptr) {
                      // non-jammers
-                     if (newTracks[inew]->isSide(models::IPlayer::BLUE)) type = 1;      // friend
-                     else if (newTracks[inew]->isSide(models::IPlayer::RED)) type = 2; // foe
+                     if (newTracks[inew]->isSide(models::Player::BLUE)) type = 1;      // friend
+                     else if (newTracks[inew]->isSide(models::Player::RED)) type = 2; // foe
                      else type = 3; // neutral/commercial
                   }
                 }
@@ -548,7 +548,7 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
         if (tracks[i] != nullptr && trkIdx[i] != 0) {
             double xp = tracks[i]->getXPosition() - osX;
             double yp = tracks[i]->getYPosition() - osY;
-            loader->updateSymbolPositionXY( trkIdx[i], (xp * base::length::M2NM), (yp * base::length::M2NM) );
+            loader->updateSymbolPositionXY( trkIdx[i], (xp * base::distance::M2NM), (yp * base::distance::M2NM) );
             loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
         }
     }
@@ -559,28 +559,28 @@ void TestDisplay::maintainAirTrackSymbols(graphics::SymbolLoader* loader, const 
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-models::IPlayer* TestDisplay::getOwnship()
+models::Player* TestDisplay::getOwnship()
 {
-   models::IPlayer* p = nullptr;
-   simulation::IStation* sta = getStation();
+   models::Player* p = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) {
-      p = dynamic_cast<models::IPlayer*>(sta->getOwnship());
+      p = dynamic_cast<models::Player*>(sta->getOwnship());
    }
    return p;
 }
 
-simulation::ISimulation* TestDisplay::getSimulation()
+simulation::Simulation* TestDisplay::getSimulation()
 {
-   simulation::ISimulation* s = nullptr;
-   simulation::IStation* sta = getStation();
+   simulation::Simulation* s = nullptr;
+   simulation::Station* sta = getStation();
    if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
-simulation::IStation* TestDisplay::getStation()
+simulation::Station* TestDisplay::getStation()
 {
    if (myStation == nullptr) {
-      const auto s = dynamic_cast<simulation::IStation*>( findContainerByType(typeid(simulation::IStation)) );
+      const auto s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;
@@ -636,7 +636,7 @@ void TestDisplay::updatePfd(const double)
     // vvi tape gauge test
     const base::Vec3d vel = av->getVelocity();
     double vvMps = -vel[2];
-    vvi = vvMps * 60.0f * base::length::M2FT;
+    vvi = vvMps * 60.0f * base::distance::M2FT;
 
     // flight director stuff
     // flight director bank angle

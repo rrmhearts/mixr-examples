@@ -1,12 +1,12 @@
 
-#ifndef __AdiDisplay_HPP__
-#define __AdiDisplay_HPP__
+#ifndef __AdiDisplay_H__
+#define __AdiDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 namespace mixr {
 namespace models { class Aircraft; }
-namespace simulation { class IStation; }
+namespace simulation { class Station; }
 }
 
 //------------------------------------------------------------------------------
@@ -23,9 +23,9 @@ public:
 
 private:
    mixr::models::Aircraft* getOwnship();
-   mixr::simulation::IStation* getStation();
+   mixr::simulation::Station* getStation();
 
-   mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+   mixr::base::safe_ptr<mixr::simulation::Station> myStation;
 
    //-----------------------------
    double psiRO{};     // [deg]

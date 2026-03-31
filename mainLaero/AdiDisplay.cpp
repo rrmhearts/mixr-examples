@@ -8,8 +8,8 @@
 
 #include "mixr/base/osg/Vec3d"
 
-#include "mixr/base/qty/lengths.hpp"
-#include "mixr/base/qty/times.hpp"
+#include "mixr/base/units/Distances.hpp"
+#include "mixr/base/units/Times.hpp"
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_DELETEDATA(AdiDisplay)
@@ -81,10 +81,10 @@ void AdiDisplay::updateData(const double dt)
    //send("pitchangle",   UPDATE_INSTRUMENTS, pitch,    pitchSD);
 }
 
-mixr::simulation::IStation* AdiDisplay::getStation()
+mixr::simulation::Station* AdiDisplay::getStation()
 {
    if (myStation == nullptr) {
-      const auto s = dynamic_cast<mixr::simulation::IStation*>( findContainerByType(typeid(mixr::simulation::IStation)) );
+      const auto s = dynamic_cast<mixr::simulation::Station*>( findContainerByType(typeid(mixr::simulation::Station)) );
       if (s != nullptr) {
          myStation = s;
       }
@@ -95,7 +95,7 @@ mixr::simulation::IStation* AdiDisplay::getStation()
 mixr::models::Aircraft* AdiDisplay::getOwnship()
 {
    mixr::models::Aircraft* pA{};
-   mixr::simulation::IStation* sta{getStation()};
+   mixr::simulation::Station* sta{getStation()};
    if (sta != nullptr) {
       pA = dynamic_cast<mixr::models::Aircraft*>(sta->getOwnship());
       //const unsigned int ffrate = 5;    //LDB

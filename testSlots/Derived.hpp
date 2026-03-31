@@ -1,11 +1,11 @@
 
-#ifndef __Derived_HPP__
-#define __Derived_HPP__
+#ifndef __Derived_H__
+#define __Derived_H__
 
 #include "Base.hpp"
 
 namespace mixr {
-   namespace base { class INumber; }
+   namespace base { class Number; }
 }
 
 //------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ public:
 
 private:
    // slot table helper methods
-   bool setSlotSeed(const mixr::base::INumber* const);
+   bool setSlotSeed(const mixr::base::Number* const);
 };
 
 #endif

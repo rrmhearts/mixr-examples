@@ -1,22 +1,20 @@
 
 #include "SimStation.hpp"
 
-#include "mixr/simulation/ISimulation.hpp"
+#include "mixr/simulation/Simulation.hpp"
 
 #include "mixr/models/player/air/AirVehicle.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 #include "mixr/base/numeric/Boolean.hpp"
-#include "mixr/base/qty/angles.hpp"
-#include "mixr/base/qty/times.hpp"
+#include "mixr/base/units/Angles.hpp"
+#include "mixr/base/units/Times.hpp"
 
 #include "mixr/base/Identifier.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
-#include "mixr/base/timers/ITimer.hpp"
-
-#include <string>
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/Timers.hpp"
 
 using namespace mixr;
 
@@ -40,7 +38,7 @@ SimStation::SimStation()
 void SimStation::reset()
 {
     // setup ownship player pointer
-    setOwnshipByName( getOwnshipName().c_str() );
+    setOwnshipByName( getOwnshipName()->getString() );
 
     if (!displayInit && mainDisplay != nullptr) {
         mainDisplay->createWindow();
@@ -61,7 +59,7 @@ void SimStation::updateTC(const double dt)
     // First update the simulation
     BaseClass::updateTC(dt);
 
-    base::ITimer::updateTimers(dt);
+    base::Timer::updateTimers(dt);
     graphics::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
@@ -73,20 +71,20 @@ void SimStation::updateTC(const double dt)
 //------------------------------------------------------------------------------
 void SimStation::stepOwnshipPlayer()
 {
-   base::IPairStream* pl{getSimulation()->getPlayers()};
+   base::PairStream* pl{getSimulation()->getPlayers()};
    if (pl != nullptr) {
 
-      models::IPlayer* f{};
-      models::IPlayer* n{};
+      models::Player* f{};
+      models::Player* n{};
       bool found{};
 
       // Find the next player
-      base::IList::Item* item{pl->getFirstItem()};
+      base::List::Item* item{pl->getFirstItem()};
       while (item != nullptr) {
          const auto pair = static_cast<base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            const auto ip = static_cast<models::IPlayer*>(pair->object());
-            if ( ip->isMode(models::IPlayer::Mode::ACTIVE) &&
+            const auto ip = static_cast<models::Player*>(pair->object());
+            if ( ip->isMode(models::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
                ip->isClassType(typeid(models::AirVehicle))
                ) {

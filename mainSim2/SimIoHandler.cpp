@@ -5,12 +5,12 @@
 
 #include "mixr/models/system/Autopilot.hpp"
 #include "mixr/models/player/air/AirVehicle.hpp"
-#include "mixr/models/navigation/INavigation.hpp"
+#include "mixr/models/navigation/Navigation.hpp"
 #include "mixr/models/navigation/Route.hpp"
 
-#include "mixr/simulation/ISimulation.hpp"
+#include "mixr/simulation/Simulation.hpp"
 
-#include "mixr/base/concepts/linkage/IIoData.hpp"
+#include "mixr/base/concepts/linkage/AbstractIoData.hpp"
 #include "mixr/base/numeric/Boolean.hpp"
 #include "mixr/base/util/math_utils.hpp"
 
@@ -49,14 +49,14 @@ void SimIoHandler::inputDevicesImpl(const double dt)
    // ---
    // get the Input data buffer
    // ---
-   const mixr::base::IIoData* const inData{getInputData()};
+   const mixr::base::AbstractIoData* const inData{getInputData()};
 
    // ---
    // get the Station, Simulation and our ownship player
    // ---
    const auto sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
-   mixr::simulation::ISimulation* sim{};
+   mixr::simulation::Simulation* sim{};
    mixr::models::AirVehicle* av{};
 
    if (sta != nullptr) {
@@ -235,7 +235,7 @@ void SimIoHandler::inputDevicesImpl(const double dt)
          inData->getDiscreteInput(DMS_UP_SW, &incStptSw);
          if (incStptSw && !incStptSw1) {
             // find our route and increment the steerpoint
-            mixr::models::INavigation* myNav{av->getNavigation()};
+            mixr::models::Navigation* myNav{av->getNavigation()};
             if (myNav != nullptr) {
                myNav->ref();
                mixr::models::Route* myRoute{myNav->getPriRoute()};
@@ -254,7 +254,7 @@ void SimIoHandler::inputDevicesImpl(const double dt)
          inData->getDiscreteInput(DMS_DOWN_SW, &decStptSw);
          if (decStptSw && !decStptSw1) {
             // find our route and increment the steerpoint
-            mixr::models::INavigation* myNav{av->getNavigation()};
+            mixr::models::Navigation* myNav{av->getNavigation()};
             if (myNav != nullptr) {
                myNav->ref();
                mixr::models::Route* myRoute{myNav->getPriRoute()};

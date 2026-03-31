@@ -1,8 +1,6 @@
 
-#ifndef __WaypointTests_HPP__
-#define __WaypointTests_HPP__
-
-#include <string>
+#ifndef __WaypointTests_H__
+#define __WaypointTests_H__
 
 namespace mixr {
 namespace dafif { class WaypointLoader; }
@@ -12,9 +10,9 @@ class WaypointTests final
 {
 public:
    WaypointTests(
-      const std::string& country,
-      const std::string& file = "FILE3",
-      const std::string& path = "../../mixr-data/DAFIF/FULLALL/"
+      const char* country,
+      const char* file = "FILE3",
+      const char* path = "../../mixr-data/DAFIF/FULLALL/"
    );
    ~WaypointTests();
 

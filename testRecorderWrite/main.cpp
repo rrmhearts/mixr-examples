@@ -6,25 +6,23 @@
 
 #include "mixr/simulation/factory.hpp"
 #include "mixr/models/factory.hpp"
-#include "mixr/models/dynamics/jsbsim/factory.hpp"
 #include "mixr/base/factory.hpp"
-#include "mixr/recorder/protobuf_v2/factory.hpp"
+#include "mixr/recorder/factory.hpp"
 
 #include <string>
 #include <cstdlib>
 
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-   mixr::base::IObject* obj{};
+   mixr::base::Object* obj{};
 
    if ( name == DataRecordTest::getFactoryName() ) {
       obj = new DataRecordTest();
    } else {
       if (obj == nullptr) obj = mixr::simulation::factory(name);
       if (obj == nullptr) obj = mixr::models::factory(name);
-      if (obj == nullptr) obj = mixr::models::jsbsim::factory(name);
       if (obj == nullptr) obj = mixr::base::factory(name);
-      if (obj == nullptr) obj = mixr::recorder::protobuf_v2::factory(name);
+      if (obj == nullptr) obj = mixr::recorder::factory(name);
    }
 
    return obj;
@@ -34,7 +32,7 @@ DataRecordTest* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -66,9 +64,9 @@ DataRecordTest* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   std::string configFilename{"test.edl"};
+   std::string configFilename = "test.edl";
    // parse command line arguments
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }

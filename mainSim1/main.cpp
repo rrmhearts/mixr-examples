@@ -1,20 +1,18 @@
 
 #include "mixr/simulation/Station.hpp"
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/IComponent.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/numeric/Integer.hpp"
-#include "mixr/base/qty/angles.hpp"
+#include "mixr/base/units/Angles.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
 // factories
-#include "xzmq/factory.hpp"
+#include "../shared/xzmq/factory.hpp"
 #include "mixr/simulation/factory.hpp"
 #include "mixr/models/factory.hpp"
-#include "mixr/models/dynamics/jsbsim/factory.hpp"
 #include "mixr/interop/dis/factory.hpp"
 #include "mixr/ighost/cigi/factory.hpp"
-#include "mixr/ighost/flightgear/factory.hpp"
+#include "mixr/ighost/pov/factory.hpp"
 #include "mixr/terrain/factory.hpp"
 #include "mixr/base/factory.hpp"
 
@@ -24,17 +22,16 @@
 // background frame rate
 const int bgRate{10};
 
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
    // example libraries
-   mixr::base::IObject* obj{mixr::xzmq::factory(name)};
+   mixr::base::Object* obj{mixr::xzmq::factory(name)};
 
    // framework libraries
-   if (obj == nullptr) obj = mixr::ighost::cigi::factory(name);
-   if (obj == nullptr) obj = mixr::ighost::flightgear::factory(name);
+   if (obj == nullptr) obj = mixr::cigi::factory(name);
+   if (obj == nullptr) obj = mixr::pov::factory(name);
    if (obj == nullptr) obj = mixr::simulation::factory(name);
    if (obj == nullptr) obj = mixr::models::factory(name);
-   if (obj == nullptr) obj = mixr::models::jsbsim::factory(name);
    if (obj == nullptr) obj = mixr::terrain::factory(name);
    if (obj == nullptr) obj = mixr::dis::factory(name);
    if (obj == nullptr) obj = mixr::base::factory(name);
@@ -46,7 +43,7 @@ mixr::simulation::Station* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -78,9 +75,9 @@ mixr::simulation::Station* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   std::string configFilename{"test0.edl"};
+   std::string configFilename = "test0.edl";
 
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -90,7 +87,7 @@ int main(int argc, char* argv[])
    mixr::simulation::Station* station{builder(configFilename)};
 
    // send a reset event and frame sim once
-   station->event(mixr::base::IComponent::RESET_EVENT);
+   station->event(mixr::base::Component::RESET_EVENT);
    station->tcFrame( static_cast<double>(1.0/static_cast<double>(station->getTimeCriticalRate())) );
 
    // create time critical thread

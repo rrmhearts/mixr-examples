@@ -1,8 +1,8 @@
 
-#ifndef __mixr_xzmq_ZeroMQHandler_HPP__
-#define __mixr_xzmq_ZeroMQHandler_HPP__
+#ifndef __mixr_xzmq_ZeroMQHandler_H__
+#define __mixr_xzmq_ZeroMQHandler_H__
 
-#include "mixr/base/network/INetHandler.hpp"
+#include "mixr/base/network/NetHandler.hpp"
 
 #include <map>
 #include <string>
@@ -41,9 +41,9 @@ typedef std::map <int, std::string> i2s_t;
 //    <options>   - The set options will each have a slot for them
 //
 //------------------------------------------------------------------------------
-class ZeroMQHandler final: public base::INetHandler
+class ZeroMQHandler final: public base::NetHandler
 {
-   DECLARE_SUBCLASS(ZeroMQHandler, base::INetHandler)
+   DECLARE_SUBCLASS(ZeroMQHandler, base::NetHandler)
 
 public:
    ZeroMQHandler();
@@ -79,7 +79,7 @@ protected:
 
 private:
    void initData();
-
+   
    // The master context is the main process context.  It will be used by
    // all subsequent handlers unless otherwise specified with the context
    // slot.

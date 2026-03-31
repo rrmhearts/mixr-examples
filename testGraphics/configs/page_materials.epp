@@ -1,23 +1,23 @@
 #define MASK 0
 #define NO_DISPLAY_LIST 0
-#define FILLED true
+#define FILLED 1
 
 // this is the page in which we will setup simple openGL materials, as well as masking as well
 materials:
-( Page
+( MfdPage
     pagingEvent: {
         n: xx
         p: yiqcolors
     }
     components: {
-
-#if 1
+        
+#if 1    
         ( Teapot
             // test the material object
-            material:
+            material: 
             ( Material
-                diffuseColor: { 0.8 0.3 0.1 }
-                specularColor: { 0.8 0.8 0.8 }
+                diffuseColor: { 0.8 0.3 0.1 } 
+                specularColor: { 0.8 0.8 0.8 } 
                 shininess: 20
             )
             filled: FILLED
@@ -31,14 +31,14 @@ materials:
         ( Icosahedron
             material: m8
             filled: FILLED
-            transform: ( Translation 5 8 )
+            transform: ( Translation 5 8 ) 
         )
-
+        
         ( Tetrahedron
             material: m7
             filled: FILLED
             transform: { ( Translation -8 0 )  ( Rotation 3.1 2 1 1 ) ( Scale 2 2 2 2 ) }
-        )
+        )            
         ( Dodecahedron
             material: m6
             filled: FILLED
@@ -53,7 +53,7 @@ materials:
             outerRadius: 2
             transform: { ( Translation 0 8 ) ( Rotation 1 2 3 2 )  }
         )
-
+        
         ( Cube
             filled: FILLED
             size: 3
@@ -84,31 +84,31 @@ materials:
             height: 4
             radius: 2
         )
-        ( TestRotator
+        ( TestRotator 
             transform: ( Translation -20 0 )
             material: m2
         )
-
-
+        
+    
         rotator:
         ( Graphic
             transform: { ( Translation -8 -8 )( Rotation 1.5 1 1 1 ) }
             components: {
-
+            
                 ( Polygon
                     material: m1
-                    noDisplayList: true
+                    noDisplayList: 1
                     //color: yellow
                     vertices: {
                         // front side
                         [ -3  3  3 ]
                         [  3  3  3 ]
                         [  3 -3  3 ]
-                        [ -3 -3  3 ]
+                        [ -3 -3  3 ] 
                     }
                 )
                 ( Polygon
-                    noDisplayList: true
+                    noDisplayList: 1
                     texture: t1
                     vertices: {
                         // bottom side
@@ -121,11 +121,11 @@ materials:
                         [ 0 0 ]
                         [ 0 1 ]
                         [ 1 1 ]
-                        [ 1 0 ]
+                        [ 1 0 ] 
                     }
                 )
                 ( Polygon
-                    noDisplayList: true
+                    noDisplayList: 1
                     //color: red
                     material: m2
                     vertices: {
@@ -137,7 +137,7 @@ materials:
                     }
                 )
                 ( Polygon
-                    noDisplayList: true
+                    noDisplayList: 1
                     //color: green
                     material: m3
                     vertices: {
@@ -149,7 +149,7 @@ materials:
                     }
                 )
                 ( Polygon
-                    noDisplayList: true
+                    noDisplayList: 1
                     //color: cyan
                     material: m4
                     vertices: {
@@ -161,7 +161,7 @@ materials:
                     }
                 )
                 ( Polygon
-                    noDisplayList: true
+                    noDisplayList: 1
                     //color: white
                     material: m2
                     vertices: {
@@ -172,13 +172,13 @@ materials:
                         [  -3  3  -3 ]
                     }
                 )
-
-
+                
+                        
             }
         )
-#endif
+#endif        
 #if 0
-
+        
         ( Graphic
             color: red
             transform: ( Translation 0 10 )
@@ -326,7 +326,8 @@ materials:
                 #include "polygontest.epp"
             }
         )
-
+        
 #endif
-    }
+    }   
 )
+

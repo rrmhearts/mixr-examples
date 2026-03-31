@@ -1,17 +1,10 @@
-
 ( TestStation
 
-   glutDisplay:
+   glutDisplay: 
    #include "adidisplay.epp"
-
-   mapDisplay:
+   
+   mapDisplay: 
    #include "mapdisplay.epp"
-
-   // image generator host interface
-   igHosts: {
-      //#include "ighosts/flightgear.epp"
-      #include "ighosts/pov.epp"
-   }
 
    ownship: player1
 
@@ -29,15 +22,17 @@
             id:            1
             side:          blue
             type:          "F-16"
-            signature:     ( RfSphereSignature radius: 2.0 )
-            initAlt:       ( Meters 500 )
+            signature:     ( SigSphere radius: 2.0 )
+            initLatitude:  ( Degrees  0 )
+            initLongitude: ( Degrees  0 )
+            initAlt:       ( Feet 20000 )
             initHeading:   ( Degrees 0 )
             initVelocity:  100
 
             components: {
                pilot:
-               ( Autopilot
-                  navMode:             false
+               ( Autopilot 
+                  navMode:             0
                   // maximum rate of turn in degrees per second (PILOT limit)
                   //maxRateOfTurnDps:    10
                   // maximum bank angle in degrees (PILOT limit)
@@ -54,10 +49,17 @@
                   //loiterPatternTime: ( Minutes 3 )
                   //loiterPatternLength: 2
                )
-
-               dynamicsModel:
-               ( LaeroDynamics )
-
+               
+               #if 1
+                  dynamicsModel:
+                  ( LaeroModel )
+               #else
+                  //dynamicsModel:
+                  //( RacModel )
+                  dynamicsModel:
+                  ( JSBSimModel )
+               #endif
+               
                navigation:
                ( Navigation
                   route:
@@ -67,10 +69,10 @@
                         ( Steerpoint
                            latitude:   0.1
                            longitude:  0.1
-                           altitude: ( Feet 20000 )
+                           altitude: ( Feet 12000 )
                            airspeed: 300
                         )
-                        ( Steerpoint
+                        ( Steerpoint 
                            latitude:   0.1
                            longitude: -0.1
                            altitude: ( Feet 13000 )

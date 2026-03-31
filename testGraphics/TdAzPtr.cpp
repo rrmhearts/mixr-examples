@@ -1,6 +1,6 @@
 
 #include "TdAzPtr.hpp"
-#include "mixr/base/numeric/INumber.hpp"
+#include "mixr/base/numeric/Number.hpp"
 #include <iostream>
 
 using namespace mixr;
@@ -22,15 +22,15 @@ void TdAzPtr::copyData(const TdAzPtr& org, const bool)
 //------------------------------------------------------------------------------
 // event() -- default event handler
 //------------------------------------------------------------------------------
-bool TdAzPtr::event(const int event, base::IObject* const obj)
+bool TdAzPtr::event(const int event, base::Object* const obj)
 {
     bool used{};
 
     if (event == UPDATE_VALUE)
     {
-        const auto num = dynamic_cast<const base::INumber*>(obj);
+        const auto num = dynamic_cast<const base::Number*>(obj);
         if (num != nullptr) {
-            azimuth = num->asDouble();
+            azimuth = num->getReal();
             used = true;
         }
     }
@@ -38,7 +38,7 @@ bool TdAzPtr::event(const int event, base::IObject* const obj)
     if (!used)
     {
         // Otherwise, pass key events up to our base class
-        used = BaseClass::event(event, obj);
+        used = BaseClass::event(event,obj);
     }
 
     return used;

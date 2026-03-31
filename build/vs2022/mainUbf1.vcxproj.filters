@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\ighosts">
+      <UniqueIdentifier>{9E8E2D9C-0A1A-9B60-132B-1E557F35F760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\interop">
+      <UniqueIdentifier>{5E5055AD-CADB-C271-D3EC-45663FF71E72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\players">
+      <UniqueIdentifier>{7D9735C2-E922-A386-F233-267B5E3EFF86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\players\parts">
+      <UniqueIdentifier>{56D4BE7B-C240-7A76-8B34-12D4F75F9CDE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mainUbf1\SimStation.hpp" />
+    <ClInclude Include="..\..\mainUbf1\TestDisplay.hpp" />
+    <ClInclude Include="..\..\mainUbf1\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\mainUbf1\SimStation.cpp" />
+    <ClCompile Include="..\..\mainUbf1\TestDisplay.cpp" />
+    <ClCompile Include="..\..\mainUbf1\factory.cpp" />
+    <ClCompile Include="..\..\mainUbf1\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\mainUbf1\configs\ighosts\cigi.epp">
+      <Filter>configs\ighosts</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\ighosts\cigi2.epp">
+      <Filter>configs\ighosts</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\interop\dis.epp">
+      <Filter>configs\interop</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\players\parts\agents.epp">
+      <Filter>configs\players\parts</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\players\parts\dynamics.epp">
+      <Filter>configs\players\parts</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\players\parts\missiles.epp">
+      <Filter>configs\players\parts</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\players\parts\patterns.epp">
+      <Filter>configs\players\parts</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\players\player01.epp">
+      <Filter>configs\players</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\players\player02.epp">
+      <Filter>configs\players</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\players\player03.epp">
+      <Filter>configs\players</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\test00.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\test10.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainUbf1\configs\test20.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

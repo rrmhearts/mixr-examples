@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testRadar\DspRadar.hpp" />
+    <ClInclude Include="..\..\testRadar\DspRwr.hpp" />
+    <ClInclude Include="..\..\testRadar\TdAzPtr.hpp" />
+    <ClInclude Include="..\..\testRadar\TdElevPtr.hpp" />
+    <ClInclude Include="..\..\testRadar\TestDisplay.hpp" />
+    <ClInclude Include="..\..\testRadar\TestStation.hpp" />
+    <ClInclude Include="..\..\testRadar\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\testRadar\DspRadar.cpp" />
+    <ClCompile Include="..\..\testRadar\DspRwr.cpp" />
+    <ClCompile Include="..\..\testRadar\TdAzPtr.cpp" />
+    <ClCompile Include="..\..\testRadar\TdElevPtr.cpp" />
+    <ClCompile Include="..\..\testRadar\TestDisplay.cpp" />
+    <ClCompile Include="..\..\testRadar\TestStation.cpp" />
+    <ClCompile Include="..\..\testRadar\factory.cpp" />
+    <ClCompile Include="..\..\testRadar\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\testRadar\configs\displays.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\gainPattern.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\gainPatternJammer.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test1.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test2a.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test2b.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test2c.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test3a.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test3b.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test4a.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test4b.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRadar\configs\test4c.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

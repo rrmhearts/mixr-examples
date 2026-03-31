@@ -1,6 +1,6 @@
 
-#ifndef __TestDisplay_HPP__
-#define __TestDisplay_HPP__
+#ifndef __TestDisplay_H__
+#define __TestDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
@@ -20,7 +20,7 @@ public:
 
    void drawIt() final;
    void mouseEvent(const int button, const int state, const int x, const int y) final;
-   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+   bool event(const int event, mixr::base::Object* const obj = nullptr) final;
 
    bool onFrameBufferKey();
 

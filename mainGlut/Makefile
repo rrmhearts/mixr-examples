@@ -13,8 +13,7 @@ LDFLAGS += -lrt
 all: edl $(PGM)
 
 edl:
-	cpp configs/alignmentPattern.epp > alignmentPattern.edl $(EPPFLAGS)
-	cpp configs/textDisplay.epp > textDisplay.edl $(EPPFLAGS)
+	cpp configs/glutdisplay.epp > glutdisplay.edl $(EPPFLAGS)
 
 
 $(PGM): $(OBJS)

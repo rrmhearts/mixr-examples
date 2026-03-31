@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="pfd">
+      <UniqueIdentifier>{DF9C880B-4BA6-887C-D421-9F7C402A947C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\shared\xpanel\DspRadar.hpp" />
+    <ClInclude Include="..\..\shared\xpanel\DspRwr.hpp" />
+    <ClInclude Include="..\..\shared\xpanel\Hsi.hpp" />
+    <ClInclude Include="..\..\shared\xpanel\Pfd.hpp" />
+    <ClInclude Include="..\..\shared\xpanel\SpdLines.hpp" />
+    <ClInclude Include="..\..\shared\xpanel\TdAzPtr.hpp" />
+    <ClInclude Include="..\..\shared\xpanel\TdElevPtr.hpp" />
+    <ClInclude Include="..\..\shared\xpanel\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\shared\xpanel\DspRadar.cpp" />
+    <ClCompile Include="..\..\shared\xpanel\DspRwr.cpp" />
+    <ClCompile Include="..\..\shared\xpanel\Hsi.cpp" />
+    <ClCompile Include="..\..\shared\xpanel\Pfd.cpp" />
+    <ClCompile Include="..\..\shared\xpanel\SpdLines.cpp" />
+    <ClCompile Include="..\..\shared\xpanel\TdAzPtr.cpp" />
+    <ClCompile Include="..\..\shared\xpanel\TdElevPtr.cpp" />
+    <ClCompile Include="..\..\shared\xpanel\factory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\shared\xpanel\pfd\adi.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\pfd\airspdtape.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\pfd\alttape.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\pfd\hsi.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\pfd\pfd.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\pfd\pitchtape.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\pfd\test.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\pfd\testpfd.epp">
+      <Filter>pfd</Filter>
+    </None>
+    <None Include="..\..\shared\xpanel\xpanel.epp" />
+  </ItemGroup>
+</Project>

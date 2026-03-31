@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\ighosts">
+      <UniqueIdentifier>{9E8E2D9C-0A1A-9B60-132B-1E557F35F760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\interop">
+      <UniqueIdentifier>{5E5055AD-CADB-C271-D3EC-45663FF71E72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\linkage">
+      <UniqueIdentifier>{58A93088-C434-9E4C-CD45-21413950FA4C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testRecordData\SimStation.hpp" />
+    <ClInclude Include="..\..\testRecordData\TestDisplay.hpp" />
+    <ClInclude Include="..\..\testRecordData\TestIoHandler.hpp" />
+    <ClInclude Include="..\..\testRecordData\configs\linkage\channel_map.hpp">
+      <Filter>configs\linkage</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\testRecordData\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\testRecordData\SimStation.cpp" />
+    <ClCompile Include="..\..\testRecordData\TestDisplay.cpp" />
+    <ClCompile Include="..\..\testRecordData\TestIoHandler.cpp" />
+    <ClCompile Include="..\..\testRecordData\factory.cpp" />
+    <ClCompile Include="..\..\testRecordData\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\testRecordData\configs\dataRecorder.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\gainPattern.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\gainPatternJammer.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\ighosts\cigi.epp">
+      <Filter>configs\ighosts</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\interop\dis.epp">
+      <Filter>configs\interop</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\linkage\saitekEVO.epp">
+      <Filter>configs\linkage</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\linkage\saitekST290.epp">
+      <Filter>configs\linkage</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\linkage\thrustmaster.epp">
+      <Filter>configs\linkage</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\linkage\warthog.epp">
+      <Filter>configs\linkage</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\player01.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\player02.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\player03.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\scenario.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testRecordData\configs\test.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

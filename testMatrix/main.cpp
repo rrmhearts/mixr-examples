@@ -4,6 +4,7 @@
 
 #include "mixr/base/Matrix.hpp"
 #include "mixr/base/Vectors.hpp"
+#include "mixr/base/units/Angles.hpp"
 #include <iostream>
 #include <iomanip>
 

@@ -1,13 +1,13 @@
 
-#ifndef __Controller_HPP__
-#define __Controller_HPP__
+#ifndef __Controller_H__
+#define __Controller_H__
 
-#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Component.hpp"
 
 #include <array>
 
 namespace mixr {
-namespace base { class IList; }
+namespace base { class List; }
 }
 class State;
 
@@ -16,9 +16,9 @@ class State;
 //
 // Description: Puzzle controller
 //------------------------------------------------------------------------------
-class Controller final: public mixr::base::IComponent
+class Controller final: public mixr::base::Component
 {
-    DECLARE_SUBCLASS(Controller, mixr::base::IComponent)
+    DECLARE_SUBCLASS(Controller, mixr::base::Component)
 
 public:
    static const int BOARD_X_SIZE{4};
@@ -59,7 +59,7 @@ private:
    State* goalState {};    // Goal (ending) state
 
    // Open list
-   mixr::base::IList* openStates {};  // List of 'open' states (still need to be expanded)
+   mixr::base::List* openStates {};   // List of 'open' states (still need to be expanded)
                                       // (list is ordered by the state's f() values)
 
    // HashTable

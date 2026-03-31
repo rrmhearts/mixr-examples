@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testGraphics\MfdDisplay.hpp" />
+    <ClInclude Include="..\..\testGraphics\MfdPage.hpp" />
+    <ClInclude Include="..\..\testGraphics\TdAzPtr.hpp" />
+    <ClInclude Include="..\..\testGraphics\TdElevPtr.hpp" />
+    <ClInclude Include="..\..\testGraphics\TestDisplay.hpp" />
+    <ClInclude Include="..\..\testGraphics\TestOne.hpp" />
+    <ClInclude Include="..\..\testGraphics\TestRotator.hpp" />
+    <ClInclude Include="..\..\testGraphics\TestTwo.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\testGraphics\MfdDisplay.cpp" />
+    <ClCompile Include="..\..\testGraphics\MfdPage.cpp" />
+    <ClCompile Include="..\..\testGraphics\TdAzPtr.cpp" />
+    <ClCompile Include="..\..\testGraphics\TdElevPtr.cpp" />
+    <ClCompile Include="..\..\testGraphics\TestDisplay.cpp" />
+    <ClCompile Include="..\..\testGraphics\TestOne.cpp" />
+    <ClCompile Include="..\..\testGraphics\TestRotator.cpp" />
+    <ClCompile Include="..\..\testGraphics\TestTwo.cpp" />
+    <ClCompile Include="..\..\testGraphics\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\testGraphics\configs\page_cmycolors.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_hlscolors.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_hsvcolors.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_materials.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_readouts.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_sample.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_worms.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_xx.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_yiqcolors.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_yy.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\page_zz.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\polygontest.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\test1.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\test2.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\testBasic.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\testLeft.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\testR1.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\testR2.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testGraphics\configs\testRight.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

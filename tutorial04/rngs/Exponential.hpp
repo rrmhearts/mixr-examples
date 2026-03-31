@@ -1,11 +1,11 @@
 
-#ifndef __Exponential_HPP__
-#define __Exponential_HPP__
+#ifndef __Exponential_H__
+#define __Exponential_H__
 
 #include "AbstractRng.hpp"
 
 namespace mixr {
-namespace base { class INumber; }
+namespace base { class Number; }
 }
 
 //------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ private:
 
 private:
    // slot table helper methods
-   bool setSlotMean(const mixr::base::INumber* const);
+   bool setSlotMean(const mixr::base::Number* const);
 };
 
 #endif

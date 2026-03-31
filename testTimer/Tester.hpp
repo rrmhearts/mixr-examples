@@ -1,11 +1,11 @@
 
-#ifndef __Tester_HPP__
-#define __Tester_HPP__
+#ifndef __Tester_H__
+#define __Tester_H__
 
-#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Component.hpp"
 
 namespace mixr {
-namespace base { class IPairStream; }
+namespace base { class PairStream; }
 }
 
 //------------------------------------------------------------------------------
@@ -14,11 +14,11 @@ namespace base { class IPairStream; }
 //
 // Factory name: Tester
 // Slots:
-//    timers   <IPairStream>   ! List of timers to be tested
+//    timers   <PairStream>   ! List of timers to be tested
 //------------------------------------------------------------------------------
-class Tester final: public mixr::base::IComponent
+class Tester final: public mixr::base::Component
 {
-   DECLARE_SUBCLASS(Tester, mixr::base::IComponent)
+   DECLARE_SUBCLASS(Tester, mixr::base::Component)
 
 public:
    Tester();
@@ -33,11 +33,11 @@ public:
    void reset() final;
 
 private:
-   mixr::base::IPairStream* timers{};    // List of timers
+   mixr::base::PairStream* timers{};    // List of timers
 
 private:
    // slot table helper methods
-   bool setSlotTimers(const mixr::base::IPairStream* const);
+   bool setSlotTimers(const mixr::base::PairStream* const);
 };
 
 #endif

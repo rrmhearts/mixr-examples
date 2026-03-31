@@ -7,22 +7,21 @@
 #include "Echo.hpp"
 
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/IComponent.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
 // factories
 #include "mixr/base/factory.hpp"
-#include "xzmq/factory.hpp"
+#include "../shared/xzmq/factory.hpp"
 
 #include <string>
 #include <cstdlib>
 
 const int UPDATE_RATE{10};  // main loop update rate (Hz)
 
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-   mixr::base::IObject* obj{};
+   mixr::base::Object* obj{};
 
    if ( name == Sender::getFactoryName() ) {
       obj = new Sender();
@@ -43,7 +42,7 @@ Endpoint* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -76,7 +75,7 @@ Endpoint* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   std::string configFilename{"configs/senderUdpBroadcast.edl"};
+   std::string configFilename = "configs/senderUdpBroadcast.edl";
    // parse command line arguments
    for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
@@ -89,7 +88,7 @@ int main(int argc, char* argv[])
 
    // send a reset event
    std::cout << "Reset event: which will establish the networks." << std::endl;
-   endpoint->event(mixr::base::IComponent::RESET_EVENT);
+   endpoint->event(mixr::base::Component::RESET_EVENT);
 
    // system time of day
    const double dt{1.0 / static_cast<double>(UPDATE_RATE)};   // Delta time

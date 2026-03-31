@@ -1,14 +1,14 @@
 
-#ifndef __TestDisplay_HPP__
-#define __TestDisplay_HPP__
+#ifndef __TestDisplay_H__
+#define __TestDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 #include <array>
 
 namespace mixr {
-namespace models { class Missile; class IPlayer; }
-namespace simulation { class ISimulation; class IStation; }
+namespace models { class Missile; class Player; }
+namespace simulation { class Simulation; class Station; }
 namespace graphics { class SymbolLoader; }
 namespace xpanel { class DspRadar; class DspRwr; }
 }
@@ -47,14 +47,14 @@ public:
 public:
     TestDisplay();
 
-    mixr::models::IPlayer* getOwnship();
-    mixr::simulation::ISimulation* getSimulation();
-    mixr::simulation::IStation* getStation();
+    mixr::models::Player* getOwnship();
+    mixr::simulation::Simulation* getSimulation();
+    mixr::simulation::Station* getStation();
 
     void maintainAirTrackSymbols(mixr::graphics::SymbolLoader* loader, const double rng);
 
     void mouseEvent(const int button, const int state, const int x, const int y) final;
-    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
     void updateData(const double dt = 0.0) final;
 
 private:
@@ -82,9 +82,9 @@ private:
     SendData headingSD;
     SendData rangeSD;
 
-    mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+    mixr::base::safe_ptr<mixr::simulation::Station> myStation;
 
-    std::array<mixr::models::IPlayer*, MAX_TRACKS> tracks{};   // players that we're displaying
+    std::array<mixr::models::Player*, MAX_TRACKS> tracks{};    // players that we're displaying
     std::array<int, MAX_TRACKS> trkIdx{};                      // Index of track symbols
 
     // ---

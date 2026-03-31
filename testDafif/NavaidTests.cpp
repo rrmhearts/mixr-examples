@@ -1,22 +1,22 @@
 
 #include "NavaidTests.hpp"
 
-#include "mixr/dafif/loaders/NavaidLoader.hpp"
-
-#include "mixr/base/qty/angles.hpp"
-#include "mixr/base/qty/lengths.hpp"
+#include "mixr/dafif/NavaidLoader.hpp"
+#include "mixr/base/units/Angles.hpp"
+#include "mixr/base/units/Distances.hpp"
 #include "mixr/base/util/str_utils.hpp"
 
-#include <cstring>
-#include <string>
 #include <iostream>
 
 NavaidTests::NavaidTests(
-               const std::string& country,
-               const std::string& file,
-               const std::string& path)
+               const char* country,
+               const char* file,
+               const char* path)
 {
-   std::string fullname{path + "/" + file};
+   char fullname[512];
+   mixr::base::utStrcpy(fullname,512,path);
+   mixr::base::utStrcat(fullname,512,"/");
+   mixr::base::utStrcat(fullname,512,file);
    db = new mixr::dafif::NavaidLoader();
    db->setPathname(path);
    db->setFilename(file);
@@ -27,7 +27,7 @@ NavaidTests::NavaidTests(
 
 NavaidTests::~NavaidTests()
 {
-   if (db != nullptr) { db->unref(); db = nullptr; }
+   delete db;
 }
 
 void NavaidTests::dump()
@@ -78,13 +78,13 @@ void NavaidTests::func22(const double acLat, const double acLon, const double ac
    std::cin >> id;
    db->setArea(acLat, acLon);
 
-   while (std::strcmp(id, "done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
-      int found{db->queryByIdent(id)};
+      int found = db->queryByIdent(id);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Navaid* nav{db->getNavaid(i)};
+         mixr::dafif::Navaid* nav = db->getNavaid(i);
          nav->printRecord(std::cout);
 		 if (printData)
     		 nav->printTrueBearingRange(std::cout, acLat, acLon, acElev);
@@ -176,13 +176,13 @@ void NavaidTests::func26(const double acLat, const double acLon, const double ac
    char key[10];
    std::cin.getline(key,10,'\n');
 
-   while (std::strcmp(key, "done") != 0) {
+   while ( strcmp(key,"done") != 0) {
 
-      int found{db->queryByKey(key)};
+      int found  = db->queryByKey(key);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Navaid* nav{db->getNavaid(i)};
+         mixr::dafif::Navaid* nav = db->getNavaid(i);
          nav->printRecord(std::cout);
 		 if (printData)
     		 nav->printTrueBearingRange(std::cout, acLat, acLon, acElev);
@@ -313,13 +313,13 @@ void NavaidTests::func2B(const double acLat, const double acLon, const double ac
    std::cout << "Enter code:";
    std::cin >> code;
 
-   while (std::strcmp(code, "done") != 0) {
+   while ( strcmp(code,"done") != 0) {
 
-      int found{db->queryByIcao(code)};
+      int found = db->queryByIcao(code);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Navaid* nav{db->getNavaid(i)};
+         mixr::dafif::Navaid* nav = db->getNavaid(i);
          nav->printRecord(std::cout);
 		 if (printData)
     		 nav->printTrueBearingRange(std::cout, acLat, acLon, acElev);

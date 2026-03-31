@@ -1,7 +1,6 @@
 
 #include "TestStateMachine03.hpp"
 
-#include "mixr/base/numeric/INumber.hpp"
 #include "mixr/base/numeric/Integer.hpp"
 #include "mixr/base/numeric/Boolean.hpp"
 
@@ -173,7 +172,7 @@ void TestStateMachine03::stateFunc13(const double)
             std::cout << "Returned from call; ";
             const auto arg = dynamic_cast<const base::Boolean*>( getArgument() );
             if (arg != nullptr) {
-               std::cout << "arg(" << arg->asBool() << "); ";
+               std::cout << "arg(" << arg->getBoolean() << "); ";
             }
             std::cout << "nextSubstate()";
             nextSubstate();
@@ -204,9 +203,9 @@ void TestStateMachine03::stateFunc15(const double)
 
 void TestStateMachine03::stateFunc21(const double)
 {
-   const auto arg = dynamic_cast<const base::INumber*>( getArgument() );
+   const auto arg = dynamic_cast<const base::Number*>( getArgument() );
    if (arg != nullptr) {
-      std::cout << "arg(" << arg->asDouble() << "); ";
+      std::cout << "arg(" << arg->getReal() << "); ";
    }
 
    std::cout << "next()";

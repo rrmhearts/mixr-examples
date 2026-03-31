@@ -1,7 +1,6 @@
 
-#include "mixr/base/IComponent.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
@@ -9,18 +8,16 @@
 #include "mixr/base/util/system_utils.hpp"
 
 // factories
-#include "xzmq/factory.hpp"
+#include "../shared/xzmq/factory.hpp"
 #include "mixr/base/factory.hpp"
 #include "mixr/graphics/factory.hpp"
-#include "mixr/graphics/fonts/ftgl/factory.hpp"
 #include "mixr/instruments/factory.hpp"
 #include "mixr/simulation/factory.hpp"
 #include "mixr/models/factory.hpp"
-#include "mixr/models/dynamics/jsbsim/factory.hpp"
 #include "mixr/terrain/factory.hpp"
 #include "mixr/interop/dis/factory.hpp"
 #include "mixr/ighost/cigi/factory.hpp"
-#include "mixr/ighost/flightgear/factory.hpp"
+#include "mixr/ighost/pov/factory.hpp"
 #include "mixr/ui/glut/factory.hpp"
 
 #include "MapPage.hpp"
@@ -50,14 +47,14 @@ void timerFunc(int)
     const double dt{static_cast<double>(time - time0)};
     time0 = time;
 
-    mixr::base::ITimer::updateTimers(dt);
+    mixr::base::Timer::updateTimers(dt);
     mixr::graphics::Graphic::flashTimer(dt);
     station->updateData(dt);
 }
 
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-    mixr::base::IObject* obj{};
+    mixr::base::Object* obj{};
 
     if ( name == MapPage::getFactoryName() )       { obj = new MapPage(); }
     else if ( name == Station::getFactoryName() )  { obj = new Station(); }
@@ -67,18 +64,16 @@ mixr::base::IObject* factory(const std::string& name)
     if (obj == nullptr)  { obj = mixr::xzmq::factory(name);         }
 
     // platform libraries
-    if (obj == nullptr)  { obj = mixr::ighost::cigi::factory(name);       }
-    if (obj == nullptr)  { obj = mixr::ighost::flightgear::factory(name); }
-    if (obj == nullptr)  { obj = mixr::instruments::factory(name);        }
-    if (obj == nullptr)  { obj = mixr::simulation::factory(name);         }
-    if (obj == nullptr)  { obj = mixr::models::factory(name);             }
-    if (obj == nullptr)  { obj = mixr::models::jsbsim::factory(name);     }
-    if (obj == nullptr)  { obj = mixr::terrain::factory(name);            }
-    if (obj == nullptr)  { obj = mixr::dis::factory(name);                }
-    if (obj == nullptr)  { obj = mixr::graphics::factory(name);           }
-    if (obj == nullptr)  { obj = mixr::graphics::ftgl::factory(name);     }
-    if (obj == nullptr)  { obj = mixr::glut::factory(name);               }
-    if (obj == nullptr)  { obj = mixr::base::factory(name);               }
+    if (obj == nullptr)  { obj = mixr::cigi::factory(name);         }
+    if (obj == nullptr)  { obj = mixr::pov::factory(name);    }
+    if (obj == nullptr)  { obj = mixr::instruments::factory(name);  }
+    if (obj == nullptr)  { obj = mixr::simulation::factory(name);   }
+    if (obj == nullptr)  { obj = mixr::models::factory(name);       }
+    if (obj == nullptr)  { obj = mixr::terrain::factory(name);      }
+    if (obj == nullptr)  { obj = mixr::dis::factory(name);          }
+    if (obj == nullptr)  { obj = mixr::graphics::factory(name);     }
+    if (obj == nullptr)  { obj = mixr::glut::factory(name);         }
+    if (obj == nullptr)  { obj = mixr::base::factory(name);         }
 
     return obj;
 }
@@ -88,7 +83,7 @@ Station* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -129,7 +124,7 @@ int main(int argc, char* argv[])
    station = builder(configFilename);
 
    // reset the Simulation
-   station->event(mixr::base::IComponent::RESET_EVENT);
+   station->event(mixr::base::Component::RESET_EVENT);
 
    // set timer for the background tasks
    const double dt{1.0 / static_cast<double>(frameRate)};
@@ -138,6 +133,7 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    station->updateData(dt);
    station->updateTC(dt);
+   station->event(mixr::base::Component::RESET_EVENT);
 
    glutTimerFunc(millis, timerFunc, 1);
 

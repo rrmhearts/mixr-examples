@@ -1,21 +1,21 @@
 
 #include "factory.hpp"
 
-#include "mixr/base/IObject.hpp"
+#include "mixr/base/Object.hpp"
 
-#include "XDataRecorder.hpp"
+#include "DataRecorder.hpp"
 
 #include <string>
 
 namespace mixr {
 namespace xrecorder {
 
-base::IObject* factory(const std::string& name)
+base::Object* factory(const std::string& name)
 {
-    base::IObject* obj{};
+    base::Object* obj{};
 
-   if ( name == XDataRecorder::getFactoryName() ) {
-      obj = new XDataRecorder();
+   if ( name == DataRecorder::getFactoryName() ) {
+      obj = new DataRecorder();
    }
 
     return obj;

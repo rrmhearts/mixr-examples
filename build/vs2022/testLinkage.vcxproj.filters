@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\linkage">
+      <UniqueIdentifier>{58A93088-C434-9E4C-CD45-21413950FA4C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\testLinkage\Table.hpp" />
+    <ClInclude Include="..\..\testLinkage\TableRow.hpp" />
+    <ClInclude Include="..\..\testLinkage\TestIoDisplay.hpp" />
+    <ClInclude Include="..\..\testLinkage\TestIoHandler.hpp" />
+    <ClInclude Include="..\..\testLinkage\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\testLinkage\Table.cpp" />
+    <ClCompile Include="..\..\testLinkage\TableRow.cpp" />
+    <ClCompile Include="..\..\testLinkage\TestIoDisplay.cpp" />
+    <ClCompile Include="..\..\testLinkage\TestIoHandler.cpp" />
+    <ClCompile Include="..\..\testLinkage\factory.cpp" />
+    <ClCompile Include="..\..\testLinkage\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\testLinkage\configs\colors.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testLinkage\configs\display.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testLinkage\configs\fonts.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testLinkage\configs\linkage\MockDevice.epp">
+      <Filter>configs\linkage</Filter>
+    </None>
+    <None Include="..\..\testLinkage\configs\linkage\UsbJoystick.epp">
+      <Filter>configs\linkage</Filter>
+    </None>
+    <None Include="..\..\testLinkage\configs\mappingTest.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\testLinkage\configs\test1.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

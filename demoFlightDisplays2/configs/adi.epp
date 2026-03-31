@@ -16,7 +16,7 @@
                     components: {
                     ( Line
                             transform: ( Translation -0.341 0 )
-                            segment: true
+                            segment: 1
                             color: white
                             linewidth: 3
                             vertices: {
@@ -54,7 +54,7 @@
                     transform: ( Translation 0.65 0 )
                     components: {
                     ( Line
-                            segment: true
+                            segment: 1
                             color: white
                             transform: ( Translation 0.261 0 )
                             linewidth: 3
@@ -104,7 +104,7 @@
                 // flight director bank angle
                 fdirbnkang: 
                 ( GaugeSlider
-                    vertical: false
+                    vertical: 0
                     scalingTable: 
                         ( Table1
                             // degrees roll
@@ -124,7 +124,7 @@
                 // flight director pitch 
                 fdirpitch:
                 ( GaugeSlider
-                    vertical: true
+                    vertical: 1
                     scalingTable: 
                         ( Table1
                             // degrees pitch
@@ -219,7 +219,7 @@ bankscale:     ( Graphic
 
             
 bankangle: ( DialPointer
-                allowComponentPass: false
+                allowComponentPass: 0
                 color: white
                 components: {
                     ( LineLoop
@@ -232,7 +232,7 @@ bankangle: ( DialPointer
                         }
                     )
         sideslip:   ( GaugeSlider
-                        vertical: false
+                        vertical: 0
                         transform: ( Translation 0 1.27 ) 
                         scalingTable:
                             ( Table1
@@ -323,7 +323,7 @@ bankangle: ( DialPointer
                                 components: {
                                     ( Line
                                         transform: ( Translation 0 0 0.2 )
-                                        segment: true
+                                        segment: 1
                                         vertices: {
                                             [ -2.0 0.0 ] [ -1.75625 0.0 ]
                                             [ -1.634375 0.0 ] [ -1.390625 0.0 ]

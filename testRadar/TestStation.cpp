@@ -4,11 +4,14 @@
 #include "mixr/models/system/Antenna.hpp"
 #include "mixr/models/player/air/AirVehicle.hpp"
 
-#include "mixr/simulation/ISimulation.hpp"
+#include "mixr/simulation/Simulation.hpp"
+
+#include "mixr/base/numeric/Boolean.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/units/Angles.hpp"
+#include "mixr/base/Timers.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
@@ -52,7 +55,7 @@ void TestStation::deleteData()
 void TestStation::updateTC(const double dt)
 {
    // manage the timers
-   base::ITimer::updateTimers(dt);
+   base::Timer::updateTimers(dt);
    graphics::Graphic::flashTimer(dt);
 
    if (glutDisplay != nullptr) {
@@ -91,20 +94,20 @@ void TestStation::reset()
 //------------------------------------------------------------------------------
 void TestStation::stepOwnshipPlayer()
 {
-   base::IPairStream* pl{getSimulation()->getPlayers()};
+   base::PairStream* pl{getSimulation()->getPlayers()};
    if (pl != nullptr) {
 
-      models::IPlayer* f{};
-      models::IPlayer* n{};
+      models::Player* f{};
+      models::Player* n{};
       bool found{};
 
       // Find the next player
-      base::IList::Item* item{pl->getFirstItem()};
+      base::List::Item* item{pl->getFirstItem()};
       while (item != nullptr) {
          const auto pair = static_cast<base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            const auto ip = static_cast<models::IPlayer*>(pair->object());
-            if ( ip->isMode(models::IPlayer::Mode::ACTIVE) &&
+            const auto ip = static_cast<models::Player*>(pair->object());
+            if ( ip->isMode(models::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
                ip->isClassType(typeid(models::AirVehicle))
                ) {

@@ -1,13 +1,13 @@
 
-#ifndef __Display_HPP__
-#define __Display_HPP__
+#ifndef __Display_H__
+#define __Display_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 namespace mixr {
-namespace base { class Boolean; }
-namespace models { class IPlayer; }
-namespace simulation { class ISimulation; class IStation; }
+namespace base { class Number; }
+namespace models { class Player; }
+namespace simulation { class Simulation; class Station; }
 }
 
 // ----------------------------------------------------------------------------
@@ -27,22 +27,22 @@ class Display final: public mixr::glut::GlutDisplay
 public:
    Display();
 
-   mixr::models::IPlayer* getOwnship();
-   mixr::simulation::ISimulation* getSimulation();
-   mixr::simulation::IStation* getStation();
+   mixr::models::Player* getOwnship();
+   mixr::simulation::Simulation* getSimulation();
+   mixr::simulation::Station* getStation();
 
    void configure() final;
    void drawFunc() final;
 
 private:
-   mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+   mixr::base::safe_ptr<mixr::simulation::Station> myStation;
 
    bool testTexture{};      // Texture image test
    GLuint texture{};        // Texture
 
 private:
    // slot table helper methods
-   bool setSlotTextureTest(const mixr::base::Boolean* const);
+   bool setSlotTextureTest(const mixr::base::Number* const);
 };
 
 #endif

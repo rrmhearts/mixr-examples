@@ -1,8 +1,8 @@
 
-#ifndef __TableRow_HPP__
-#define __TableRow_HPP__
+#ifndef __TableRow_H__
+#define __TableRow_H__
 
-#include "mixr/graphics/readouts/IReadout.hpp"
+#include "mixr/graphics/readouts/AbstractField.hpp"
 
 namespace mixr {
 namespace base { class Pair; }
@@ -12,20 +12,20 @@ namespace base { class Pair; }
 // Class: TableRow
 // Description: One row of in the table (used by Table only)
 //-----------------------------------------------------------------------
-class TableRow final: public mixr::graphics::IReadout
+class TableRow final: public mixr::graphics::AbstractField
 {
-   DECLARE_SUBCLASS(TableRow, mixr::graphics::IReadout)
+   DECLARE_SUBCLASS(TableRow, mixr::graphics::AbstractField)
 
 public:
    TableRow();
 
    void put(mixr::base::Pair* const);
 
-   // graphics::Readout interface
+   // graphics::AbstractField interface
    int line() const final;
-   void line(const int ll) final;
+   int line(const int ll) final;
    int column() const final;
-   void column(const int cc) final;
+   int column(const int cc) final;
 
 private:
    void position();

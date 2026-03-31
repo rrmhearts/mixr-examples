@@ -10,7 +10,7 @@
                     ( Line
                         linewidth: 2
                         color: black
-                        segment: true
+                        segment: 1
                         vertices: {
                             [ -0.339 0.02 ] [ -1.089 0.02 ]
                             [ -1.089 -0.02 ] [ -0.39 -0.02 ]
@@ -40,6 +40,7 @@
                     ( Line
                         linewidth: 2
                         color: black
+                        segment: 1
                         vertices: {
                             [ 0.339 0.02 ] [ 1.089 0.02 ]
                             [ 1.089 -0.02 ] [ 0.39 -0.02 ]
@@ -92,7 +93,7 @@
             // flight director bank angle
             fdirbnkang: 
             ( GaugeSlider
-                vertical: false
+                vertical: 0
                 scalingTable: 
                     ( Table1
                         // degrees roll
@@ -112,7 +113,7 @@
             // flight director pitch 
             fdirpitch:
             ( GaugeSlider
-                vertical: true
+                vertical: 1
                 scalingTable: 
                     ( Table1
                         // degrees pitch
@@ -226,7 +227,7 @@
 
         
 bankangle: ( DialPointer
-            allowComponentPass: false
+            allowComponentPass: 0
             color: ( ColorRotary
                         breakpoints: {
                             -35
@@ -251,7 +252,7 @@ bankangle: ( DialPointer
                     }
                 )
     sideslip:   ( GaugeSlider
-                    vertical: false
+                    vertical: 0
                     transform: ( Translation 0 1.27 ) 
                     scalingTable:
                         ( Table1
@@ -382,7 +383,7 @@ bankangle: ( DialPointer
                                 components: {
                                     ( Line
                                         transform: ( Translation 0 0 0.2 )
-                                        segment: true
+                                        segment: 1
                                         vertices: {
                                             [ -2.0 0.0 ] [ -1.75625 0.0 ]
                                             [ -1.634375 0.0 ] [ -1.390625 0.0 ]

@@ -10,6 +10,9 @@
 //#define REF_LONGITUDE    -121.5
 #define REF_LATITUDE      37.0
 #define REF_LONGITUDE    -116.0
+#define IG_LATITUDE   REF_LATITUDE
+#define IG_LONGITUDE  REF_LONGITUDE
+
 
 ( TestStation
 
@@ -30,7 +33,7 @@
       //#include "ighosts/cigi.epp"
    }
 
-
+   
    // ---
    // Simulation scenario
    // ---
@@ -42,7 +45,7 @@
      longitude: REF_LONGITUDE
 
       #include "irAtmosphere.epp"
-
+      
       players: {
 
          // ---
@@ -53,9 +56,7 @@
             side: blue
             type: "F-16"
 
-            initXPos: ( Meters 0 )
-            initYPos: ( Meters 0 )
-            initAlt:  ( Meters -10000 )
+            initPosition: [ 0 0 -10000 ]
             initHeading: ( Degrees HDNG )
             initPitch: ( Degrees PITCH )
             initVelocity: 300 //250
@@ -68,13 +69,13 @@
                         #ifdef USE_MISSILE_OFFSET
                            initPosition: [1.0 5.0 1.0]
                         #endif
-                        power: false
+                        power: 0
                         maxTOF:  150.0
                         maxBurstRng: 50
                         lethalRange: 30.0
                         type: "AIM-9"              // this helps map the IG models - Missile + type
-                        enableMessageType: info
-                        //enableMessageType: debug
+                        enableMessageType: INFO
+                        //enableMessageType: DEBUG
                         components: {
                            // if not configured with obc, sensor and seeker, will behave as simple aam
                            // to configure as an IR missile, need all of OBC, Sensor and Seeker
@@ -85,13 +86,13 @@
                         #ifdef USE_MISSILE_OFFSET
                            initPosition: [1.0 -5.0 1.0]
                         #endif
-                        power: false
+                        power: 0
                         maxTOF:  150.0
                         maxBurstRng: 50
                         lethalRange: 30.0
                         type: "AIM-9"             // this helps map the IG models - Missile + type
-                        enableMessageType: info
-                        //enableMessageType: debug
+                        enableMessageType: INFO
+                        //enableMessageType: DEBUG
                         components: {
                            // if not configured with obc, sensor and seeker, will behave as simple aam
                            // to configure as an IR missile, need all of OBC, Sensor and Seeker
@@ -112,10 +113,7 @@
             initVelocity: 200
             initHeading: ( Degrees HDNG1 )
             initPitch: ( Degrees PITCH )
-            initXPos: ( Meters RANGE1 )
-            initYPos: ( Meters 0 )
-            initAlt:  ( Meters -10000 )
-
+            initPosition: [ RANGE1 0 -10000 ]
          )
 #if 1
          target2: ( Aircraft
@@ -127,10 +125,7 @@
             initVelocity: 200
             initHeading: ( Degrees HDNG2 )
             initPitch: ( Degrees PITCH )
-            initXPos: ( Meters RANGE2 )
-            initYPos: ( Meters 0 )
-            initAlt:  ( Meters -10000 )
-
+            initPosition: [ RANGE2 0 -10000 ]
          )
 #endif
       } // End Players

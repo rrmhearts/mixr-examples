@@ -1,12 +1,15 @@
 
 
 #include "SimStation.hpp"
+
 #include "factory.hpp"
 
-#include "mixr/base/IComponent.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/edl_parser.hpp"
+#include "mixr/base/units/Angles.hpp"
+#include "mixr/graphics/Graphic.hpp"
+#include "mixr/graphics/Texture.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
@@ -27,7 +30,7 @@ SimStation* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   base::IObject* obj{base::edl_parser(filename, factory, &num_errors)};
+   base::Object* obj{base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -80,9 +83,9 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"test0.edl"};
+   std::string configFilename = "test0.edl";
    // parse arguments
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -90,7 +93,7 @@ int main(int argc, char* argv[])
    simStation = builder(configFilename);
 
    // reset station
-   simStation->event(base::IComponent::RESET_EVENT);
+   simStation->event(base::Component::RESET_EVENT);
 
    // set timer for background tasks
    const double dt{1.0 / static_cast<double>(BG_RATE)};
@@ -99,6 +102,7 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    simStation->updateData(dt);
    simStation->updateTC(dt);
+   simStation->event(base::Component::RESET_EVENT);
 
    glutTimerFunc(msecs, updateDataCB, msecs);
 

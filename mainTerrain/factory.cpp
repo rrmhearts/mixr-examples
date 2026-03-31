@@ -1,7 +1,7 @@
 
 #include "factory.hpp"
 
-#include "mixr/base/IObject.hpp"
+#include "mixr/base/Object.hpp"
 
 #include "Display.hpp"
 
@@ -12,9 +12,9 @@
 
 #include <string>
 
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-    mixr::base::IObject* obj {};
+    mixr::base::Object* obj {};
 
     if ( name == Display::getFactoryName() ) {
         obj = new Display();

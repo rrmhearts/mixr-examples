@@ -1,13 +1,13 @@
 
-#ifndef __PuzzleBoard_HPP__
-#define __PuzzleBoard_HPP__
+#ifndef __PuzzleBoard_H__
+#define __PuzzleBoard_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 #include <array>
 
 namespace mixr {
-namespace base { class IPairStream; }
+namespace base { class PairStream; }
 namespace graphics { class Graphic; }
 }
 class Controller;
@@ -40,7 +40,7 @@ protected:
    virtual void updateBlockDeltaPositions();               // Updates the blocks' delta positions
 
 private:
-   const mixr::base::IPairStream* templates{};    // Graphical templates for the blocks
+   const mixr::base::PairStream* templates{};     // Graphical templates for the blocks
    Controller* controller{};                      // puzzle controller
    double startupTimer{};                         // Movement timer
 
@@ -65,7 +65,7 @@ private:
 private:
    // slot table helper methods
    bool setSlotController(Controller* const);                    // Sets the Puzzle engine
-   bool setSlotTemplates(const mixr::base::IPairStream* const);  // Sets a list of the graphical templates for the blocks
+   bool setSlotTemplates(const mixr::base::PairStream* const);   // Sets a list of the graphical templates for the blocks
 };
 
 #endif

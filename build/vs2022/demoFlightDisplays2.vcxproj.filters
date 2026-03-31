@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\demoFlightDisplays2\Pfd.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays2\SpdLines.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays2\TestPfd.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\demoFlightDisplays2\Pfd.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays2\SpdLines.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays2\TestPfd.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays2\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\demoFlightDisplays2\configs\adi.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays2\configs\airspdtape.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays2\configs\alttape.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays2\configs\hsi.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays2\configs\pfd.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays2\configs\pitchtape.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays2\configs\test.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays2\configs\testpfd.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

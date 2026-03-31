@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\electronic">
+      <UniqueIdentifier>{A5B235EF-9196-F644-FAF6-F097E6F9E0C6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\electronic\arcmode">
+      <UniqueIdentifier>{6FDE0C8B-5BEE-B85B-C4A7-1D7AB0D6A7F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\electronic\hsimode">
+      <UniqueIdentifier>{5D43A6A8-4953-5279-B20C-B7979E3B4112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="configs\mechanical">
+      <UniqueIdentifier>{A2CAE45B-8EAE-A5B1-F70E-A004E3119033}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\demoEfis\TestElectronic.hpp" />
+    <ClInclude Include="..\..\demoEfis\TestMechanical.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\demoEfis\TestElectronic.cpp" />
+    <ClCompile Include="..\..\demoEfis\TestMechanical.cpp" />
+    <ClCompile Include="..\..\demoEfis\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\demoEfis\configs\electronic\arcmode\arccompass.epp">
+      <Filter>configs\electronic\arcmode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\electronic\arcmode\primarycourse.epp">
+      <Filter>configs\electronic\arcmode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\electronic\arcmode\secondarycourse.epp">
+      <Filter>configs\electronic\arcmode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\electronic\hsimode\background.epp">
+      <Filter>configs\electronic\hsimode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\electronic\hsimode\compass.epp">
+      <Filter>configs\electronic\hsimode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\electronic\hsimode\hsimode.epp">
+      <Filter>configs\electronic\hsimode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\electronic\hsimode\primarycourse.epp">
+      <Filter>configs\electronic\hsimode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\electronic\hsimode\secondarycourse.epp">
+      <Filter>configs\electronic\hsimode</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\glutdisplay.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\background.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\cmptrflag.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\gryoflag.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\gslopeindicator.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\ladder.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\mechanical.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\rateofturn.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\rollindicator.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\runwayindicator.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\mechanical\speeddevindicator.epp">
+      <Filter>configs\mechanical</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\testadimode.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\testarcmode.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoEfis\configs\testhsimode.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

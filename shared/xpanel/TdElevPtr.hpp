@@ -1,11 +1,11 @@
 
-#ifndef __mixr_xpanel_TdElevPtr_HPP__
-#define __mixr_xpanel_TdElevPtr_HPP__
+#ifndef __mixr_xpanel_TdElevPtr_H__
+#define __mixr_xpanel_TdElevPtr_H__
 
 #include "mixr/graphics/Graphic.hpp"
 
 namespace mixr {
-namespace base { class INumber; }
+namespace base { class Number; }
 namespace xpanel {
 
 //------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ namespace xpanel {
 //
 // Factory name: TdElevPtr
 // Events:
-//    UPDATE_VALUE  <INumber>  ! elevation angle (degs)
+//    UPDATE_VALUE  <Number>  ! elevation angle (degs)
 //------------------------------------------------------------------------------
 class TdElevPtr final: public graphics::Graphic
 {
@@ -34,10 +34,10 @@ public:
    bool setElevation(const double); // degs
 
    void draw() final;
-   bool event(const int event, base::IObject* const obj = nullptr) final;
+   bool event(const int event, base::Object* const obj = nullptr) final;
 
 private:
-   bool onUpdateValue(const base::INumber* const);
+   bool onUpdateValue(const base::Number* const);
 
    double elev{};  // (degs)
 };

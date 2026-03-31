@@ -4,7 +4,6 @@
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 IMPLEMENT_SUBCLASS(Station, "MapTestStation")
-EMPTY_DELETEDATA(Station)
 
 BEGIN_SLOTTABLE(Station)
     "display",          // 1) sets our display
@@ -23,8 +22,28 @@ void Station::copyData(const Station& org, const bool)
 {
     BaseClass::copyData(org);
 
-    display = org.display->clone();
+    if (display != nullptr) {
+        display->unref();
+        display = nullptr;
+    }
+
+    if (org.display != nullptr) {
+        display = org.display;
+        display->ref();
+    }
+
     displayInit = org.displayInit;
+}
+
+//------------------------------------------------------------------------------
+// deleteData() -- delete member data
+//------------------------------------------------------------------------------
+void Station::deleteData()
+{
+    if (display != nullptr) {
+        display->unref();
+        display = nullptr;
+    }
 }
 
 //------------------------------------------------------------------------------
@@ -40,7 +59,7 @@ void Station::reset()
         displayInit = true;
     }
 
-    // this calls our Baseclass (simulation::IStation -> reset)
+    // this calls our Baseclass (simulation::Station -> reset)
     BaseClass::reset();
 }
 
@@ -48,11 +67,18 @@ void Station::reset()
 //------------------------------------------------------------------------------
 // setSlotDisplay() - sets our display
 //------------------------------------------------------------------------------
-bool Station::setSlotDisplay(mixr::glut::GlutDisplay* x)
+bool Station::setSlotDisplay(mixr::glut::GlutDisplay* dis)
 {
     bool ok{};
-    if (x != nullptr) {
-        display = x;
+    // clear out our old display first
+    if (display != nullptr) {
+        display->unref();
+        display = nullptr;
+    }
+
+    if (dis != nullptr) {
+        display = dis;
+        display->ref();
         display->container(this);
         ok = true;
     }

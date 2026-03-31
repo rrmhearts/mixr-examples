@@ -1,6 +1,6 @@
 
-#ifndef __TestGMeterDial_HPP__
-#define __TestGMeterDial_HPP__
+#ifndef __TestGMeterDial_H__
+#define __TestGMeterDial_H__
 
 #include "mixr/graphics/Page.hpp"
 

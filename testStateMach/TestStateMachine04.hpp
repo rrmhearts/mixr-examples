@@ -1,8 +1,8 @@
 
-#ifndef __TestStateMachine04_HPP__
-#define __TestStateMachine04_HPP__
+#ifndef __TestStateMachine04_H__
+#define __TestStateMachine04_H__
 
-#include "mixr/base/IStateMachine.hpp"
+#include "mixr/base/StateMachine.hpp"
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine04
@@ -11,9 +11,9 @@
 //    functions: nextSubstate() and goToSubstate().
 //
 //------------------------------------------------------------------------------
-class TestStateMachine04 final: public mixr::base::IStateMachine
+class TestStateMachine04 final: public mixr::base::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine04, mixr::base::IStateMachine)
+   DECLARE_SUBCLASS(TestStateMachine04, mixr::base::StateMachine)
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };

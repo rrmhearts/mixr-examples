@@ -4,12 +4,15 @@
 #include "MapPage.hpp"
 
 #include "mixr/models/player/air/Aircraft.hpp"
-#include "mixr/models/player/IPlayer.hpp"
+#include "mixr/models/player/Player.hpp"
 #include "mixr/models/system/Autopilot.hpp"
+#include "mixr/models/dynamics/LaeroModel.hpp"
 
-#include "mixr/base/qty/angles.hpp"
-#include "mixr/base/qty/lengths.hpp"
-#include "mixr/base/qty/times.hpp"
+#include "mixr/base/units/Angles.hpp"
+#include "mixr/base/units/Distances.hpp"
+#include "mixr/base/units/Times.hpp"
+
+#include "mixr/base/util/enum_utils.hpp"
 
 #include <GL/glut.h>
 #include <iomanip>
@@ -148,94 +151,94 @@ void MapDisplay::buttonEvent(const int b)
    const auto page = static_cast<MapPage*>(subpage());
 
    // cmdAirspeed, cmdAltitude, cmdHeading up, down
-   mixr::models::IPlayer* pA{getOwnship()};
+   mixr::models::Player* pA{getOwnship()};
    mixr::models::Autopilot* ap{};
    if (pA != nullptr) {
       ap = static_cast<mixr::models::Autopilot*>(pA->getPilot());
    }
    if (page != nullptr && ap != nullptr) {
-      if (b == static_cast<int>(Btn::DEC_RANGE)) {
+      if (b == mixr::base::as_integer(Btn::DEC_RANGE)) {
          if (page->getRange() > 5) {
             page->setRange(page->getRange() - 5);
          }
-      } else if (b == static_cast<int>(Btn::INC_RANGE)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_RANGE)) {
          if (page->getRange() < 320) {
             page->setRange(page->getRange() + 5);
          }
-      } else if (b == static_cast<int>(Btn::DEC_CMD_AS)) {
+      } else if (b == mixr::base::as_integer(Btn::DEC_CMD_AS)) {
          double cmdAirspeed{ap->getCommandedVelocityKts()};
          if (cmdAirspeed > 100) {
             cmdAirspeed -= 10;
             ap->setCommandedVelocityKts(cmdAirspeed);
          }
-      } else if (b == static_cast<int>(Btn::INC_CMD_AS)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_CMD_AS)) {
          double cmdAirspeed{ap->getCommandedVelocityKts()};
          if (cmdAirspeed < 400) {
             cmdAirspeed += 10;
             ap->setCommandedVelocityKts(cmdAirspeed);
          }
-      } else if (b == static_cast<int>(Btn::DEC_CMD_ALT)) {
+      } else if (b == mixr::base::as_integer(Btn::DEC_CMD_ALT)) {
          double cmdAltitude{ap->getCommandedAltitudeFt()};
          if (cmdAltitude > 1000) {
             cmdAltitude -= 500;
             ap->setCommandedAltitudeFt(cmdAltitude);
          }
-      } else if (b == static_cast<int>(Btn::INC_CMD_ALT)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_CMD_ALT)) {
          double cmdAltitude{ap->getCommandedAltitudeFt()};
          if (cmdAltitude < 40000) {
             cmdAltitude += 500;
             ap->setCommandedAltitudeFt(cmdAltitude);
          }
-      } else if (b == static_cast<int>(Btn::DEC_CMD_HDG)) {
+      } else if (b == mixr::base::as_integer(Btn::DEC_CMD_HDG)) {
          double cmdHeading{ap->getCommandedHeadingD()};
          cmdHeading -= 10;
          if (cmdHeading < -180.0) cmdHeading += 360;
          ap->setCommandedHeadingD(cmdHeading);
-      } else if (b == static_cast<int>(Btn::INC_CMD_HDG)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_CMD_HDG)) {
          double cmdHeading{ap->getCommandedHeadingD()};
          cmdHeading += 10;
          if (cmdHeading > 180.0) cmdHeading -= 360;
          ap->setCommandedHeadingD(cmdHeading);
-      } else if (b == static_cast<int>(Btn::INC_CMD_AS_NPS)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_CMD_AS_NPS)) {
          double maxAccel{ap->getMaxVelAcc()};
          if (maxAccel < 20) maxAccel++;
          ap->setMaxVelAccNps(maxAccel);
-      } else if (b == static_cast<int>(Btn::DEC_CMD_AS_NPS)) {
+      } else if (b == mixr::base::as_integer(Btn::DEC_CMD_AS_NPS)) {
          double maxAccel{ap->getMaxVelAcc()};
          if (maxAccel > 1) maxAccel--;
          ap->setMaxVelAccNps(maxAccel);
-      } else if (b == static_cast<int>(Btn::INC_CMD_ALT_MPS)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_CMD_ALT_MPS)) {
          // Climb rate in meters per second
          double maxClimb{ap->getMaxClimbRate()};
          if (maxClimb < 100) maxClimb += 5;
          ap->setMaxClimbRateMps(maxClimb);
-      } else if (b == static_cast<int>(Btn::DEC_CMD_ALT_MPS)) {
+      } else if (b == mixr::base::as_integer(Btn::DEC_CMD_ALT_MPS)) {
          double maxClimb{ap->getMaxClimbRate()};
          if (maxClimb > 5) maxClimb -= 5;
          ap->setMaxClimbRateMps(maxClimb);
-      } else if (b == static_cast<int>(Btn::INC_CMD_HDG_ROT)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_CMD_HDG_ROT)) {
          // Turn rate in degrees per second
          double maxTR{ap->getMaxTurnRate()};
          if (maxTR < 25) maxTR++;
          ap->setMaxTurnRateDps(maxTR);
-      } else if (b == static_cast<int>(Btn::DEC_CMD_HDG_ROT)) {
+      } else if (b == mixr::base::as_integer(Btn::DEC_CMD_HDG_ROT)) {
          double maxTR{ap->getMaxTurnRate()};
          if (maxTR > 0) maxTR--;
          ap->setMaxTurnRateDps(maxTR);
-      } else if (b == static_cast<int>(Btn::INC_CMD_HDG_BNK)) {
+      } else if (b == mixr::base::as_integer(Btn::INC_CMD_HDG_BNK)) {
          // Max bank (degrees)
          double maxBank{ap->getMaxBankAngle()};
          if (maxBank < 90) maxBank++;
          ap->setMaxBankAngleDeg(maxBank);
-      } else if (b == static_cast<int>(Btn::DEC_CMD_HDG_BNK)) {
+      } else if (b == mixr::base::as_integer(Btn::DEC_CMD_HDG_BNK)) {
          double maxBank{ap->getMaxBankAngle()};
          if (maxBank > 0) maxBank--;
          ap->setMaxBankAngleDeg(maxBank);
-      } else if (b == static_cast<int>(Btn::PASSIVE_ENABLE)) {
+      } else if (b == mixr::base::as_integer(Btn::PASSIVE_ENABLE)) {
          passiveEnable = true;
-      } else if (b == static_cast<int>(Btn::PASSIVE_DISABLE)) {
+      } else if (b == mixr::base::as_integer(Btn::PASSIVE_DISABLE)) {
          passiveEnable = false;
-      } else if (b == static_cast<int>(Btn::CHANGE_AP_MODE)) {
+      } else if (b == mixr::base::as_integer(Btn::CHANGE_AP_MODE)) {
          // get our autopilot mode and change it
          // if off, go to nav
          const bool navMode{ap->isNavModeOn()};
@@ -315,10 +318,10 @@ void MapDisplay::updateData(const double dt)
    send("cmdBank", UPDATE_VALUE, maxBank, maxBankSD);
 }
 
-mixr::simulation::IStation* MapDisplay::getStation()
+mixr::simulation::Station* MapDisplay::getStation()
 {
     if (myStation == nullptr) {
-        auto s = dynamic_cast<mixr::simulation::IStation*>( findContainerByType(typeid(mixr::simulation::IStation)) );
+        auto s = dynamic_cast<mixr::simulation::Station*>( findContainerByType(typeid(mixr::simulation::Station)) );
         if (s != nullptr) myStation = s;
     }
     return myStation;
@@ -327,7 +330,7 @@ mixr::simulation::IStation* MapDisplay::getStation()
 mixr::models::Aircraft* MapDisplay::getOwnship()
 {
    mixr::models::Aircraft* p{};
-   mixr::simulation::IStation* sta{getStation()};
+   mixr::simulation::Station* sta{getStation()};
    if (sta != nullptr) {
       p = dynamic_cast<mixr::models::Aircraft*>(sta->getOwnship());
    }

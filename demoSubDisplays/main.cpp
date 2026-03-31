@@ -2,7 +2,7 @@
 // demo of sub-displays
 //------------------------------------------------------------------------------
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/ui/glut/GlutDisplay.hpp"
@@ -12,7 +12,6 @@
 #include "mixr/ui/glut/factory.hpp"
 #include "mixr/base/factory.hpp"
 #include "mixr/graphics/factory.hpp"
-#include "mixr/graphics/fonts/ftgl/factory.hpp"
 #include "mixr/instruments/factory.hpp"
 
 // test files
@@ -49,15 +48,15 @@ void timerFunc(int)
    const int millis{static_cast<int>(dt * 1000)};
    glutTimerFunc(millis, timerFunc, 1);
 
-   mixr::base::ITimer::updateTimers(dt);
+   mixr::base::Timer::updateTimers(dt);
    mixr::graphics::Graphic::flashTimer(dt);
    glutDisplay->updateTC(dt);
 }
 
 // our class factory
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-   mixr::base::IObject* obj{};
+   mixr::base::Object* obj{};
 
    // speed brake page
    if ( name == TestSpeedBrake::getFactoryName() ) {
@@ -138,7 +137,6 @@ mixr::base::IObject* factory(const std::string& name)
    else {
       if (obj == nullptr) obj = mixr::instruments::factory(name);
       if (obj == nullptr) obj = mixr::graphics::factory(name);
-      if (obj == nullptr) obj = mixr::graphics::ftgl::factory(name);
       if (obj == nullptr) obj = mixr::glut::factory(name);
       if (obj == nullptr) obj = mixr::base::factory(name);
    }
@@ -151,7 +149,7 @@ mixr::glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -186,7 +184,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"test.edl"};
+   std::string configFilename = "test.edl";
    glutDisplay = builder(configFilename);
 
    glutDisplay->createWindow();

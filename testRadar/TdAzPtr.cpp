@@ -1,9 +1,9 @@
 
 #include "TdAzPtr.hpp"
 
-#include "mixr/base/numeric/INumber.hpp"
+#include "mixr/base/numeric/Number.hpp"
 
-#include "mixr/base/qty/util/angle_utils.hpp"
+#include "mixr/base/units/angle_utils.hpp"
 
 using namespace mixr;
 
@@ -11,7 +11,7 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(TdAzPtr, "TdAzPtr")
 EMPTY_DELETEDATA(TdAzPtr)
 
 BEGIN_EVENT_HANDLER(TdAzPtr)
-    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::INumber)
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)
 END_EVENT_HANDLER()
 
 TdAzPtr::TdAzPtr()
@@ -42,11 +42,11 @@ bool TdAzPtr::setAzimuth(const double v)
 //------------------------------------------------------------------------------
 // Event handlers
 //------------------------------------------------------------------------------
-bool TdAzPtr::onUpdateValue(const base::INumber* const msg)
+bool TdAzPtr::onUpdateValue(const base::Number* const msg)
 {
     bool ok{};
     if (msg != nullptr) {
-      ok = setAzimuth(msg->asDouble());
+      ok = setAzimuth(msg->getReal());
     }
     return ok;
 }

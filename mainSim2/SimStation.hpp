@@ -1,10 +1,11 @@
 
-#ifndef __SimStation_HPP__
-#define __SimStation_HPP__
+#ifndef __SimStation_H__
+#define __SimStation_H__
 
-#include "mixr/simulation/IStation.hpp"
+#include "mixr/simulation/Station.hpp"
 
 namespace mixr {
+namespace base { class Table1; }
 namespace glut { class GlutDisplay; }
 }
 
@@ -19,11 +20,11 @@ namespace glut { class GlutDisplay; }
 // Factory name: SimStation
 // Slots:
 //      display                 <glut::GlutDisplay>  ! Main graphics display
-//      autoResetTimer          <ITime>              ! Auto RESET timer value (base::Time); default: 0
+//      autoResetTimer          <Time>               ! Auto RESET timer value (base::Time); default: 0
 //------------------------------------------------------------------------------
-class SimStation final: public mixr::simulation::IStation
+class SimStation final: public mixr::simulation::Station
 {
-    DECLARE_SUBCLASS(SimStation, mixr::simulation::IStation)
+    DECLARE_SUBCLASS(SimStation, mixr::simulation::Station)
 
 public:
     SimStation();
@@ -36,18 +37,18 @@ public:
    void reset() final;
 
 private:
-    // main Display
-    mixr::base::safe_ptr<mixr::glut::GlutDisplay> display;  // main display
-    bool displayInit{};                                     // display created?
+    // Main Display
+    mixr::base::safe_ptr<mixr::glut::GlutDisplay> mainDisplay;
+    bool displayInit{};
 
-    // auto reset timer
-    double autoResetTimer{};                                   // auto RESET timer (sends a RESET_EVENT after timeout)
-    mixr::base::safe_ptr<mixr::base::ITime> autoResetTimer0{};  // init value of the auto RESET timer
+    // Auto reset timer
+    double autoResetTimer{};                     // Auto RESET timer (sends a RESET_EVENT after timeout)
+    const mixr::base::Time* autoResetTimer0{};   // Init value of the Auto RESET timer
 
 private:
     // slot table helper methods
-    bool setSlotDisplay(mixr::glut::GlutDisplay* const);
-    bool setSlotAutoResetTime(mixr::base::ITime* const);
+    bool setSlotMainDisplay(mixr::glut::GlutDisplay* const);
+    bool setSlotAutoResetTime(const mixr::base::Time* const);     // Sets the auto RESET timer
 };
 
 #endif

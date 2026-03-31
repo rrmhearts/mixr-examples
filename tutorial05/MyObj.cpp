@@ -1,13 +1,14 @@
 
 #include "MyObj.hpp"
 
+#include "mixr/base/numeric/Number.hpp"
 #include "mixr/base/numeric/Boolean.hpp"
 
-#include "mixr/base/IPairStream.hpp"
-#include "mixr/base/IList.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/List.hpp"
 #include "mixr/base/String.hpp"
 #include "mixr/base/Identifier.hpp"
-#include "mixr/base/colors/IColor.hpp"
+#include "mixr/base/colors/Color.hpp"
 
 #include <iostream>
 #include <memory>
@@ -15,20 +16,20 @@
 IMPLEMENT_SUBCLASS(MyObj, "MyObj")
 
 BEGIN_SLOTTABLE(MyObj)
-   "colorTable",         // 1: The Color table     <IPairStream>
+   "colorTable",         // 1: The Color table     <PairStream>
    "textColor",          // 2: Text color          <Identifier>
    "backColor",          // 3: Background color    <Identifier>
-   "vector",             // 4: Vector              <IList>
-   "visible",            // 5: Visibility flag     <Boolean>
+   "vector",             // 4: Vector              <List>
+   "visible",            // 5: Visibility flag     <Number>
    "message",            // 6: The message         <String>
 END_SLOTTABLE(MyObj)
 
 BEGIN_SLOT_MAP(MyObj)
-   ON_SLOT(1, setSlotColorTable, mixr::base::IPairStream)
+   ON_SLOT(1, setSlotColorTable, mixr::base::PairStream)
    ON_SLOT(2, setSlotTextColor,  mixr::base::Identifier)
    ON_SLOT(3, setSlotBackColor,  mixr::base::Identifier)
-   ON_SLOT(4, setSlotVector,     mixr::base::IList)
-   ON_SLOT(5, setSlotVisible,    mixr::base::Boolean)
+   ON_SLOT(4, setSlotVector,     mixr::base::List)
+   ON_SLOT(5, setSlotVisible,    mixr::base::Number)
    ON_SLOT(6, setSlotMessage,    mixr::base::String)
 END_SLOT_MAP()
 
@@ -68,7 +69,7 @@ void MyObj::deleteData()
    setMessage(nullptr);
 }
 
-bool MyObj::setColorTable(const mixr::base::IPairStream* const x)
+bool MyObj::setColorTable(const mixr::base::PairStream* const x)
 {
    if (colorTable != nullptr) colorTable->unref();
    colorTable = x;
@@ -76,7 +77,7 @@ bool MyObj::setColorTable(const mixr::base::IPairStream* const x)
    return true;
 }
 
-const mixr::base::IPairStream* MyObj::getColorTable() const
+const mixr::base::PairStream* MyObj::getColorTable() const
 {
    return colorTable;
 }
@@ -107,7 +108,7 @@ const mixr::base::Identifier* MyObj::getBackColor() const
    return backColor;
 }
 
-bool MyObj::setVector(const mixr::base::IList* const x)
+bool MyObj::setVector(const mixr::base::List* const x)
 {
    if (vector != nullptr) vector->unref();
    vector = x;
@@ -115,7 +116,7 @@ bool MyObj::setVector(const mixr::base::IList* const x)
    return true;
 }
 
-const mixr::base::IList* MyObj::getVector() const
+const mixr::base::List* MyObj::getVector() const
 {
    return vector;
 }
@@ -144,7 +145,7 @@ const mixr::base::String* MyObj::getMessage() const
    return message;
 }
 
-bool MyObj::setSlotColorTable(const mixr::base::IPairStream* const x)
+bool MyObj::setSlotColorTable(const mixr::base::PairStream* const x)
 {
    bool ok{};
    if (x != nullptr) {
@@ -171,7 +172,7 @@ bool MyObj::setSlotBackColor(const mixr::base::Identifier* const x)
    return ok;
 }
 
-bool MyObj::setSlotVector(const mixr::base::IList* const x)
+bool MyObj::setSlotVector(const mixr::base::List* const x)
 {
    bool ok{};
    if (x != nullptr) {
@@ -180,11 +181,11 @@ bool MyObj::setSlotVector(const mixr::base::IList* const x)
    return ok;
 }
 
-bool MyObj::setSlotVisible(const mixr::base::Boolean* const x)
+bool MyObj::setSlotVisible(const mixr::base::Number* const x)
 {
    bool ok{};
    if (x != nullptr) {
-      ok = setVisible(x->asBool());
+      ok = setVisible(x->getBoolean());
    }
    return ok;
 }
@@ -201,15 +202,15 @@ bool MyObj::setSlotMessage(const mixr::base::String* const x)
 void MyObj::dumpContents() const
 {
    // print out some color information
-   const mixr::base::IPairStream* colorTable{getColorTable()};
+   const mixr::base::PairStream* colorTable{getColorTable()};
    if (colorTable != nullptr) {
 //    Pair* p = colorTable->findByName("green");
       const mixr::base::Identifier* id{getTextColor()};
       if (id != nullptr) {
-         const mixr::base::Pair* p{colorTable->findByName(id->c_str())};
+         const mixr::base::Pair* p{colorTable->findByName(id->getString())};
          if (p != nullptr) {
-            std::cout << "Text color: " << id->c_str();
-            const auto color = dynamic_cast<const mixr::base::IColor*>(p->object());
+            std::cout << "Text color: " << id->getString();
+            const auto color = dynamic_cast<const mixr::base::Color*>(p->object());
             if (color != nullptr) {
                std::cout << " Red: "   << color->red();
                std::cout << " Green: " << color->green();
@@ -223,7 +224,7 @@ void MyObj::dumpContents() const
    }
 
    // print out vector information
-   const mixr::base::IList* vector{getVector()};
+   const mixr::base::List* vector{getVector()};
    if (vector != nullptr) {
       const int numValues{static_cast<int>(vector->entries())};
       std::unique_ptr<int[]> values(new int[numValues]);
@@ -238,7 +239,7 @@ void MyObj::dumpContents() const
    // print out visible and message info
    std::cout << "Visible: " << getVisible() << "\n";
    const mixr::base::String* message {getMessage()};
-   std::cout << "Message: " << message->c_str() << "\n";
+   std::cout << "Message: " << message->getString() << "\n";
 }
 
 //------------------------------------------------------------------------------

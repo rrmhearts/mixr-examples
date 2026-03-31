@@ -1,7 +1,7 @@
 
 #include "factory.hpp"
 
-#include "mixr/base/IObject.hpp"
+#include "mixr/base/Object.hpp"
 
 #include "PlaneState.hpp"
 #include "PlaneBehaviors.hpp"
@@ -12,9 +12,9 @@
 namespace mixr {
 namespace xbehaviors {
 
-base::IObject* factory(const std::string& name)
+base::Object* factory(const std::string& name)
 {
-    base::IObject* obj{};
+    base::Object* obj{};
 
     if ( name == PlaneState::getFactoryName() ) {
         obj = new PlaneState();

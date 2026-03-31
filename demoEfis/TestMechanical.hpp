@@ -1,6 +1,6 @@
 
-#ifndef __TestMechanical_HPP__
-#define __TestMechanical_HPP__
+#ifndef __TestMechanical_H__
+#define __TestMechanical_H__
 
 #include "mixr/graphics/Page.hpp"
 
@@ -60,10 +60,10 @@ private:
     double speedDotsRate{0.4};
     SendData speedDotsSD;
     // gaLight stuff
-    bool gaMode{true};
+    int gaMode {true};
     double gaTimer{};
     // mdaLight stuff
-    bool mdaMode{true};
+    int mdaMode{true};
     double mdaTimer{};
     // cmptr stuff
     bool cmptrFail{};          // our computer fail flag (on = true)

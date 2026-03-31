@@ -1,8 +1,8 @@
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/qty/angles.hpp"
+#include "mixr/base/units/Angles.hpp"
 
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/graphics/Image.hpp"
@@ -14,11 +14,11 @@
 // factories
 #include "mixr/base/factory.hpp"
 #include "mixr/graphics/factory.hpp"
-#include "mixr/graphics/fonts/ftgl/factory.hpp"
 #include "mixr/ui/glut/factory.hpp"
 
 #include <GL/glut.h>
 
+#include "MfdPage.hpp"
 #include "TestOne.hpp"
 #include "TestTwo.hpp"
 #include "TdAzPtr.hpp"
@@ -41,19 +41,22 @@ void timerFunc(int)
 {
    glutTimerFunc(dt_msecs, timerFunc, 1);
 
-   mixr::base::ITimer::updateTimers(dt_secs);
+   mixr::base::Timer::updateTimers(dt_secs);
    mixr::graphics::Graphic::flashTimer(dt_secs);
    testDisplay->tcFrame(dt_secs);
 }
 
 // our class factory
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-   mixr::base::IObject* obj{};
+   mixr::base::Object* obj{};
 
    //
    if ( name == TestDisplay::getFactoryName() ) {
       obj = new TestDisplay;
+   }
+   else if ( name == MfdPage::getFactoryName() ) {
+      obj = new MfdPage;
    }
 
    // TestX
@@ -77,7 +80,6 @@ mixr::base::IObject* factory(const std::string& name)
 
    else {
       if (obj == nullptr) obj = mixr::graphics::factory(name);
-      if (obj == nullptr) obj = mixr::graphics::ftgl::factory(name);
       if (obj == nullptr) obj = mixr::glut::factory(name);
       if (obj == nullptr) obj = mixr::base::factory(name);
    }
@@ -89,7 +91,7 @@ TestDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -123,10 +125,10 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"test1.edl"};
+   std::string configFilename = "test1.edl";
 
    // parse arguments
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }

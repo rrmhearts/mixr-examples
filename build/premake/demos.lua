@@ -4,12 +4,14 @@
 
 -- demoEfis: demo of EFIS
 project "demoEfis"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "demoEfis"
    targetdir "../../demoEfis"
    debugdir "../../demoEfis"
    files {
-      "../../demoEfis/**"
+      "../../demoEfis/**.h*",
+      "../../demoEfis/**.cpp",
+      "../../demoEfis/**.epp",
+      "../../demoEfis/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
@@ -24,12 +26,14 @@ project "demoEfis"
 
 -- Flight Display 1 demo
 project "demoFlightDisplays1"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "demoFlightDisplays1"
    targetdir "../../demoFlightDisplays1"
    debugdir "../../demoFlightDisplays1"
    files {
-      "../../demoFlightDisplays1/**"
+      "../../demoFlightDisplays1/**.h*",
+      "../../demoFlightDisplays1/**.cpp",
+      "../../demoFlightDisplays1/**.epp",
+      "../../demoFlightDisplays1/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
@@ -44,12 +48,14 @@ project "demoFlightDisplays1"
 
 -- Flight Display 2 demo
 project "demoFlightDisplays2"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "demoFlightDisplays2"
    targetdir "../../demoFlightDisplays2"
    debugdir "../../demoFlightDisplays2"
    files {
-      "../../demoFlightDisplays2/**"
+      "../../demoFlightDisplays2/**.h*",
+      "../../demoFlightDisplays2/**.cpp",
+      "../../demoFlightDisplays2/**.epp",
+      "../../demoFlightDisplays2/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
@@ -64,12 +70,14 @@ project "demoFlightDisplays2"
 
 -- demoInstruments
 project "demoInstruments"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "demoInstruments"
    targetdir "../../demoInstruments"
    debugdir "../../demoInstruments"
    files {
-      "../../demoInstruments/**"
+      "../../demoInstruments/**.h*",
+      "../../demoInstruments/**.cpp",
+      "../../demoInstruments/**.epp",
+      "../../demoInstruments/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
@@ -84,12 +92,14 @@ project "demoInstruments"
 
 -- demoSubDisplays
 project "demoSubDisplays"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "demoSubDisplays"
    targetdir "../../demoSubDisplays"
    debugdir "../../demoSubDisplays"
    files {
-      "../../demoSubDisplays/**"
+      "../../demoSubDisplays/**.h*",
+      "../../demoSubDisplays/**.cpp",
+      "../../demoSubDisplays/**.epp",
+      "../../demoSubDisplays/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }

@@ -2,12 +2,12 @@
 #include "TestStation.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/Timers.hpp"
 
 #include "mixr/models/player/air/AirVehicle.hpp"
 
-#include "mixr/simulation/ISimulation.hpp"
+#include "mixr/simulation/Simulation.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
@@ -61,7 +61,7 @@ void TestStation::updateData(const double dt)
    // own displays.
 
    // manage the timers
-   mixr::base::ITimer::updateTimers(dt);
+   mixr::base::Timer::updateTimers(dt);
    mixr::graphics::Graphic::flashTimer(dt);
 
    BaseClass::updateData(dt);
@@ -89,20 +89,20 @@ void TestStation::reset()
 //------------------------------------------------------------------------------
 void TestStation::stepOwnshipPlayer()
 {
-   mixr::base::IPairStream* pl{getSimulation()->getPlayers()};
+   mixr::base::PairStream* pl{getSimulation()->getPlayers()};
    if (pl != nullptr) {
 
-      mixr::models::IPlayer* f{};
-      mixr::models::IPlayer* n{};
+      mixr::models::Player* f{};
+      mixr::models::Player* n{};
       bool found{};
 
       // Find the next player
-      mixr::base::IList::Item* item{pl->getFirstItem()};
+      mixr::base::List::Item* item{pl->getFirstItem()};
       while (item != nullptr) {
          const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
          if (pair != nullptr) {
-            const auto ip = static_cast<mixr::models::IPlayer*>( pair->object() );
-            if ( ip->isMode(mixr::models::IPlayer::Mode::ACTIVE) &&
+            const auto ip = static_cast<mixr::models::Player*>( pair->object() );
+            if ( ip->isMode(mixr::models::Player::ACTIVE) &&
                ip->isLocalPlayer()
                ) {
                   if (f == nullptr) { f = ip; }  // Remember the first

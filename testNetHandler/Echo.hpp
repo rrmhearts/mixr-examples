@@ -1,6 +1,6 @@
 
-#ifndef __Echo_HPP__
-#define __Echo_HPP__
+#ifndef __Echo_H__
+#define __Echo_H__
 
 #include "Endpoint.hpp"
 

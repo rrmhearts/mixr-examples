@@ -1,8 +1,8 @@
 
-#ifndef __mixr_xbehaviors_PlaneState_HPP__
-#define __mixr_xbehaviors_PlaneState_HPP__
+#ifndef __mixr_xbehaviors_PlaneState_H__
+#define __mixr_xbehaviors_PlaneState_H__
 
-#include "mixr/base/ubf/IState.hpp"
+#include "mixr/base/ubf/AbstractState.hpp"
 #include <array>
 
 namespace mixr {
@@ -15,15 +15,15 @@ namespace xbehaviors {
 //              state has only one missile (or is ok with firing all missiles at
 //              first target)
 //------------------------------------------------------------------------------
-class PlaneState final: public base::ubf::IState
+class PlaneState final: public base::ubf::AbstractState
 {
-   DECLARE_SUBCLASS(PlaneState, base::ubf::IState)
+   DECLARE_SUBCLASS(PlaneState, base::ubf::AbstractState)
 
 public:
    PlaneState();
 
    void reset() final;
-   void updateState(const base::IComponent* const actor) final;
+   void updateState(const base::Component* const actor) final;
 
    // set/get
    void setAlive(const bool x)                 { alive = x; return; }

@@ -1,7 +1,7 @@
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/Timers.hpp"
+#include "mixr/base/PairStream.hpp"
 #include "mixr/base/edl_parser.hpp"
 
 #include "mixr/graphics/Readouts.hpp"
@@ -22,7 +22,6 @@
 // factories
 #include "mixr/base/factory.hpp"
 #include "mixr/graphics/factory.hpp"
-#include "mixr/graphics/fonts/ftgl/factory.hpp"
 #include "mixr/instruments/factory.hpp"
 #include "mixr/ui/glut/factory.hpp"
 #include "mixr/map/vpf/factory.hpp"
@@ -40,14 +39,14 @@ void timerFunc(int)
     const unsigned int millis{static_cast<unsigned int>(dt * 1000)};
     glutTimerFunc(millis, timerFunc, 1);
 
-    base::ITimer::updateTimers( static_cast<double>(dt) );
+    base::Timer::updateTimers( static_cast<double>(dt) );
     graphics::Graphic::flashTimer( static_cast<double>(dt) );
     sys->tcFrame( static_cast<double>(dt) );
 }
 
-base::IObject* factory(const std::string& name)
+base::Object* factory(const std::string& name)
 {
-    base::IObject* obj{};
+    base::Object* obj{};
 
     if ( name == TestDisplay::getFactoryName() ) {
         obj = new TestDisplay;
@@ -56,10 +55,9 @@ base::IObject* factory(const std::string& name)
     if (obj == nullptr) obj = vpf::factory(name);
     if (obj == nullptr) obj = instruments::factory(name);
     if (obj == nullptr) obj = graphics::factory(name);
-    if (obj == nullptr) obj = graphics::ftgl::factory(name);
     if (obj == nullptr) obj = glut::factory(name);
     if (obj == nullptr) obj = base::factory(name);
-
+    
     return obj;
 }
 
@@ -67,7 +65,7 @@ void builder(const std::string& filename)
 {
     // Read the description file
     int num_errors{};
-    base::IObject* obj{base::edl_parser(filename, factory, &num_errors)};
+    base::Object* obj{base::edl_parser(filename, factory, &num_errors)};
     if (num_errors > 0) {
         std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
         std::exit(EXIT_FAILURE);
@@ -99,7 +97,7 @@ void builder(const std::string& filename)
 
 int main(int argc, char* argv[])
 {
-    std::string configFilename{"test.edl"};
+    std::string configFilename = "test.edl";
     builder(configFilename);
 
     glutInit(&argc, argv);

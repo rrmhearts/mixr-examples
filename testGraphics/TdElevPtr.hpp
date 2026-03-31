@@ -1,11 +1,11 @@
 
-#ifndef __TdElevPtr_HPP__
-#define __TdElevPtr_HPP__
+#ifndef __TdElevPtr_H__
+#define __TdElevPtr_H__
 
 #include "mixr/graphics/Graphic.hpp"
 
 namespace mixr {
-namespace base { class INumber; }
+namespace base { class Number; }
 }
 
 //------------------------------------------------------------------------------
@@ -20,11 +20,11 @@ class TdElevPtr final: public mixr::graphics::Graphic
 public:
     TdElevPtr();
 
-    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
     void draw() final;
 
     //event handler macro functions
-    bool onUpdateValue(const mixr::base::INumber* const ouvobj);
+    bool onUpdateValue(const mixr::base::Number* const ouvobj);
 
 private:
     double elev {};

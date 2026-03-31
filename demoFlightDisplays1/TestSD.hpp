@@ -1,9 +1,9 @@
 
-#ifndef __TestSD_HPP__
-#define __TestSD_HPP__
+#ifndef __TestSD_H__
+#define __TestSD_H__
 
 #include "mixr/graphics/Page.hpp"
-#include "mixr/base/qty/util/angle_utils.hpp"
+#include "mixr/base/units/angle_utils.hpp"
 
 //------------------------------------------------------------------------------
 // Class: TestSD
@@ -18,7 +18,7 @@ public:
     TestSD();
 
     void updateData(const double dt = 0.0) final;
-    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
 
     static const int MAX_TRACKS{8};
     static const int MAX_AIRPORTS{8};

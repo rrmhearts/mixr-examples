@@ -1,7 +1,7 @@
 # vs directories
+vs2013/
+vs2015/
 vs2017/
-vs2019/
-vs2022/
 build/obj/
 .vs/
 *.tmp
@@ -13,9 +13,6 @@ build/obj/
 *.txp
 *.txf
 *.tpf
-
-# build/ for now
-build/
 
 # lib directory
 lib/
@@ -117,7 +114,6 @@ testRadar/testRadar
 testRecordData/testRecordData
 testRecordData/*_v*
 testRecorderRead/testRecorderRead
-testRecorderRead/testRecorderRead/*.csv
 testRecorderWrite/testRecorderWrite
 testRecorderWrite/*.bin
 testSlots/testSlots
@@ -126,7 +122,6 @@ testTables/testTables
 testTemplates/testTemplates
 testTimer/testTimer
 testVmap/testVmap
-test/test
 tutorial01/tutorial01
 tutorial02/tutorial02
 tutorial03/tutorial03
@@ -135,3 +130,73 @@ tutorial05/tutorial05
 tutorial06/tutorial06
 tutorial07/tutorial07
 tutorial08/tutorial08
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Linker files
+*.ilk
+
+# Debugger Files
+*.pdb
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+*.so.*
+
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build directories
+build/
+Build/
+build-*/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt 
+compile_commands.json
+
+# Temporary files
+*.tmp 
+*.log 
+*.bak 
+*.swp 
+
+# vcpkg
+vcpkg_installed/
+
+# debug information files
+*.dwo
+
+# test output & cache
+Testing/
+.cache/

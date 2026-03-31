@@ -2,10 +2,10 @@
 ( MyComp
     str: "top text"
     components: {
-      p1: ( MyComp str: "p1 text" )
-      p2: ( MyComp str: "p2 text" )
-      p3: ( MyComp str: "p3 text" )
-      p4: ( MyComp str: "p4 text" )
+      p1: ( MyComp str: "p1 text file0" )
+      p2: ( MyComp str: "p2 text file0" )
+      p3: ( MyComp str: "p3 text file0" )
+      p4: ( MyComp str: "p4 text file0" )
     }
 
    enableTimingStats: true

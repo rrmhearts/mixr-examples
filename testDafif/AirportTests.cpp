@@ -1,31 +1,31 @@
 
 #include "AirportTests.hpp"
 
-#include "mixr/dafif/loaders/AirportLoader.hpp"
+#include "mixr/dafif/AirportLoader.hpp"
+#include "mixr/base/util/str_utils.hpp"
 
-#include <string>
-#include <cstring>
 #include <iostream>
 
 AirportTests::AirportTests(
-               const std::string& country,
-               const std::string& file,
-               const std::string& path)
+               const char* country,
+               const char* file,
+               const char* path)
 {
-   std::string fullname{path + "/" + file};
+   char fullname[512];
+   mixr::base::utStrcpy(fullname, 512, path);
+   mixr::base::utStrcat(fullname, 512, "/");
+   mixr::base::utStrcat(fullname, 512, file);
    db = new mixr::dafif::AirportLoader();
    db->setPathname(path);
    db->setFilename(file);
    std::cout << "Loading airport file: " << fullname << std::endl;
-   std::cout << "For country : " << country << std::endl;
-
    db->load(country);
    std::cout << "Completed: number of records = " << db->numberOfRecords() << std::endl;
 }
 
 AirportTests::~AirportTests()
 {
-   if (db != nullptr) { db->unref(); db = nullptr; }
+   delete db;
 }
 
 void AirportTests::dump()
@@ -48,7 +48,7 @@ void AirportTests::func00R(const double acLat, const double acLon, const double 
    std::cout << "Enter id:";
    std::cin >> id;
 
-   while ( std::strcmp(id, "done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
       int found{db->getNumRunwayRecords(id)};
       std::cout << "Runways = " << found << std::endl;
@@ -67,7 +67,7 @@ void AirportTests::func00I(const double acLat, const double acLon, const double 
    std::cout << "Enter id:";
    std::cin >> id;
 
-   while ( std::strcmp(id, "done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
       int found{db->getNumIlsRecords(id)};
       std::cout << "ILS = " << found << std::endl;
@@ -110,7 +110,7 @@ void AirportTests::func01I(const double acLat, const double acLon, const double 
    std::cout << "Enter id:";
    std::cin >> id;
 
-   while ( std::strcmp(id, "done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
       int num{};
       std::cout << "Enter num:";
@@ -152,7 +152,7 @@ void AirportTests::func01R(const double acLat, const double acLon, const double 
    std::cout << "Enter id:";
    std::cin >> id;
 
-   while ( std::strcmp(id, "done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
       int num{};
       std::cout << "Enter num:";
@@ -191,7 +191,7 @@ void AirportTests::func02(const double acLat, const double acLon, const double a
    std::cout << "Enter id (done to end):";
    std::cin >> id;
 
-   while (std::strcmp(id, "done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
       int found{db->queryByIdent(id)};
       std::cout << "found = " << found << std::endl;
@@ -220,7 +220,7 @@ void AirportTests::func02I(const double acLat, const double acLon, const double 
    std::cout << "Enter id (done to end):";
    std::cin >> id;
 
-   while (std::strcmp(id,"done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
       int found{db->queryIlsByIdent(id)};
       std::cout << "found = " << found << std::endl;
@@ -252,13 +252,13 @@ void AirportTests::func02R(const double acLat, const double acLon, const double 
    std::cout << "Enter id (done to end):";
    std::cin >> id;
 
-   while (std::strcmp(id, "done") != 0) {
+   while ( strcmp(id,"done") != 0) {
 
-      int found{db->queryRunwayByIdent(id)};
+      int found = db->queryRunwayByIdent(id);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Runway* p{db->getRunway(i)};
+         mixr::dafif::Runway* p = db->getRunway(i);
          p->printRecord(std::cout);
 		 if (printData)
 		 {
@@ -486,13 +486,13 @@ void AirportTests::func06(const double acLat, const double acLon, const double a
    std::cout << "Enter key (done to end):";
    std::cin.getline(key,14,'\n');
 
-   while (std::strcmp(key,"done") != 0) {
+   while ( strcmp(key,"done") != 0) {
 
-      int found{db->queryByKey(key)};
+      int found  = db->queryByKey(key);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Airport* p{db->getAirport(i)};
+         mixr::dafif::Airport* p = db->getAirport(i);
          p->printRecord(std::cout);
 		 if (printData)
     		 p->printTrueBearingRange(std::cout, acLat, acLon, acElev);
@@ -514,13 +514,13 @@ void AirportTests::func06I(const double acLat, const double acLon, const double 
    std::cout << "Enter key (done to end):";
    std::cin.getline(key,32,'\n');
 
-   while (std::strcmp(key, "done") != 0) {
+   while ( strcmp(key,"done") != 0) {
 
-      int found{db->queryIlsBySubkey(key)};
+      int found  = db->queryIlsBySubkey(key);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Ils* p{db->getIls(i)};
+         mixr::dafif::Ils* p = db->getIls(i);
          p->printRecord(std::cout);
 		 if (printData)
 		 {
@@ -546,13 +546,13 @@ void AirportTests::func06R(const double acLat, const double acLon, const double 
    std::cout << "Enter key (done to end):";
    std::cin.getline(key,32,'\n');
 
-   while (std::strcmp(key,"done") != 0) {
+   while ( strcmp(key,"done") != 0) {
 
-      int found{db->queryRunwayBySubkey(key)};
+      int found  = db->queryRunwayBySubkey(key);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Runway* p{db->getRunway(i)};
+         mixr::dafif::Runway* p = db->getRunway(i);
          p->printRecord(std::cout);
 		 if (printData)
 		 {
@@ -763,18 +763,18 @@ void AirportTests::func09(const double acLat, const double acLon, const double a
       db->setArea(acLat, acLon, rng);
 
 
-      int found = db->queryByType(mixr::dafif::Airport::Type(type));
+      int found = db->queryByType(mixr::dafif::Airport::AirportType(type));
       std::cout << "found = " << found;
 	  
-	  if (mixr::dafif::Airport::Type(type) == mixr::dafif::Airport::Type::ANY)
+	  if (mixr::dafif::Airport::AirportType(type) == mixr::dafif::Airport::ANY)
 		  std::cout << "  ANY Airports" << std::endl;
-	  else if (mixr::dafif::Airport::Type(type) == mixr::dafif::Airport::Type::CIVIL)
+	  else if (mixr::dafif::Airport::AirportType(type) == mixr::dafif::Airport::CIVIL)
 		  std::cout << "  CIVIL Airports" << std::endl;
-	  else if (mixr::dafif::Airport::Type(type) == mixr::dafif::Airport::Type::JOINT)
+	  else if (mixr::dafif::Airport::AirportType(type) == mixr::dafif::Airport::JOINT)
 		  std::cout << "  JOINT Airports" << std::endl;
-	  else if (mixr::dafif::Airport::Type(type) == mixr::dafif::Airport::Type::MILITARY)
+	  else if (mixr::dafif::Airport::AirportType(type) == mixr::dafif::Airport::MILITARY)
 		  std::cout << "  MILITARY Airports" << std::endl;
-	  else if (mixr::dafif::Airport::Type(type) == mixr::dafif::Airport::Type::INACTIVE)
+	  else if (mixr::dafif::Airport::AirportType(type) == mixr::dafif::Airport::INACTIVE)
 		  std::cout << "  INACTIVE Airports" << std::endl;
 	  else
 		  std::cout << "  UNDEFINED" << std::endl;
@@ -880,13 +880,13 @@ void AirportTests::func0B(const double acLat, const double acLon, const double a
    std::cout << "Enter code:";
    std::cin >> code;
 
-   while ( std::strcmp(code, "done") != 0) {
+   while ( strcmp(code, "done") != 0) {
 
-      int found{db->queryByIcao(code)};
+      int found = db->queryByIcao(code);
       std::cout << "found = " << found << std::endl;
 
       for (int i = 0; i < found; i++) {
-         mixr::dafif::Airport* ap{db->getAirport(i)};
+         mixr::dafif::Airport* ap = db->getAirport(i);
          ap->printRecord(std::cout);
 		 if (printData)
     		 ap->printTrueBearingRange(std::cout, acLat, acLon, acElev);

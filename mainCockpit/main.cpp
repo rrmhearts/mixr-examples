@@ -1,14 +1,12 @@
 
 #include "factory.hpp"
 
+#include "mixr/simulation/Station.hpp"
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/IComponent.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/util/system_utils.hpp"
-
-#include "SimStation.hpp"
 
 #include <cstdlib>
 #include <string>
@@ -17,14 +15,14 @@
 
 // default background frame rate
 const int BG_RATE{10};
-SimStation* station{};
+mixr::simulation::Station* station{};
 
 // station builder
-SimStation* builder(const std::string& filename)
+mixr::simulation::Station* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -45,7 +43,7 @@ SimStation* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   const auto station = dynamic_cast<SimStation*>(obj);
+   const auto station = dynamic_cast<mixr::simulation::Station*>(obj);
    if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -78,9 +76,9 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"test1.edl"};
+   std::string configFilename = "test1.edl";
    // parse arguments
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -90,7 +88,7 @@ int main(int argc, char* argv[])
    station = builder(configFilename);
 
    // reset the simulation
-   station->event(mixr::base::IComponent::RESET_EVENT);
+   station->event(mixr::base::Component::RESET_EVENT);
 
    // set timer for the background tasks
    const double dt{1.0 / static_cast<double>(BG_RATE)};

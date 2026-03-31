@@ -1,6 +1,6 @@
 
-#ifndef __TestEngPage_HPP__
-#define __TestEngPage_HPP__
+#ifndef __TestEngPage_H__
+#define __TestEngPage_H__
 
 #include "mixr/graphics/Page.hpp"
 #include "mixr/instruments/engines/EngPage.hpp"

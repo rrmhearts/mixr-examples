@@ -1,7 +1,7 @@
 
 #include "factory.hpp"
 
-#include "mixr/base/IObject.hpp"
+#include "mixr/base/Object.hpp"
 
 #include "Display.hpp"
 #include "RealBeamRadar.hpp"
@@ -10,7 +10,6 @@
 // factories
 #include "mixr/simulation/factory.hpp"
 #include "mixr/models/factory.hpp"
-#include "mixr/models/dynamics/jsbsim/factory.hpp"
 #include "mixr/terrain/factory.hpp"
 #include "mixr/graphics/factory.hpp"
 #include "mixr/ui/glut/factory.hpp"
@@ -18,9 +17,9 @@
 
 #include <string>
 
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-    mixr::base::IObject* obj{};
+    mixr::base::Object* obj{};
 
     if ( name == Display::getFactoryName() ) {
         obj = new Display();
@@ -34,7 +33,6 @@ mixr::base::IObject* factory(const std::string& name)
 
     if (obj == nullptr) obj = mixr::simulation::factory(name);
     if (obj == nullptr) obj = mixr::models::factory(name);
-    if (obj == nullptr) obj = mixr::models::jsbsim::factory(name);
     if (obj == nullptr) obj = mixr::terrain::factory(name);
     if (obj == nullptr) obj = mixr::graphics::factory(name);
     if (obj == nullptr) obj = mixr::glut::factory(name);

@@ -1,8 +1,6 @@
 
-#ifndef __NavaidTests_HPP__
-#define __NavaidTests_HPP__
-
-#include <string>
+#ifndef __NavaidTests_H__
+#define __NavaidTests_H__
 
 namespace mixr {
 namespace dafif { class NavaidLoader; } 
@@ -12,9 +10,9 @@ class NavaidTests final
 {
 public:
    NavaidTests(
-      const std::string& country,
-      const std::string& file = "FILE2",
-      const std::string& path = "../../mixr-data/DAFIF/FULLALL/"
+      const char* country,
+      const char* file = "FILE2",
+      const char* path = "../../mixr-data/DAFIF/FULLALL/"
    );
    ~NavaidTests();
 

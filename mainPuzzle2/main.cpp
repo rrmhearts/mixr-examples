@@ -4,7 +4,7 @@
 
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
 #include <iostream>
@@ -32,7 +32,7 @@ void timerCB(int)
    const double dt{time - time0};
    time0 = time;
 
-   mixr::base::ITimer::updateTimers(static_cast<double>(dt));
+   mixr::base::Timer::updateTimers(static_cast<double>(dt));
    mixr::graphics::Graphic::flashTimer(static_cast<double>(dt));
    board->tcFrame(dt);
 }
@@ -42,7 +42,7 @@ PuzzleBoard* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"puzzle.edl"};
+   std::string configFilename = "puzzle.edl";
 
    board = builder(configFilename);
 

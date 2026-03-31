@@ -1,6 +1,6 @@
 
-#ifndef __TestHsi_HPP__
-#define __TestHsi_HPP__
+#ifndef __TestHsi_H__
+#define __TestHsi_H__
 
 #include "mixr/graphics/Page.hpp"
 

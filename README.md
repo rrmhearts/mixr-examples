@@ -2,13 +2,13 @@
 Mixed Reality Simulation Platform (MIXR) Examples
 =================================================
 
-The most current version of the mixed reality simulation platform can be found at [www.mixr-platform.org][mixr].
+The most current version of the mixed reality simulation platform can be found at [www.mixr-platform.org][mixr]. This repository is 18.01 for learning and notes.
 
 Notes
 -----
 
 *  Use make-edl.cmd to generate the example *.edl files under windows, and
-   use 'make edl' to generate the *.edl files under Linux.
+   use 'make edl' to generate the *.edl files under linux.
 
 
 Demonstration Applications
@@ -38,7 +38,7 @@ Example Applications
 
 * mainIGViewer -- simple image generator
 
-* mainLaero -- demonstrates flight navigation
+* mainLaero -- demostrates flight navigation
 
 * mainNonRT1 -- executes a simulation as fast as possible (not real-time, no concern about wall clock)
 
@@ -46,7 +46,7 @@ Example Applications
 
 * mainPuzzle2 -- puzzle problem solver (15 block puzzle)
 
-* mainSim1 -- presents the simplest full-featured simulation that can be built with and only with MIXR classes.
+* mainSim1 -- presents the simpest full-featured simulation that can be built with and only with MIXR classes.
 
 * mainSim2 -- same as mainSim1 except the vehicle can be flown with a joystick and supports the JSBSim model
 
@@ -66,11 +66,11 @@ Example GUI Applications
 Test Applications
 -----------------
 
-* testDafif -- tests DAFIF library capabilities
+* testDafif -- exercises DAFIF library capabilities
 
-* testEvents -- tests Component class send() methods
+* testEvents -- exercises Component class send() methods
 
-* testGraphics -- tests graphic class available in 'graphics' library
+* testGraphics -- exercises graphic class available in 'graphics' library
     1. Contains several test MFD pages with common background graphics
     2. Use 'n' and 'p' (next and previous) to move between pages
     3. OpenGL selection test: use cursor and left mouse button to select a graphic item.  The selected item will flash.
@@ -78,13 +78,13 @@ Test Applications
 
 * testInfrared -- general IR test program
 
-* testLinkage -- tests linkage architecture that interfaces applications to physical I/O devices
+* testLinkage -- exercises linkage architecture that interfaces applications to physical I/O devices
 
 * testLinearSys
 
-* testMatrix -- tests Matrix class functionality
+* testMatrix -- exercies Matrix class functionality
 
-* testMetaObject -- tests meta-object functionality
+* testMetaObject -- exercises meta-object functionality
 
 * testNavUtils -- extensive set of navigation test routines
 
@@ -108,7 +108,7 @@ Test Applications
 
 * testTimer -- tests the functionality of the Timer class.
 
-* test  -- tests base and graphics library functionalities
+* testUnits  -- temporary location for misc docs for how unit conversions were tested
 
 Tutorial applications:
 --------------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 
-#ifndef __TestCas_HPP__
-#define __TestCas_HPP__
+#ifndef __TestCas_H__
+#define __TestCas_H__
 
 #include "mixr/graphics/Page.hpp"
 

@@ -7,8 +7,9 @@
 #include "mixr/base/numeric/Boolean.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/units/Angles.hpp"
+#include "mixr/base/Timers.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
@@ -21,7 +22,7 @@ END_SLOTTABLE(TestStation)
 
 BEGIN_SLOT_MAP(TestStation)
     ON_SLOT(1, setSlotGlutDisplay, mixr::glut::GlutDisplay)
-    ON_SLOT(2, setSlotMapDisplay,  mixr::glut::GlutDisplay)
+    ON_SLOT(2, setSlotMapDisplay, mixr::glut::GlutDisplay)
 END_SLOT_MAP()
 
 TestStation::TestStation()
@@ -48,7 +49,7 @@ void TestStation::deleteData()
 void TestStation::updateTC(const double dt)
 {
    // manage the timers
-   mixr::base::ITimer::updateTimers(dt);
+   mixr::base::Timer::updateTimers(dt);
    mixr::graphics::Graphic::flashTimer(dt);
 
    if (glutDisplay != nullptr) glutDisplay->updateTC(dt);

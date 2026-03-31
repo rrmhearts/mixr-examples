@@ -1,6 +1,6 @@
 
-#ifndef __TestLandingGear_HPP__
-#define __TestLandingGear_HPP__
+#ifndef __TestLandingGear_H__
+#define __TestLandingGear_H__
 
 #include "mixr/graphics/Page.hpp"
 
@@ -16,7 +16,7 @@ class TestLandingGear final: public mixr::graphics::Page
 public:
    TestLandingGear();
 
-   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+   bool event(const int event, mixr::base::Object* const obj = nullptr) final;
    void updateData(const double dt = 0.0) final;
 
 private:

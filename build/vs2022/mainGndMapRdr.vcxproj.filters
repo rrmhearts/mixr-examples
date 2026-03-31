@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mainGndMapRdr\Display.hpp" />
+    <ClInclude Include="..\..\mainGndMapRdr\RealBeamRadar.hpp" />
+    <ClInclude Include="..\..\mainGndMapRdr\TestStation.hpp" />
+    <ClInclude Include="..\..\mainGndMapRdr\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\mainGndMapRdr\Display.cpp" />
+    <ClCompile Include="..\..\mainGndMapRdr\RealBeamRadar.cpp" />
+    <ClCompile Include="..\..\mainGndMapRdr\TestStation.cpp" />
+    <ClCompile Include="..\..\mainGndMapRdr\factory.cpp" />
+    <ClCompile Include="..\..\mainGndMapRdr\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\mainGndMapRdr\configs\displays.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainGndMapRdr\configs\dted.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainGndMapRdr\configs\scenario.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainGndMapRdr\configs\srtm.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainGndMapRdr\configs\test.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

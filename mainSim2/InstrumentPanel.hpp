@@ -1,12 +1,12 @@
 
-#ifndef __InstrumentPanel_HPP__
-#define __InstrumentPanel_HPP__
+#ifndef __InstrumentPanel_H__
+#define __InstrumentPanel_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
 
 namespace mixr {
-namespace models { class IPlayer; }
-namespace simulation { class ISimulation; class IStation; }
+namespace models { class Player; }
+namespace simulation { class Simulation; class Station; }
 }
 class DedDisplay;
 class MfdDisplay;
@@ -28,11 +28,11 @@ class InstrumentPanel final: public mixr::glut::GlutDisplay
 public:
    InstrumentPanel();
 
-   mixr::models::IPlayer* getOwnship();
-   mixr::simulation::ISimulation* getSimulation();
-   mixr::simulation::IStation* getStation();
+   mixr::models::Player* getOwnship();
+   mixr::simulation::Simulation* getSimulation();
+   mixr::simulation::Station* getStation();
 
-   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+   bool event(const int event, mixr::base::Object* const obj = nullptr) final;
    void updateData(const double dt = 0.0) final;
 
 protected:
@@ -42,7 +42,7 @@ protected:
    bool onStepOwnshipKey();
 
 private:
-   mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+   mixr::base::safe_ptr<mixr::simulation::Station> myStation;
 
    // ALT Stuff
    double altitude{};         // our current altitude

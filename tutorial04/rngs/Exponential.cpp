@@ -2,7 +2,9 @@
 #include <iostream>
 
 #include "Exponential.hpp"
-#include "mixr/base/numeric/INumber.hpp"
+#include "mixr/base/numeric/Number.hpp"
+
+using mixr::base::Number;
 
 IMPLEMENT_SUBCLASS(Exponential,"Exponential")
 EMPTY_DELETEDATA(Exponential)
@@ -13,7 +15,7 @@ BEGIN_SLOTTABLE(Exponential)
 END_SLOTTABLE(Exponential)
 //  map slot table to handles
 BEGIN_SLOT_MAP(Exponential)
-   ON_SLOT(1, setSlotMean, mixr::base::INumber)
+   ON_SLOT(1, setSlotMean, Number)
 END_SLOT_MAP()
 
 Exponential::Exponential()
@@ -33,11 +35,11 @@ double Exponential::num()
    return dist(engine);
 }
 
-bool Exponential::setSlotMean(const mixr::base::INumber* const x)
+bool Exponential::setSlotMean(const Number* const x)
 {
-   bool ok{};
+   bool ok = false;
    if (x != nullptr)
-      ok = setMean(x->asDouble());
+      ok = setMean(x->getDouble());
    return ok;
 }
 

@@ -7,10 +7,9 @@ OBJS =	DspRadar.o DspRwr.o TdAzPtr.o TdElevPtr.o \
 	TestDisplay.o TestStation.o factory.o main.o
 
 LDFLAGS += -lmixr_interop_dis -lmixr_interop
-LDFLAGS += -lmixr_models_jsbsim -lmixr_models -lJSBSim
+LDFLAGS += -lmixr_models -lJSBSim
 LDFLAGS += -lmixr_simulation
-LDFLAGS += -lmixr_ui_glut
-LDFLAGS += -lmixr_instruments -lmixr_graphics -lmixr_graphics_ftgl
+LDFLAGS += -lmixr_ui_glut -lmixr_instruments -lmixr_graphics
 LDFLAGS += -lmixr_linkage -lmixr_terrain
 LDFLAGS += -lmixr_base
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
@@ -30,7 +29,6 @@ edl:
 	cpp configs/test3b.epp >test3b.edl   $(EPPFLAGS)
 	cpp configs/test4a.epp >test4a.edl   $(EPPFLAGS)
 	cpp configs/test4b.epp >test4b.edl   $(EPPFLAGS)
-	cpp configs/test4c.epp >test4c.edl   $(EPPFLAGS)
 
 $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)

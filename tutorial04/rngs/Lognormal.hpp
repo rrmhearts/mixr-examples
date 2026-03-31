@@ -1,13 +1,13 @@
 
-#ifndef __Lognormal_HPP__
-#define __Lognormal_HPP__
+#ifndef __Lognormal_H__
+#define __Lognormal_H__
 
 #include "AbstractRng.hpp"
 
 namespace mixr {
-  namespace base { class INumber; }
+  namespace base { class Number; }
 }
-
+  
 //------------------------------------------------------------------------------
 // Lognormal - this class returns a random variate from the lognormal distribution.
 // Input parameters:
@@ -23,7 +23,7 @@ public:
    Lognormal();
 
    double num() final;
-
+  
    bool setMean(const double x)       { mean = x; return true; }
    double getMean() const             { return mean; }
 
@@ -36,8 +36,8 @@ private:
 
 private:
    // slot table helper methods
-   bool setSlotMean(const mixr::base::INumber* const);
-   bool setSlotStdDev(const mixr::base::INumber* const);
+   bool setSlotMean(const mixr::base::Number* const);
+   bool setSlotStdDev(const mixr::base::Number* const);
 };
 
 #endif

@@ -3,7 +3,7 @@
 // ---
 
 xx:
-( Page
+( MfdPage
     pagingEvent: {
         n: yy
         p: materials

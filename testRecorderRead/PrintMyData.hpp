@@ -1,8 +1,8 @@
 
-#ifndef __PrintMyData_HPP__
-#define __PrintMyData_HPP__
+#ifndef __PrintMyData_H__
+#define __PrintMyData_H__
 
-#include "mixr/recorder/protobuf_v2/PrintHandler.hpp"
+#include "mixr/recorder/PrintHandler.hpp"
 
 //------------------------------------------------------------------------------
 // Class: PrintMyData
@@ -10,15 +10,15 @@
 //
 // Factory name: PrintMyData
 //------------------------------------------------------------------------------
-class PrintMyData final: public mixr::recorder::protobuf_v2::PrintHandler
+class PrintMyData final: public mixr::recorder::PrintHandler
 {
-   DECLARE_SUBCLASS(PrintMyData, mixr::recorder::protobuf_v2::PrintHandler)
+   DECLARE_SUBCLASS(PrintMyData, mixr::recorder::PrintHandler)
 
 public:
    PrintMyData();
 
 protected:
-   void processRecordImp(const mixr::recorder::protobuf_v2::DataRecordHandle* const handle) final;
+   void processRecordImp(const mixr::recorder::DataRecordHandle* const handle) final;
 };
 
 #endif

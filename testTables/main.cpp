@@ -13,11 +13,11 @@
 //
 //-----------------------------------------------------------------------------
 
-#include "mixr/base/relations/IFStorage.hpp"
-#include "mixr/base/relations/Table1.hpp"
-#include "mixr/base/relations/Table2.hpp"
-#include "mixr/base/relations/Table3.hpp"
-#include "mixr/base/relations/Table4.hpp"
+#include "mixr/base/functors/FStorage.hpp"
+#include "mixr/base/functors/Table1.hpp"
+#include "mixr/base/functors/Table2.hpp"
+#include "mixr/base/functors/Table3.hpp"
+#include "mixr/base/functors/Table4.hpp"
 
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/edl_parser.hpp"
@@ -31,11 +31,11 @@
 const int TIMING_LOOPS{10000};
 
 // table builder
-mixr::base::ITable* builder(const std::string& filename)
+mixr::base::Table* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, mixr::base::factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, mixr::base::factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -56,7 +56,7 @@ mixr::base::ITable* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   const auto table = dynamic_cast<mixr::base::ITable*>(obj);
+   const auto table = dynamic_cast<mixr::base::Table*>(obj);
    if (table == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -71,7 +71,7 @@ unsigned int testIt(const mixr::base::Table1* const tbl, const bool tflg, const 
 {
    int cnt{};
 
-   mixr::base::IFStorage* s{};
+   mixr::base::FStorage* s{};
    if (sflg) s = tbl->storageFactory();
 
    const double maxX{tbl->getMaxX()};
@@ -109,7 +109,7 @@ unsigned int testIt(const mixr::base::Table2* const tbl, const bool tflg, const 
 {
    int cnt{};
 
-   mixr::base::IFStorage* s{};
+   mixr::base::FStorage* s{};
    if (sflg) s = tbl->storageFactory();
 
    double maxY{tbl->getMaxY()};
@@ -158,7 +158,7 @@ unsigned int testIt(const mixr::base::Table3* const tbl, const bool tflg, const 
 {
    int cnt{};
 
-   mixr::base::IFStorage* s{};
+   mixr::base::FStorage* s{};
    if (sflg) s = tbl->storageFactory();
 
    // Setup Z
@@ -222,7 +222,7 @@ unsigned int testIt(const mixr::base::Table4* const tbl, const bool tflg, const 
 {
    int cnt{};
 
-   mixr::base::IFStorage* s{};
+   mixr::base::FStorage* s{};
    if (sflg) s = tbl->storageFactory();
 
    // Setup W
@@ -306,10 +306,10 @@ int main(int argc, char* argv[])
    bool tflg{};   // Timing flag
 
    // default configuration filename
-   std::string configFilename{"test1.edl"};
+   std::string configFilename = "test1.edl";
 
    // Parse arguments
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       } else if ( std::string(argv[i]) == "-a") {
@@ -324,7 +324,7 @@ int main(int argc, char* argv[])
    }
 
    // build table
-   const mixr::base::ITable* table{builder(configFilename)};
+   const mixr::base::Table* table{builder(configFilename)};
 
    // ---
    // Serialize the table to the output stream

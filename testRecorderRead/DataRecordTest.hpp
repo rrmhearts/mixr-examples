@@ -1,22 +1,19 @@
 
-#ifndef __DataRecordTest_HPP__
-#define __DataRecordTest_HPP__
+#ifndef __DataRecordTest_H__
+#define __DataRecordTest_H__
 
-#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Component.hpp"
 
 namespace mixr {
-namespace recorder {
-namespace protobuf_v2 {
-   class IInputHandler; class OutputHandler; }
-}
+namespace recorder { class InputHandler; class OutputHandler; }
 }
 
 //------------------------------------------------------------------------------
 // Class: DataRecordTest
 //------------------------------------------------------------------------------
-class DataRecordTest final: public mixr::base::IComponent
+class DataRecordTest final: public mixr::base::Component
 {
-   DECLARE_SUBCLASS(DataRecordTest, mixr::base::IComponent)
+   DECLARE_SUBCLASS(DataRecordTest, mixr::base::Component)
 
 public:
    DataRecordTest();
@@ -25,13 +22,13 @@ public:
    void runTest();
 
 private:
-   mixr::base::safe_ptr<mixr::recorder::protobuf_v2::IInputHandler> inputHandler;
-   mixr::base::safe_ptr<mixr::recorder::protobuf_v2::OutputHandler> outputHandler;
+   mixr::base::safe_ptr<mixr::recorder::InputHandler> inputHandler;
+   mixr::base::safe_ptr<mixr::recorder::OutputHandler> outputHandler;
 
 private:
    // slot table helper methods
-   bool setSlotInputHandler(mixr::recorder::protobuf_v2::IInputHandler* const);
-   bool setSlotOutputHandler(mixr::recorder::protobuf_v2::OutputHandler* const);
+   bool setSlotInputHandler(mixr::recorder::InputHandler* const);
+   bool setSlotOutputHandler(mixr::recorder::OutputHandler* const);
 };
 
 #endif

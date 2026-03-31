@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D86E703B-C43B-CB46-ED54-B9EED98000D5}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>mainUbf1</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\mainUbf1\</OutDir>
+    <IntDir>obj\Release\mainUbf1\</IntDir>
+    <TargetName>mainUbf1</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\mainUbf1\</OutDir>
+    <IntDir>obj\Debug\mainUbf1\</IntDir>
+    <TargetName>mainUbf1_d</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;..\..\shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <AdditionalOptions>/Oi /Ot %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>mixr_models.lib;JSBSim.lib;mixr_ighost_cigi.lib;mixr_ighost_pov.lib;ccl_lib.lib;mixr_interop_dis.lib;mixr_interop.lib;mixr_simulation.lib;mixr_terrain.lib;mixr_ui_glut.lib;mixr_instruments.lib;mixr_graphics.lib;mixr_base.lib;ftgl.lib;freetype2.lib;freeglut.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;..\..\shared;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/Oi %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>mixr_models_d.lib;JSBSim_d.lib;mixr_ighost_cigi_d.lib;mixr_ighost_pov_d.lib;ccl_lib_d.lib;mixr_interop_dis_d.lib;mixr_interop_d.lib;mixr_simulation_d.lib;mixr_terrain_d.lib;mixr_ui_glut_d.lib;mixr_instruments_d.lib;mixr_graphics_d.lib;mixr_base_d.lib;ftgl_d.lib;freetype2_d.lib;freeglut_d.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mainUbf1\SimStation.hpp" />
+    <ClInclude Include="..\..\mainUbf1\TestDisplay.hpp" />
+    <ClInclude Include="..\..\mainUbf1\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\mainUbf1\SimStation.cpp" />
+    <ClCompile Include="..\..\mainUbf1\TestDisplay.cpp" />
+    <ClCompile Include="..\..\mainUbf1\factory.cpp" />
+    <ClCompile Include="..\..\mainUbf1\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\mainUbf1\configs\ighosts\cigi.epp" />
+    <None Include="..\..\mainUbf1\configs\ighosts\cigi2.epp" />
+    <None Include="..\..\mainUbf1\configs\interop\dis.epp" />
+    <None Include="..\..\mainUbf1\configs\players\parts\agents.epp" />
+    <None Include="..\..\mainUbf1\configs\players\parts\dynamics.epp" />
+    <None Include="..\..\mainUbf1\configs\players\parts\missiles.epp" />
+    <None Include="..\..\mainUbf1\configs\players\parts\patterns.epp" />
+    <None Include="..\..\mainUbf1\configs\players\player01.epp" />
+    <None Include="..\..\mainUbf1\configs\players\player02.epp" />
+    <None Include="..\..\mainUbf1\configs\players\player03.epp" />
+    <None Include="..\..\mainUbf1\configs\test00.epp" />
+    <None Include="..\..\mainUbf1\configs\test10.epp" />
+    <None Include="..\..\mainUbf1\configs\test20.epp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libxbehaviors.vcxproj">
+      <Project>{D72772ED-43E8-ED23-0C23-37A178A23200}</Project>
+    </ProjectReference>
+    <ProjectReference Include="libxpanel.vcxproj">
+      <Project>{449F7495-B009-290C-F947-DAB165F10661}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

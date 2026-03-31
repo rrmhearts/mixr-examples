@@ -1,5 +1,3 @@
-# Slots
-
 This code is part of a **Domain Specific Language (DSL)** written using C++ macros, likely from the **OpenEaagles** or **Mixr** simulation frameworks. Its purpose is to map string-based configuration attributes (from a file) to specific setter functions in your C++ classes.
 
 Think of it as a "switchboard" that connects data coming in from a configuration file to the correct internal variables.
@@ -42,7 +40,7 @@ When your config file says `speed: 50`:
 ---
 
 ### Why is `ON_SLOT(2, ...)` there twice?
-Youï¿½ll notice in your example:
+You’ll notice in your example:
 ```cpp
 ON_SLOT(2, setSlotAngle, mixr::base::Angle)
 ON_SLOT(2, setSlotAngle, mixr::base::Number)

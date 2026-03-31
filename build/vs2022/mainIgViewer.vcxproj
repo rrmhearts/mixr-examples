@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2C8CE595-18EF-743A-C174-ADF0ADB640BD}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>mainIgViewer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\mainIgViewer\</OutDir>
+    <IntDir>obj\Release\mainIgViewer\</IntDir>
+    <TargetName>mainIgViewer</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\mainIgViewer\</OutDir>
+    <IntDir>obj\Debug\mainIgViewer\</IntDir>
+    <TargetName>mainIgViewer_d</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;NDEBUG;OSG_LIBRARY_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <AdditionalOptions>/Oi /Ot %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>mixr_models.lib;mixr_simulation.lib;JSBSim.lib;mixr_terrain.lib;mixr_ighost_cigi.lib;mixr_ighost_pov.lib;ccl_lib.lib;mixr_ui_glut.lib;mixr_instruments.lib;mixr_graphics.lib;mixr_base.lib;osgdb_txp.lib;osg131-osg.lib;osg131-osgAnimation.lib;osg131-osgDB.lib;osg131-osgFX.lib;osg131-osgGA.lib;osg131-osgManipulator.lib;osg131-osgParticle.lib;osg131-osgPresentation.lib;osg131-osgShadow.lib;osg131-osgSim.lib;osg131-osgTerrain.lib;osg131-osgText.lib;osg131-osgUI.lib;osg131-osgUtil.lib;osg131-osgViewer.lib;osg131-osgVolume.lib;osg131-osgWidget.lib;ot20-OpenThreads.lib;ftgl.lib;freetype2.lib;freeglut.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;..\..\..\mixr-3rdparty\lib\vs2017-32\osgPlugins-3.4.1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;_DEBUG;OSG_LIBRARY_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/Oi %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>mixr_models_d.lib;mixr_simulation_d.lib;JSBSim_d.lib;mixr_terrain_d.lib;mixr_ighost_cigi_d.lib;mixr_ighost_pov_d.lib;ccl_lib.lib;mixr_ui_glut_d.lib;mixr_instruments_d.lib;mixr_graphics_d.lib;mixr_base_d.lib;osgdb_txpd.lib;osg131-osgd.lib;osg131-osgAnimationd.lib;osg131-osgDBd.lib;osg131-osgFXd.lib;osg131-osgGAd.lib;osg131-osgManipulatord.lib;osg131-osgParticled.lib;osg131-osgPresentationd.lib;osg131-osgShadowd.lib;osg131-osgSimd.lib;osg131-osgTerraind.lib;osg131-osgTextd.lib;osg131-osgUId.lib;osg131-osgUtild.lib;osg131-osgViewerd.lib;osg131-osgVolumed.lib;osg131-osgWidgetd.lib;ot20-OpenThreadsd.lib;ftgl_d.lib;freetype2_d.lib;freeglut_d.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;..\..\..\mixr-3rdparty\lib\vs2017-32\osgPlugins-3.4.1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mainIgViewer\SimStation.hpp" />
+    <ClInclude Include="..\..\mainIgViewer\SimpleIGen.hpp" />
+    <ClInclude Include="..\..\mainIgViewer\events.hpp" />
+    <ClInclude Include="..\..\mainIgViewer\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\mainIgViewer\SimStation.cpp" />
+    <ClCompile Include="..\..\mainIgViewer\SimpleIGen.cpp" />
+    <ClCompile Include="..\..\mainIgViewer\factory.cpp" />
+    <ClCompile Include="..\..\mainIgViewer\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\mainIgViewer\configs\test.epp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

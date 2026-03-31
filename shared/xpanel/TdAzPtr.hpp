@@ -1,11 +1,11 @@
 
-#ifndef __mixr_xpanel_TdAzPtr_HPP__
-#define __mixr_xpanel_TdAzPtr_HPP__
+#ifndef __mixr_xpanel_TdAzPtr_H__
+#define __mixr_xpanel_TdAzPtr_H__
 
 #include "mixr/graphics/Graphic.hpp"
 
 namespace mixr {
-namespace base { class INumber; }
+namespace base { class Number; }
 namespace xpanel {
 
 //------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ namespace xpanel {
 //
 // Factory name: TdAzPtr
 // Events:
-//    UPDATE_VALUE  <INumber>  ! azimuth angle (degs)
+//    UPDATE_VALUE  <Number>  ! azimuth angle (degs)
 //------------------------------------------------------------------------------
 class TdAzPtr final: public graphics::Graphic
 {
@@ -34,10 +34,10 @@ public:
    bool setAzimuth(const double);   // degs
 
    void draw() final;
-   bool event(const int event, base::IObject* const obj = nullptr) final;
+   bool event(const int event, base::Object* const obj = nullptr) final;
 
 private:
-   bool onUpdateValue(const base::INumber* const msg);
+   bool onUpdateValue(const base::Number* const msg);
 
    double azimuth{};  // (degs)
 };

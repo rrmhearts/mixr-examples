@@ -1,13 +1,15 @@
-
+/*
+	Define object in edl file, load it into an object and print it to the console.
+*/
 #include <iostream>
 #include <string>
 #include <cstdlib>
 #include <memory>
 
-#include "mixr/base/colors/IColor.hpp"
+#include "mixr/base/colors/Color.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/PairStream.hpp"
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/base/String.hpp"
 
@@ -17,9 +19,9 @@
 #include "MyObj.hpp"
 
 // our class factory
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-   mixr::base::IObject* obj{};
+   mixr::base::Object* obj{};
 
    // look in application's classes
    if ( name == MyObj::getFactoryName() ) {
@@ -35,7 +37,7 @@ MyObj* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -67,7 +69,7 @@ MyObj* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   std::string configFilename{"file0.edl"};
+   std::string configFilename = "file0.edl";
 
    // build my object
    MyObj* myObj{builder(configFilename)};

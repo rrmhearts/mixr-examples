@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\demoFlightDisplays1\CrsPntr.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\Hsi.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\Pfd.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\RdrAlt.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\SituationalDisplay.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\SpdLines.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\TerrainFollower.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\TestPfd.hpp" />
+    <ClInclude Include="..\..\demoFlightDisplays1\TestSD.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\demoFlightDisplays1\CrsPntr.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\Hsi.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\Pfd.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\RdrAlt.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\SituationalDisplay.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\SpdLines.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\TerrainFollower.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\TestPfd.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\TestSD.cpp" />
+    <ClCompile Include="..\..\demoFlightDisplays1\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\demoFlightDisplays1\configs\adi.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\airspdtape.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\alttape.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\hsi.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\pfd.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\pitchtape.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\situationalDisplay.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\test.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\testpfd.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoFlightDisplays1\configs\testsd.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

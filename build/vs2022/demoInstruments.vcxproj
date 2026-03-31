@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{76F05C4C-E27B-CA10-EB8C-4D0557972611}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>demoInstruments</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\demoInstruments\</OutDir>
+    <IntDir>obj\Release\demoInstruments\</IntDir>
+    <TargetName>demoInstruments</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\demoInstruments\</OutDir>
+    <IntDir>obj\Debug\demoInstruments\</IntDir>
+    <TargetName>demoInstruments_d</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <AdditionalOptions>/Oi /Ot %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>mixr_ui_glut.lib;mixr_instruments.lib;mixr_graphics.lib;mixr_base.lib;ftgl.lib;freetype2.lib;freeglut.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/Oi %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>mixr_ui_glut_d.lib;mixr_instruments_d.lib;mixr_graphics_d.lib;mixr_base_d.lib;ftgl_d.lib;freetype2_d.lib;freeglut_d.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestAdi.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestAdi2.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestAlt.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestButtons.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestCas.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestCompass.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestDigitalGauge.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestEngPage.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestEngineDial.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestFtitDial.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestGMeterDial.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestGauge1.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestHsi.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestLandingGear.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestNozzle.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestOilPressure.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestRpmDial.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestSpeedBrake.hpp" />
+    <ClInclude Include="..\..\demoInstruments\test_pages\TestVVI.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\demoInstruments\main.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestAdi.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestAdi2.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestAlt.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestButtons.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestCas.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestCompass.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestDigitalGauge.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestEngPage.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestEngineDial.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestFtitDial.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestGMeterDial.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestGauge1.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestHsi.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestLandingGear.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestNozzle.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestOilPressure.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestRpmDial.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestSpeedBrake.cpp" />
+    <ClCompile Include="..\..\demoInstruments\test_pages\TestVVI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\demoInstruments\configs\testAoAIndexer.epp" />
+    <None Include="..\..\demoInstruments\configs\testadi.epp" />
+    <None Include="..\..\demoInstruments\configs\testadi2.epp" />
+    <None Include="..\..\demoInstruments\configs\testalt.epp" />
+    <None Include="..\..\demoInstruments\configs\testbuttons.epp" />
+    <None Include="..\..\demoInstruments\configs\testcas.epp" />
+    <None Include="..\..\demoInstruments\configs\testcompass.epp" />
+    <None Include="..\..\demoInstruments\configs\testeng.epp" />
+    <None Include="..\..\demoInstruments\configs\testenginedial.epp" />
+    <None Include="..\..\demoInstruments\configs\testftitdial.epp" />
+    <None Include="..\..\demoInstruments\configs\testgauge1.epp" />
+    <None Include="..\..\demoInstruments\configs\testgmeterdial.epp" />
+    <None Include="..\..\demoInstruments\configs\testhsi.epp" />
+    <None Include="..\..\demoInstruments\configs\testinstruments.epp" />
+    <None Include="..\..\demoInstruments\configs\testlandinggear.epp" />
+    <None Include="..\..\demoInstruments\configs\testnozzle.epp" />
+    <None Include="..\..\demoInstruments\configs\testoilpressure.epp" />
+    <None Include="..\..\demoInstruments\configs\testrpmdial.epp" />
+    <None Include="..\..\demoInstruments\configs\testspeedbrake.epp" />
+    <None Include="..\..\demoInstruments\configs\testvvi.epp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

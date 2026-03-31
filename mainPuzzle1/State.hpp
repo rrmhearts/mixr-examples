@@ -1,13 +1,13 @@
 
-#ifndef __State_HPP__
-#define __State_HPP__
+#ifndef __State_H__
+#define __State_H__
 
-#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Component.hpp"
 
 #include <array>
 
 namespace mixr {
-namespace base { class IPairStream; }
+namespace base { class PairStream; }
 }
 
 class Block;
@@ -18,9 +18,9 @@ class Controller;
 //
 // Description:  Puzzle state vector
 //------------------------------------------------------------------------------
-class State final: public mixr::base::IComponent
+class State final: public mixr::base::Component
 {
-    DECLARE_SUBCLASS(State, mixr::base::IComponent)
+    DECLARE_SUBCLASS(State, mixr::base::Component)
 
 public:
    static const int MAX_BLOCKS{30};         // Max number of blocks in each state
@@ -67,7 +67,7 @@ private:
 
 private:
    // slot table helper methods
-   bool setSlotBlocks(const mixr::base::IPairStream* const);
+   bool setSlotBlocks(const mixr::base::PairStream* const);
 };
 
 #endif

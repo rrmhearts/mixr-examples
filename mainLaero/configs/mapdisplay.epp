@@ -16,7 +16,7 @@
 
    clearDepth: 20.0
    clearColor: ( rgb 0.321 0.321 0.321 )
-
+    
    normalFont: normal
 
    fonts: {
@@ -73,7 +73,7 @@
             //orbitCircle:
             //( Circle
             //   color: red
-            //   filled: true
+            //   filled: 1
             //   slices: 72
             //)
             //anchorArc:
@@ -193,7 +193,7 @@
                            color: white
                            transform: ( Translation -0.5 -0.5 )
                            text: "XXXXXX"
-                        )
+                        )                                
                      }
                   )
                }
@@ -202,7 +202,7 @@
             // symbol loader for route points
             routeLoader:
             ( SymbolLoader
-               interconnect: true
+               interconnect: 1
                templates: {
                   //----------------------------------------
                   // Steerpoint
@@ -211,7 +211,7 @@
                      components: {
                         symbol:
                         ( Circle
-                           filled: true
+                           filled: 1
                            slices: 100
                            color: green
                            radius: 0.5

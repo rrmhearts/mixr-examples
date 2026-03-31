@@ -4,30 +4,35 @@
 
 -- test dafif library functionality
 project "testDafif"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testDafif"
    targetdir "../../testDafif"
    debugdir "../../testDafif"
    files {
-      "../../testDafif/**"
+      "../../testDafif/**.h*",
+      "../../testDafif/**.cpp",
+      "../../testDafif/**.cxx",
+      "../../testDafif/**.epp",
+      "../../testDafif/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
    filter "configurations:Release"
-      links {"mixr_models_jsbsim", "mixr_models", "mixr_simulation", "mixr_terrain", "mixr_dafif", "mixr_base"}
+      links {"mixr_models", "mixr_simulation", "mixr_terrain", "mixr_dafif", "mixr_base"}
       links {LibWindows}
    filter "configurations:Debug"
-      links {"mixr_models_jsbsim_d", "mixr_models_d", "mixr_simulation_d", "mixr_terrain_d", "mixr_dafif_d", "mixr_base_d"}
+      links {"mixr_models_d", "mixr_simulation_d", "mixr_terrain_d", "mixr_dafif_d", "mixr_base_d"}
       links {LibWindows}
 
 -- testEvents: test of event passing
 project "testEvents"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testEvents"
    targetdir "../../testEvents"
    debugdir "../../testEvents"
    files {
-      "../../testEvents/**"
+      "../../testEvents/**.h*",
+      "../../testEvents/**.cpp",
+      "../../testEvents/**.epp",
+      "../../testEvents/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
@@ -42,12 +47,14 @@ project "testEvents"
 
 -- testGraphics : test of basic graphics
 project "testGraphics"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testGraphics"
    targetdir "../../testGraphics"
    debugdir "../../testGraphics"
    files {
-      "../../testGraphics/**"
+      "../../testGraphics/**.h*",
+      "../../testGraphics/**.cpp",
+      "../../testGraphics/**.epp",
+      "../../testGraphics/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
@@ -62,26 +69,28 @@ project "testGraphics"
 
 -- testInfrared: IR test
 project "testInfrared"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testInfrared"
    targetdir "../../testInfrared"
    debugdir "../../testInfrared"
    files {
-      "../../testInfrared/**"
+      "../../testInfrared/**.h*",
+      "../../testInfrared/**.cpp",
+      "../../testInfrared/**.epp",
+      "../../testInfrared/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
    filter "configurations:Release"
-      links {"mixr_models_jsbsim", "mixr_models", "JSBSim"}
-      links {"mixr_ighost_cigi", LibCigi, "mixr_ighost_flightgear"}
+      links {"mixr_models", "JSBSim"}
+      links {"mixr_ighost_cigi", "mixr_ighost_pov", LibCigi}
       links {"mixr_interop_dis", "mixr_interop" }
       links {"mixr_simulation", "mixr_terrain"}
       links {"mixr_ui_glut", "mixr_instruments", "mixr_graphics", "mixr_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {LibWindows}
    filter "configurations:Debug"
-      links {"mixr_models_jsbsim_d", "mixr_models_d", "JSBSim_d"}
-      links {"mixr_ighost_cigi_d", LibCigi_d, "mixr_ighost_flightgear_d"}
+      links {"mixr_models_d", "JSBSim_d"}
+      links {"mixr_ighost_cigi_d", "mixr_ighost_pov_d", LibCigi_d}
       links {"mixr_interop_dis_d", "mixr_interop_d" }
       links {"mixr_simulation_d", "mixr_terrain_d"}
       links {"mixr_ui_glut_d", "mixr_instruments_d", "mixr_graphics_d", "mixr_base_d"}
@@ -90,30 +99,34 @@ project "testInfrared"
 
 -- testLinearSys: test of linear system components
 project "testLinearSys"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testLinearSys"
    targetdir "../../testLinearSys"
    debugdir "../../testLinearSys"
    files {
-      "../../testLinearSys/**"
+      "../../testLinearSys/**.h*",
+      "../../testLinearSys/**.cpp",
+      "../../testLinearSys/**.epp",
+      "../../testLinearSys/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
    filter "configurations:Release"
-      links {"mixr_base"}
+      links {"mixr_linearsystem", "mixr_base"}
       links {LibWindows}
    filter "configurations:Debug"
-      links {"mixr_base_d"}
+      links {"mixr_linearsystem_d", "mixr_base_d"}
       links {LibWindows}
 
 -- testLinkage: linkage test
 project "testLinkage"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testLinkage"
    targetdir "../../testLinkage"
    debugdir "../../testLinkage"
    files {
-      "../../testLinkage/**"
+      "../../testLinkage/**.h*",
+      "../../testLinkage/**.cpp",
+      "../../testLinkage/**.epp",
+      "../../testLinkage/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
@@ -128,12 +141,14 @@ project "testLinkage"
 
 -- testMatrix
 project "testMatrix"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testMatrix"
    targetdir "../../testMatrix"
    debugdir "../../testMatrix"
    files {
-      "../../testMatrix/**"
+      "../../testMatrix/**.h*",
+      "../../testMatrix/**.cpp",
+      "../../testMatrix/**.epp",
+      "../../testMatrix/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -146,12 +161,14 @@ project "testMatrix"
 
 -- testMetaObject
 project "testMetaObject"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testMetaObject"
    targetdir "../../testMetaObject"
    debugdir "../../testMetaObject"
    files {
-      "../../testMetaObject/**"
+      "../../testMetaObject/**.h*",
+      "../../testMetaObject/**.cpp",
+      "../../testMetaObject/**.epp",
+      "../../testMetaObject/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -164,12 +181,14 @@ project "testMetaObject"
 
 -- test navigation utility functions
 project "testNavUtils"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testNavUtils"
    targetdir "../../testNavUtils"
    debugdir "../../testNavUtils"
    files {
-      "../../testNavUtils/**"
+      "../../testNavUtils/**.h*",
+      "../../testNavUtils/**.cpp",
+      "../../testNavUtils/**.epp",
+      "../../testNavUtils/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -182,15 +201,17 @@ project "testNavUtils"
 
 -- testNetHandler
 project "testNetHandler"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testNetHandler"
    targetdir "../../testNetHandler"
    debugdir "../../testNetHandler"
    files {
-      "../../testNetHandler/**"
+      "../../testNetHandler/**.h*",
+      "../../testNetHandler/**.cpp",
+      "../../testNetHandler/**.epp",
+      "../../testNetHandler/**.edl"
    }
-   includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath, MIXR_ExamplesIncPath }
-   libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath, MIXR_ExamplesLibPath }
+   includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
+   libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
    -- zeromq nethandlers
    defines { "ZMQ_STATIC" }
    links { "libxzmq" }
@@ -203,24 +224,26 @@ project "testNetHandler"
 
 -- testRadar
 project "testRadar"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testRadar"
    targetdir "../../testRadar"
    debugdir "../../testRadar"
    files {
-      "../../testRadar/**"
+      "../../testRadar/**.h*",
+      "../../testRadar/**.cpp",
+      "../../testRadar/**.epp",
+      "../../testRadar/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
    filter "configurations:Release"
-      links {"mixr_models_jsbsim", "mixr_models", "JSBSim"}
+      links {"mixr_models", "JSBSim"}
       links {"mixr_interop_dis", "mixr_interop", "mixr_linkage"}
       links {"mixr_simulation", "mixr_terrain"}
       links {"mixr_ui_glut", "mixr_instruments", "mixr_graphics", "mixr_base"}
       links {LibFtgl, LibFreetype, LibGlut, LibGLU, LibGL}
       links {LibWindows}
    filter "configurations:Debug"
-      links {"mixr_models_jsbsim_d", "mixr_models_d", "JSBSim_d"}
+      links {"mixr_models_d", "JSBSim_d"}
       links {"mixr_interop_dis_d", "mixr_interop_d", "mixr_linkage_d"}
       links {"mixr_simulation_d", "mixr_terrain_d"}
       links {"mixr_ui_glut_d", "mixr_instruments_d", "mixr_graphics_d", "mixr_base_d"}
@@ -229,19 +252,21 @@ project "testRadar"
 
 -- testRecordData
 project "testRecordData"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testRecordData"
    targetdir "../../testRecordData"
    debugdir "../../testRecordData"
    files {
-      "../../testRecordData/**"
+      "../../testRecordData/**.h*",
+      "../../testRecordData/**.cpp",
+      "../../testRecordData/**.epp",
+      "../../testRecordData/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath, MIXR_ExamplesIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath, MIXR_ExamplesLibPath }
    links       { "libxrecorder", "libxpanel" }
    filter "configurations:Release"
-      links {"mixr_models_jsbsim", "mixr_models", "JSBSim" }
-      links {"mixr_ighost_cigi", LibCigi, "mixr_ighost_flightgear" }
+      links {"mixr_models", "JSBSim" }
+      links {"mixr_ighost_cigi", "mixr_ighost_pov", LibCigi }
       links {"mixr_interop_dis", "mixr_interop", "mixr_recorder", "mixr_linkage" }
       links {"mixr_simulation", "mixr_terrain" }
       links {"mixr_ui_glut", "mixr_instruments", "mixr_graphics", "mixr_base" }
@@ -249,8 +274,8 @@ project "testRecordData"
       links {"libprotobuf" }
       links {LibWindows}
    filter "configurations:Debug"
-      links {"mixr_models_jsbsim_d", "mixr_models_d", "JSBSim_d" }
-      links {"mixr_ighost_cigi_d", LibCigi_d, "mixr_ighost_flightgear_d" }
+      links {"mixr_models_d", "JSBSim_d" }
+      links {"mixr_ighost_cigi_d", "mixr_ighost_pov_d", LibCigi_d }
       links {"mixr_interop_dis_d", "mixr_interop_d", "mixr_recorder_d", "mixr_linkage_d" }
       links {"mixr_simulation_d", "mixr_terrain_d" }
       links {"mixr_ui_glut_d", "mixr_instruments_d", "mixr_graphics_d", "mixr_base_d" }
@@ -260,54 +285,60 @@ project "testRecordData"
 
 -- testRecorderRead
 project "testRecorderRead"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testRecorderRead"
    targetdir "../../testRecorderRead"
    debugdir "../../testRecorderRead"
    files {
-      "../../testRecorderRead/**"
+      "../../testRecorderRead/**.h*",
+      "../../testRecorderRead/**.cpp",
+      "../../testRecorderRead/**.epp",
+      "../../testRecorderRead/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath, MIXR_ExamplesIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath, MIXR_ExamplesLibPath }
    links       { "libxrecorder" }
    filter "configurations:Release"
-      links {"mixr_models_jsbsim", "mixr_models", "JSBSim" }
+      links {"mixr_models", "JSBSim" }
       links {"mixr_recorder", "mixr_simulation", "mixr_base", "libprotobuf"}
       links {LibWindows}
    filter "configurations:Debug"
-      links {"mixr_models_jsbsim_d", "mixr_models_d", "JSBSim_d" }
+      links {"mixr_models_d", "JSBSim_d" }
       links {"mixr_recorder_d", "mixr_simulation_d", "mixr_base_d", "libprotobuf_d" }
       links {LibWindows}
 
 -- testRecorderWrite
 project "testRecorderWrite"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testRecorderWrite"
    targetdir "../../testRecorderWrite"
    debugdir "../../testRecorderWrite"
    files {
-      "../../testRecorderWrite/**"
+      "../../testRecorderWrite/**.h*",
+      "../../testRecorderWrite/**.cpp",
+      "../../testRecorderWrite/**.epp",
+      "../../testRecorderWrite/**.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath, MIXR_ExamplesIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath, MIXR_ExamplesLibPath }
    links       { "libxrecorder" }
    filter "configurations:Release"
-      links {"mixr_models_jsbsim", "mixr_models", "JSBSim" }
+      links {"mixr_models", "JSBSim" }
       links {"mixr_recorder", "mixr_simulation", "mixr_base", "libprotobuf"}
       links {LibWindows}
    filter "configurations:Debug"
-      links {"mixr_models_jsbsim_d", "mixr_models_d", "JSBSim_d" }
+      links {"mixr_models_d", "JSBSim_d" }
       links {"mixr_recorder_d", "mixr_simulation_d", "mixr_base_d", "libprotobuf_d" }
       links {LibWindows}
 
 -- testSlots
 project "testSlots"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testSlots"
    targetdir "../../testSlots"
    debugdir "../../testSlots"
    files {
-      "../../testSlots/**"
+      "../../testSlots/**.h*",
+      "../../testSlots/**.cpp",
+      "../../testSlots/**.epp",
+      "../../testSlots/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -320,12 +351,14 @@ project "testSlots"
 
 -- testStateMach
 project "testStateMach"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testStateMach"
    targetdir "../../testStateMach"
    debugdir "../../testStateMach"
    files {
-      "../../testStateMach/**"
+      "../../testStateMach/**.h*",
+      "../../testStateMach/**.cpp",
+      "../../testStateMach/**.epp",
+      "../../testStateMach/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -338,12 +371,14 @@ project "testStateMach"
 
 -- testTables
 project "testTables"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testTables"
    targetdir "../../testTables"
    debugdir "../../testTables"
    files {
-      "../../testTables/**"
+      "../../testTables/**.h*",
+      "../../testTables/**.cpp",
+      "../../testTables/**.epp",
+      "../../testTables/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -356,12 +391,14 @@ project "testTables"
 
 -- testTemplates
 project "testTemplates"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testTemplates"
    targetdir "../../testTemplates"
    debugdir "../../testTemplates"
    files {
-      "../../testTemplates/**"
+      "../../testTemplates/**.h*",
+      "../../testTemplates/**.cpp",
+      "../../testTemplates/**.epp",
+      "../../testTemplates/**.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -374,12 +411,13 @@ project "testTemplates"
 
 -- testTimer
 project "testTimer"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testTimer"
    targetdir "../../testTimer"
    debugdir "../../testTimer"
    files {
-      "../../testTimer/**"
+      "../../testTimer/*.h*",
+      "../../testTimer/*.cpp",
+      "../../testTimer/*.edl"
    }
    includedirs { MIXR_IncPath }
    libdirs     { MIXR_LibPath }
@@ -390,32 +428,15 @@ project "testTimer"
       links {"mixr_base_d"}
       links {LibWindows}
 
--- test: general test of several base and graphics functionalities
-project "test"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
-   targetname "test"
-   targetdir "../../test"
-   debugdir "../../test"
-   files {
-      "../../test/**"
-   }
-   includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
-   libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }
-   filter "configurations:Release"
-      links {"mixr_base", "mixr_graphics"}
-      links {LibWindows}
-   filter "configurations:Debug"
-      links {"mixr_base_d", "mixr_graphics_d"}
-      links {LibWindows}
-
 -- testVmap - test VMAP0 loader library
 project "testVmap"
-   location ("../" .. _ACTION .. "/examples/%{prj.name}")
    targetname "testVmap"
    targetdir "../../testVmap"
    debugdir "../../testVmap"
    files {
-      "../../testVmap/**"
+      "../../testVmap/*.h*",
+      "../../testVmap/*.cpp",
+      "../../testVmap/*.edl"
    }
    includedirs { MIXR_IncPath, MIXR_3rdPartyIncPath }
    libdirs     { MIXR_LibPath, MIXR_3rdPartyLibPath }

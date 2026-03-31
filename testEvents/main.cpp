@@ -1,27 +1,25 @@
 //----------------------------------------------------------------
-// Test Component event processing using send commands
-// (using different parameters)
+// Test Component send command, using different parameters
 //----------------------------------------------------------------
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 
 #include <GL/glut.h>
 
 // factories
 #include "mixr/graphics/factory.hpp"
-#include "mixr/graphics/fonts/ftgl/factory.hpp"
 #include "mixr/base/factory.hpp"
 #include "mixr/ui/glut/factory.hpp"
 
-#include "EventDisplay.hpp"
+#include "Display.hpp"
 #include "ObjectHandler.hpp"
 
 #include <string>
 #include <cstdlib>
 
 const int frameRate{20};
-EventDisplay* display{};
+Display* display{};
 
 void timerFunc(int)
 {
@@ -29,23 +27,24 @@ void timerFunc(int)
    const int millis{static_cast<int>(dt * 1000)};
    glutTimerFunc(millis, timerFunc, 1);
 
-   mixr::base::ITimer::updateTimers(static_cast<double>(dt));
+   mixr::base::Timer::updateTimers(static_cast<double>(dt));
    mixr::graphics::Graphic::flashTimer(static_cast<double>(dt));
    display->tcFrame(static_cast<double>(dt));
 }
 
 // our class factory
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-   mixr::base::IObject* obj{};
+   mixr::base::Object* obj{};
 
-   if ( name == EventDisplay::getFactoryName() ) {
-      obj = new EventDisplay();
-   } else if ( name == ObjectHandler::getFactoryName() ) {
+   if ( name == Display::getFactoryName() ) {
+      obj = new Display();
+   }
+   else if ( name == ObjectHandler::getFactoryName() ) {
       obj = new ObjectHandler();
-   } else {
+   }
+   else {
       if (obj == nullptr) obj = mixr::graphics::factory(name);
-      if (obj == nullptr) obj = mixr::graphics::ftgl::factory(name);
       if (obj == nullptr) obj = mixr::glut::factory(name);
       if (obj == nullptr) obj = mixr::base::factory(name);
    }
@@ -54,11 +53,11 @@ mixr::base::IObject* factory(const std::string& name)
 }
 
 // display builder
-EventDisplay* builder(const std::string& filename)
+Display* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -79,7 +78,7 @@ EventDisplay* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   const auto display = dynamic_cast<EventDisplay*>(obj);
+   const auto display = dynamic_cast<Display*>(obj);
    if (display == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -92,7 +91,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"testEvents.edl"};
+   std::string configFilename = "test.edl";
 
    display = builder(configFilename);
 
@@ -101,8 +100,8 @@ int main(int argc, char* argv[])
 
    // set timer
    const double dt{1.0 / static_cast<double>(frameRate)};
-   const int millisecs{static_cast<int>(dt * 1000)};
-   glutTimerFunc(millisecs, timerFunc, 1);
+   const int millis{static_cast<int>(dt * 1000)};
+   glutTimerFunc(millis, timerFunc, 1);
 
    // main loop
    glutMainLoop();

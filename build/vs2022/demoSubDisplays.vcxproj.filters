@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test_pages">
+      <UniqueIdentifier>{B42042E8-A0D8-8335-09E0-5C91F5B61E26}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestAdi.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestAdi2.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestAlt.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestButtons.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestCas.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestCompass.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestDigitalGauge.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestEngPage.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestEngineDial.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestFtitDial.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestGMeterDial.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestGauge1.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestHsi.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestLandingGear.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestNozzle.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestOilPressure.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestRpmDial.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestSpeedBrake.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\demoSubDisplays\test_pages\TestVVI.hpp">
+      <Filter>test_pages</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\demoSubDisplays\main.cpp" />
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestAdi.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestAdi2.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestAlt.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestButtons.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestCas.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestCompass.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestDigitalGauge.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestEngPage.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestEngineDial.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestFtitDial.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestGMeterDial.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestGauge1.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestHsi.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestLandingGear.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestNozzle.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestOilPressure.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestRpmDial.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestSpeedBrake.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\demoSubDisplays\test_pages\TestVVI.cpp">
+      <Filter>test_pages</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\demoSubDisplays\configs\display1.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\display2.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\display3.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\display4.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\test.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testAoAIndexer.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testadi.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testadi2.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testalt.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testbuttons.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testcas.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testcompass.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testeng.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testenginedial.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testftitdial.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testgauge1.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testgmeterdial.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testhsi.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testlandinggear.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testnozzle.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testoilpressure.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testrpmdial.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testspeedbrake.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\demoSubDisplays\configs\testvvi.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

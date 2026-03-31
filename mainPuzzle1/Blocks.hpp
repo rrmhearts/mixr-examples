@@ -1,11 +1,11 @@
 
-#ifndef __Block_HPP__
-#define __Block_HPP__
+#ifndef __Block_H__
+#define __Block_H__
 
-#include "mixr/base/IObject.hpp"
+#include "mixr/base/Object.hpp"
 
 namespace mixr {
-namespace base { class IList; class Integer; }
+namespace base { class List; class Integer; }
 }
 
 //------------------------------------------------------------------------------
@@ -15,9 +15,9 @@ namespace base { class IList; class Integer; }
 // Block locations (x, y): lower left is (1,1)
 // Block type IDs are unique to blocks of the same type (e.g., size and shape)
 //------------------------------------------------------------------------------
-class Block : public mixr::base::IObject
+class Block : public mixr::base::Object
 {
-   DECLARE_SUBCLASS(Block, mixr::base::IObject)
+   DECLARE_SUBCLASS(Block, mixr::base::Object)
 
  public:
    static const int BOARD_X_SIZE{4};
@@ -65,7 +65,7 @@ class Block : public mixr::base::IObject
 
 private:
    // slot table helper methods
-   bool setSlotPosition(const mixr::base::IList* const);
+   bool setSlotPosition(const mixr::base::List* const);
    bool setSlotRefId(const mixr::base::Integer* const);
 };
 

@@ -79,9 +79,6 @@ APPLICATIONS += testRecorderWrite
 # test VMAP0 loader library
 APPLICATIONS += testVmap
 
-# general purpose test program to exercise base and graphics library functionalities
-APPLICATIONS += test
-
 # tutorial examples
 APPLICATIONS += tutorial01
 APPLICATIONS += tutorial02

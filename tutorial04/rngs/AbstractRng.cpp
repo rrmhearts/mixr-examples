@@ -1,7 +1,7 @@
 
 #include "AbstractRng.hpp"
 
-#include "mixr/base/numeric/Integer.hpp"
+#include "mixr/base/numeric/Number.hpp"
 
 #include <iostream>
 #include <random>
@@ -15,7 +15,7 @@ BEGIN_SLOTTABLE(AbstractRng)
 END_SLOTTABLE(AbstractRng)
 
 BEGIN_SLOT_MAP(AbstractRng)
-   ON_SLOT(1, setSlotSeed, mixr::base::Integer)
+   ON_SLOT(1, setSlotSeed, mixr::base::Number)
 END_SLOT_MAP()
 
 AbstractRng::AbstractRng()
@@ -23,16 +23,16 @@ AbstractRng::AbstractRng()
    STANDARD_CONSTRUCTOR()
 }
 
-void AbstractRng::setSeed(const int seed)
+void AbstractRng::setSeed(const unsigned int seed)
 {
    engine.seed(seed);
 }
 
-bool AbstractRng::setSlotSeed(const mixr::base::Integer* const seed)
+bool AbstractRng::setSlotSeed(const mixr::base::Number* const seed)
 {
    bool ok = false;
    if (seed != nullptr) {
-      setSeed(seed->asInt());
+      setSeed(seed->getInt());
       ok = true;
    }
    return ok;

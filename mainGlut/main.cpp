@@ -1,10 +1,10 @@
 //----------------------------------------------------------------
-// Simple example program that creates a GLUT window and draws what
-// is defined by an EDL file
+// Simple example program that creates a GLUT window and draws an image
+// as defined by EDL file.
 //----------------------------------------------------------------
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
 
 #include "mixr/graphics/Graphic.hpp"
@@ -21,7 +21,7 @@
 #include <string>
 
 const int frameRate{20};
-mixr::glut::GlutDisplay* display{};
+mixr::glut::GlutDisplay* glutDisplay{};
 
 // timerFunc() -- Time critical stuff
 void timerFunc(int)
@@ -30,15 +30,15 @@ void timerFunc(int)
    const int millis{static_cast<int>(dt * 1000)};
    glutTimerFunc(millis, timerFunc, 1);
 
-   mixr::base::ITimer::updateTimers(static_cast<double>(dt));
+   mixr::base::Timer::updateTimers(static_cast<double>(dt));
    mixr::graphics::Graphic::flashTimer(static_cast<double>(dt));
-   display->tcFrame(static_cast<double>(dt));
+   glutDisplay->tcFrame(static_cast<double>(dt));
 }
 
 // our class factory
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-   mixr::base::IObject* obj{mixr::glut::factory(name)};
+   mixr::base::Object* obj{mixr::glut::factory(name)};
    if (obj == nullptr) obj = mixr::graphics::factory(name);
    if (obj == nullptr) obj = mixr::base::factory(name);
 
@@ -50,7 +50,7 @@ mixr::glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -85,17 +85,17 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"alignmentPattern.edl"};
-   for (int i{1}; i < argc; i++) {
+   std::string configFilename = "glutdisplay.edl";
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
 
-   display = builder(configFilename);
+   glutDisplay = builder(configFilename);
 
    // create a display window
-   display->createWindow();
+   glutDisplay->createWindow();
 
    // set timer
    const double dt{1.0 / static_cast<double>(frameRate)};

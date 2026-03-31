@@ -1,8 +1,8 @@
 
-#ifndef __TestStation_HPP__
-#define __TestStation_HPP__
+#ifndef __TestStation_H__
+#define __TestStation_H__
 
-#include "mixr/simulation/IStation.hpp"
+#include "mixr/simulation/Station.hpp"
 
 namespace mixr {
 namespace glut  { class GlutDisplay; }
@@ -19,9 +19,9 @@ namespace glut  { class GlutDisplay; }
 // Slots:
 //   glutDisplay  <glut::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
-class TestStation final: public mixr::simulation::IStation
+class TestStation final: public mixr::simulation::Station
 {
-   DECLARE_SUBCLASS(TestStation, mixr::simulation::IStation)
+   DECLARE_SUBCLASS(TestStation, mixr::simulation::Station)
 
 public:
    TestStation();

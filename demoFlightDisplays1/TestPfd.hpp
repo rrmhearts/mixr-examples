@@ -1,6 +1,6 @@
 
-#ifndef __TestPfd_HPP__
-#define __TestPfd_HPP__
+#ifndef __TestPfd_H__
+#define __TestPfd_H__
 
 #include "mixr/graphics/Page.hpp"
 

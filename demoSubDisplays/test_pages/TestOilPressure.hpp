@@ -1,6 +1,6 @@
 
-#ifndef __TestOilPressure_HPP__
-#define __TestOilPressure_HPP__
+#ifndef __TestOilPressure_H__
+#define __TestOilPressure_H__
 
 #include "mixr/graphics/Page.hpp"
 

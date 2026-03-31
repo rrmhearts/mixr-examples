@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C4746F3B-B041-CA46-D95A-B8EEC586FFD4}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>mainSim1</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\mainSim1\</OutDir>
+    <IntDir>obj\Release\mainSim1\</IntDir>
+    <TargetName>mainSim1</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\mainSim1\</OutDir>
+    <IntDir>obj\Debug\mainSim1\</IntDir>
+    <TargetName>mainSim1_d</TargetName>
+    <TargetExt>.exe</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ZMQ_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <AdditionalOptions>/Oi /Ot %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>mixr_models.lib;JSBSim.lib;libzmq.lib;mixr_ighost_cigi.lib;mixr_ighost_pov.lib;ccl_lib.lib;mixr_interop_dis.lib;mixr_interop.lib;mixr_simulation.lib;mixr_terrain.lib;mixr_ui_glut.lib;mixr_instruments.lib;mixr_graphics.lib;mixr_base.lib;ftgl.lib;freetype2.lib;freeglut.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DisableSpecificWarnings>4351;4996;4005;4100;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ZMQ_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\mixr\include;..\..\..\mixr-3rdparty\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalOptions>/Oi %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>mixr_models_d.lib;JSBSim_d.lib;libzmq_d.lib;mixr_ighost_cigi_d.lib;mixr_ighost_pov_d.lib;ccl_lib_d.lib;mixr_interop_dis_d.lib;mixr_interop_d.lib;mixr_simulation_d.lib;mixr_terrain_d.lib;mixr_ui_glut_d.lib;mixr_instruments_d.lib;mixr_graphics_d.lib;mixr_base_d.lib;ftgl_d.lib;freetype2_d.lib;freeglut_d.lib;glu32.lib;opengl32.lib;Ws2_32.lib;Winmm.lib;comctl32.lib;gdi32.lib;iphlpapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\mixr\lib;..\..\..\mixr-3rdparty\lib\vs2017-32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\mainSim1\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\mainSim1\configs\ighosts\cigi.epp" />
+    <None Include="..\..\mainSim1\configs\ighosts\pov.epp" />
+    <None Include="..\..\mainSim1\configs\interop\dis.epp" />
+    <None Include="..\..\mainSim1\configs\test0.epp" />
+    <None Include="..\..\mainSim1\configs\test1.epp" />
+    <None Include="..\..\mainSim1\configs\test2.epp" />
+    <None Include="..\..\mainSim1\configs\test2\player01.epp" />
+    <None Include="..\..\mainSim1\configs\test2\player02.epp" />
+    <None Include="..\..\mainSim1\configs\test2\player03.epp" />
+    <None Include="..\..\mainSim1\configs\test2\player04.epp" />
+    <None Include="..\..\mainSim1\configs\test2\route01.epp" />
+    <None Include="..\..\mainSim1\configs\test2\route02.epp" />
+    <None Include="..\..\mainSim1\configs\test2\route03.epp" />
+    <None Include="..\..\mainSim1\configs\test2\route04.epp" />
+    <None Include="..\..\mainSim1\configs\test2\scenario.epp" />
+    <None Include="..\..\mainSim1\configs\test3.epp" />
+    <None Include="..\..\mainSim1\configs\test3\gainPattern.epp" />
+    <None Include="..\..\mainSim1\configs\test3\gnd.epp" />
+    <None Include="..\..\mainSim1\configs\test3\gndPlayers.epp" />
+    <None Include="..\..\mainSim1\configs\test3\networkSetup.epp" />
+    <None Include="..\..\mainSim1\configs\test3\players.epp" />
+    <None Include="..\..\mainSim1\configs\test3\scenario.epp" />
+    <None Include="..\..\mainSim1\configs\test4.epp" />
+    <None Include="..\..\mainSim1\configs\test4\gainPattern.epp" />
+    <None Include="..\..\mainSim1\configs\test4\networkSetup.epp" />
+    <None Include="..\..\mainSim1\configs\test4\scenario.epp" />
+    <None Include="..\..\mainSim1\configs\test4\spinner.epp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="libxzmq.vcxproj">
+      <Project>{2C2D7079-980C-EF14-A124-7AEB0D835576}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

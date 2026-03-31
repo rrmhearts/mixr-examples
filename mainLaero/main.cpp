@@ -4,12 +4,11 @@
 
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/IComponent.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Timers.hpp"
+#include "mixr/simulation/Station.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
-#include "TestStation.hpp"
 #include "factory.hpp"
 
 #include <GL/glut.h>
@@ -18,14 +17,14 @@
 
 // background frame rate
 const int bgRate{10};
-TestStation* station{};
+mixr::simulation::Station* station{};
 
 // station builder
-TestStation* builder(const std::string& filename)
+mixr::simulation::Station* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -46,7 +45,7 @@ TestStation* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
-   const auto station = dynamic_cast<TestStation*>(obj);
+   const auto station = dynamic_cast<mixr::simulation::Station*>(obj);
    if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -84,10 +83,10 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename{"test.edl"};
+   std::string configFilename = "test.edl";
 
    // parse command arguments
-   for (int i{1}; i<argc; i++) {
+   for (int i=1; i<argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -97,7 +96,7 @@ int main(int argc, char* argv[])
    station = builder(configFilename);
 
    // reset the simulation
-   station->event(mixr::base::IComponent::RESET_EVENT);
+   station->event(mixr::base::Component::RESET_EVENT);
 
    // create the time critical thread
    station->createTimeCriticalProcess();
@@ -108,7 +107,7 @@ int main(int argc, char* argv[])
 
    // ensure everything is reset
    station->updateData(dt);
-   station->event(mixr::base::IComponent::RESET_EVENT);
+   station->event(mixr::base::Component::RESET_EVENT);
 
    glutTimerFunc(millis, updateDataCB, 1);
 

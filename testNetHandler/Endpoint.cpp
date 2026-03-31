@@ -1,9 +1,8 @@
 
 #include "Endpoint.hpp"
 
-#include "mixr/base/network/INetHandler.hpp"
-#include "mixr/base/numeric/Boolean.hpp"
-#include "mixr/base/numeric/Integer.hpp"
+#include "mixr/base/network/TcpHandler.hpp"
+#include "mixr/base/numeric/Number.hpp"
 #include <iostream>
 
 using namespace mixr;
@@ -20,11 +19,11 @@ BEGIN_SLOTTABLE(Endpoint)
 END_SLOTTABLE(Endpoint)
 
 BEGIN_SLOT_MAP(Endpoint)
-    ON_SLOT(1, setSlotNetwork,   mixr::base::INetHandler)
-    ON_SLOT(2, setSlotNetInput,  mixr::base::INetHandler)
-    ON_SLOT(3, setSlotNetwork,   mixr::base::INetHandler)
-    ON_SLOT(4, setSlotNoWait,    mixr::base::Boolean)
-    ON_SLOT(5, setSlotLoops,     mixr::base::Integer)
+    ON_SLOT(1, setSlotNetwork,   mixr::base::NetHandler)
+    ON_SLOT(2, setSlotNetInput,  mixr::base::NetHandler)
+    ON_SLOT(3, setSlotNetwork,   mixr::base::NetHandler)
+    ON_SLOT(4, setSlotNoWait,    mixr::base::Number)
+    ON_SLOT(5, setSlotLoops,     mixr::base::Number)
 END_SLOT_MAP()
 
 Endpoint::Endpoint()
@@ -146,36 +145,36 @@ void Endpoint::closeConnections()
 }
 
 // Network Handler
-bool Endpoint::setSlotNetwork(mixr::base::INetHandler* const msg)
+bool Endpoint::setSlotNetwork(mixr::base::NetHandler* const msg)
 {
     netHandler = msg;
     return true;
 }
 
 // Input Handler
-bool Endpoint::setSlotNetInput(mixr::base::INetHandler* const msg)
+bool Endpoint::setSlotNetInput(mixr::base::NetHandler* const msg)
 {
     netInput = msg;
     return true;
 }
 
 // No wait (unblocked) I/O flag
-bool Endpoint::setSlotNoWait(mixr::base::Boolean* const msg)
+bool Endpoint::setSlotNoWait(mixr::base::Number* const msg)
 {
     bool ok{};
     if (msg != nullptr) {
-        noWaitFlag = msg->asBool();
+        noWaitFlag = msg->getBoolean();
         ok = true;
     }
     return ok;
 }
 
 // Number of message loops
-bool Endpoint::setSlotLoops(mixr::base::Integer* const msg)
+bool Endpoint::setSlotLoops(mixr::base::Number* const msg)
 {
     bool ok{};
     if (msg != nullptr) {
-        const int ia{msg->asInt()};
+        const int ia{msg->getInt()};
         if (ia >= 0) {
             loops = ia;
             ok = true;

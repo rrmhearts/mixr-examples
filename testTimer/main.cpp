@@ -14,8 +14,8 @@
 
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/edl_parser.hpp"
-#include "mixr/base/timers/UpTimer.hpp"
-#include "mixr/base/threads/IPeriodicThread.hpp"
+#include "mixr/base/Timers.hpp"
+#include "mixr/base/threads/PeriodicThread.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
 // class factory
@@ -34,20 +34,20 @@ const double TIMERS_PRINT_RATE{5.0};   // Hz
 const double THREAD_RATE{20.0};        // hz
 const double THREAD_PRI{0.5};          // Pri (0 .. 1)
 
-class TimerThread final : public mixr::base::IPeriodicThread
+class TimerThread final : public mixr::base::PeriodicThread
 {
-   public: TimerThread(mixr::base::IComponent* const parent, const double rate);
+   public: TimerThread(mixr::base::Component* const parent, const double rate);
    private: unsigned long userFunc(const double dt) override;
 };
 
-TimerThread::TimerThread(mixr::base::IComponent* const parent, const double rate)
-      : IPeriodicThread(parent, rate)
+TimerThread::TimerThread(mixr::base::Component* const parent, const double rate)
+      : PeriodicThread(parent, rate)
 {
 }
 
 unsigned long TimerThread::userFunc(const double dt)
 {
-   mixr::base::ITimer::updateTimers(dt);
+   mixr::base::Timer::updateTimers(dt);
    return 0;
 }
 
@@ -67,9 +67,9 @@ TimerThread* createTheThread(Tester* const tester)
    return thread;
 }
 
-mixr::base::IObject* factory(const std::string& name)
+mixr::base::Object* factory(const std::string& name)
 {
-  mixr::base::IObject* obj{};
+  mixr::base::Object* obj{};
 
   if ( name == Tester::getFactoryName() ) {
     obj = new Tester;
@@ -85,7 +85,7 @@ Tester* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
-   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+   mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -120,7 +120,7 @@ Tester* builder(const std::string& filename)
 void run(Tester* const tester)
 {
    if (tester != nullptr) {
-      mixr::base::ITimer::freeze(true);
+      mixr::base::Timer::freeze(true);
 
       // Time between printing the timer data
       const double dt{1.0 / TIMERS_PRINT_RATE};
@@ -135,7 +135,7 @@ void run(Tester* const tester)
       // ---
       std::cout << "#### First Test ####" << std::endl;
 
-      mixr::base::ITimer::freeze(false);
+      mixr::base::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
          mixr::base::msleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
@@ -145,7 +145,7 @@ void run(Tester* const tester)
       // ---
       // Restart the timers
       // ---
-      mixr::base::ITimer::freeze(true);
+      mixr::base::Timer::freeze(true);
 
       std::cout << std::endl;
       std::cout << "#### Restarting Timers (all active) ####" << std::endl;
@@ -158,7 +158,7 @@ void run(Tester* const tester)
       std::cout << std::endl;
       std::cout << "#### Second Test ####" << std::endl;
 
-      mixr::base::ITimer::freeze(false);
+      mixr::base::Timer::freeze(false);
       while ( !mainTimer->alarm()) {
          mixr::base::msleep( static_cast<unsigned int>(dt * 1000.0 + 0.5) );
          std::printf("time(%4.1f)\n", mainTimer->getCurrentTime());
@@ -171,10 +171,10 @@ void run(Tester* const tester)
 int main(int argc, char* argv[])
 {
    // default configuration filename
-   std::string configFilename{"test01.edl"};
+   std::string configFilename = "test01.edl";
 
    // parse arguments
-   for (int i{1}; i < argc; i++) {
+   for (int i = 1; i < argc; i++) {
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -190,7 +190,7 @@ int main(int argc, char* argv[])
       // run the test
       run(tester);
 
-      tester->event(mixr::base::IComponent::SHUTDOWN_EVENT);
+      tester->event(mixr::base::Component::SHUTDOWN_EVENT);
       tester->unref();
       tester = nullptr;
 

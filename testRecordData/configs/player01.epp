@@ -3,37 +3,38 @@ p01:
     id: 1
     side: blue
     type: "F-16"
-    signature: ( RfSphereSignature radius: 2.0 )
+    signature: ( SigSphere radius: 2.0 )
 
-    initLatitude:  ( Latitude  direction: north degrees: 36  minutes: 50.0 )
-    initLongitude: ( Longitude direction: west  degrees: 116 minutes:  0.0 )
-
+    initLatitude:  ( LatLon direction: "n" degrees: 36   minutes: 50.0 )
+    initLongitude: ( LatLon direction: "w" degrees: 116  minutes:  0.0 )
+  
     initAlt: ( Feet 15000 )
-    initHeading: ( Degrees 0.0 )      // initial heading
+    initHeading: ( Degrees 0.0 )      // Initial heading
     initVelocity: 300
-
+    
     positionFreeze: false
 
     dataLogTime: ( Seconds 0.1 )      // test recording at 10hz
 
     components: {
 
-      dynamicsModel: ( JSBSimDynamics
+      dynamicsModel: ( JSBSimModel
           rootDir: MIXR_DATA_JSBSIM_PATH
           model: "f16"
       )
-
+     
       pilot: ( Autopilot
          navMode: false
          altitudeHoldMode: false
          headingHoldMode: false
          velocityHoldMode: false
       )
-
+    
       antennas: ( Gimbal
          components: {
             radar: ( Antenna
                   maxPlayersOfInterest: 6
+                  playerOfInterestTypes: { "air" "weapon" }
                   polarization: horizontal
                   gain: ( dB 42 )
                   #include "gainPattern.epp"
@@ -50,14 +51,14 @@ p01:
                   localPlayersOfInterestOnly: false
                   useWorldCoordinates: false
             )
-            rwr: ( Antenna
+            rwr: ( Antenna 
                   scanMode: manual
                   polarization: horizontal
                   gain: ( dB 12 )
             )
          }
       )
-
+      
       sensors: ( SensorMgr
          components: {
             ( Tws
@@ -66,21 +67,21 @@ p01:
                powerPeak:  ( KiloWatts 500.0 )
                frequency:  ( GigaHertz 3.0 )
                bandwidth:  ( GigaHertz 2.0 )
-               PRF:        ( Hertz 500.0 )
+               PRF:        ( Hertz 500.0 ) 
                pulseWidth: ( MilliSeconds 0.01 )
                threshold:  ( dB 0.0 )
                ranges:     [ 10 20 40 80 160 ]
                initRangeIdx: 2
             )
-            ( Rwr
-                antennaName: rwr
+            ( Rwr 
+                antennaName: rwr  
                 threshold:  ( dB 0.0 )
                 frequency:  ( GigaHertz 3.0 )
                 bandwidth:  ( GigaHertz 2.0 )
             )
          }
       )
-
+      
       obc: ( OnboardComputer
          components: {
             twsTrkMgr: ( AirTrkMgr
@@ -165,6 +166,6 @@ p01:
                )
             }
         )
-
+        
     }
 )

@@ -4,16 +4,16 @@
 
 #include "mixr/models/player/weapon/Aam.hpp"
 #include "mixr/models/player/air/AirVehicle.hpp"
-#include "mixr/models/system/IStoresMgr.hpp"
+#include "mixr/models/system/StoresMgr.hpp"
 
-#include "mixr/simulation/ISimulation.hpp"
+#include "mixr/simulation/Simulation.hpp"
 
 #include "mixr/graphics/SymbolLoader.hpp"
 
 #include "mixr/base/numeric/Boolean.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/PairStream.hpp"
 
 IMPLEMENT_SUBCLASS(TestDisplay, "TestDisplay")
 EMPTY_SLOTTABLE(TestDisplay)
@@ -83,9 +83,9 @@ bool TestDisplay::onFreezeKey()
 bool TestDisplay::onWpnRelKey()
 {
    if (getOwnship() != nullptr) {
-      mixr::models::IStoresMgr* sms{getOwnship()->getStoresManagement()};
+      mixr::models::StoresMgr* sms{getOwnship()->getStoresManagement()};
       if (sms != nullptr) {
-         sms->setWeaponDeliveryMode(mixr::models::IStoresMgr::A2A);
+         sms->setWeaponDeliveryMode(mixr::models::StoresMgr::A2A);
          getOwnship()->event(WPN_REL_EVENT);
       }
    }
@@ -96,10 +96,10 @@ bool TestDisplay::onWpnRelKey()
 bool TestDisplay::onPreRelKey()
 {
     if (getOwnship() != nullptr) {
-       mixr::models::IStoresMgr* sms{getOwnship()->getStoresManagement()};
+       mixr::models::StoresMgr* sms{getOwnship()->getStoresManagement()};
         if (sms != nullptr) {
-            sms->setWeaponDeliveryMode(mixr::models::IStoresMgr::A2A);
-            mixr::models::IWeapon* wpn{sms->getCurrentWeapon()};
+            sms->setWeaponDeliveryMode(mixr::models::StoresMgr::A2A);
+            mixr::models::AbstractWeapon* wpn{sms->getCurrentWeapon()};
             if (wpn != nullptr) {
                wpn->prerelease();
                std::cout << "Prelaunched wpn = " << wpn << std::endl;
@@ -172,9 +172,9 @@ void TestDisplay::maintainAirTrackSymbols(mixr::graphics::SymbolLoader* loader, 
    int codes[MAX_TRACKS]{};              // Work codes: empty(0), matched(1), unmatched(-1)
    const double rng2{rng * rng};         // Range squared (KM * KM)
 
-   mixr::models::IPlayer* newTracks[MAX_TRACKS]{};   // New tracks to add
+   mixr::models::Player* newTracks[MAX_TRACKS]{};   // New tracks to add
    int nNewTracks{};                                // Number of new tracks
-   mixr::models::IPlayer* target{};
+   mixr::models::Player* target{};
 
    // The real maximum number of tracks is the smaller of MAX_TRACKS and the loader's maximum
    int maxTracks{loader->getMaxSymbols()};
@@ -189,20 +189,20 @@ void TestDisplay::maintainAirTrackSymbols(mixr::graphics::SymbolLoader* loader, 
    // find all air vehicles within range
    {
       // get the player list
-      mixr::simulation::ISimulation* sim{getSimulation()};
-      mixr::base::IPairStream* plist{sim->getPlayers()};
+      mixr::simulation::Simulation* sim{getSimulation()};
+      mixr::base::PairStream* plist{sim->getPlayers()};
 
       // search for air vehicles or missiles within range
-      mixr::base::IList::Item* item{plist->getFirstItem()};
+      mixr::base::List::Item* item{plist->getFirstItem()};
       while (item != nullptr && nNewTracks < maxTracks) {
          const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
-         const auto p = static_cast<mixr::models::IPlayer*>(pair->object());
+         const auto p = static_cast<mixr::models::Player*>(pair->object());
          mixr::base::Vec3d rpos{p->getPosition() - getOwnship()->getPosition()};
-         const double x{rpos[0] * mixr::base::length::M2NM};
-         const double y{rpos[1] * mixr::base::length::M2NM};
+         const double x{rpos[0] * mixr::base::distance::M2NM};
+         const double y{rpos[1] * mixr::base::distance::M2NM};
 
-         const auto weapon = dynamic_cast<mixr::models::IWeapon*>(p);
-         if (weapon && (weapon->isMode(mixr::models::IPlayer::Mode::PRE_RELEASE) || weapon->isActive())) {
+         const auto weapon = dynamic_cast<mixr::models::AbstractWeapon*>(p);
+         if (weapon && (weapon->isMode(mixr::models::Player::PRE_RELEASE) || weapon->isActive())) {
             target = weapon->getTargetPlayer();
          }
 
@@ -260,8 +260,8 @@ void TestDisplay::maintainAirTrackSymbols(mixr::graphics::SymbolLoader* loader, 
 
             int type{4};                                                               // unknown
             if (newTracks[inew]->isClassType(typeid(mixr::models::AirVehicle))) {
-               if (newTracks[inew]->isSide(mixr::models::IPlayer::BLUE)) type = 1;      // friend
-               else if (newTracks[inew]->isSide(mixr::models::IPlayer::RED)) type = 2;  // foe
+               if (newTracks[inew]->isSide(mixr::models::Player::BLUE)) type = 1;      // friend
+               else if (newTracks[inew]->isSide(mixr::models::Player::RED)) type = 2;  // foe
                else type = 3; // neutral/commercial
             }
             else if (newTracks[inew]->isClassType(typeid(mixr::models::Missile))) {
@@ -288,14 +288,14 @@ void TestDisplay::maintainAirTrackSymbols(mixr::graphics::SymbolLoader* loader, 
    }
 
    // now update the active tracks
-   const auto os = dynamic_cast<mixr::models::IPlayer*>(getOwnship());
+   const auto os = dynamic_cast<mixr::models::Player*>(getOwnship());
    for (int i = 0; i < maxTracks; i++) {
       const double osX{os->getXPosition()};
       const double osY{os->getYPosition()};
       if (tracks[i] != nullptr && trkIdx[i] != 0) {
          double xp{tracks[i]->getXPosition() - osX};
          double yp{tracks[i]->getYPosition() - osY};
-         loader->updateSymbolPositionXY( trkIdx[i], (xp * mixr::base::length::M2NM), (yp * mixr::base::length::M2NM) );
+         loader->updateSymbolPositionXY( trkIdx[i], (xp * mixr::base::distance::M2NM), (yp * mixr::base::distance::M2NM) );
          loader->updateSymbolHeading( trkIdx[i], tracks[i]->getHeadingD() );
          if (tracks[i]==target) {
             //const auto temp = new base::Identifier("green");
@@ -309,28 +309,28 @@ void TestDisplay::maintainAirTrackSymbols(mixr::graphics::SymbolLoader* loader, 
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
-mixr::models::IPlayer* TestDisplay::getOwnship()
+mixr::models::Player* TestDisplay::getOwnship()
 {
-   mixr::models::IPlayer* p{};
-   mixr::simulation::IStation* sta{getStation()};
+   mixr::models::Player* p{};
+   mixr::simulation::Station* sta{getStation()};
    if (sta != nullptr) {
-      p = dynamic_cast<mixr::models::IPlayer*>(sta->getOwnship());
+      p = dynamic_cast<mixr::models::Player*>(sta->getOwnship());
    }
    return p;
 }
 
-mixr::simulation::ISimulation* TestDisplay::getSimulation()
+mixr::simulation::Simulation* TestDisplay::getSimulation()
 {
-   mixr::simulation::ISimulation* s{};
-   mixr::simulation::IStation* sta{getStation()};
+   mixr::simulation::Simulation* s{};
+   mixr::simulation::Station* sta{getStation()};
    if (sta != nullptr) s = sta->getSimulation();
    return s;
 }
 
-mixr::simulation::IStation* TestDisplay::getStation()
+mixr::simulation::Station* TestDisplay::getStation()
 {
    if (myStation == nullptr) {
-      const auto s = dynamic_cast<mixr::simulation::IStation*>( findContainerByType(typeid(mixr::simulation::IStation)) );
+      const auto s = dynamic_cast<mixr::simulation::Station*>( findContainerByType(typeid(mixr::simulation::Station)) );
       if (s != nullptr) myStation = s;
    }
    return myStation;

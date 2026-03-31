@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="configs">
+      <UniqueIdentifier>{4EFC71D3-BADB-F06E-C3F3-7B452F5257D0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mainLaero\AdiDisplay.hpp" />
+    <ClInclude Include="..\..\mainLaero\MapDisplay.hpp" />
+    <ClInclude Include="..\..\mainLaero\MapPage.hpp" />
+    <ClInclude Include="..\..\mainLaero\TestStation.hpp" />
+    <ClInclude Include="..\..\mainLaero\factory.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\mainLaero\AdiDisplay.cpp" />
+    <ClCompile Include="..\..\mainLaero\MapDisplay.cpp" />
+    <ClCompile Include="..\..\mainLaero\MapPage.cpp" />
+    <ClCompile Include="..\..\mainLaero\TestStation.cpp" />
+    <ClCompile Include="..\..\mainLaero\factory.cpp" />
+    <ClCompile Include="..\..\mainLaero\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\mainLaero\configs\adidisplay.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdAccel.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdAirspeed.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdAltitude.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdClimb.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdHeading.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdMode.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdRange.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdRotBank.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\cmdVertVeloc.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\mapdisplay.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\test.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\updownbtn1.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\updownbtn2.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\updownbtn3.epp">
+      <Filter>configs</Filter>
+    </None>
+    <None Include="..\..\mainLaero\configs\updownbtn4.epp">
+      <Filter>configs</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,12 +1,12 @@
 
-#ifndef __TestOne_HPP__
-#define __TestOne_HPP__
+#ifndef __TestOne_H__
+#define __TestOne_H__
 
 #include "mixr/graphics/Graphic.hpp"
 #include <array>
 
 namespace mixr {
-namespace base { class IAngle; class INumber; }
+namespace base { class Angle; class Number; }
 }
 
 //------------------------------------------------------------------------------
@@ -23,9 +23,9 @@ public:
 
     void getPosition(double& xx, double& yy) const             { xx = xPos; yy = yPos; }
     void setPosition(const double xx, const double yy)         { xPos = xx; yPos = yy; }
-    bool realSpeed(const mixr::base::INumber* const rsobj);
-    bool setAngle(mixr::base::IAngle* saobj);
-    bool setAngle(const mixr::base::INumber* const saobj);
+    bool realSpeed(const mixr::base::Number* const rsobj);
+    bool setAngle(mixr::base::Angle* saobj);
+    bool setAngle(const mixr::base::Number* const saobj);
 
     double leftLimit() const                { return left; }
     void leftLimit(const double ll)         { left = ll; }
@@ -46,7 +46,7 @@ public:
 
     void updateTC(const double dt = 0.0) final;
     void updateData(const double dt = 0.0) final;
-    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
     void reset() final;
 
 private:
@@ -62,7 +62,7 @@ private:
     std::array<mixr::base::Vec2d, maxHist> trail;  // Display trail
     int nTrails{};                                 // Trail size
     int index{};                                   // Trail index
-    mixr::base::IAngle* iangle{};                  // Input angle
+    mixr::base::Angle* iangle{};                   // Input angle
 };
 
 #endif

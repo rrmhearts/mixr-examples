@@ -1,8 +1,8 @@
 
-#ifndef __Station_HPP__
-#define __Station_HPP__
+#ifndef __Station_H__
+#define __Station_H__
 
-#include "mixr/simulation/IStation.hpp"
+#include "mixr/simulation/Station.hpp"
 
 namespace mixr {
    namespace glut { class GlutDisplay; }
@@ -16,9 +16,9 @@ namespace mixr {
 //      it.  This also runs the simulation, and acts as the interface between the
 //      graphics and simulation.
 // -------------------------------------------------------------------------------
-class Station final: public mixr::simulation::IStation
+class Station final: public mixr::simulation::Station
 {
-    DECLARE_SUBCLASS(Station, mixr::simulation::IStation)
+    DECLARE_SUBCLASS(Station, mixr::simulation::Station)
 
 public:
     Station();
@@ -26,8 +26,8 @@ public:
     void reset() final;
 
 private:
-    mixr::base::safe_ptr<mixr::glut::GlutDisplay> display;  // main display
-    bool displayInit{};                                     // display created?
+    mixr::glut::GlutDisplay* display{}; // this is our main display that
+    bool displayInit{};               // is our display created?
 
 private:
     // slot table helper methods

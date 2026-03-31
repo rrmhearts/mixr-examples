@@ -70,7 +70,7 @@ void MyComp::reset()
 void MyComp::updateTC(const double dt)
 {
    const int millis{static_cast<int>(dt * 1000)};
-   std::cout << "Time has moved forward by " << millis << " milliseconds\n";
+   std::cout << "uTC: Time has moved forward by " << millis << " milliseconds\n";
 
    // Update base classes stuff
    BaseClass::updateTC(dt);
@@ -80,9 +80,9 @@ void MyComp::updateData(const double dt)
 {
    // print out string info if a string has been defined
    if (str != nullptr)
-      std::cout << "BG Str: " << str->c_str() << "\n";
+      std::cout << "uD: BG Str: " << str->getString() << "\n";
    else
-      std::cout << "BG Str: Nothing to print\n";
+      std::cout << "uD: BG Str: Nothing to print\n";
 
    // Update base classes stuff
    BaseClass::updateData(dt);

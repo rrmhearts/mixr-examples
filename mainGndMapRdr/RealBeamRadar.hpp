@@ -1,12 +1,12 @@
 
-#ifndef __RealBeamRadar_HPP__
-#define __RealBeamRadar_HPP__
+#ifndef __RealBeamRadar_H__
+#define __RealBeamRadar_H__
 
-#include "mixr/models/system/IRadar.hpp"
+#include "mixr/models/system/Radar.hpp"
 
 namespace mixr {
-namespace base { class Angle; class Boolean; class Distance; }
-namespace terrain { class ITerrain; }
+namespace base { class Angle; class Distance; class Number; }
+namespace terrain { class Terrain; }
 }
 
 //------------------------------------------------------------------------------
@@ -14,15 +14,15 @@ namespace terrain { class ITerrain; }
 //
 // Description: Real-Beam Radar Model
 //------------------------------------------------------------------------------
-class RealBeamRadar final: public mixr::models::IRadar
+class RealBeamRadar final: public mixr::models::Radar
 {
-    DECLARE_SUBCLASS(RealBeamRadar, mixr::models::IRadar)
+    DECLARE_SUBCLASS(RealBeamRadar, mixr::models::Radar)
 
 public:
     RealBeamRadar();
 
-   const mixr::terrain::ITerrain* getTerrain() const                      { return terrain; }
-   virtual bool setTerrain(const mixr::terrain::ITerrain* const msg);
+   const mixr::terrain::Terrain* getTerrain() const                      { return terrain; }
+   virtual bool setTerrain(const mixr::terrain::Terrain* const msg);
 
    double getAltitude() const                     { return altitude; }    // Ref altitude (meters)
    double getAntennaAzimuthAngle() const          { return antAzAngle; }  // Antenna look angle (degs)
@@ -53,7 +53,7 @@ private:
    bool copyImageMemory(const RealBeamRadar& org);
    void freeImageMemory();
 
-   const mixr::terrain::ITerrain* terrain{};  // Terrain data
+   const mixr::terrain::Terrain* terrain{};  // Terrain data
    double            altitude{};             // Ref altitude (meters)
    double            antAzAngle{};           // Antenna azimuth angle (degs)
    double            antElAngle{};           // Antenna elevation angle (degs)
@@ -81,8 +81,8 @@ private:
 
 private:
    // slot table helper methods
-   bool setSlotInterpolate(const mixr::base::Boolean* const);
-
+   bool setSlotInterpolate(const mixr::base::Number* const);
+   
 };
 
 #endif

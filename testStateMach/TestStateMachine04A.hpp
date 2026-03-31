@@ -1,17 +1,17 @@
 
-#ifndef __TestStateMachine04A_HPP__
-#define __TestStateMachine04A_HPP__
+#ifndef __TestStateMachine04A_H__
+#define __TestStateMachine04A_H__
 
-#include "mixr/base/IStateMachine.hpp"
+#include "mixr/base/StateMachine.hpp"
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine04A -- (sub) State Machine test #4a
 //
 //
 //------------------------------------------------------------------------------
-class TestStateMachine04A final: public mixr::base::IStateMachine
+class TestStateMachine04A final: public mixr::base::StateMachine
 {
-   DECLARE_SUBCLASS(TestStateMachine04A, mixr::base::IStateMachine)
+   DECLARE_SUBCLASS(TestStateMachine04A, mixr::base::StateMachine)
 
 public:
    TestStateMachine04A();

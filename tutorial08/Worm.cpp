@@ -1,8 +1,6 @@
 
 #include "Worm.hpp"
-
-#include "mixr/base/numeric/INumber.hpp"
-#include "mixr/base/qty/angles.hpp"
+#include "mixr/base/units/Angles.hpp"
 
 #include <cmath>
 
@@ -15,9 +13,9 @@ BEGIN_SLOTTABLE(Worm)
 END_SLOTTABLE(Worm)
 
 BEGIN_SLOT_MAP(Worm)
-   ON_SLOT(1, setSlotSpeed, mixr::base::INumber)
-   ON_SLOT(2, setSlotAngle, mixr::base::IAngle)
-   ON_SLOT(2, setSlotAngle, mixr::base::INumber)
+   ON_SLOT(1, setSlotSpeed, mixr::base::Number)
+   ON_SLOT(2, setSlotAngle, mixr::base::Angle)
+   ON_SLOT(2, setSlotAngle, mixr::base::Number)
 END_SLOT_MAP()
 
 BEGIN_EVENT_HANDLER(Worm)
@@ -64,7 +62,8 @@ void Worm::reset()
    yPos =0;
    nTrails = 0;
    if (iangle != nullptr) {
-      setStartAngle(iangle->getValueInRadians());
+      mixr::base::Radians radians;
+      setStartAngle(static_cast<double>(radians.convert(*iangle)));
    }
 }
 
@@ -138,34 +137,34 @@ void Worm::drawFunc()
    glEnd();
 }
 
-bool Worm::setSlotSpeed(const mixr::base::INumber* const rsobj)
+bool Worm::setSlotSpeed(const mixr::base::Number* const rsobj)
 {
    bool ok{};
    if (rsobj != nullptr) {
-      setSpeed(rsobj->asDouble());
+      setSpeed(rsobj->getReal());
       ok = true;
    }
    return ok;
 }
 
-bool Worm::setSlotAngle(const mixr::base::IAngle* const x)
+bool Worm::setSlotAngle(const mixr::base::Angle* const saobj)
 {
    bool ok{};
-   if (x != nullptr) {
+   if (saobj != nullptr) {
       mixr::base::Radians radians;
-      setStartAngle(x->getValueInRadians());
-      iangle = x;
+      setStartAngle(static_cast<double>(radians.convert(*saobj)));
+      iangle = saobj;
       iangle->ref();
       ok = true;
    }
    return ok;
 }
 
-bool Worm::setSlotAngle(const mixr::base::INumber* const saobj)
+bool Worm::setSlotAngle(const mixr::base::Number* const saobj)
 {
    bool ok{};
    if (saobj != nullptr) {
-      setStartAngle(saobj->asDouble());
+      setStartAngle(saobj->getReal());
       ok = true;
    }
    return ok;
