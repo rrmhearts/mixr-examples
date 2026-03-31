@@ -7,9 +7,9 @@ The most current version of the mixed reality simulation platform can be found a
 Notes
 -----
 
-*  Use make-edl.cmd to generate the example \*.edl files under windows, and
-   use 'make edl' to generate the \*.edl files under linux.
-*  This is required to **run most of the examples.**
+*  Use `make-edl.cmd` to generate the example `*.edl` files under windows, and
+   use `make edl` to generate the `*.edl` files under linux.
+   This is required to **run most of the examples.**
 
 
 Demonstration Applications
@@ -55,7 +55,7 @@ Example Applications
 
 * mainTerrain -- draws terrain elevation data
 
-* mainUbf1 -- A version of 'mainCockpit' that uses UBF behaviors to 'fly' an aircraft
+* mainUbf1 -- A version of `mainCockpit` that uses UBF behaviors to 'fly' an aircraft
 
 Example GUI Applications
 ------------------------
@@ -69,7 +69,7 @@ Test Applications
 
 * testDafif -- exercises DAFIF library capabilities
 
-* testEvents -- exercises Component class send() methods
+* testEvents -- exercises `Component` class `send()` methods
 
 * testGraphics -- exercises graphic class available in 'graphics' library
     1. Contains several test MFD pages with common background graphics
@@ -83,19 +83,19 @@ Test Applications
 
 * testLinearSys
 
-* testMatrix -- exercies Matrix class functionality
+* testMatrix -- exercies `Matrix` class functionality
 
 * testMetaObject -- exercises meta-object functionality
 
 * testNavUtils -- extensive set of navigation test routines
 
-* testNetHandler -- tests the network handlers (derived from NetHandler).  Includes client and server side tests/examples for the UDP, TCP, broadcast, and multicast handlers.
+* testNetHandler -- tests the network handlers (derived from `NetHandler`).  Includes client and server side tests/examples for the UDP, TCP, broadcast, and multicast handlers.
 
 * testRadar -- general radar test program
 
 * testRecordData -- variation of 'mainy1' that has a DataRecorder attached and records a data file that can be read by 'testRecordRead'.
 
-* testRecorderRead -- reads and prints recorder data streams or binary files. Can be used with 'testRecordData' or 'testRecorderWrite'.
+* testRecorderRead -- reads and prints recorder data streams or binary files. Can be used with `testRecordData` or `testRecorderWrite`.
 
 * testRecorderWrite -- write test data recorder files.
 
@@ -103,11 +103,11 @@ Test Applications
 
 * testStateMach -- example and test of state machine class
 
-* testTables -- collection of Table tests programs
+* testTables -- collection of `Table` tests programs
 
 * testTemplates -- a bit of a playground for testing templates
 
-* testTimer -- tests the functionality of the Timer class.
+* testTimer -- tests the functionality of the `Timer` class.
 
 * testUnits  -- temporary location for misc docs for how unit conversions were tested
 
@@ -118,13 +118,13 @@ Tutorial applications:
 
 * tutorial02 -- This example demonstrates the creation of an MIXR compliant class called Random. As with most extensible platforms, macros are used to spell out the boilerplate code that needs to be defined in order to create a "well defined" class. The macros make it easy to develop native toolkit components quickly. This example purposely focuses on a simple class so that the developer can focus on the boilerplate aspects of MIXR classes.
 
-* tutorial03 -- This example extends the capability of the Random class from tutorial02. The application has been enhanced so that it can read an input file and have the native toolkit parser create the Random class with attributes specified at run-time. This example is focused as a starting point for understanding how to use the MIXR parser and input language.
+* tutorial03 -- This example extends the capability of the Random class from `tutorial02`. The application has been enhanced so that it can read an input file and have the native toolkit parser create the Random class with attributes specified at run-time. This example is focused as a starting point for understanding how to use the MIXR parser and input language.
 
 * tutorial04 -- tutorial03 has been enhanced so that the Random class can provide numbers drawn from different distributions. Two specific distributions have been added: uniform and exponential. The Random class has been redefined to be abstract.
 
-* tutorial05 -- This tutorial creates a class called MyObj that can process several types of inputs. Specifically it understands a list of colors and a vector.
+* tutorial05 -- This tutorial creates a class called `MyObj` that can process several types of inputs. Specifically it understands a list of colors and a vector.
 
-* tutorial06 -- This tutorial presents the construction of a very simple component called MyComp. MyComp only understands one attribute called "str". Because MyComp is built off of component, MyComp can also manage a list of pairs (a pairstream) where each Pair contains another component. This list of pairs (the pairstream) is our components container.
+* tutorial06 -- This tutorial presents the construction of a very simple component called `MyComp`. `MyComp` only understands one attribute called "str". Because `MyComp` is built off of component, `MyComp` can also manage a list of pairs (a pairstream) where each Pair contains another component. This list of pairs (the pairstream) is our components container.
 
 * tutorial07 -- Simple graphics application.
 
@@ -135,7 +135,7 @@ Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
 * xBehaviors -- eXample UBF behaviors
 
-* xPanel -- eXample components to display an instrument panel, used by 'mainy1', 'mainUbf1' and 'testRecordData'
+* xPanel -- eXample components to display an instrument panel, used by `mainy1`, `mainUbf1` and `testRecordData`
 
 * xRecorder -- eXample extension of the Data Recorder
 
