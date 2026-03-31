@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
-   std::string configFilename = "configs/file0.epp";
+   std::string configFilename = "file0.edl";
 
    // build a display
    glutDisplay = builder(configFilename);
