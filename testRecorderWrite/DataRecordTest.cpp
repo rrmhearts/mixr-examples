@@ -20,7 +20,6 @@
 
 #include "mixr/base/String.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
 
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/message.h"

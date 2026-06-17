@@ -5,7 +5,7 @@
 #include "mixr/graphics/readouts/IReadout.hpp"
 
 namespace mixr {
-namespace base { class Integer; class IPairStream; }
+namespace base { class Integer; class PairStream; }
 }
 
 //------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ namespace base { class Integer; class IPairStream; }
 // Slots:
 //    rows     <Integer>     ! Number of rows (default: 1)
 //    spacing  <Integer>     ! Spacing between rows (default: 1)
-//    columns  <IPairStream> ! Column descriptions: list of items in each row
+//    columns  <PairStream>  ! Column descriptions: list of items in each row
 //------------------------------------------------------------------------------
 class Table final: public mixr::graphics::IReadout
 {
@@ -25,7 +25,7 @@ class Table final: public mixr::graphics::IReadout
 public:
    Table();
 
-   const mixr::base::IPairStream* getColumns() const;
+   const mixr::base::PairStream* getColumns() const;
    int getNumberOfRows() const;
 
    // graphics::Readout interface
@@ -46,13 +46,13 @@ private:
 
    int rows{DEFAULT_ROW};                    // Number of rows in table
    int spacing{DEFAULT_SPACING};             // Spacing between rows (default: 1)
-   const mixr::base::IPairStream* columns{};  // columns items
+   const mixr::base::PairStream* columns{};  // columns items
 
 private:
    // slot table helper methods
    bool setSlotRows(mixr::base::Integer* const);
    bool setSlotSpacing(mixr::base::Integer* const);
-   bool setSlotColumns(mixr::base::IPairStream* const);
+   bool setSlotColumns(mixr::base::PairStream* const);
 };
 
 #endif

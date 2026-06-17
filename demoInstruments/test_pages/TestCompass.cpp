@@ -3,7 +3,6 @@
 
 #include "mixr/base/colors/Rgb.hpp"
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
 #include "mixr/base/util/str_utils.hpp"
 
 #include "mixr/graphics/MapPage.hpp"

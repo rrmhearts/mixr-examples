@@ -2,7 +2,7 @@
 #include "TableRow.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/PairStream.hpp"
 
 using namespace mixr;
 
@@ -49,7 +49,7 @@ void TableRow::column(const int cc)
 
 void  TableRow::put(base::Pair* pp)
 {
-   base::IPairStream* subcomponents{getComponents()};
+   base::PairStream* subcomponents{getComponents()};
    BaseClass::processComponents(subcomponents, typeid(graphics::IReadout), pp);
    if (subcomponents != nullptr) subcomponents->unref();
 }
@@ -57,7 +57,7 @@ void  TableRow::put(base::Pair* pp)
 void TableRow::position()
 {
    // position the fields in this table item
-   base::IPairStream* subcomponents{getComponents()};
+   base::PairStream* subcomponents{getComponents()};
    if (subcomponents != nullptr) {
 
       int ln{line()};

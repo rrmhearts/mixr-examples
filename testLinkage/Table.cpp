@@ -6,7 +6,7 @@
 #include "mixr/base/numeric/Integer.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/PairStream.hpp"
 
 #include <sstream>
 
@@ -23,7 +23,7 @@ END_SLOTTABLE(Table)
 BEGIN_SLOT_MAP(Table)
    ON_SLOT( 1, setSlotRows,    base::Integer)
    ON_SLOT( 2, setSlotSpacing, base::Integer)
-   ON_SLOT( 3, setSlotColumns, base::IPairStream)
+   ON_SLOT( 3, setSlotColumns, base::PairStream)
 END_SLOT_MAP()
 
 Table::Table()
@@ -39,7 +39,7 @@ void Table::copyData(const Table& org, const bool)
    spacing = org.spacing;
 
    if (org.columns) {
-      base::IPairStream* p{org.columns->clone()};
+      base::PairStream* p{org.columns->clone()};
       setSlotColumns(p);
    } else {
       setSlotColumns(nullptr);
@@ -82,7 +82,7 @@ int Table::column() const
    return BaseClass::column();
 }
 
-const base::IPairStream* Table::getColumns() const
+const base::PairStream* Table::getColumns() const
 {
    return columns;
 }
@@ -114,7 +114,7 @@ void Table::column(const int cc)
 //------------------------------------------------------------------------------
 void Table::position()
 {
-   base::IPairStream* subcomponents{getComponents()};
+   base::PairStream* subcomponents{getComponents()};
    if (subcomponents != nullptr) {
 
       int ln{line()};
@@ -142,11 +142,11 @@ void Table::position()
 //------------------------------------------------------------------------------
 void Table::build()
 {
-   base::IPairStream* newList{};
+   base::PairStream* newList{};
 
    if (rows > 0 && columns != nullptr) {
 
-      newList = new base::IPairStream();
+      newList = new base::PairStream();
 
       // For each row: create a TableRow containing all the items in 'columns'
       for (int i = 1; i <= rows; i++) {
@@ -217,12 +217,12 @@ bool Table::setSlotSpacing(base::Integer* const msg)
    return ok;
 }
 
-bool Table::setSlotColumns(base::IPairStream* const msg)
+bool Table::setSlotColumns(base::PairStream* const msg)
 {
    if (columns != nullptr) { columns->unref(); columns = nullptr; }
    if (msg != nullptr) {
       // Make a copy of the list and Make sure we have only Field objexts
-      const auto newColumns = new base::IPairStream();
+      const auto newColumns = new base::PairStream();
       base::IList::Item* item{msg->getFirstItem()};
       while (item != nullptr) {
           const auto pair = static_cast<base::Pair*>(item->getValue());

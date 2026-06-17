@@ -1,7 +1,6 @@
 
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/timers/ITimer.hpp"
-#include "mixr/base/IPairStream.hpp"
 #include "mixr/base/edl_parser.hpp"
 
 #include "mixr/graphics/Readouts.hpp"

@@ -6,7 +6,6 @@
 #include "mixr/base/numeric/Boolean.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
 #include "mixr/base/timers/ITimer.hpp"
 
 #include "mixr/ui/glut/IGlutDisplay.hpp"

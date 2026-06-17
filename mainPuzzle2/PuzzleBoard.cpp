@@ -5,7 +5,7 @@
 #include "Blocks.hpp"
 
 #include "mixr/base/Pair.hpp"
-#include "mixr/base/IPairStream.hpp"
+#include "mixr/base/PairStream.hpp"
 
 using namespace mixr;
 
@@ -18,7 +18,7 @@ END_SLOTTABLE(PuzzleBoard)
 
 BEGIN_SLOT_MAP(PuzzleBoard)
     ON_SLOT( 1, setSlotController, Controller)
-    ON_SLOT( 2, setSlotTemplates, base::IPairStream )
+    ON_SLOT( 2, setSlotTemplates, base::PairStream )
 END_SLOT_MAP()
 
 PuzzleBoard::PuzzleBoard()
@@ -265,7 +265,7 @@ bool PuzzleBoard::setSlotController(Controller* const p)
 //------------------------------------------------------------------------------
 // Sets a list of the graphical templates for the blocks
 //------------------------------------------------------------------------------
-bool PuzzleBoard::setSlotTemplates(const base::IPairStream* const p)
+bool PuzzleBoard::setSlotTemplates(const base::PairStream* const p)
 {
    if (templates != nullptr) templates->unref();
    templates = p;

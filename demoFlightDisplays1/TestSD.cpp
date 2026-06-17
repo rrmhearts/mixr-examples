@@ -3,7 +3,6 @@
 
 #include "TestSD.hpp"
 
-#include "mixr/base/IPairStream.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/qty/util/angle_utils.hpp"
 #include "mixr/base/util/str_utils.hpp"

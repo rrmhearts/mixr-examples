@@ -15,7 +15,7 @@
 dataRecorder: ( XDataRecorder
 
    outputHandler:
-   ( RecorderOutputHandler
+   ( OutputHandler
       components: {
 
          // Binary file writer
