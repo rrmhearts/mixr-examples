@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
+#ifndef __mixr_xbehaviors_PlaneAction_HPP__
+#define __mixr_xbehaviors_PlaneAction_HPP__
+
+#include "mixr/base/ubf/IAction.hpp"
+=======
 #ifndef __mixr_xbehaviors_PlaneAction_H__
 #define __mixr_xbehaviors_PlaneAction_H__
 
 #include "mixr/base/ubf/AbstractAction.hpp"
+>>>>>>> d91383e8
 
 namespace mixr {
 namespace simulation { class Player; }
@@ -11,14 +18,24 @@ namespace xbehaviors {
 //------------------------------------------------------------------------------
 // Class: PlaneAction
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class PlaneAction final: public base::ubf::IAction
+{
+   DECLARE_SUBCLASS(PlaneAction, base::ubf::IAction)
+=======
 class PlaneAction final: public base::ubf::AbstractAction
 {
    DECLARE_SUBCLASS(PlaneAction, base::ubf::AbstractAction)
+>>>>>>> d91383e8
 
 public:
    PlaneAction();
 
+<<<<<<< HEAD
+   bool execute(base::IComponent* actor) final;
+=======
    bool execute(base::Component* actor) final;
+>>>>>>> d91383e8
 
    // get/set methods
    void setPitch(const double);

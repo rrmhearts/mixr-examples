@@ -2,18 +2,27 @@
 #include "TestStation.hpp"
 #include "Display.hpp"
 
+<<<<<<< HEAD
+#include "mixr/models/player/IPlayer.hpp"
+
+#include "mixr/simulation/ISimulation.hpp"
+=======
 #include "mixr/models/player/Player.hpp"
 #include "mixr/models/system/Gimbal.hpp"
 
 #include "mixr/simulation/Simulation.hpp"
+>>>>>>> d91383e8
 
 #include "mixr/base/numeric/Boolean.hpp"
 
 #include "mixr/base/Identifier.hpp"
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+=======
 #include "mixr/base/PairStream.hpp"
 
 #include "mixr/base/units/Angles.hpp"
+>>>>>>> d91383e8
 
 using namespace mixr;
 

@@ -8,6 +8,15 @@ OBJS += TestIoHandler.o
 OBJS += factory.o main.o
 
 LDFLAGS += -lmixr_interop_dis -lmixr_interop
+<<<<<<< HEAD
+LDFLAGS += -lmixr_models_jsbsim -lmixr_models
+LDFLAGS += -lxrecorder -lxpanel
+LDFLAGS += -lmixr_recorder_protobuf_v2 -lmixr_terrain
+LDFLAGS += -lmixr_simulation -lmixr_instruments
+LDFLAGS += -lmixr_linkage
+LDFLAGS += -lmixr_ighost_cigi -lmixr_ighost_flightgear
+LDFLAGS += -lmixr_ui_glut -lmixr_graphics -lmixr_graphics_ftgl -lmixr_base
+=======
 LDFLAGS += -lmixr_models
 LDFLAGS += -lxrecorder -lxpanel
 LDFLAGS += -lmixr_recorder -lmixr_terrain
@@ -15,6 +24,7 @@ LDFLAGS += -lmixr_simulation -lmixr_instruments
 LDFLAGS += -lmixr_linkage
 LDFLAGS += -lmixr_ighost_cigi -lmixr_ighost_pov
 LDFLAGS += -lmixr_ui_glut -lmixr_graphics -lmixr_base
+>>>>>>> d91383e8
 LDFLAGS += -lprotobuf -lJSBSim
 LDFLAGS += -lftgl -lfreetype -lcigicl
 LDFLAGS += -lglut -lGLU -lGL -lX11

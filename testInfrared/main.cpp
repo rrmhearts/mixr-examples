@@ -8,8 +8,14 @@
 
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/base/edl_parser.hpp"
+<<<<<<< HEAD
+#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/timers/ITimer.hpp"
+=======
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/Timers.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/util/system_utils.hpp"
 
 #include <GL/glut.h>
@@ -26,7 +32,11 @@ TestStation* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -76,7 +86,11 @@ void updateDataCB(int)
    const double dt{time - time0};
    time0 = time;
 
+<<<<<<< HEAD
+   mixr::base::ITimer::updateTimers(dt);
+=======
    mixr::base::Timer::updateTimers(dt);
+>>>>>>> d91383e8
    mixr::graphics::Graphic::flashTimer(dt);
    testStation->updateData(dt);
 }
@@ -87,10 +101,17 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test1.edl"};
+
+   // parse arguments
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test1.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -99,7 +120,11 @@ int main(int argc, char* argv[])
    testStation = builder(configFilename);
 
    // reset the Simulation
+<<<<<<< HEAD
+   testStation->event(mixr::base::IComponent::RESET_EVENT);
+=======
    testStation->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    // set timer for the background tasks
    const double dt{1.0 / static_cast<double>(bgRate)};
@@ -108,7 +133,11 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    testStation->updateData(dt);
    testStation->updateTC(dt);
+<<<<<<< HEAD
+   testStation->event(mixr::base::IComponent::RESET_EVENT);
+=======
    testStation->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    glutTimerFunc(millis, updateDataCB, 1);
 

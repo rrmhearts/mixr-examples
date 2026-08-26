@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TdElevPtr_HPP__
+#define __TdElevPtr_HPP__
+=======
 #ifndef __TdElevPtr_H__
 #define __TdElevPtr_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 
@@ -20,7 +25,11 @@
 //    UPDATE_VALUE  <Number>  ! elevation angle (degs)
 //------------------------------------------------------------------------------
 namespace mixr {
+<<<<<<< HEAD
+namespace base { class INumber; }
+=======
 namespace base { class Number; }
+>>>>>>> d91383e8
 }
 
 class TdElevPtr final: public mixr::graphics::Graphic
@@ -35,10 +44,17 @@ public:
 
    void draw() final;
 
+<<<<<<< HEAD
+   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+
+private:
+   bool onUpdateValue(const mixr::base::INumber* const);
+=======
    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
 
 private:
    bool onUpdateValue(const mixr::base::Number* const);
+>>>>>>> d91383e8
 
    double elev{};  // (degs)
 };

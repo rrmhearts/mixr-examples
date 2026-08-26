@@ -1,6 +1,11 @@
 
 #include "SpdLines.hpp"
+<<<<<<< HEAD
+
+#include "mixr/base/numeric/Boolean.hpp"
+=======
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 #include <iostream>
 
 namespace mixr {
@@ -14,11 +19,19 @@ BEGIN_SLOTTABLE(SpdLines)
 END_SLOTTABLE(SpdLines)
 
 BEGIN_SLOT_MAP(SpdLines)
+<<<<<<< HEAD
+    ON_SLOT(1, setSlotIsAlt, base::Boolean)
+END_SLOT_MAP()
+
+BEGIN_EVENT_HANDLER(SpdLines)
+    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetIsAltSpdLines, base::Boolean)
+=======
     ON_SLOT(1, setSlotIsAlt, base::Number)
 END_SLOT_MAP()
 
 BEGIN_EVENT_HANDLER(SpdLines)
     ON_EVENT_OBJ(UPDATE_VALUE, onEventSetIsAltSpdLines, base::Number)
+>>>>>>> d91383e8
 END_EVENT_HANDLER()
 
 SpdLines::SpdLines()
@@ -133,10 +146,17 @@ void SpdLines::drawFunc()
 }
 
 // Event function
+<<<<<<< HEAD
+bool SpdLines::onEventSetIsAltSpdLines(const base::Boolean* const x)
+{
+    bool ok{};
+    if (x != nullptr) ok = setIsAlt(x->asBool());
+=======
 bool SpdLines::onEventSetIsAltSpdLines(const base::Number* const x)
 {
     bool ok{};
     if (x != nullptr) ok = setIsAlt(x->getBoolean());
+>>>>>>> d91383e8
     return ok;
 }
 
@@ -144,10 +164,17 @@ bool SpdLines::onEventSetIsAltSpdLines(const base::Number* const x)
 //------------------------------------------------------------------------------
 // setSlotIsAlt() - sets our altitude flag
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool SpdLines::setSlotIsAlt(const base::Boolean* const newAltFlag)
+{
+    bool ok{};
+    if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->asBool());
+=======
 bool SpdLines::setSlotIsAlt(const base::Number* const newAltFlag)
 {
     bool ok{};
     if (newAltFlag != nullptr) ok = setIsAlt(newAltFlag->getBoolean());
+>>>>>>> d91383e8
     return ok;
 }
 

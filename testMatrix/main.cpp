@@ -4,7 +4,10 @@
 
 #include "mixr/base/Matrix.hpp"
 #include "mixr/base/Vectors.hpp"
+<<<<<<< HEAD
+=======
 #include "mixr/base/units/Angles.hpp"
+>>>>>>> d91383e8
 #include <iostream>
 #include <iomanip>
 
@@ -47,6 +50,10 @@ int main(int argc, char**)
              << "   7) getTriDiagonal()" << std::endl
              << "   8) getEigenPower()" << std::endl
              << "   9) getInverse()" << std::endl
+<<<<<<< HEAD
+             << "   0) exit" << std::endl
+=======
+>>>>>>> d91383e8
              << std::endl;
 
    int num = 0;
@@ -91,6 +98,14 @@ int main(int argc, char**)
          test_getInverse();
          break;
 
+<<<<<<< HEAD
+      case 0:
+         std::cout << "Exit\n";
+         std::exit(EXIT_SUCCESS);
+         break;
+
+=======
+>>>>>>> d91383e8
       default:
          std::cout << "Bad selection." << std::endl;
          break;

@@ -1,7 +1,12 @@
 # vs directories
+<<<<<<< HEAD
+vs2022/
+vs2026/
+=======
 vs2013/
 vs2015/
 vs2017/
+>>>>>>> d91383e8
 build/obj/
 .vs/
 *.tmp
@@ -92,6 +97,10 @@ mainGndMapRdr/mainGndMapRdr
 mainIgViewer/mainIgViewer
 mainLaero/mainLaero
 mainNonRT1/mainNonRT1
+<<<<<<< HEAD
+mainNonRT2/mainNonRT2
+=======
+>>>>>>> d91383e8
 mainPuzzle1/mainPuzzle1
 mainPuzzle2/mainPuzzle2
 mainQt1/mainQt1
@@ -114,6 +123,10 @@ testRadar/testRadar
 testRecordData/testRecordData
 testRecordData/*_v*
 testRecorderRead/testRecorderRead
+<<<<<<< HEAD
+testRecorderRead/testRecorderRead/*.csv
+=======
+>>>>>>> d91383e8
 testRecorderWrite/testRecorderWrite
 testRecorderWrite/*.bin
 testSlots/testSlots
@@ -122,6 +135,10 @@ testTables/testTables
 testTemplates/testTemplates
 testTimer/testTimer
 testVmap/testVmap
+<<<<<<< HEAD
+test/test
+=======
+>>>>>>> d91383e8
 tutorial01/tutorial01
 tutorial02/tutorial02
 tutorial03/tutorial03
@@ -130,6 +147,8 @@ tutorial05/tutorial05
 tutorial06/tutorial06
 tutorial07/tutorial07
 tutorial08/tutorial08
+<<<<<<< HEAD
+=======
 
 # Prerequisites
 *.d
@@ -200,3 +219,4 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+>>>>>>> d91383e8

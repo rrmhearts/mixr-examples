@@ -10,7 +10,11 @@ testhsi:
         #include "mixr/instruments/dials/hsi.epp"
         // Label to tell us what test we are running
         ( AsciiText
+<<<<<<< HEAD
+            position: [ 20 2 ]
+=======
             position: [ 26 2 ]
+>>>>>>> d91383e8
             color: white
             text: "testhsi.epp"
         )

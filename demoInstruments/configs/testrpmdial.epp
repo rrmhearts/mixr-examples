@@ -27,7 +27,11 @@ testrpmdial:
         )
         // Label to tell us what test we are running
         ( AsciiText
+<<<<<<< HEAD
+            position: [ 20 2 ]
+=======
             position: [ 26 2 ]
+>>>>>>> d91383e8
             color: white
             text: "testrpmdial.epp"
         )

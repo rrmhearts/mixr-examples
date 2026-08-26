@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestRotator_HPP__
+#define __TestRotator_HPP__
+=======
 #ifndef __TestRotator_H__
 #define __TestRotator_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 

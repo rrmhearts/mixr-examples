@@ -4,9 +4,15 @@
    siteID: 3
    applicationID: 1
    exerciseID: 1
+<<<<<<< HEAD
+   enableInput: true
+   enableOutput: true
+   enableRelay: false
+=======
    enableInput: 1
    enableOutput: 1
    enableRelay: 0
+>>>>>>> d91383e8
 
    maxTimeDR: ( Seconds 0.01 )
 

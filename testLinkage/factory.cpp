@@ -1,7 +1,11 @@
 
 #include "factory.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/IObject.hpp"
+=======
 #include "mixr/base/Object.hpp"
+>>>>>>> d91383e8
 
 #include "TestIoDisplay.hpp"
 #include "Table.hpp"
@@ -15,9 +19,15 @@
 
 #include <string>
 
+<<<<<<< HEAD
+mixr::base::IObject* factory(const std::string& name)
+{
+   mixr::base::IObject* obj {};
+=======
 mixr::base::Object* factory(const std::string& name)
 {
    mixr::base::Object* obj {};
+>>>>>>> d91383e8
 
    if ( name == TestIoDisplay::getFactoryName() ) {
       obj = new TestIoDisplay();

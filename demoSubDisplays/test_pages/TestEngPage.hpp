@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestEngPage_HPP__
+#define __TestEngPage_HPP__
+=======
 #ifndef __TestEngPage_H__
 #define __TestEngPage_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 #include "mixr/instruments/engines/EngPage.hpp"

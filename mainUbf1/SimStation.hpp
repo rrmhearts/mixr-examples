@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
+#ifndef __SimStation_HPP__
+#define __SimStation_HPP__
+
+#include "mixr/simulation/IStation.hpp"
+
+namespace mixr {
+namespace base { class Table1; }
+namespace glut { class IGlutDisplay; }
+=======
 #ifndef __SimStation_H__
 #define __SimStation_H__
 
@@ -8,6 +18,7 @@
 namespace mixr {
 namespace base { class Table1; class PairStream; }
 namespace glut { class GlutDisplay; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -23,9 +34,15 @@ namespace glut { class GlutDisplay; }
 //      display       <graphics::GlutDisplay>  ! Main graphics display
 //
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class SimStation final: public mixr::simulation::IStation
+{
+   DECLARE_SUBCLASS(SimStation, mixr::simulation::IStation)
+=======
 class SimStation final: public mixr::simulation::Station
 {
    DECLARE_SUBCLASS(SimStation, mixr::simulation::Station)
+>>>>>>> d91383e8
 
 public:
    SimStation();
@@ -38,12 +55,20 @@ public:
 
 private:
    // Main Display
+<<<<<<< HEAD
+   mixr::base::safe_ptr<mixr::glut::IGlutDisplay> mainDisplay;
+=======
    mixr::base::safe_ptr<mixr::glut::GlutDisplay> mainDisplay;
+>>>>>>> d91383e8
    bool displayInit {};
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotMainDisplay(mixr::glut::IGlutDisplay* const);
+=======
    bool setSlotMainDisplay(mixr::glut::GlutDisplay* const);
+>>>>>>> d91383e8
 };
 
 #endif

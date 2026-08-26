@@ -3,7 +3,11 @@
 // ---
 
 hlscolors:
+<<<<<<< HEAD
+( Page
+=======
 ( MfdPage
+>>>>>>> d91383e8
     pagingEvent: {
         n: cmycolors
         p: hsvcolors

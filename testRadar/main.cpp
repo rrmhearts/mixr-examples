@@ -7,8 +7,14 @@
 
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/base/edl_parser.hpp"
+<<<<<<< HEAD
+#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/timers/ITimer.hpp"
+=======
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/Timers.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/util/system_utils.hpp"
 
 #include <GL/glut.h>
@@ -16,8 +22,11 @@
 #include <string>
 #include <cstdlib>
 
+<<<<<<< HEAD
+=======
 //#define PARSE_TIMING_TEST
 
+>>>>>>> d91383e8
 // background frame rate
 const int bgRate{10};
 TestStation* testStation{};
@@ -25,6 +34,11 @@ TestStation* testStation{};
 // test station builder
 TestStation* builder(const std::string& filename)
 {
+<<<<<<< HEAD
+   // read configuration file
+   int num_errors{};
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
 #ifdef PARSE_TIMING_TEST
     LARGE_INTEGER cFreq;
     QueryPerformanceFrequency(&cFreq);
@@ -38,11 +52,14 @@ TestStation* builder(const std::string& filename)
    // read configuration file
    int num_errors{};
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
    }
 
+<<<<<<< HEAD
+=======
 #ifdef PARSE_TIMING_TEST
     QueryPerformanceCounter(&fcnt);
     LONGLONG endCnt = fcnt.QuadPart;
@@ -53,6 +70,7 @@ TestStation* builder(const std::string& filename)
     std::cout << "dtime1 = " << dtime1 << "MS" << std::endl;
 #endif
 
+>>>>>>> d91383e8
    // test to see if an object was created
    if (obj == nullptr) {
       std::cerr << "Invalid configuration file, no objects defined!" << std::endl;
@@ -105,10 +123,17 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test2a.edl"};
+
+   // parse arguments
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test2a.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -118,7 +143,11 @@ int main(int argc, char* argv[])
    testStation = builder(configFilename);
 
    // reset the Simulation
+<<<<<<< HEAD
+   testStation->event(mixr::base::IComponent::RESET_EVENT);
+=======
    testStation->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    // set timer for the background tasks
    const double dt{1.0 / static_cast<double>(bgRate)};
@@ -127,7 +156,11 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    testStation->updateData(dt);
    testStation->updateTC(dt);
+<<<<<<< HEAD
+   testStation->event(mixr::base::IComponent::RESET_EVENT);
+=======
    testStation->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    glutTimerFunc(millis, updateDataCB, 1);
 

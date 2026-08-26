@@ -14,7 +14,13 @@
 
 
 //  ---
+<<<<<<< HEAD
+// Full screen flag (set to 'true' or 'false')
+//  ---
+#define FULL_SCREEN_FLAG  false
+=======
 // Full screen flag (set to true(1) or false(0)
 //  ---
 #define FULL_SCREEN_FLAG    0
+>>>>>>> d91383e8
 

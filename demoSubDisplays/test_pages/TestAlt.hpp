@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestAlt_HPP__
+#define __TestAlt_HPP__
+=======
 #ifndef __TestAlt_H__
 #define __TestAlt_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 

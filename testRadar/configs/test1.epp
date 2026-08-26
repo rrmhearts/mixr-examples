@@ -1,5 +1,9 @@
 // ---
+<<<<<<< HEAD
+// Simple radar test; ownship vs. 3 targets
+=======
 // Simple radar test; ownship vs. 3 targets 
+>>>>>>> d91383e8
 //
 //   1) Ownship has a radar, a track manager, and four A/A missiles,
 //      and is looking at three target players.  You need to select
@@ -33,10 +37,17 @@
    // ---
    ownship: ownship
    simulation: ( WorldModel
+<<<<<<< HEAD
+
+     latitude:  REF_LAT
+     longitude: REF_LON
+
+=======
    
      latitude:  REF_LAT
      longitude: REF_LON
    
+>>>>>>> d91383e8
       //gamingAreaRange: ( KiloMeters 200.0 )
 
       //simulationTime: ( Seconds ( + ( * 13 3600 ) ( * 29 60 )  0 ) )
@@ -55,7 +66,11 @@
             id: 1
             side: blue
             type: "F-16"
+<<<<<<< HEAD
+            signature: ( RfSphereSignature radius: 2.0 )
+=======
             signature: ( SigSphere radius: 2.0 )
+>>>>>>> d91383e8
 
             initLatitude:  ( Degrees  REF_LAT )
             initLongitude: ( Degrees  REF_LON )
@@ -70,7 +85,11 @@
                antennas: ( Gimbal
                   components: {
 
+<<<<<<< HEAD
+                     rwr: ( Antenna
+=======
                      rwr: ( Antenna 
+>>>>>>> d91383e8
                         scanMode: manual
                         polarization: horizontal
                         gain: ( dB 12 )
@@ -109,15 +128,24 @@
                         powerPeak:  ( KiloWatts 500.0 )
                         frequency:  ( GigaHertz 3.0 )
                         bandwidth:  ( GigaHertz 2.0 )
+<<<<<<< HEAD
+                        PRF:        ( Hertz 500.0 )
+=======
                         PRF:        ( Hertz 500.0 ) 
+>>>>>>> d91383e8
                         pulseWidth: ( MilliSeconds 0.01 )
                         threshold:  ( dB 0.0 )
                         igain: ( dB 0 )
                         ranges:     [ 10 20 40 80 160 ]
                         initRangeIdx: 2
                      )
+<<<<<<< HEAD
+                     ( Rwr
+                        antennaName: rwr
+=======
                      ( Rwr 
                         antennaName: rwr  
+>>>>>>> d91383e8
                         threshold:  ( dB 0.0 )
                         frequency:  ( GigaHertz 3.0 )
                         bandwidth:  ( GigaHertz 2.0 )
@@ -219,20 +247,33 @@
             side: red
             type: "F-16"
             id: 1000
+<<<<<<< HEAD
+            signature: ( RfSphereSignature radius: 2.0 )
+=======
             signature: ( SigSphere radius: 2.0 )
+>>>>>>> d91383e8
             initPosition: [ 10000 15000 -10000 ]
             initHeading: ( Degrees 220 )
             initVelocity: 80
             positionFreeze: PFRZ
             killRemoval: true
             components: {
+<<<<<<< HEAD
+               rwr: ( Antenna
+=======
                rwr: ( Antenna 
+>>>>>>> d91383e8
                   scanMode: manual
                   polarization: horizontal
                   gain: ( dB 12 )
                )
+<<<<<<< HEAD
+               ( Rwr
+                  antennaName: rwr
+=======
                ( Rwr 
                   antennaName: rwr  
+>>>>>>> d91383e8
                   threshold:  ( dB 0.0 )
                   frequency:  ( GigaHertz 3.0 )
                   bandwidth:  ( GigaHertz 2.0 )
@@ -246,20 +287,33 @@
             type: "F-16"
             id: 1001
             camouflageType: 1
+<<<<<<< HEAD
+            signature: ( RfSphereSignature radius: 2.0 )
+=======
             signature: ( SigSphere radius: 2.0 )
+>>>>>>> d91383e8
             initPosition: [ 12000 16000 -10000 ]
             initHeading: ( Degrees 220 )
             initVelocity: 80
             positionFreeze: PFRZ
             killRemoval: true
             components: {
+<<<<<<< HEAD
+               rwr: ( Antenna
+=======
                rwr: ( Antenna 
+>>>>>>> d91383e8
                   scanMode: manual
                   polarization: horizontal
                   gain: ( dB 12 )
                )
+<<<<<<< HEAD
+               ( Rwr
+                  antennaName: rwr
+=======
                ( Rwr 
                   antennaName: rwr  
+>>>>>>> d91383e8
                   threshold:  ( dB 0.0 )
                   frequency:  ( GigaHertz 3.0 )
                   bandwidth:  ( GigaHertz 2.0 )
@@ -273,20 +327,33 @@
             type: "F-16"
             id: 1002
             camouflageType: 2
+<<<<<<< HEAD
+            signature: ( RfSphereSignature radius: 2.0 )
+=======
             signature: ( SigSphere radius: 2.0 )
+>>>>>>> d91383e8
             initPosition: [ 12000 14000 -10000 ]
             initHeading: ( Degrees 45 )
             initVelocity: 80
             positionFreeze: PFRZ
             killRemoval: true
             components: {
+<<<<<<< HEAD
+               rwr: ( Antenna
+=======
                rwr: ( Antenna 
+>>>>>>> d91383e8
                   scanMode: manual
                   polarization: horizontal
                   gain: ( dB 12 )
                )
+<<<<<<< HEAD
+               ( Rwr
+                  antennaName: rwr
+=======
                ( Rwr 
                   antennaName: rwr  
+>>>>>>> d91383e8
                   threshold:  ( dB 0.0 )
                   frequency:  ( GigaHertz 3.0 )
                   bandwidth:  ( GigaHertz 2.0 )

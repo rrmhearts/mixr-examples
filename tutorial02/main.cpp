@@ -1,7 +1,10 @@
 
+<<<<<<< HEAD
+=======
 /*
     Using a random number generator.
 */
+>>>>>>> d91383e8
 #include <iostream>
 
 #include "Rng.hpp"

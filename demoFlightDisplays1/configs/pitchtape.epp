@@ -2,7 +2,11 @@
 horizonbar: ( Line
                 color: white                
                 linewidth: 2
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0.0 0.0 )
                 vertices: {
                     [ -5.0 0.0 ]
@@ -12,7 +16,11 @@ horizonbar: ( Line
             // 2.5 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 0.23 )
                 vertices: {
                     [ -0.17 0 ] [ -0.35 0 ]
@@ -22,7 +30,11 @@ horizonbar: ( Line
             // 5 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 0.46 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -34,7 +46,11 @@ horizonbar: ( Line
             // 7.5 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 0.69 )
                 vertices: {
                     [ -0.17 0 ] [ -0.35 0 ]
@@ -44,7 +60,11 @@ horizonbar: ( Line
             // 10 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 0.92 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -70,7 +90,11 @@ horizonbar: ( Line
             // 15 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 1.38 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -82,7 +106,11 @@ horizonbar: ( Line
             // 20 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 1.84 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -108,7 +136,11 @@ horizonbar: ( Line
             // 25 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 2.3 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -120,7 +152,11 @@ horizonbar: ( Line
             // 30 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 2.76 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -146,7 +182,11 @@ horizonbar: ( Line
             // 35 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 3.22 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -158,7 +198,11 @@ horizonbar: ( Line
             // 40 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 3.68 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -184,7 +228,11 @@ horizonbar: ( Line
             // 45 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 4.14 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -196,7 +244,11 @@ horizonbar: ( Line
             // 50 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 4.6 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -222,7 +274,11 @@ horizonbar: ( Line
             // 55 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 5.06 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -234,7 +290,11 @@ horizonbar: ( Line
             // 60 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 5.52 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -260,7 +320,11 @@ horizonbar: ( Line
             // 65 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 5.98 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -272,7 +336,11 @@ horizonbar: ( Line
             // 70 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 6.44 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -298,7 +366,11 @@ horizonbar: ( Line
             // 75 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 6.9 )
                 vertices: {
                     [ -0.17 0 ] [ -0.47 0 ]
@@ -310,7 +382,11 @@ horizonbar: ( Line
             // 80 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: ( Translation 0 7.36 )
                 vertices: {
                     [ 0.17 0.0 ] [ 0.64 0.0 ]
@@ -337,7 +413,11 @@ horizonbar: ( Line
             // -2.5 degrees
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.23 ) ( Rotation 0.022 )  }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -346,7 +426,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.23 ) ( Rotation -0.022 )  }
                 vertices: {
                     [ 0.35 0 ] [ 0.29 0 ]
@@ -357,7 +441,11 @@ horizonbar: ( Line
             // -5 degrees
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.46 ) ( Rotation 0.044 )  }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -368,7 +456,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.46 ) ( Rotation -0.044 )  }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -381,7 +473,11 @@ horizonbar: ( Line
             // -7.5 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.69 ) ( Rotation 0.065 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -390,7 +486,11 @@ horizonbar: ( Line
             )            
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.69 ) ( Rotation -0.065 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]    
@@ -401,7 +501,11 @@ horizonbar: ( Line
             // -10 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.92 ) ( Rotation 0.087 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -414,7 +518,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -0.92 ) ( Rotation -0.087 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]
@@ -441,7 +549,11 @@ horizonbar: ( Line
             // -15 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -1.38 ) ( Rotation 0.13 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -452,7 +564,11 @@ horizonbar: ( Line
             )     
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -1.38 ) ( Rotation -0.13 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -464,7 +580,11 @@ horizonbar: ( Line
             // -20 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -1.84 ) ( Rotation 0.175 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -477,7 +597,11 @@ horizonbar: ( Line
             )            
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -1.84 ) ( Rotation -0.175 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]
@@ -504,7 +628,11 @@ horizonbar: ( Line
             // -25 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -2.3 ) ( Rotation 0.22 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -515,7 +643,11 @@ horizonbar: ( Line
             ) 
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -2.3 ) ( Rotation -0.22 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -527,7 +659,11 @@ horizonbar: ( Line
             // -30 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -2.76 ) ( Rotation 0.262 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -540,7 +676,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -2.76 ) ( Rotation -0.262 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]
@@ -567,7 +707,11 @@ horizonbar: ( Line
             // -35 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -3.22 ) ( Rotation 0.305 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -578,7 +722,11 @@ horizonbar: ( Line
             ) 
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -3.22 ) ( Rotation -0.305 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -590,7 +738,11 @@ horizonbar: ( Line
             // -40 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -3.68 ) ( Rotation 0.35 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -603,7 +755,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -3.68 ) ( Rotation -0.35 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]
@@ -630,7 +786,11 @@ horizonbar: ( Line
             // -45 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -4.14 ) ( Rotation 0.393 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -641,7 +801,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -4.14 ) ( Rotation -0.393 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -653,7 +817,11 @@ horizonbar: ( Line
             // -50 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -4.6 ) ( Rotation 0.436 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -666,7 +834,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -4.6 ) ( Rotation -0.436 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]
@@ -693,7 +865,11 @@ horizonbar: ( Line
             // -55 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -5.06 ) ( Rotation 0.48 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -704,7 +880,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -5.06 ) ( Rotation -0.48 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -716,7 +896,11 @@ horizonbar: ( Line
             // -60 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -5.52 ) ( Rotation 0.524 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -729,7 +913,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -5.52 ) ( Rotation -0.524 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]
@@ -756,7 +944,11 @@ horizonbar: ( Line
             // -65 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -5.98 ) ( Rotation 0.567 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -767,7 +959,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -5.98 ) ( Rotation -0.567 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -779,7 +975,11 @@ horizonbar: ( Line
             // -70 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -6.44 ) ( Rotation 0.611 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -792,7 +992,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -6.44 ) ( Rotation -0.611 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]
@@ -819,7 +1023,11 @@ horizonbar: ( Line
             // -75 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -6.9 ) ( Rotation 0.654 ) }
                 vertices: {
                     [ -0.17 0 ] [ -0.23 0 ]
@@ -830,7 +1038,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -6.9 ) ( Rotation -0.654 ) }
                 vertices: {
                     [ 0.17 0 ] [ 0.23 0 ]
@@ -842,7 +1054,11 @@ horizonbar: ( Line
             // -80 degree
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -7.36 ) ( Rotation 0.698 ) }
                 vertices: {
                    [ -0.64 0.0 ] [ -0.64 0.07 ]
@@ -855,7 +1071,11 @@ horizonbar: ( Line
             )
             ( Line
                 color: white
+<<<<<<< HEAD
+                segment: true
+=======
                 segment: 1
+>>>>>>> d91383e8
                 transform: { ( Translation 0 -7.36 ) ( Rotation -0.698 ) }
                 vertices: {
                    [ 0.64 0.0 ] [ 0.64 0.07 ]

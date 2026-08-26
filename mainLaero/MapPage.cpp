@@ -3,10 +3,16 @@
 #include "TestStation.hpp"
 #include "MapDisplay.hpp"
 
+<<<<<<< HEAD
+#include "mixr/models/player/IPlayer.hpp"
+#include "mixr/models/system/Autopilot.hpp"
+#include "mixr/models/navigation/INavigation.hpp"
+=======
 #include "mixr/models/player/air/AirVehicle.hpp"
 #include "mixr/models/player/Player.hpp"
 #include "mixr/models/system/Autopilot.hpp"
 #include "mixr/models/navigation/Navigation.hpp"
+>>>>>>> d91383e8
 #include "mixr/models/navigation/Route.hpp"
 #include "mixr/models/navigation/Steerpoint.hpp"
 
@@ -16,12 +22,19 @@
 #include "mixr/graphics/Display.hpp"
 #include "mixr/graphics/Shapes.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/PairStream.hpp"
+
+#include "mixr/base/qty/util/time_utils.hpp"
+=======
 #include "mixr/models/dynamics/LaeroModel.hpp"
 
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
 
 #include "mixr/base/units/time_utils.hpp"
+>>>>>>> d91383e8
 
 #include <array>
 #include <GL/glut.h>
@@ -133,9 +146,15 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 //void MapPage::drawHoldingPattern(const double aLat, const double aLon, const double ibCrs, const double tas)
 //{
    //if (pStn != nullptr) {
+<<<<<<< HEAD
+   //   simulation::IPlayer* pPlr  = pStn->getOwnship();
+   //   if (pPlr != nullptr) {
+   //      Vehicle::LaeroDynamics* pRac = (Vehicle::LaeroDynamics*) pPlr->getDynamicsModel();
+=======
    //   simulation::Player* pPlr  = pStn->getOwnship();
    //   if (pPlr != nullptr) {
    //      Vehicle::LaeroModel* pRac = (Vehicle::LaeroModel*) pPlr->getDynamicsModel();
+>>>>>>> d91383e8
    //      if (pRac != nullptr) {
 
    //         pRac->setAnchorLat(aLat);
@@ -153,7 +172,11 @@ void MapPage::drawSemiCircle(const double startAngle, const double radius)
 void MapPage::drawHoldingPattern()
 {
    if (pStn != nullptr) {
+<<<<<<< HEAD
+      const auto pPlr  = dynamic_cast<mixr::models::IPlayer*>(pStn->getOwnship());
+=======
       const auto pPlr  = dynamic_cast<mixr::models::Player*>(pStn->getOwnship());
+>>>>>>> d91383e8
       if (pPlr != nullptr) {
          const auto pRac = static_cast<mixr::models::Autopilot*>(pPlr->getPilot());
          if (pRac != nullptr) {
@@ -239,7 +262,11 @@ void MapPage::drawFunc()
       // get data pointers
       //-------------------------------------------------------
    if (pStn != nullptr) {
+<<<<<<< HEAD
+      const auto pPlr  = dynamic_cast<mixr::models::IPlayer*>(pStn->getOwnship());
+=======
       const auto pPlr  = dynamic_cast<mixr::models::Player*>(pStn->getOwnship());
+>>>>>>> d91383e8
       if (pPlr != nullptr) {
 
          // get the autopilot
@@ -368,9 +395,15 @@ void MapPage::updateData(const double dt)
          const auto routeLoader = dynamic_cast<mixr::graphics::SymbolLoader*>(pair->object());
          if (routeLoader != nullptr) {
             // get our player's route
+<<<<<<< HEAD
+            const auto ply = dynamic_cast<mixr::models::IPlayer*>(pStn->getOwnship());
+            if (ply != nullptr) {
+               mixr::models::INavigation* nav{ply->getNavigation()};
+=======
             const auto ply = dynamic_cast<mixr::models::Player*>(pStn->getOwnship());
             if (ply != nullptr) {
                mixr::models::Navigation* nav{ply->getNavigation()};
+>>>>>>> d91383e8
                if (nav != nullptr) {
                   mixr::models::Route* rte{nav->getPriRoute()};
                   if (rte != nullptr) {
@@ -398,6 +431,16 @@ void MapPage::updateData(const double dt)
         mixr::base::PairStream* stream = pStn->getPlayers();
         if (stream != nullptr) {
             // create our new player list
+<<<<<<< HEAD
+            mixr::models::IPlayer* newPlayers[MAX_PLAYERS]{};
+            int numNewPlayers{};
+            // go through all of our non-ownship players and populate our new list
+            mixr::base::IList::Item* item{stream->getFirstItem()};
+            while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
+                const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
+                if (pair != nullptr) {
+                    const auto pPlr = dynamic_cast<mixr::models::IPlayer*>(pair->object());
+=======
             mixr::models::Player* newPlayers[MAX_PLAYERS];
             int numNewPlayers{};
             // go through all of our non-ownship players and populate our new list
@@ -406,6 +449,7 @@ void MapPage::updateData(const double dt)
                 const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
                 if (pair != nullptr) {
                     const auto pPlr = dynamic_cast<mixr::models::Player*>(pair->object());
+>>>>>>> d91383e8
                     if (pPlr != nullptr) {
                         newPlayers[numNewPlayers] = pPlr;
                         newPlayers[numNewPlayers++]->ref();
@@ -451,10 +495,17 @@ void MapPage::updateData(const double dt)
                             player[j] = newPlayers[i];
                             player[j]->ref();
                             int type{1};
+<<<<<<< HEAD
+                            if (player[j]->isSide(mixr::models::IPlayer::RED)) type = 2;
+                            playerIdx[j] = loader->addSymbol(type, "");              //<LDB - "player"
+                            if (player[j]->getName() != "") {
+                                loader->updateSymbolText(playerIdx[j], "name", player[j]->getName().c_str());
+=======
                             if (player[j]->isSide(mixr::models::Player::RED)) type = 2;
                             playerIdx[j] = loader->addSymbol(type, "");              //<LDB - "player"
                             if (player[j]->getName() != nullptr) {
                                 loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());
+>>>>>>> d91383e8
                             }
                             // now let's empty our new player list
                             newPlayers[i]->unref();

@@ -1,6 +1,22 @@
 
 #include "RealBeamRadar.hpp"
 
+<<<<<<< HEAD
+#include "mixr/models/player/IPlayer.hpp"
+#include "mixr/models/system/Antenna.hpp"
+#include "mixr/models/IWorldModel.hpp"
+
+#include "mixr/terrain/ITerrain.hpp"
+
+#include "mixr/base/numeric/Boolean.hpp"
+
+#include "mixr/base/colors/IColor.hpp"
+#include "mixr/base/colors/Rgb.hpp"
+#include "mixr/base/colors/Hsva.hpp"
+
+#include "mixr/base/String.hpp"
+#include "mixr/base/Pair.hpp"
+=======
 #include "mixr/models/player/Player.hpp"
 #include "mixr/models/system/Antenna.hpp"
 #include "mixr/models/WorldModel.hpp"
@@ -17,6 +33,7 @@
 #include "mixr/base/String.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
+>>>>>>> d91383e8
 
 #include "mixr/base/util/nav_utils.hpp"
 
@@ -34,14 +51,22 @@ BEGIN_SLOTTABLE(RealBeamRadar)
 END_SLOTTABLE(RealBeamRadar)
 
 BEGIN_SLOT_MAP(RealBeamRadar)
+<<<<<<< HEAD
+   ON_SLOT( 1, setSlotInterpolate, base::Boolean)
+=======
    ON_SLOT( 1, setSlotInterpolate, base::Number)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 RealBeamRadar::RealBeamRadar()
 {
    STANDARD_CONSTRUCTOR()
 
+<<<<<<< HEAD
+   altitude = 15000.0 * base::length::FT2M;
+=======
    altitude = 15000.0 * base::distance::FT2M;
+>>>>>>> d91383e8
 
    // working storage
    elevations = new double[IMG_WIDTH];
@@ -94,7 +119,11 @@ void RealBeamRadar::transmit(const double dt)
    beamWidth = 7.0;
 
    //
+<<<<<<< HEAD
+   const models::IPlayer* own{getOwnship()};
+=======
    const models::Player* own{getOwnship()};
+>>>>>>> d91383e8
    if (own != nullptr) {
       // Get our ownship parameters
       altitude = static_cast<double>(own->getAltitude());
@@ -104,9 +133,15 @@ void RealBeamRadar::transmit(const double dt)
       // Locate the terrain elevation database
       if (terrain == nullptr) {
 
+<<<<<<< HEAD
+         const models::IWorldModel* sim{own->getWorldModel()};
+         if (sim != nullptr) {
+            setTerrain( dynamic_cast<const mixr::terrain::ITerrain*>(sim->getTerrain()) );    // ddh
+=======
          const models::WorldModel* sim{own->getWorldModel()};
          if (sim != nullptr) {
             setTerrain( dynamic_cast<const mixr::terrain::Terrain*>(sim->getTerrain()) );    // ddh
+>>>>>>> d91383e8
          }
       }
    }
@@ -194,10 +229,17 @@ void RealBeamRadar::transmit(const double dt)
          }
 
          // Generate Masks
+<<<<<<< HEAD
+         terrain::ITerrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude, antElAngle, beamWidth);
+
+         // Compute AAC data
+         terrain::ITerrain::aac(aacData, elevations, maskFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude);
+=======
          terrain::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude, antElAngle, beamWidth);
 
          // Compute AAC data
          terrain::Terrain::aac(aacData, elevations, maskFlgs, IMG_HEIGHT, groundRange[IMG_HEIGHT-1], altitude);
+>>>>>>> d91383e8
 
          // Draw a line along the Y points (moving from south to north along the latitude lines)
          for (int irow = 0; irow < IMG_HEIGHT; irow++) {
@@ -207,7 +249,11 @@ void RealBeamRadar::transmit(const double dt)
             // convert to a color (or gray) value
             base::Vec3d color(0,0,0);
             if (validFlgs[irow] && !maskFlgs[irow]) {
+<<<<<<< HEAD
+               terrain::ITerrain::getElevationColor(sn, 0.0, 1.0, grayTable, 19, color);
+=======
                terrain::Terrain::getElevationColor(sn, 0.0, 1.0, grayTable, 19, color);
+>>>>>>> d91383e8
             }
 
             // store this color
@@ -235,7 +281,11 @@ bool RealBeamRadar::computeGroundRanges(double* const groundRange, const unsigne
    if (groundRange != nullptr && n > 0 && maxRngNM > 0) {
 
       // Max range (m)
+<<<<<<< HEAD
+      double maxRng{maxRngNM * base::length::NM2M};
+=======
       double maxRng{maxRngNM * base::distance::NM2M};
+>>>>>>> d91383e8
 
       // Delta range between points (m)
       double deltaRng{maxRng/static_cast<double>(n)};
@@ -301,8 +351,13 @@ bool RealBeamRadar::computeEarthCurvature(double* const curvature, const unsigne
    bool ok{};
    if (curvature != nullptr && n > 0 && maxRngNM > 0 && radiusNM > 0) {
 
+<<<<<<< HEAD
+      double radius{radiusNM * base::length::NM2M};
+      double maxRng{maxRngNM * base::length::NM2M};
+=======
       double radius{radiusNM * base::distance::NM2M};
       double maxRng{maxRngNM * base::distance::NM2M};
+>>>>>>> d91383e8
       for (unsigned int idx = 0; idx < n; idx++) {
          double curRng{maxRng * static_cast<double>(idx)/static_cast<double>(n)};
          double arc{curRng / radius};
@@ -321,7 +376,11 @@ bool RealBeamRadar::computeEarthCurvature(double* const curvature, const unsigne
 // set functions
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD
+bool RealBeamRadar::setTerrain(const terrain::ITerrain* const msg)
+=======
 bool RealBeamRadar::setTerrain(const terrain::Terrain* const msg)
+>>>>>>> d91383e8
 {
    if (msg != terrain) {
       if (terrain != nullptr) terrain->unref();
@@ -336,11 +395,19 @@ bool RealBeamRadar::setTerrain(const terrain::Terrain* const msg)
 //------------------------------------------------------------------------------
 
 // Set interpolate flag
+<<<<<<< HEAD
+bool RealBeamRadar::setSlotInterpolate(const base::Boolean* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      interpolate = msg->asBool();
+=======
 bool RealBeamRadar::setSlotInterpolate(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       interpolate = msg->getBoolean();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;

@@ -3,6 +3,14 @@ p01:
     id: 1
     side: blue
     type: "F-16"
+<<<<<<< HEAD
+    signature: ( RfSphereSignature radius: 2.0 )
+
+    initAlt: ( Meters 5000 )
+    initHeading: ( Degrees 90.0 )      // initial heading
+    initVelocity: 300
+
+=======
     signature: ( SigSphere radius: 2.0 )
 
     initLatitude:  ( LatLon direction: "n" degrees: 36   minutes: 50.0 )
@@ -12,30 +20,46 @@ p01:
     initHeading: ( Degrees 0.0 )      // Initial heading
     initVelocity: 300
     
+>>>>>>> d91383e8
     positionFreeze: false
 
     dataLogTime: ( Seconds 0.1 )      // test recording at 10hz
 
     components: {
 
+<<<<<<< HEAD
+      dynamicsModel: ( JSBSimDynamics
+=======
       dynamicsModel: ( JSBSimModel
+>>>>>>> d91383e8
           rootDir: MIXR_DATA_JSBSIM_PATH
           model: "F4N"
           debugLevel: 0    // set to 1 to print output
       )
+<<<<<<< HEAD
+
+=======
      
+>>>>>>> d91383e8
       pilot: ( Autopilot
          navMode: false
          altitudeHoldMode: false
          headingHoldMode: false
          velocityHoldMode: false
       )
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> d91383e8
       antennas: ( Gimbal
          components: {
             radar: ( Antenna
                   maxPlayersOfInterest: 6
+<<<<<<< HEAD
+=======
                   playerOfInterestTypes: { "air" "weapon" }
+>>>>>>> d91383e8
                   polarization: horizontal
                   gain: ( dB 42 )
                   #include "gainPattern.epp"
@@ -52,14 +76,22 @@ p01:
                   localPlayersOfInterestOnly: false
                   useWorldCoordinates: false
             )
+<<<<<<< HEAD
+            rwr: ( Antenna
+=======
             rwr: ( Antenna 
+>>>>>>> d91383e8
                   scanMode: manual
                   polarization: horizontal
                   gain: ( dB 12 )
             )
          }
       )
+<<<<<<< HEAD
+
+=======
       
+>>>>>>> d91383e8
       sensors: ( SensorMgr
          components: {
             ( Tws
@@ -68,21 +100,34 @@ p01:
                powerPeak:  ( KiloWatts 500.0 )
                frequency:  ( GigaHertz 3.0 )
                bandwidth:  ( GigaHertz 2.0 )
+<<<<<<< HEAD
+               PRF:        ( Hertz 500.0 )
+=======
                PRF:        ( Hertz 500.0 ) 
+>>>>>>> d91383e8
                pulseWidth: ( MilliSeconds 0.01 )
                threshold:  ( dB 0.0 )
                ranges:     [ 10 20 40 80 160 ]
                initRangeIdx: 2
             )
+<<<<<<< HEAD
+            ( Rwr
+                antennaName: rwr
+=======
             ( Rwr 
                 antennaName: rwr  
+>>>>>>> d91383e8
                 threshold:  ( dB 0.0 )
                 frequency:  ( GigaHertz 3.0 )
                 bandwidth:  ( GigaHertz 2.0 )
             )
          }
       )
+<<<<<<< HEAD
+
+=======
       
+>>>>>>> d91383e8
       obc: ( OnboardComputer
          components: {
             twsTrkMgr: ( AirTrkMgr
@@ -104,7 +149,11 @@ p01:
                1: ( AamMissile
                   id: 201
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -120,7 +169,11 @@ p01:
                2: ( AamMissile
                   id: 202
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -136,7 +189,11 @@ p01:
                3: ( AamMissile
                   id: 203
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -152,7 +209,11 @@ p01:
                4: ( AamMissile
                   id: 204
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -167,6 +228,10 @@ p01:
                )
             }
         )
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> d91383e8
     }
 )

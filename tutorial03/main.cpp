@@ -1,7 +1,10 @@
 
+<<<<<<< HEAD
+=======
 /*
     Configure RNG seed using an .edl file
 */
+>>>>>>> d91383e8
 #include <iostream>
 #include <string>
 
@@ -14,9 +17,15 @@
 #include "Rng.hpp"
 
 // our class factory
+<<<<<<< HEAD
+mixr::base::IObject* factory(const std::string& name)
+{
+   mixr::base::IObject* obj{};
+=======
 mixr::base::Object* factory(const std::string& name)
 {
    mixr::base::Object* obj{};
+>>>>>>> d91383e8
 
    // look in application's classes
    if ( name == Rng::getFactoryName() ) {
@@ -33,7 +42,11 @@ Rng* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -48,12 +61,18 @@ Rng* builder(const std::string& filename)
    // do we have a base::Pair, if so, point to object in Pair, not Pair itself
    const auto pair = dynamic_cast<mixr::base::Pair*>(obj);
    if (pair != nullptr) {
+<<<<<<< HEAD
+=======
 	  std::cout << "Found a Pair, looking for object in Pair..." << std::endl;
+>>>>>>> d91383e8
       obj = pair->object();
       obj->ref();
       pair->unref();
    }
+<<<<<<< HEAD
+=======
    std::cout << obj << std::endl;
+>>>>>>> d91383e8
 
    // try to cast to proper object, and check
    const auto random = dynamic_cast<Rng*>(obj);
@@ -67,12 +86,20 @@ Rng* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"file0.edl"};
+=======
    std::string configFilename = "file0.edl";
+>>>>>>> d91383e8
 
    // build random
    Rng* rng{builder(configFilename)};
 
+<<<<<<< HEAD
+   for (int i{}; i<10; i++) {
+=======
    for (int i=0; i<10; i++) {
+>>>>>>> d91383e8
       std::cout << rng->num() << std::endl;
    }
 

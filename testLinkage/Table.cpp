@@ -3,7 +3,11 @@
 
 #include "TableRow.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/numeric/Integer.hpp"
+=======
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
@@ -21,8 +25,13 @@ BEGIN_SLOTTABLE(Table)
 END_SLOTTABLE(Table)
 
 BEGIN_SLOT_MAP(Table)
+<<<<<<< HEAD
+   ON_SLOT( 1, setSlotRows,    base::Integer)
+   ON_SLOT( 2, setSlotSpacing, base::Integer)
+=======
    ON_SLOT( 1, setSlotRows,    base::Number)
    ON_SLOT( 2, setSlotSpacing, base::Number)
+>>>>>>> d91383e8
    ON_SLOT( 3, setSlotColumns, base::PairStream)
 END_SLOT_MAP()
 
@@ -95,6 +104,20 @@ int Table::getNumberOfRows() const
 //------------------------------------------------------------------------------
 // set functions
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+void Table::line(const int ll)
+{
+   BaseClass::line(ll);
+   position();
+   return;
+}
+
+void Table::column(const int cc)
+{
+   BaseClass::column(cc);
+   position();
+   return;
+=======
 int Table::line(const int ll)
 {
    BaseClass::line(ll);
@@ -107,6 +130,7 @@ int Table::column(const int cc)
    BaseClass::column(cc);
    position();
    return BaseClass::column();
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -121,7 +145,11 @@ void Table::position()
       int cp{column()};
 
       // Position our subcomponents, which are all TableRow objects (see build())
+<<<<<<< HEAD
+      base::IList::Item* item{subcomponents->getFirstItem()};
+=======
       base::List::Item* item{subcomponents->getFirstItem()};
+>>>>>>> d91383e8
       while (item != nullptr) {
          const auto pair = static_cast<base::Pair*>(item->getValue());
          const auto row = static_cast<TableRow*>(pair->object());
@@ -155,10 +183,17 @@ void Table::build()
          const auto row = new TableRow();
          row->container(this);
 
+<<<<<<< HEAD
+         const base::IList::Item* item{columns->getFirstItem()};
+         while (item != nullptr) {
+            const auto pair = static_cast<const base::Pair*>(item->getValue());
+            const base::IObject* obj{pair->object()};
+=======
          const base::List::Item* item{columns->getFirstItem()};
          while (item != nullptr) {
             const auto pair = static_cast<const base::Pair*>(item->getValue());
             const base::Object* obj{pair->object()};
+>>>>>>> d91383e8
             if (obj->isClassType(typeid(graphics::Graphic))) {
                base::Pair* pp{pair->clone()};
                const auto gobj = static_cast<graphics::Graphic*>(pp->object());
@@ -187,6 +222,17 @@ void Table::build()
    }
 
    // These are new our subcomponents ...
+<<<<<<< HEAD
+   processComponents(newList, typeid(base::IComponent));
+   if (newList != nullptr) newList->unref();
+}
+
+bool Table::setSlotRows(base::Integer* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      const int v{msg->asInt()};
+=======
    processComponents(newList, typeid(base::Component));
    if (newList != nullptr) newList->unref();
 }
@@ -200,6 +246,7 @@ bool Table::setSlotRows(base::Number* const msg)
    bool ok{};
    if (msg != nullptr) {
       const int v{msg->getInt()};
+>>>>>>> d91383e8
       if (v >= 0) {
          rows = v;
          ok = true;
@@ -208,11 +255,19 @@ bool Table::setSlotRows(base::Number* const msg)
    return ok;
 }
 
+<<<<<<< HEAD
+bool Table::setSlotSpacing(base::Integer* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      const int v{msg->asInt()};
+=======
 bool Table::setSlotSpacing(base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       const int v{msg->getInt()};
+>>>>>>> d91383e8
       if (v >= 0) {
          spacing = v;
          ok = true;
@@ -227,10 +282,17 @@ bool Table::setSlotColumns(base::PairStream* const msg)
    if (msg != nullptr) {
       // Make a copy of the list and Make sure we have only Field objexts
       const auto newColumns = new base::PairStream();
+<<<<<<< HEAD
+      base::IList::Item* item{msg->getFirstItem()};
+      while (item != nullptr) {
+          const auto pair = static_cast<base::Pair*>(item->getValue());
+          const auto g = dynamic_cast<graphics::IReadout*>(pair->object());
+=======
       base::List::Item* item{msg->getFirstItem()};
       while (item != nullptr) {
           const auto pair = static_cast<base::Pair*>(item->getValue());
           const auto g = dynamic_cast<graphics::AbstractField*>(pair->object());
+>>>>>>> d91383e8
           if (g != nullptr) {
               // We have a Field object, so add it to the new columns list
               newColumns->put(pair);

@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestAdi2_HPP__
+#define __TestAdi2_HPP__
+=======
 #ifndef __TestAdi2_H__
 #define __TestAdi2_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 

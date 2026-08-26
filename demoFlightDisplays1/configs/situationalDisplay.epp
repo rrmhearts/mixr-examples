@@ -20,7 +20,11 @@
                 )
                 // low end 
                 ( AsciiText
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     font: pfdnormfont
                     transform: { ( Translation 0.8 0.13 ) ( Scale 1.4 ) }
                     text: "0"
@@ -29,7 +33,11 @@
                 middlealt:
                 ( NumericReadout
                     font: pfdnormfont
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     transform: { ( Translation 0.28 1.03 ) ( Scale 1.4 ) }
                     format: "#####"
                     value: 10000
@@ -38,7 +46,11 @@
                 maxalt:
                 ( NumericReadout
                     font: pfdnormfont
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     transform: { ( Translation 0.28 1.93 ) ( Scale 1.4 ) }
                     format: "#####"
                     value: 20000
@@ -47,7 +59,11 @@
                 ( Graphic
                     components: {
                         ( Line 
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             transform: ( Translation 1.6 2.1 0.1 ) 
                             vertices: {
                                 [ 0 0 ] [ 0 -0.1 ]
@@ -63,7 +79,11 @@
                             }
                         )
                         ( Line 
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             transform: ( Translation 3.75 2.1 0.1 ) 
                             vertices: {
                                 [ 0 0 ] [ 0 -0.1 ]
@@ -79,7 +99,11 @@
                             }
                         )
                         ( Line 
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             transform: ( Translation 2.675 2.1 0.1 ) 
                             vertices: {
                                 [ 0 0 ] [ 0 -0.1 ]
@@ -95,7 +119,11 @@
                             }
                         )
                         ( Line 
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             transform: ( Translation 4.825 2.1 0.1 ) 
                             vertices: {
                                 [ 0 0 ] [ 0 -0.1 ]
@@ -111,7 +139,11 @@
                             }
                         )
                         ( Line 
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             transform: ( Translation 5.9 2.1 0.1 ) 
                             vertices: {
                                 [ 0 0 ] [ 0 -0.1 ]
@@ -227,7 +259,11 @@
                         ( Line
                             color: white
                             linewidth: 2
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             vertices: {
                                 [ 0 0 ] [ 0 -0.1 ]
                                 [ 0 0 ] [ 0.23 0.05 ]
@@ -258,7 +294,11 @@
                     transform: ( Translation -2.99 4.9 ) 
                     components: {
                         ( Line
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             vertices: {
                                 [ 0 -0.2 ] [ 0 0.2 ]
                                 [ -0.07 -0.2 ] [ 0.07 -0.2 ]
@@ -267,14 +307,22 @@
                             }
                         )
                         ( AsciiText
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             font: pfdspecfont
                             transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
                             text: "TAC"
                         )
                         nav1Id:
                         ( AsciiText
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             font: pfdspecfont
                             transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
                             text: "XXX"
@@ -313,7 +361,11 @@
                     transform: ( Translation 1.9 0 ) 
                     components: {
                         ( Line
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             vertices: {
                                 [ 0 0.245 ] [ -0.05 0.155 ]
                                 [ 0 0.245 ] [ 0.05 0.155 ]
@@ -327,14 +379,22 @@
                             }
                         )
                         ( AsciiText
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             font: pfdspecfont
                             transform: { ( Translation 0.2 0.3 ) ( Scale 1.4 ) }
                             text: "NAV"
                         )
                         nav2Id:
                         ( AsciiText
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             font: pfdspecfont
                             transform: { ( Translation 0.2 0.05 ) ( Scale 1.4 ) }
                             text: "XXXXX"
@@ -541,7 +601,11 @@
                                         components: {
                                             ( Line
                                                 color: cyan
+<<<<<<< HEAD
+                                                segment: false
+=======
                                                 segment: 0
+>>>>>>> d91383e8
                                                 vertices: {
                                                     [ 0.0225 0.035 ]    
                                                     [ 0.0575 0.0575 ]
@@ -691,7 +755,11 @@
                                         ( Circle
                                             color: green
                                             radius: 0.07
+<<<<<<< HEAD
+                                            filled: true
+=======
                                             filled: 1
+>>>>>>> d91383e8
                                             slices: 12
                                         )
                                     }
@@ -725,7 +793,11 @@
                                         ( Circle
                                             color: cyan
                                             radius: 0.07
+<<<<<<< HEAD
+                                            filled: true
+=======
                                             filled: 1
+>>>>>>> d91383e8
                                             slices: 12
                                         )
                                     }
@@ -759,7 +831,11 @@
                                         ( Circle
                                             color: blue
                                             radius: 0.07
+<<<<<<< HEAD
+                                            filled: true
+=======
                                             filled: 1
+>>>>>>> d91383e8
                                             slices: 12
                                         )
                                     }
@@ -793,7 +869,11 @@
                                         ( Circle
                                             color: yellow
                                             radius: 0.07
+<<<<<<< HEAD
+                                            filled: true
+=======
                                             filled: 1
+>>>>>>> d91383e8
                                             slices: 12
                                         )
                                     }
@@ -1052,7 +1132,11 @@
                                     transform: ( Translation 0 5 )
                                     color: cyan
                                     linewidth: 2
+<<<<<<< HEAD
+                                    segment: true
+=======
                                     segment: 1
+>>>>>>> d91383e8
                                     vertices: {
                                         [ 0 0 ] [ -0.05 -0.09 ]
                                         [ 0 0 ] [ 0.05 -0.09 ]
@@ -1066,7 +1150,11 @@
                                     linewidth: 2
                                     transform: ( Translation 0 -5 )
                                     color: cyan
+<<<<<<< HEAD
+                                    segment: true
+=======
                                     segment: 1
+>>>>>>> d91383e8
                                     vertices: {
                                         [ -0.05 0.42 ] [ 0.05 0.42 ]
                                         [ -0.05 0.07 ] [ -0.05 0.42 ]
@@ -1090,7 +1178,11 @@
                                     transform: ( Translation 0 5 )
                                     linewidth: 2
                                     color: cyan
+<<<<<<< HEAD
+                                    segment: true
+=======
                                     segment: 1
+>>>>>>> d91383e8
                                     vertices: {
                                         [ 0 0 ] [ 0 -0.4 ]
                                         [ -0.1 -0.15 ] [ 0 0 ]
@@ -1102,7 +1194,11 @@
                                     linewidth: 2
                                     color: cyan
                                     transform: ( Translation 0 -5 ) 
+<<<<<<< HEAD
+                                    segment: true
+=======
                                     segment: 1
+>>>>>>> d91383e8
                                     vertices: {
                                         [ 0 0 ] [ 0 0.4 ]
                                         [ 0 0.13 ] [ -0.146 0.08 ]

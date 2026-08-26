@@ -12,6 +12,17 @@
 //          PlaneBehaviorBase -> PlaneBarrelRoll
 //          PlaneBehaviorBase -> PlaneLoop
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+#ifndef __mixr_xbehaviors_PlaneBehaviors_HPP__
+#define __mixr_xbehaviors_PlaneBehaviors_HPP__
+
+#include "mixr/base/ubf/IBehavior.hpp"
+
+namespace mixr {
+namespace base { class Integer; class ILength; class State; }
+namespace base {
+namespace ubf { class IState; class IAction; }
+=======
 #ifndef __mixr_xbehaviors_PlaneBehaviors_H__
 #define __mixr_xbehaviors_PlaneBehaviors_H__
 
@@ -21,16 +32,25 @@ namespace mixr {
 namespace base { class Distance; class State; }
 namespace base {
 namespace ubf { class AbstractState; class AbstractAction; }
+>>>>>>> d91383e8
 }
 namespace xbehaviors {
 
 //------------------------------------------------------------------------------
 // Class: PlaneBehavior
+<<<<<<< HEAD
+// Description: Base class for concrete plane behaviors
+//------------------------------------------------------------------------------
+class PlaneBehavior : public base::ubf::IBehavior
+{
+  DECLARE_SUBCLASS(PlaneBehavior, base::ubf::IBehavior)
+=======
 // Description: Abstract base class for concrete plane behaviors
 //------------------------------------------------------------------------------
 class PlaneBehavior : public base::ubf::AbstractBehavior
 {
   DECLARE_SUBCLASS(PlaneBehavior, base::ubf::AbstractBehavior)
+>>>>>>> d91383e8
 
 public:
    PlaneBehavior();
@@ -42,9 +62,15 @@ protected:
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotCriticalAltitude(const base::ILength* const);
+   bool setSlotVoteOnCriticalAltitude(const base::Integer* const);
+   bool setSlotVoteOnIncomingMissile(const base::Integer* const);
+=======
    bool setSlotCriticalAltitude(const base::Distance* const);
    bool setSlotVoteOnCriticalAltitude(const base::Number* const);
    bool setSlotVoteOnIncomingMissile(const base::Number* const);
+>>>>>>> d91383e8
 };
 
 //------------------------------------------------------------------------------
@@ -58,14 +84,22 @@ class PlaneFire final: public PlaneBehavior
 
 public:
    PlaneFire();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 
 private:
    double maxDistance{15500.0};
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotMaxDistance(const base::ILength* const);
+=======
    bool setSlotMaxDistance(const base::Distance* const);
+>>>>>>> d91383e8
 };
 
 class PlaneFlyStraight final: public PlaneBehavior
@@ -74,7 +108,11 @@ class PlaneFlyStraight final: public PlaneBehavior
 
 public:
    PlaneFlyStraight();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 
 private:
    double holdingAltitude{4500.0};
@@ -86,7 +124,11 @@ class PlaneFollowEnemy final: public PlaneBehavior
 
 public:
    PlaneFollowEnemy();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 };
 
 class PlaneTurn final: public PlaneBehavior
@@ -95,7 +137,11 @@ class PlaneTurn final: public PlaneBehavior
 
 public:
    PlaneTurn();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 };
 
 class PlaneSlowTurn final: public PlaneBehavior
@@ -104,7 +150,11 @@ class PlaneSlowTurn final: public PlaneBehavior
 
 public:
    PlaneSlowTurn();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 };
 
 class PlaneClimb final: public PlaneBehavior
@@ -113,7 +163,11 @@ class PlaneClimb final: public PlaneBehavior
 
 public:
    PlaneClimb();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 };
 
 class PlaneDive final: public PlaneBehavior
@@ -122,7 +176,11 @@ class PlaneDive final: public PlaneBehavior
 
 public:
    PlaneDive();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 };
 
 class PlaneTrim final: public PlaneBehavior
@@ -131,7 +189,11 @@ class PlaneTrim final: public PlaneBehavior
 
 public:
    PlaneTrim();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 
 private:
    double holdingAltitude{4500.0};
@@ -144,7 +206,11 @@ class PlaneRoll final: public PlaneBehavior
 
 public:
    PlaneRoll();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 };
 
 class PlaneBarrelRoll final: public PlaneBehavior
@@ -153,7 +219,11 @@ class PlaneBarrelRoll final: public PlaneBehavior
 
 public:
    PlaneBarrelRoll();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 };
 
 class PlaneLoop final: public PlaneBehavior
@@ -162,7 +232,11 @@ class PlaneLoop final: public PlaneBehavior
 
 public:
    PlaneLoop();
+<<<<<<< HEAD
+   base::ubf::IAction* genAction(const base::ubf::IState* const state, const double dt) final;
+=======
    base::ubf::AbstractAction* genAction(const base::ubf::AbstractState* const state, const double dt) final;
+>>>>>>> d91383e8
 
 private:
    bool keepGoing{};

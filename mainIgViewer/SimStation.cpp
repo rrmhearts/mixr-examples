@@ -6,6 +6,19 @@
 #include "mixr/base/Identifier.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
+<<<<<<< HEAD
+#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/numeric/Boolean.hpp"
+#include "mixr/base/osg/Vec4d"
+#include "mixr/base/qty/angles.hpp"
+#include "mixr/base/qty/times.hpp"
+
+#include "mixr/simulation/ISimulation.hpp"
+
+#include "mixr/models/player/air/IAirVehicle.hpp"
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #include "mixr/base/Timers.hpp"
 
 #include "mixr/base/numeric/Boolean.hpp"
@@ -20,6 +33,7 @@
 #include "mixr/models/player/air/AirVehicle.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 
 using namespace mixr;
 
@@ -28,7 +42,11 @@ EMPTY_DELETEDATA(SimStation)
 
 BEGIN_SLOTTABLE(SimStation)
    "display",                  //  1) Main Display
+<<<<<<< HEAD
+   "autoResetTimer",           //  2: Auto RESET timer value (base::Time); default: zero (no auto reset)
+=======
    "autoResetTimer",           //  2: Auto RESET timer value (Basic::Time); default: zero (no auto reset)
+>>>>>>> d91383e8
 END_SLOTTABLE(SimStation)
 
 BEGIN_EVENT_HANDLER(SimStation)
@@ -36,8 +54,13 @@ BEGIN_EVENT_HANDLER(SimStation)
 END_EVENT_HANDLER()
 
 BEGIN_SLOT_MAP(SimStation)
+<<<<<<< HEAD
+   ON_SLOT( 1, setSlotMainDisplay,   glut::IGlutDisplay)
+   ON_SLOT( 2, setSlotAutoResetTime, base::ITime)
+=======
    ON_SLOT( 1, setSlotMainDisplay,   glut::GlutDisplay)
    ON_SLOT( 2, setSlotAutoResetTime, base::Time)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 SimStation::SimStation()
@@ -65,6 +88,16 @@ void SimStation::reset()
    }
 
    // reset all of our subcomponents
+<<<<<<< HEAD
+   if (mainDisplay != nullptr)
+      mainDisplay->reset();
+   // auto reset timer
+   if (autoResetTimer0 != nullptr)
+      autoResetTimer = autoResetTimer0->getValueInSeconds();
+   else
+      autoResetTimer = 0;
+   // reset our baseclass
+=======
    if (mainDisplay != nullptr) 
       mainDisplay->reset();
    // auto reset timer
@@ -73,6 +106,7 @@ void SimStation::reset()
    else
       autoResetTimer = 0;
    // reset our baseclass 
+>>>>>>> d91383e8
    BaseClass::reset();
 }
 
@@ -81,7 +115,11 @@ void SimStation::updateTC(const double dt)
    // First update the simulation
    BaseClass::updateTC(dt);
 
+<<<<<<< HEAD
+   base::ITimer::updateTimers(dt);
+=======
    base::Timer::updateTimers(dt);
+>>>>>>> d91383e8
    graphics::Graphic::flashTimer(dt);
 
    // Update any TC stuff in our main display
@@ -106,7 +144,11 @@ void SimStation::updateData(const double dt)
       }
    }
    BaseClass::updateData(dt);
+<<<<<<< HEAD
+}
+=======
 } 
+>>>>>>> d91383e8
 
 //------------------------------------------------------------------------------
 // stepOwnshipPlayer() -- Step to the next local player
@@ -115,6 +157,19 @@ void SimStation::stepOwnshipPlayer()
 {
    base::PairStream* pl{getSimulation()->getPlayers()};
    if (pl != nullptr) {
+<<<<<<< HEAD
+      models::IPlayer* f{};
+      models::IPlayer* n{};
+      bool found{};
+
+      // Find the next player
+      base::IList::Item* item{pl->getFirstItem()};
+      while (item != nullptr) {
+         base::Pair* pair {static_cast<base::Pair*>(item->getValue())};
+         if (pair != nullptr) {
+            models::IPlayer* ip{static_cast<models::IPlayer*>(pair->object())};
+            if ( ip->isMode(models::IPlayer::Mode::ACTIVE) &&  ip->isLocalPlayer() && ip->isClassType(typeid(models::IAirVehicle)) ) {
+=======
       models::Player* f{};
       models::Player* n{};
       bool found{};
@@ -126,6 +181,7 @@ void SimStation::stepOwnshipPlayer()
          if (pair != nullptr) {
             models::Player* ip{static_cast<models::Player*>(pair->object())};
             if ( ip->isMode(models::Player::ACTIVE) &&  ip->isLocalPlayer() && ip->isClassType(typeid(models::AirVehicle)) ) {
+>>>>>>> d91383e8
                if (f == nullptr) { f = ip; }  // Remember the first
                if (found) { n = ip; ; break; }
                if (ip == getOwnship()) found = true;
@@ -143,12 +199,20 @@ void SimStation::stepOwnshipPlayer()
 // Set Slot Functions
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD
+bool SimStation::setSlotMainDisplay(glut::IGlutDisplay* const x)
+=======
 bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
+>>>>>>> d91383e8
 {
    if (mainDisplay != nullptr) {
       mainDisplay->container(nullptr);
    }
+<<<<<<< HEAD
+   mainDisplay = x;
+=======
    mainDisplay = d;	
+>>>>>>> d91383e8
    if (mainDisplay != nullptr) {
       mainDisplay->container(this);
    }
@@ -157,7 +221,11 @@ bool SimStation::setSlotMainDisplay(glut::GlutDisplay* const d)
 }
 
 // sets the startup RESET pulse timer
+<<<<<<< HEAD
+bool SimStation::setSlotAutoResetTime(const base::ITime* const num)
+=======
 bool SimStation::setSlotAutoResetTime(const base::Time* const num)
+>>>>>>> d91383e8
 {
    if (autoResetTimer0 != nullptr) {
       autoResetTimer0->unref();
@@ -167,7 +235,11 @@ bool SimStation::setSlotAutoResetTime(const base::Time* const num)
    autoResetTimer0 = num;
    if (autoResetTimer0 != nullptr) {
       autoResetTimer0->ref();
+<<<<<<< HEAD
+      autoResetTimer = autoResetTimer0->getValueInSeconds();
+=======
       autoResetTimer = base::Seconds::convertStatic(*autoResetTimer0);
+>>>>>>> d91383e8
    }
    return true;
 }

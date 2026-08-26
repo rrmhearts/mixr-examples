@@ -1,9 +1,17 @@
 
+<<<<<<< HEAD
+#ifndef __mixr_xpanel_Pfd_HPP__
+#define __mixr_xpanel_Pfd_HPP__
+
+#include "mixr/graphics/Page.hpp"
+#include "mixr/base/qty/util/angle_utils.hpp"
+=======
 #ifndef __mixr_xpanel_Pfd_H__
 #define __mixr_xpanel_Pfd_H__
 
 #include "mixr/graphics/Page.hpp"
 #include "mixr/base/units/angle_utils.hpp"
+>>>>>>> d91383e8
 
 namespace mixr {
 namespace xpanel {

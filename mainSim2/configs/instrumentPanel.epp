@@ -7,10 +7,16 @@
 display:
 ( InstrumentPanel
     idleSleepTime: 20
+<<<<<<< HEAD
+
+    name: "mainSim2 -f test0.edl"
+
+=======
     
     name: "Sim3 Display"
     
    
+>>>>>>> d91383e8
     textures: {
     }
 
@@ -34,7 +40,10 @@ display:
 
     clearColor: ( rgb 0.0 0.0 0.0 )
     clearDepth: 1.0
+<<<<<<< HEAD
+=======
    
+>>>>>>> d91383e8
 
     // include all of our independent displays and instruments
     page: eadi3D

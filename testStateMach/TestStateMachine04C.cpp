@@ -52,7 +52,11 @@ void TestStateMachine04C::stateFunc00(const double)
             std::cout << "Returned from call; ";
             const auto arg = dynamic_cast<const base::Boolean*>( getArgument() );
             if (arg != nullptr) {
+<<<<<<< HEAD
+               std::cout << "arg(" << arg->asBool() << "); ";
+=======
                std::cout << "arg(" << arg->getBoolean() << "); ";
+>>>>>>> d91383e8
             }
             std::cout << "nextSubstate()";
             nextSubstate();

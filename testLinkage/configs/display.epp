@@ -3,7 +3,12 @@
 //   2 columns, 20 rows each, of AI and DI channels (see Display.h)
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD
+fullScreen: false
+name: "testLinkage -r test1.edl"
+=======
 fullScreen: 0
+>>>>>>> d91383e8
 
 left:        -17.5
 right:       622.5

@@ -1,11 +1,22 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> d91383e8
 #include <string>
 #include <cstdlib>
 
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/edl_parser.hpp"
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 #include <GL/glut.h>
 
 // factories
@@ -17,7 +28,11 @@
 #include "Worm.hpp"
 
 const int frameRate{20};
+<<<<<<< HEAD
+mixr::glut::IGlutDisplay* glutDisplay{};
+=======
 mixr::glut::GlutDisplay* glutDisplay{};
+>>>>>>> d91383e8
 
 // timerFunc() -- Time critical stuff)
 void timerFunc(int)
@@ -26,12 +41,26 @@ void timerFunc(int)
    const int millis{static_cast<int>(dt * 1000)};
    glutTimerFunc(millis, timerFunc, 1);
 
+<<<<<<< HEAD
+   mixr::base::ITimer::updateTimers(dt);
+=======
    mixr::base::Timer::updateTimers(dt);
+>>>>>>> d91383e8
    mixr::graphics::Graphic::flashTimer(dt);
    glutDisplay->tcFrame(dt);
 }
 
 // our class factory
+<<<<<<< HEAD
+mixr::base::IObject* factory(const std::string& name)
+{
+   mixr::base::IObject* obj{};
+
+   if ( name == MyPager::getFactoryName() ) {
+      obj = new MyPager;
+   } else if ( name == Worm::getFactoryName() ) {
+      obj = new Worm;
+=======
 mixr::base::Object* factory(const std::string& name)
 {
    mixr::base::Object* obj{};
@@ -41,6 +70,7 @@ mixr::base::Object* factory(const std::string& name)
       obj = new MyPager; // isn't MyPager() better?
    } else if ( name == Worm::getFactoryName() ) {
 	  obj = new Worm;   // isn't Worm() better?
+>>>>>>> d91383e8
    }
 
    if (obj == nullptr) obj = mixr::glut::factory(name);
@@ -51,11 +81,19 @@ mixr::base::Object* factory(const std::string& name)
 }
 
 // display builder
+<<<<<<< HEAD
+mixr::glut::IGlutDisplay* builder(const std::string& filename)
+{
+   // read configuration file
+   int num_errors{};
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
 mixr::glut::GlutDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -76,7 +114,11 @@ mixr::glut::GlutDisplay* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
+<<<<<<< HEAD
+   const auto glutDisplay = dynamic_cast<mixr::glut::IGlutDisplay*>(obj);
+=======
    const auto glutDisplay = dynamic_cast<mixr::glut::GlutDisplay*>(obj);
+>>>>>>> d91383e8
    if (glutDisplay == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -89,7 +131,11 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"file0.edl"};
+=======
    std::string configFilename = "file0.edl";
+>>>>>>> d91383e8
 
    // build a display
    glutDisplay = builder(configFilename);

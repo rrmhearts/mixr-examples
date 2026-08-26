@@ -23,7 +23,11 @@
                 // inches
                 data: [ 1.3125 -1.3125 ]
             )
+<<<<<<< HEAD
+            vertical: true
+=======
             vertical: 1
+>>>>>>> d91383e8
             components: {
                 cmdroll:
                 ( Rotators
@@ -131,7 +135,11 @@
                         )
                         ( Circle
                             color: (rgb 0.1 0.1 0.1 )
+<<<<<<< HEAD
+                            filled: true
+=======
                             filled: 1
+>>>>>>> d91383e8
                             radius: 0.252
                             slices: 1000
                         )
@@ -186,7 +194,11 @@
                             }
                         )
                         ( Circle
+<<<<<<< HEAD
+                            filled: true
+=======
                             filled: 1
+>>>>>>> d91383e8
                             color: green
                             radius: 0.252
                             slices: 1000
@@ -247,7 +259,11 @@
                             }
                         )
                         ( Circle
+<<<<<<< HEAD
+                            filled: true
+=======
                             filled: 1
+>>>>>>> d91383e8
                             slices: 1000
                             color: (rgb 0.1 0.1 0.1)
                             radius: 0.252
@@ -300,7 +316,11 @@
                             }
                         )
                         ( Circle
+<<<<<<< HEAD
+                            filled: true
+=======
                             filled: 1
+>>>>>>> d91383e8
                             color: yellow
                             radius: 0.252
                             slices: 1000

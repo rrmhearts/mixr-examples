@@ -52,7 +52,11 @@ void DspRwr::drawFunc()
    glColor3d(0.0, 1.0, 0.0);
 
    int n{rwr->getNumberOfRays()};
+<<<<<<< HEAD
+   for (int i{}; i < n; i++) {
+=======
    for (int i = 0; i < n; i++) {
+>>>>>>> d91383e8
       GLdouble azr{(base::angle::D2RCC *  rwr->getRayAzimuth(i) )};
       GLdouble pwr{rwr->getRay(i)};
       GLdouble up{std::cos(azr) * pwr};

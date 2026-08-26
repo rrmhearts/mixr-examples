@@ -1,11 +1,20 @@
 
+<<<<<<< HEAD
+#ifndef __TdAzPtr_HPP__
+#define __TdAzPtr_HPP__
+=======
 #ifndef __TdAzPtr_H__
 #define __TdAzPtr_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 
 namespace mixr {
+<<<<<<< HEAD
+namespace base { class INumber; }
+=======
 namespace base { class Number; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -22,7 +31,11 @@ namespace base { class Number; }
 // Factory name: TdAzPtr
 //
 // Events:
+<<<<<<< HEAD
+//    UPDATE_VALUE  <INumber>  ! azimuth angle (degs)
+=======
 //    UPDATE_VALUE  <Number>  ! azimuth angle (degs)
+>>>>>>> d91383e8
 //------------------------------------------------------------------------------
 class TdAzPtr final: public mixr::graphics::Graphic
 {
@@ -36,10 +49,17 @@ public:
 
    void draw() final;
 
+<<<<<<< HEAD
+   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+
+private:
+   bool onUpdateValue(const mixr::base::INumber* const msg);
+=======
    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
 
 private:
    bool onUpdateValue(const mixr::base::Number* const msg);
+>>>>>>> d91383e8
 
    double azimuth{};  // (degs)
 };

@@ -6,23 +6,41 @@
 
 #include "mixr/simulation/factory.hpp"
 #include "mixr/models/factory.hpp"
+<<<<<<< HEAD
+#include "mixr/models/dynamics/jsbsim/factory.hpp"
+#include "mixr/base/factory.hpp"
+#include "mixr/recorder/protobuf_v2/factory.hpp"
+=======
 #include "mixr/base/factory.hpp"
 #include "mixr/recorder/factory.hpp"
+>>>>>>> d91383e8
 
 #include <string>
 #include <cstdlib>
 
+<<<<<<< HEAD
+mixr::base::IObject* factory(const std::string& name)
+{
+   mixr::base::IObject* obj{};
+=======
 mixr::base::Object* factory(const std::string& name)
 {
    mixr::base::Object* obj{};
+>>>>>>> d91383e8
 
    if ( name == DataRecordTest::getFactoryName() ) {
       obj = new DataRecordTest();
    } else {
       if (obj == nullptr) obj = mixr::simulation::factory(name);
       if (obj == nullptr) obj = mixr::models::factory(name);
+<<<<<<< HEAD
+      if (obj == nullptr) obj = mixr::models::jsbsim::factory(name);
+      if (obj == nullptr) obj = mixr::base::factory(name);
+      if (obj == nullptr) obj = mixr::recorder::protobuf_v2::factory(name);
+=======
       if (obj == nullptr) obj = mixr::base::factory(name);
       if (obj == nullptr) obj = mixr::recorder::factory(name);
+>>>>>>> d91383e8
    }
 
    return obj;
@@ -32,7 +50,11 @@ DataRecordTest* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -64,9 +86,15 @@ DataRecordTest* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test.edl"};
+   // parse command line arguments
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test.edl";
    // parse command line arguments
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }

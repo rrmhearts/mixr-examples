@@ -40,7 +40,11 @@ arcmode:
                 bugro:
                 ( NumericReadout
                     format: "00#"
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     transform: { ( Translation 0 0.825 ) ( Scale 0.11 ) }
                 )
             }
@@ -55,15 +59,24 @@ arcmode:
                         ( Rotary2
                             transform: ( Translation -1.7 1.4 )
                             components: {
+<<<<<<< HEAD
+                                ( AsciiText inheritColor: true transform: ( Scale 0.12 ) text: "DIST" ) // false
+                                ( AsciiText inheritColor: true transform: ( Scale 0.12 ) text: "DME"  ) // true
+=======
                                 ( AsciiText inheritColor: 1 transform: ( Scale 0.12 ) text: "DIST" ) // false
                                 ( AsciiText inheritColor: 1 transform: ( Scale 0.12 ) text: "DME"  ) // true
+>>>>>>> d91383e8
                             }
                         )
                         distval:
                         ( NumericReadout
                             transform: { ( Translation -1.7 1.2 ) ( Scale 0.15 ) }
                             format: "###.#"
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                         )
                     }
                 )
@@ -74,13 +87,21 @@ arcmode:
         ( Graphic
             components: {
                 ( AsciiText
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     transform: { ( Translation 1.35 1.4 ) ( Scale 0.12 ) }
                     text: "CRS"
                 )
                 course:
                 ( NumericReadout
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     transform: { ( Translation 1.35 1.2 ) ( Scale 0.15 ) }
                     format: "###"
                 )
@@ -91,10 +112,17 @@ arcmode:
         whichlabel:
         ( Rotary
             components: {
+<<<<<<< HEAD
+                ( AsciiText inheritColor: true transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "TTG" )  // 1
+                ( AsciiText inheritColor: true transform: { ( Translation 1.1  -1.25 ) ( Scale 0.12 ) } text: "GS"  )  // 2
+                ( AsciiText inheritColor: true transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "TAS" )  // 3
+                ( AsciiText inheritColor: true transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "ET"  )  // 4
+=======
                 ( AsciiText inheritColor: 1 transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "TTG" )  // 1
                 ( AsciiText inheritColor: 1 transform: { ( Translation 1.1  -1.25 ) ( Scale 0.12 ) } text: "GS"  )  // 2
                 ( AsciiText inheritColor: 1 transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "TAS" )  // 3
                 ( AsciiText inheritColor: 1 transform: { ( Translation 1.35 -1.25 ) ( Scale 0.12 ) } text: "ET"  )  // 4
+>>>>>>> d91383e8
                 ( AsciiText text: "" ) // 5
             }
         )
@@ -106,7 +134,11 @@ arcmode:
                 // time to go
                 ttg:
                 ( NumericReadout
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     format: "###.#"
                     transform: { ( Translation 1.21 -1.45 ) ( Scale 0.15 ) }
                 )
@@ -116,7 +148,11 @@ arcmode:
                     components: {
                         groundspeed:
                         ( NumericReadout
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) }
                             format: "###"
                             value: 9
@@ -125,15 +161,24 @@ arcmode:
                         driftangle:
                         ( NumericReadout
                             transform: { ( Translation 1.35 -1.45 ) ( Scale 0.15 ) }
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             format: "###"
                         )
                         driftangleside:
                         ( Rotary2
                             transform: { ( Translation 1.6 -1.45 ) ( Scale 0.15 ) }
                             components: {
+<<<<<<< HEAD
+                                ( AsciiText inheritColor: true text: "R" ) // 0
+                                ( AsciiText inheritColor: true text: "L" ) // 1
+=======
                                 ( AsciiText inheritColor: 1 text: "R" ) // 0
                                 ( AsciiText inheritColor: 1 text: "L" ) // 1
+>>>>>>> d91383e8
                             }
                         )
                     }
@@ -142,7 +187,11 @@ arcmode:
                 // true air speed
                 trueairspeed:
                 ( NumericReadout
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     transform:  { ( Translation 1.35 -1.45 ) ( Scale 0.15 ) }
                     format: "###"
                 )
@@ -158,13 +207,21 @@ arcmode:
                                     components: {
                                         // this is the H label for hours and minutes
                                         ( AsciiText
+<<<<<<< HEAD
+                                            inheritColor: true
+=======
                                             inheritColor: 1
+>>>>>>> d91383e8
                                             transform: { ( Translation 1.08 -1.45 ) ( Scale 0.15 ) }
                                             text: "H"
                                         )
                                         elapsedtimehour:
                                         ( TimeReadout
+<<<<<<< HEAD
+                                            inheritColor: true
+=======
                                             inheritColor: 1
+>>>>>>> d91383e8
                                             transform: { ( Translation 1.125 -1.45 ) ( Scale 0.15 ) }
                                             format: "HH:MM"
                                         )
@@ -173,7 +230,11 @@ arcmode:
                                 // time readout in minutes and seconds
                                 elapsedtimemin:
                                 ( TimeReadout
+<<<<<<< HEAD
+                                    inheritColor: true
+=======
                                     inheritColor: 1
+>>>>>>> d91383e8
                                     transform: { ( Translation 1.125 -1.45 ) ( Scale 0.15 ) }
                                     format: "MM:SS"
                                 )
@@ -189,7 +250,11 @@ arcmode:
                         driftanglewind:
                         ( NumericReadout
                             transform: { ( Translation 1.35 -1.25 ) ( Scale 0.15 ) }
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             format: "###"
                         )
 
@@ -197,29 +262,48 @@ arcmode:
                         ( Rotary2
                             transform: { ( Translation 1.6 -1.25 ) ( Scale 0.15 ) }
                             components: {
+<<<<<<< HEAD
+                                ( AsciiText inheritColor: true text: "R" ) // 0
+                                ( AsciiText inheritColor: true text: "L" ) // 1
+=======
                                 ( AsciiText inheritColor: 1 text: "R" ) // 0
                                 ( AsciiText inheritColor: 1 text: "L" ) // 1
+>>>>>>> d91383e8
                             }
                         )
 
                         winddirection:
                         ( NumericReadout
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             format: "00#"
                             transform: { ( Translation 0.81 -1.45 ) ( Scale 0.15 ) }
                         )
 
                         ( AsciiText
+<<<<<<< HEAD
+                            inheritColor: true
+=======
                             inheritColor: 1
+>>>>>>> d91383e8
                             transform: { ( Translation 1.05 -1.45 ) ( Scale 0.15 ) }
                             text: "/"
                         )
 
                         windspeed:
                         ( NumericReadout
+<<<<<<< HEAD
+                            inheritColor: true
+                            format: "###"
+                            justification: left
+=======
                             inheritColor: 1
                             format: "###"
                             justification: "left"
+>>>>>>> d91383e8
                             value: 999
                             transform: { ( Translation 1.14 -1.45 ) ( Scale 0.15 ) }
                         )
@@ -255,7 +339,11 @@ arcmode:
                 bearingro:
                 ( NumericReadout
                     transform: { ( Translation -1.35 -1.25 ) ( Scale 0.12 ) }
+<<<<<<< HEAD
+                    inheritColor: true
+=======
                     inheritColor: 1
+>>>>>>> d91383e8
                     format: "00#"
                     value: 999
                 )
@@ -478,12 +566,21 @@ arcmode:
                 whichprimaryreadout:
                 ( Rotary
                     components: {
+<<<<<<< HEAD
+                        ( AsciiText inheritColor: true transform: (Scale 0.12 )  vertical: true  text: "INAV" ) // 1
+                        ( AsciiText inheritColor: true transform: (Scale 0.12 )  vertical: true  text: "LOC1" ) // 2
+                        ( AsciiText inheritColor: true transform: (Scale 0.12 )  vertical: true  text: "VOR1" ) // 3
+                        ( AsciiText inheritColor: true transform: (Scale 0.12 )  vertical: true  text: "LOC2" ) // 4
+                        ( AsciiText inheritColor: true transform: (Scale 0.12 )  vertical: true  text: "VOR2" ) // 5
+                        ( AsciiText inheritColor: true transform: (Scale 0.12 )  vertical: true  text: "TAC"  ) // 6
+=======
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "INAV" ) // 1
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC1" ) // 2
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "VOR1" ) // 3
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "LOC2" ) // 4
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "VOR2" ) // 5
                         ( AsciiText inheritColor: 1 transform: (Scale 0.12 )  vertical: 1  text: "TAC"  ) // 6
+>>>>>>> d91383e8
                     }
                 )
             }
@@ -496,12 +593,21 @@ arcmode:
                 whichsecondaryreadout:
                 ( Rotary
                     components: {
+<<<<<<< HEAD
+                        ( AsciiText inheritColor: true vertical: true transform: (Scale 0.12 ) text: "INAV" ) // 1
+                        ( AsciiText inheritColor: true vertical: true transform: (Scale 0.12 ) text: "LOC1" ) // 2
+                        ( AsciiText inheritColor: true vertical: true transform: (Scale 0.12 ) text: "VOR1" ) // 3
+                        ( AsciiText inheritColor: true vertical: true transform: (Scale 0.12 ) text: "LOC2" ) // 4
+                        ( AsciiText inheritColor: true vertical: true transform: (Scale 0.12 ) text: "VOR2" ) // 5
+                        ( AsciiText inheritColor: true vertical: true transform: (Scale 0.12 ) text: "TAC"  ) // 6
+=======
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "INAV" ) // 1
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "LOC1" ) // 2
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "VOR1" ) // 3
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "LOC2" ) // 4
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "VOR2" ) // 5
                         ( AsciiText inheritColor: 1 vertical: 1 transform: (Scale 0.12 ) text: "TAC"  ) // 6
+>>>>>>> d91383e8
                     }
                 )
             }

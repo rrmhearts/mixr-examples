@@ -9,10 +9,17 @@ p01: ( Aircraft
    id: 1
    side: blue
    type: "F-15"
+<<<<<<< HEAD
+   signature: ( RfSphereSignature radius: 2.0 )
+
+   initLatitude:  ( Latitude  direction: north degrees: 39 minutes: 54.0 )
+   initLongitude: ( Longitude direction: west  degrees: 84 minutes: 13.5 )
+=======
    signature: ( SigSphere radius: 2.0 )
 
    initLatitude:  ( LatLon direction: "n" degrees: 39 minutes: 54.0 )
    initLongitude: ( LatLon direction: "w" degrees: 84 minutes: 13.5 )
+>>>>>>> d91383e8
 
    initAlt: ( Feet 5000 )
    initHeading: ( Degrees 0.0 )
@@ -40,7 +47,10 @@ p01: ( Aircraft
          components: {
             radar: ( Antenna
                maxPlayersOfInterest: 6
+<<<<<<< HEAD
+=======
                playerOfInterestTypes: { "air" "weapon" }
+>>>>>>> d91383e8
                polarization: horizontal
                gain: ( dB 42 )
                gainPattern: ANTENNA_PATTERN()
@@ -57,7 +67,11 @@ p01: ( Aircraft
                localPlayersOfInterestOnly: false
                useWorldCoordinates: false
             )
+<<<<<<< HEAD
+            rwr: ( Antenna
+=======
             rwr: ( Antenna 
+>>>>>>> d91383e8
                scanMode: manual
                polarization: horizontal
                gain: ( dB 12 )
@@ -81,15 +95,25 @@ p01: ( Aircraft
                powerPeak:  ( KiloWatts 500.0 )
                frequency:  ( GigaHertz 3.0 )
                bandwidth:  ( GigaHertz 2.0 )
+<<<<<<< HEAD
+               PRF:        ( Hertz 500.0 )
+=======
                PRF:        ( Hertz 500.0 ) 
+>>>>>>> d91383e8
                pulseWidth: ( MilliSeconds 0.01 )
                threshold:  ( dB 0.0 )
                ranges:     [ 10 20 40 80 160 ]
                initRangeIdx: 2
             )
+<<<<<<< HEAD
+            ( Rwr
+               trackManagerName: rwrTrkMgr
+               antennaName: rwr
+=======
             ( Rwr 
                trackManagerName: rwrTrkMgr
                antennaName: rwr  
+>>>>>>> d91383e8
                threshold:  ( dB 0.0 )
                frequency:  ( GigaHertz 3.0 )
                bandwidth:  ( GigaHertz 2.0 )

@@ -1,9 +1,21 @@
 
+<<<<<<< HEAD
+#ifndef __CrsPntr_HPP__
+#define __CrsPntr_HPP__
+
+#include "mixr/graphics/Rotators.hpp"
+
+namespace mixr {
+namespace base { class Boolean; class Integer; class INumber; }
+}
+
+=======
 #ifndef __CrsPntr_H__
 #define __CrsPntr_H__
 
 #include "mixr/graphics/Rotators.hpp"
 
+>>>>>>> d91383e8
 //------------------------------------------------------------------------------
 // Class: CrsPntr
 //
@@ -40,12 +52,21 @@ public:
 
     void drawFunc() final;
     void updateData(const double dt = 0.0) final;
+<<<<<<< HEAD
+    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+
+private:
+    // event functions
+    bool onUpdateCdiDotsCrsPntr(const mixr::base::INumber* const);
+    bool onUpdateToFromCrsPntr(const mixr::base::INumber* const);
+=======
     bool event(const int event, mixr::base::Object* const obj = nullptr) final;
 
 private:
     // event functions
     bool onUpdateCdiDotsCrsPntr(const mixr::base::Number* const);
     bool onUpdateToFromCrsPntr(const mixr::base::Number* const);
+>>>>>>> d91383e8
 
     double toFrom{};          // to = 1; from = 0;  Somewhere in between is usually not visible, unless scaled to be visible
     double cdiDots{};         // course deviation dots
@@ -58,11 +79,19 @@ private:
 
 private:
     // slot table helper methods
+<<<<<<< HEAD
+    bool setSlotNumCdiDots(const mixr::base::Integer* const);
+    bool setSlotNumInches(const mixr::base::INumber* const);
+    bool setSlotShowCdi(const mixr::base::Boolean* const);
+    bool setSlotShowCrsPntr(const mixr::base::Boolean* const);
+    bool setSlotShowToFrom(const mixr::base::Boolean* const);
+=======
     bool setSlotNumCdiDots(const mixr::base::Number* const);
     bool setSlotNumInches(const mixr::base::Number* const);
     bool setSlotShowCdi(const mixr::base::Number* const);
     bool setSlotShowCrsPntr(const mixr::base::Number* const);
     bool setSlotShowToFrom(const mixr::base::Number* const);
+>>>>>>> d91383e8
 };
 
 #endif

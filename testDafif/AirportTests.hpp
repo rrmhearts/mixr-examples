@@ -1,22 +1,41 @@
 
+<<<<<<< HEAD
+#ifndef __AirportTests_HPP__
+#define __AirportTests_HPP__
+
+#include <string>
+=======
 #ifndef __AirportTests_H__
 #define __AirportTests_H__
 
 //------------------------------------------------
 // AirportLoader test subroutines
 //------------------------------------------------
+>>>>>>> d91383e8
 
 namespace mixr {
 namespace dafif { class AirportLoader; } 
 }
 
+<<<<<<< HEAD
+//------------------------------------------------
+// AirportLoader test subroutines
+//------------------------------------------------
+=======
+>>>>>>> d91383e8
 class AirportTests final
 {
 public:
    AirportTests(
+<<<<<<< HEAD
+      const std::string& country,
+      const std::string& file = "FILE0",
+      const std::string& path = "../../mixr-data/DAFIF/FULLALL/"
+=======
       const char* country,
       const char* file = "FILE0",
       const char* path = "../../mixr-data/DAFIF/FULLALL/"
+>>>>>>> d91383e8
    );
 
    ~AirportTests();

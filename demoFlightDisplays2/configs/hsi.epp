@@ -328,7 +328,11 @@
         )
         // background
         ( Circle
+<<<<<<< HEAD
+            filled: true
+=======
             filled: 1
+>>>>>>> d91383e8
             color: (rgb 0.1 0.1 0.1)
             radius: 2.4
             slices: 1000

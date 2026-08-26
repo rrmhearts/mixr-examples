@@ -2,7 +2,11 @@
 #include "RdrAlt.hpp"
 
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+#include "mixr/base/numeric/INumber.hpp"
+=======
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 #include "mixr/graphics/readouts/NumericReadout.hpp"
 #include "mixr/graphics/Display.hpp"
 
@@ -12,8 +16,13 @@ IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(RdrAlt, "RdrAlt")
 EMPTY_DELETEDATA(RdrAlt)
 
 BEGIN_EVENT_HANDLER(RdrAlt)
+<<<<<<< HEAD
+    ON_EVENT_OBJ(UPDATE_VALUE, onEventSetRAltRdrAlt, base::INumber)
+    ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetRAltMinRdrAlt, base::INumber)
+=======
     ON_EVENT_OBJ(UPDATE_VALUE, onEventSetRAltRdrAlt, base::Number)
     ON_EVENT_OBJ(UPDATE_VALUE2, onEventSetRAltMinRdrAlt, base::Number)
+>>>>>>> d91383e8
 END_EVENT_HANDLER()
 
 RdrAlt::RdrAlt()
@@ -42,6 +51,18 @@ bool RdrAlt::setRAlt(const double newRA)
 }
 
 // Event functions
+<<<<<<< HEAD
+bool RdrAlt::onEventSetRAltRdrAlt(const base::INumber* const x)
+{
+    bool ok{};
+    if (x != nullptr) ok = setRAlt(x->asDouble());
+    return ok;
+}
+bool RdrAlt::onEventSetRAltMinRdrAlt(const base::INumber* const x)
+{
+    bool ok{};
+    if (x != nullptr) ok = setRAltMin(x->asDouble());
+=======
 bool RdrAlt::onEventSetRAltRdrAlt(const base::Number* const x)
 {
     bool ok{};
@@ -52,6 +73,7 @@ bool RdrAlt::onEventSetRAltMinRdrAlt(const base::Number* const x)
 {
     bool ok{};
     if (x != nullptr) ok = setRAltMin(x->getReal());
+>>>>>>> d91383e8
     return ok;
 }
 

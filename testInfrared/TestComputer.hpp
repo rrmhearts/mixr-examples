@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestComputer_HPP__
+#define __TestComputer_HPP__
+=======
 #ifndef __TestComputer_H__
 #define __TestComputer_H__
+>>>>>>> d91383e8
 
 #include "mixr/models/system/OnboardComputer.hpp"
 

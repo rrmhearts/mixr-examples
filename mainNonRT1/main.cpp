@@ -1,11 +1,19 @@
 
+<<<<<<< HEAD
+#include "mixr/simulation/ISimulation.hpp"
+=======
 #include "mixr/simulation/Simulation.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/base/Pair.hpp"
 
 // factories
 #include "mixr/simulation/factory.hpp"
 #include "mixr/models/factory.hpp"
+<<<<<<< HEAD
+#include "mixr/models/dynamics/jsbsim/factory.hpp"
+=======
+>>>>>>> d91383e8
 #include "mixr/terrain/factory.hpp"
 #include "mixr/base/factory.hpp"
 
@@ -16,21 +24,37 @@
 const int frameRate{50};
 
 // class factory
+<<<<<<< HEAD
+mixr::base::IObject* factory(const std::string& name)
+{
+   mixr::base::IObject* obj{mixr::simulation::factory(name)};
+   if (obj == nullptr) obj = mixr::models::factory(name);
+   if (obj == nullptr) obj = mixr::models::jsbsim::factory(name);
+=======
 mixr::base::Object* factory(const std::string& name)
 {
    mixr::base::Object* obj{mixr::simulation::factory(name)};
    if (obj == nullptr) obj = mixr::models::factory(name);
+>>>>>>> d91383e8
    if (obj == nullptr) obj = mixr::terrain::factory(name);
    if (obj == nullptr) obj = mixr::base::factory(name);
    return obj;
 }
 
 // simulation builder
+<<<<<<< HEAD
+mixr::simulation::ISimulation* builder(const std::string& filename)
+{
+   // read configuration file
+   int num_errors{};
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
 mixr::simulation::Simulation* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -51,7 +75,11 @@ mixr::simulation::Simulation* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
+<<<<<<< HEAD
+   const auto simulation = dynamic_cast<mixr::simulation::ISimulation*>(obj);
+=======
    const auto simulation = dynamic_cast<mixr::simulation::Simulation*>(obj);
+>>>>>>> d91383e8
    if (simulation == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -62,17 +90,28 @@ mixr::simulation::Simulation* builder(const std::string& filename)
 int main(int argc, char* argv[])
 {
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test1.edl"};
+
+   // read filename from command line if provided
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test1.edl";
 
    // read filename from command line if provided
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
    }
 
    // build simulation
+<<<<<<< HEAD
+   mixr::simulation::ISimulation* simulation{builder(configFilename)};
+=======
    mixr::simulation::Simulation* simulation{builder(configFilename)};
+>>>>>>> d91383e8
 
    // reset component tree
    simulation->reset();

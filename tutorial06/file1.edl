@@ -3,13 +3,23 @@
     str: "top text"
     components: {
       p1: ( MyComp
+<<<<<<< HEAD
+              str: "p1 text"
+=======
               str: "p1 text file1"
+>>>>>>> d91383e8
               components: {
                 z1: (MyComp str: "z1 text" )
               }
           )
+<<<<<<< HEAD
+      p2: ( MyComp str: "p2 text" )
+      p3: ( MyComp str: "p3 text" )
+      p4: ( MyComp str: "p4 text" )
+=======
       p2: ( MyComp str: "p2 text file1" )
       p3: ( MyComp str: "p3 text file1" )
       p4: ( MyComp str: "p4 text file1" )
+>>>>>>> d91383e8
     }
 )

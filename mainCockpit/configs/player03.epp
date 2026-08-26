@@ -4,6 +4,19 @@ duck12:
     id: 1012
     type: "F-16"
     side: red
+<<<<<<< HEAD
+    signature: ( RfSphereSignature radius: 2.0 )
+
+    initXPos: ( Meters -1000 )
+    initYPos: ( Meters 7000 )
+    initAlt: ( Meters 500 )
+    initHeading: ( Degrees 90.0 )      // Initial heading
+    initVelocity: 300
+
+    positionFreeze: false
+    killRemoval: true
+
+=======
     signature: ( SigSphere radius: 2.0 )
 
     initLatitude:  ( LatLon direction: "n" degrees: 36   minutes: 54.0 )
@@ -15,27 +28,43 @@ duck12:
     positionFreeze: false
     killRemoval: true
  
+>>>>>>> d91383e8
     dataLogTime: ( Seconds 0.5 )      // test data recorder at 2hz
 
     components: {
 
+<<<<<<< HEAD
+      dynamicsModel: ( JSBSimDynamics
+          rootDir: MIXR_DATA_JSBSIM_PATH
+          model: "f16"
+      )
+
+=======
       dynamicsModel: ( JSBSimModel
           rootDir: MIXR_DATA_JSBSIM_PATH
           model: "f16"
       )
      
+>>>>>>> d91383e8
       pilot: ( Autopilot
          navMode: false
          altitudeHoldMode: false
          headingHoldMode: false
          velocityHoldMode: false
       )
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> d91383e8
       antennas: ( Gimbal
          components: {
             radar: ( Antenna
                   maxPlayersOfInterest: 6
+<<<<<<< HEAD
+=======
                   playerOfInterestTypes: { "air" "weapon" }
+>>>>>>> d91383e8
                   polarization: horizontal
                   gain: ( dB 42 )
                   #include "gainPattern.epp"
@@ -52,14 +81,22 @@ duck12:
                   localPlayersOfInterestOnly: false
                   useWorldCoordinates: false
             )
+<<<<<<< HEAD
+            rwr: ( Antenna
+=======
             rwr: ( Antenna 
+>>>>>>> d91383e8
                   scanMode: manual
                   polarization: horizontal
                   gain: ( dB 12 )
             )
          }
       )
+<<<<<<< HEAD
+
+=======
       
+>>>>>>> d91383e8
       sensors: ( SensorMgr
          components: {
             ( Tws
@@ -68,21 +105,34 @@ duck12:
                powerPeak:  ( KiloWatts 500.0 )
                frequency:  ( GigaHertz 3.0 )
                bandwidth:  ( GigaHertz 2.0 )
+<<<<<<< HEAD
+               PRF:        ( Hertz 500.0 )
+=======
                PRF:        ( Hertz 500.0 ) 
+>>>>>>> d91383e8
                pulseWidth: ( MilliSeconds 0.01 )
                threshold:  ( dB 0.0 )
                ranges:     [ 10 20 40 80 160 ]
                initRangeIdx: 2
             )
+<<<<<<< HEAD
+            ( Rwr
+                antennaName: rwr
+=======
             ( Rwr 
                 antennaName: rwr  
+>>>>>>> d91383e8
                 threshold:  ( dB 0.0 )
                 frequency:  ( GigaHertz 3.0 )
                 bandwidth:  ( GigaHertz 2.0 )
             )
          }
       )
+<<<<<<< HEAD
+
+=======
       
+>>>>>>> d91383e8
       obc: ( OnboardComputer
          components: {
             twsTrkMgr: ( AirTrkMgr
@@ -104,7 +154,11 @@ duck12:
                1: ( AamMissile
                   id: 201
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -119,7 +173,11 @@ duck12:
                2: ( AamMissile
                   id: 202
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -134,7 +192,11 @@ duck12:
                3: ( AamMissile
                   id: 203
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -149,7 +211,11 @@ duck12:
                4: ( AamMissile
                   id: 204
                   type: "AIM-120C"
+<<<<<<< HEAD
+                  signature: ( RfDihedralCRSignature a: 0.1 )
+=======
                   signature: ( SigDihedralCR a: 0.1 )
+>>>>>>> d91383e8
                   mode: inactive
                   minSpeed: 0
                   maxSpeed: 800
@@ -163,6 +229,10 @@ duck12:
                )
             }
         )
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> d91383e8
     }
 )

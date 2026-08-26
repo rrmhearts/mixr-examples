@@ -1,9 +1,15 @@
 
 #include "TestIoDisplay.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/concepts/linkage/IIoData.hpp"
+#include "mixr/base/concepts/linkage/IIoHandler.hpp"
+#include "mixr/base/numeric/Integer.hpp"
+=======
 #include "mixr/base/concepts/linkage/AbstractIoData.hpp"
 #include "mixr/base/concepts/linkage/AbstractIoHandler.hpp"
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/String.hpp"
 
 #include <cstdio>
@@ -23,10 +29,17 @@ BEGIN_SLOTTABLE(TestIoDisplay)
 END_SLOTTABLE(TestIoDisplay)
 
 BEGIN_SLOT_MAP(TestIoDisplay)
+<<<<<<< HEAD
+    ON_SLOT(1, setSlotIoHandler, base::IIoHandler)
+    ON_SLOT(2, setSlotItem,      base::Integer)
+    ON_SLOT(3, setSlotDiChannel, base::Integer)
+    ON_SLOT(4, setSlotAiChannel, base::Integer)
+=======
     ON_SLOT(1, setSlotIoHandler, base::AbstractIoHandler)
     ON_SLOT(2, setSlotItem,      base::Number)
     ON_SLOT(3, setSlotDiChannel, base::Number)
     ON_SLOT(4, setSlotAiChannel, base::Number)
+>>>>>>> d91383e8
     ON_SLOT(5, setSlotLabel,     base::String)
 END_SLOT_MAP()
 
@@ -51,7 +64,11 @@ void TestIoDisplay::copyData(const TestIoDisplay& org, const bool cc)
    if (cc) initData();
 
    if (org.ioHandler != nullptr) {
+<<<<<<< HEAD
+      base::IIoHandler* copy = org.ioHandler->clone();
+=======
       base::AbstractIoHandler* copy = org.ioHandler->clone();
+>>>>>>> d91383e8
       setSlotIoHandler(copy);
       copy->unref();
    } else {
@@ -146,7 +163,11 @@ void TestIoDisplay::updateData(const double dt)
 
 void TestIoDisplay::updateDisplay()
 {
+<<<<<<< HEAD
+   base::IIoData* ioData{};
+=======
    base::AbstractIoData* ioData{};
+>>>>>>> d91383e8
    if (ioHandler != nullptr) ioData = ioHandler->getInputData();
 
    // Item/channel mapping
@@ -202,7 +223,11 @@ void TestIoDisplay::updateDisplay()
    }
 }
 
+<<<<<<< HEAD
+bool TestIoDisplay::setSlotIoHandler(base::IIoHandler* const msg)
+=======
 bool TestIoDisplay::setSlotIoHandler(base::AbstractIoHandler* const msg)
+>>>>>>> d91383e8
 {
    if (ioHandler != nullptr) {
       ioHandler->container(nullptr);
@@ -214,11 +239,19 @@ bool TestIoDisplay::setSlotIoHandler(base::AbstractIoHandler* const msg)
    return true;
 }
 
+<<<<<<< HEAD
+bool TestIoDisplay::setSlotItem(const base::Integer* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      const int v{msg->asInt()};
+=======
 bool TestIoDisplay::setSlotItem(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       const int v{msg->getInt()};
+>>>>>>> d91383e8
       if (v >= 1 && v <= TBL_SIZE) {
          item = v;
          types[item-1] = Type::NONE;
@@ -231,11 +264,19 @@ bool TestIoDisplay::setSlotItem(const base::Number* const msg)
    return ok;
 }
 
+<<<<<<< HEAD
+bool TestIoDisplay::setSlotAiChannel(const base::Integer* const msg)
+{
+   bool ok{};
+   if (msg != nullptr && item >= 1 && item <= TBL_SIZE) {
+      const int v{msg->asInt()};
+=======
 bool TestIoDisplay::setSlotAiChannel(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr && item >= 1 && item <= TBL_SIZE) {
       const int v{msg->getInt()};
+>>>>>>> d91383e8
       if (v >= 0 && v <= 0xFFFF) {
          channels[item-1] = v;
          types[item-1] = Type::AI;
@@ -247,11 +288,19 @@ bool TestIoDisplay::setSlotAiChannel(const base::Number* const msg)
    return ok;
 }
 
+<<<<<<< HEAD
+bool TestIoDisplay::setSlotDiChannel(const base::Integer* const msg)
+{
+   bool ok{};
+   if (msg != nullptr && item >= 1 && item <= TBL_SIZE) {
+      const int v{msg->asInt()};
+=======
 bool TestIoDisplay::setSlotDiChannel(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr && item >= 1 && item <= TBL_SIZE) {
       const int v{msg->getInt()};
+>>>>>>> d91383e8
       if (v >= 0 && v <= 0xFFFF) {
          channels[item-1] = v;
          types[item-1] = Type::DI;
@@ -268,7 +317,11 @@ bool TestIoDisplay::setSlotLabel(const base::String* const msg)
    bool ok{};
    if (item >= 1 && item <= TBL_SIZE) {
       if (msg != nullptr) {
+<<<<<<< HEAD
+         labels[item-1] = msg->c_str();
+=======
          labels[item-1] = *msg;
+>>>>>>> d91383e8
          labelFlags[item-1] = true;
       } else {
          labelFlags[item-1] = false;

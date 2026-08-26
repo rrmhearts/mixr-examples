@@ -3,7 +3,11 @@
 
 ( GlutDisplay
 
+<<<<<<< HEAD
+    name: "demoInstruments -f testinstruments.edl"
+=======
     name: "Instrument test"
+>>>>>>> d91383e8
     left:   -10.5
     right:   10.5
     bottom: -10.5
@@ -16,7 +20,11 @@
     vpHeight: 800
     clearDepth: 1.0
     clearColor: (rgb 0 0 0)
+<<<<<<< HEAD
+    fullScreen: false
+=======
     fullScreen: 0
+>>>>>>> d91383e8
         
     // color is different.
     colorTable: {
@@ -26,6 +34,15 @@
         yellow:     ( rgb 1 1 0 )
         blue:       ( rgb 0 0 1 )
         magenta:    ( rgb 1 0 1 )
+<<<<<<< HEAD
+        brown:      ( rgb 0.3921 0.2705 0.1568 )
+        white:      ( rgb 1 1 1 )
+        gray:       ( rgb 0.4 0.4 0.4 )
+        adiCyan:    ( rgb 0.7921 0.8352 0.8117 )
+        cyan:       ( rgb 0 1 1 )
+        gray2:      ( rgb 0.2 0.2 0.2 )
+        amber:      ( rgb 1 0.5 0 )
+=======
         brown:      ( rgb 0.3921568627450980392156862745098 0.27058823529411764705882352941176 0.15686274509803921568627450980392 )
         white:      ( rgb 1 1 1 )
         gray:       ( rgb 0.4 0.4 0.4 )
@@ -33,6 +50,7 @@
         cyan:       ( rgb 0 1 1 )
         gray2:      ( rgb 0.2 0.2 0.2 )    
         amber:      ( rgb 1 0.5 0 )   
+>>>>>>> d91383e8
         gray1:      ( rgb 0.1 0.1 0.1 )
         gray8:      ( rgb 0.8 0.8 0.8 )
     }
@@ -49,7 +67,11 @@
     fonts: {
         // normal font for the instruments
         default: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -63,7 +85,11 @@
         )
         // small font for the instruments
         smallfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -79,7 +105,11 @@
         
         // smaller font for the instruments
         smallerfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -95,7 +125,11 @@
         
         // used for the CAS mach readout
         arialfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -119,7 +153,11 @@
             material: m1
             size: 1
             transform: ( Translation 8.8 -9 )
+<<<<<<< HEAD
+            filled: true
+=======
             filled: 1
+>>>>>>> d91383e8
             translateLight: { -1 1 1 }
         )
     }   

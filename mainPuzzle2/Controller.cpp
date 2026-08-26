@@ -2,7 +2,11 @@
 #include "Controller.hpp"
 #include "State.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/IList.hpp"
+=======
 #include "mixr/base/List.hpp"
+>>>>>>> d91383e8
 #include <iostream>
 
 using namespace mixr;
@@ -76,7 +80,11 @@ const State* Controller::solve()
       //{
       //   unsigned int icount = 0;
       //   std::cout << "Open List ==============" << std::endl;
+<<<<<<< HEAD
+      //   const base::IList::Item* item = openStates->getFirstItem();
+=======
       //   const base::List::Item* item = openStates->getFirstItem();
+>>>>>>> d91383e8
       //   while (item != 0 && icount < 10) {
       //      const State* s = (const State*) item->getValue();
       //      //s->serialize(std::cout);
@@ -150,19 +158,32 @@ void Controller::putOpen(State* const s)
 {
    if (openStates == nullptr) {
       // create the list (as needed)
+<<<<<<< HEAD
+      openStates = new base::IList();
+=======
       openStates = new base::List();
+>>>>>>> d91383e8
    }
 
    if (s != nullptr) {
       // Create a new list item for this state and get the state's f() value
+<<<<<<< HEAD
+      const auto newItem = new base::IList::Item();
+=======
       const auto newItem = new base::List::Item();
+>>>>>>> d91383e8
       newItem->value = s;
       s->ref();
       int f{s->f()};
 
       // Find where in the list to insert this new state (based on their f() values)
+<<<<<<< HEAD
+      base::IList::Item* item{openStates->getFirstItem()};
+      base::IList::Item* refItem{};
+=======
       base::List::Item* item{openStates->getFirstItem()};
       base::List::Item* refItem{};
+>>>>>>> d91383e8
       while (item != nullptr && refItem == nullptr) {
          const auto p = static_cast<const State*>( item->getValue() );
          if (f < p->f()) {

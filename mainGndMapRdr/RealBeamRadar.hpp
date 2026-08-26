@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
+#ifndef __RealBeamRadar_HPP__
+#define __RealBeamRadar_HPP__
+
+#include "mixr/models/system/IRadar.hpp"
+
+namespace mixr {
+namespace base { class Angle; class Boolean; class Distance; }
+namespace terrain { class ITerrain; }
+=======
 #ifndef __RealBeamRadar_H__
 #define __RealBeamRadar_H__
 
@@ -7,6 +17,7 @@
 namespace mixr {
 namespace base { class Angle; class Distance; class Number; }
 namespace terrain { class Terrain; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -14,15 +25,26 @@ namespace terrain { class Terrain; }
 //
 // Description: Real-Beam Radar Model
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class RealBeamRadar final: public mixr::models::IRadar
+{
+    DECLARE_SUBCLASS(RealBeamRadar, mixr::models::IRadar)
+=======
 class RealBeamRadar final: public mixr::models::Radar
 {
     DECLARE_SUBCLASS(RealBeamRadar, mixr::models::Radar)
+>>>>>>> d91383e8
 
 public:
     RealBeamRadar();
 
+<<<<<<< HEAD
+   const mixr::terrain::ITerrain* getTerrain() const                      { return terrain; }
+   virtual bool setTerrain(const mixr::terrain::ITerrain* const msg);
+=======
    const mixr::terrain::Terrain* getTerrain() const                      { return terrain; }
    virtual bool setTerrain(const mixr::terrain::Terrain* const msg);
+>>>>>>> d91383e8
 
    double getAltitude() const                     { return altitude; }    // Ref altitude (meters)
    double getAntennaAzimuthAngle() const          { return antAzAngle; }  // Antenna look angle (degs)
@@ -53,7 +75,11 @@ private:
    bool copyImageMemory(const RealBeamRadar& org);
    void freeImageMemory();
 
+<<<<<<< HEAD
+   const mixr::terrain::ITerrain* terrain{};  // Terrain data
+=======
    const mixr::terrain::Terrain* terrain{};  // Terrain data
+>>>>>>> d91383e8
    double            altitude{};             // Ref altitude (meters)
    double            antAzAngle{};           // Antenna azimuth angle (degs)
    double            antElAngle{};           // Antenna elevation angle (degs)
@@ -81,8 +107,13 @@ private:
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotInterpolate(const mixr::base::Boolean* const);
+
+=======
    bool setSlotInterpolate(const mixr::base::Number* const);
    
+>>>>>>> d91383e8
 };
 
 #endif

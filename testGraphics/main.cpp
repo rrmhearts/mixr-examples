@@ -1,24 +1,41 @@
 
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/edl_parser.hpp"
+#include "mixr/base/qty/angles.hpp"
+=======
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/base/units/Angles.hpp"
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/graphics/Image.hpp"
 
+<<<<<<< HEAD
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 
 #include "TestDisplay.hpp"
 
 // factories
 #include "mixr/base/factory.hpp"
 #include "mixr/graphics/factory.hpp"
+<<<<<<< HEAD
+#include "mixr/graphics/fonts/ftgl/factory.hpp"
+=======
+>>>>>>> d91383e8
 #include "mixr/ui/glut/factory.hpp"
 
 #include <GL/glut.h>
 
+<<<<<<< HEAD
+=======
 #include "MfdPage.hpp"
+>>>>>>> d91383e8
 #include "TestOne.hpp"
 #include "TestTwo.hpp"
 #include "TdAzPtr.hpp"
@@ -41,23 +58,36 @@ void timerFunc(int)
 {
    glutTimerFunc(dt_msecs, timerFunc, 1);
 
+<<<<<<< HEAD
+   mixr::base::ITimer::updateTimers(dt_secs);
+=======
    mixr::base::Timer::updateTimers(dt_secs);
+>>>>>>> d91383e8
    mixr::graphics::Graphic::flashTimer(dt_secs);
    testDisplay->tcFrame(dt_secs);
 }
 
 // our class factory
+<<<<<<< HEAD
+mixr::base::IObject* factory(const std::string& name)
+{
+   mixr::base::IObject* obj{};
+=======
 mixr::base::Object* factory(const std::string& name)
 {
    mixr::base::Object* obj{};
+>>>>>>> d91383e8
 
    //
    if ( name == TestDisplay::getFactoryName() ) {
       obj = new TestDisplay;
    }
+<<<<<<< HEAD
+=======
    else if ( name == MfdPage::getFactoryName() ) {
       obj = new MfdPage;
    }
+>>>>>>> d91383e8
 
    // TestX
    else if ( name == TestOne::getFactoryName() ) {
@@ -80,6 +110,10 @@ mixr::base::Object* factory(const std::string& name)
 
    else {
       if (obj == nullptr) obj = mixr::graphics::factory(name);
+<<<<<<< HEAD
+      if (obj == nullptr) obj = mixr::graphics::ftgl::factory(name);
+=======
+>>>>>>> d91383e8
       if (obj == nullptr) obj = mixr::glut::factory(name);
       if (obj == nullptr) obj = mixr::base::factory(name);
    }
@@ -91,7 +125,11 @@ TestDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -125,10 +163,17 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test1.edl"};
+
+   // parse arguments
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test1.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }

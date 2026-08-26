@@ -1,13 +1,22 @@
 
+<<<<<<< HEAD
+#ifndef __MapPage_HPP__
+#define __MapPage_HPP__
+=======
 #ifndef __MapPage_H__
 #define __MapPage_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/MapPage.hpp"
 
 #include <array>
 
 namespace mixr {
+<<<<<<< HEAD
+namespace models { class IPlayer; }
+=======
 namespace models { class Player; }
+>>>>>>> d91383e8
 namespace graphics { class SymbolLoader; }
 }
 
@@ -38,7 +47,11 @@ private:
    static const int MAX_PLAYERS{200};
    static const int MAX_READOUTS{20};
 
+<<<<<<< HEAD
+   std::array<mixr::models::IPlayer*, MAX_PLAYERS> player{};  // player pointer
+=======
    std::array<mixr::models::Player*, MAX_PLAYERS> player{};   // player pointer
+>>>>>>> d91383e8
    std::array<int, MAX_PLAYERS> playerIdx{};                  // index of our symbol for the given player
    // player symbol loader
    mixr::graphics::SymbolLoader* loader{};    // holds our loader for quick reference

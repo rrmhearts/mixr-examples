@@ -5,9 +5,16 @@ PGM = testVmap
 
 OBJS = \
 		TestDisplay.o \
+<<<<<<< HEAD
+		main.o
+
+LDFLAGS += -lmixr_map_vpf -lmixr_instruments -lmixr_ui_glut
+LDFLAGS += -lmixr_graphics -lmixr_graphics_ftgl -lmixr_base
+=======
 		main.o 
 
 LDFLAGS += -lmixr_map_vpf -lmixr_instruments -lmixr_ui_glut -lmixr_graphics -lmixr_base
+>>>>>>> d91383e8
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11
 #LDFLAGS += -lXmu -lXi
 LDFLAGS += -lrt -lpthread

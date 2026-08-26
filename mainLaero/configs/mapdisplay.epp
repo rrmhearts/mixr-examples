@@ -1,6 +1,10 @@
 ( MapTestDisplay
     
+<<<<<<< HEAD
+   name: "mainLareo -f test.edl"
+=======
    name: "Map Display"
+>>>>>>> d91383e8
   
    left:        -10.0
    right:        10.0
@@ -16,7 +20,11 @@
 
    clearDepth: 20.0
    clearColor: ( rgb 0.321 0.321 0.321 )
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> d91383e8
    normalFont: normal
 
    fonts: {
@@ -73,7 +81,11 @@
             //orbitCircle:
             //( Circle
             //   color: red
+<<<<<<< HEAD
+            //   filled: true
+=======
             //   filled: 1
+>>>>>>> d91383e8
             //   slices: 72
             //)
             //anchorArc:
@@ -193,7 +205,11 @@
                            color: white
                            transform: ( Translation -0.5 -0.5 )
                            text: "XXXXXX"
+<<<<<<< HEAD
+                        )
+=======
                         )                                
+>>>>>>> d91383e8
                      }
                   )
                }
@@ -202,7 +218,11 @@
             // symbol loader for route points
             routeLoader:
             ( SymbolLoader
+<<<<<<< HEAD
+               interconnect: true
+=======
                interconnect: 1
+>>>>>>> d91383e8
                templates: {
                   //----------------------------------------
                   // Steerpoint
@@ -211,7 +231,11 @@
                      components: {
                         symbol:
                         ( Circle
+<<<<<<< HEAD
+                           filled: true
+=======
                            filled: 1
+>>>>>>> d91383e8
                            slices: 100
                            color: green
                            radius: 0.5

@@ -3,18 +3,32 @@
 
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+#include "mixr/base/IComponent.hpp"
+#include "mixr/base/IStateMachine.hpp"
+#include "mixr/base/timers/ITimer.hpp"
+=======
 #include "mixr/base/StateMachine.hpp"
 #include "mixr/base/Timers.hpp"
+>>>>>>> d91383e8
 
 #include <string>
 #include <cstdlib>
 
 // state machine builder
+<<<<<<< HEAD
+mixr::base::IStateMachine* builder(const std::string& filename)
+{
+   // read configuration file
+   int num_errors{};
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
 mixr::base::StateMachine* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -35,7 +49,11 @@ mixr::base::StateMachine* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
+<<<<<<< HEAD
+   const auto stateMachine = dynamic_cast<mixr::base::IStateMachine*>(obj);
+=======
    const auto stateMachine = dynamic_cast<mixr::base::StateMachine*>(obj);
+>>>>>>> d91383e8
    if (stateMachine == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -44,12 +62,20 @@ mixr::base::StateMachine* builder(const std::string& filename)
 }
 
 // main test loop
+<<<<<<< HEAD
+void theTest(mixr::base::IStateMachine* stateMachine)
+=======
 void theTest(mixr::base::StateMachine* stateMachine)
+>>>>>>> d91383e8
 {
    const double dt{0.05};  // Fake delta time
 
    while (stateMachine->getState() != 99) {
+<<<<<<< HEAD
+      mixr::base::ITimer::updateTimers(dt);
+=======
       mixr::base::Timer::updateTimers(static_cast<double>(dt));
+>>>>>>> d91383e8
       stateMachine->updateTC(dt);
       stateMachine->updateData(dt);
    }
@@ -58,10 +84,17 @@ void theTest(mixr::base::StateMachine* stateMachine)
 int main(int argc, char* argv[])
 {
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test1.edl"};
+
+   // parse arguments
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test1.edl";
 
    // parse arguments
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -70,15 +103,27 @@ int main(int argc, char* argv[])
    // ---
    // Read in the description files
    // ---
+<<<<<<< HEAD
+   mixr::base::IStateMachine* stateMachine{builder(configFilename)};
+
+   // reset the system
+   stateMachine->event(mixr::base::IComponent::RESET_EVENT);
+=======
    mixr::base::StateMachine* stateMachine{builder(configFilename)};
 
    //stateMachine->serialize(std::cout);
 
    // reset the system
    stateMachine->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    // run the test
    theTest(stateMachine);
 
+<<<<<<< HEAD
+   stateMachine->unref();
+
+=======
+>>>>>>> d91383e8
    return 0;
 }

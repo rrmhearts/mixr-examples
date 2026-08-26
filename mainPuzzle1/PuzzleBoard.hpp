@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
+#ifndef __PuzzleBoard_HPP__
+#define __PuzzleBoard_HPP__
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #ifndef __PuzzleBoard_H__
 #define __PuzzleBoard_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 
 #include <array>
 
@@ -18,9 +25,15 @@ class State;
 // Class: PuzzleBoard
 // Description: Puzzle board
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class PuzzleBoard final: public mixr::glut::IGlutDisplay
+{
+   DECLARE_SUBCLASS(PuzzleBoard, mixr::glut::IGlutDisplay)
+=======
 class PuzzleBoard final: public mixr::glut::GlutDisplay
 {
    DECLARE_SUBCLASS(PuzzleBoard, mixr::glut::GlutDisplay)
+>>>>>>> d91383e8
 
 public:
    PuzzleBoard();
@@ -65,8 +78,13 @@ private:
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotController(Controller* const);                      // Sets the puzzle controller
+   bool setSlotTemplates(const mixr::base::PairStream* const);     // Sets a list of the graphical templates for the blocks
+=======
    bool setSlotController(Controller* const);                    // Sets the puzzle controller
    bool setSlotTemplates(const mixr::base::PairStream* const);   // Sets a list of the graphical templates for the blocks
+>>>>>>> d91383e8
 };
 
 #endif

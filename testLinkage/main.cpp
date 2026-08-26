@@ -5,7 +5,11 @@
 #include "factory.hpp"
 
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+#include "mixr/base/timers/ITimer.hpp"
+=======
 #include "mixr/base/Timers.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/edl_parser.hpp"
 
 #include <GL/glut.h>
@@ -23,7 +27,11 @@ void timerFunc(int)
    const int millis{static_cast<int>(dt * 1000)};
    glutTimerFunc(millis, timerFunc, 1);
 
+<<<<<<< HEAD
+   mixr::base::ITimer::updateTimers(dt);
+=======
    mixr::base::Timer::updateTimers(dt);
+>>>>>>> d91383e8
    mixr::graphics::Graphic::flashTimer(dt);
    display->updateTC(dt);
 }
@@ -33,7 +41,11 @@ TestIoDisplay* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -68,9 +80,15 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test1.edl"};
+   // parse arguments
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test1.edl";
    // parse arguments
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }

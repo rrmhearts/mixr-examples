@@ -149,8 +149,13 @@
         
         rwpointer:
         ( GaugeSlider
+<<<<<<< HEAD
+            allowComponentPass: false
+            vertical: false
+=======
             allowComponentPass: 0
             vertical: 0
+>>>>>>> d91383e8
             // localizer dots (left and right)
             scalingTable: 
             ( Table1
@@ -161,7 +166,11 @@
                 // vertical displacement below 200 feet
                 rwpointervert:
                 ( GaugeSlider
+<<<<<<< HEAD
+                    vertical: true
+=======
                     vertical: 1
+>>>>>>> d91383e8
                     scalingTable: 
                     ( Table1
                         x: [ 200 0 ]

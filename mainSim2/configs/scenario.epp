@@ -2,7 +2,11 @@
 // Example scenario
 // -----------------------------------------------------------------------------
 
+<<<<<<< HEAD
+ownship: p1
+=======
 ownship: sim3_1
+>>>>>>> d91383e8
 simulation: ( WorldModel
 
    // ---
@@ -13,25 +17,45 @@ simulation: ( WorldModel
    // ---
    // Reference position (player positions are relative to this location)
    // ---
+<<<<<<< HEAD
+   latitude:  REF_LATITUDE
+   longitude: REF_LONGITUDE
+
+   players: {
+
+      p1: ( SimPlayer
+=======
    latitude:    37.0 
    longitude: -116.0
 
    players: {
 
       sim3_1: ( SimPlayer
+>>>>>>> d91383e8
 
          id: 1
          side: blue
          type: "F-16"
+<<<<<<< HEAD
+         signature: ( RfSphereSignature radius: 2.0 )
+=======
          signature: ( SigSphere radius: 2.0 )
+>>>>>>> d91383e8
 
          // Starting position (relative to ref point)
          initXPos: ( NauticalMiles 0 )
          initYPos: ( NauticalMiles 0 )
+<<<<<<< HEAD
+         initAlt: ( Meters 20000.0 )
+         initHeading: ( Degrees 0.0 )      // Initial heading
+         initVelocity: 250
+
+=======
          initAlt: ( Feet 10000 )
          initHeading: ( Degrees 0.0 )      // Initial heading
          initVelocity: 250
          
+>>>>>>> d91383e8
          positionFreeze: false
 
          components: {
@@ -39,11 +63,20 @@ simulation: ( WorldModel
             // ---
             // Aero/engine dynamics model
             // ---
+<<<<<<< HEAD
+
+            dynamicsModel: ( JSBSimDynamics
+               rootDir: MIXR_DATA_JSBSIM_PATH
+               model: "f16"
+            )
+
+=======
             dynamicsModel: ( JSBSimModel
                rootDir: MIXR_DATA_JSBSIM_PATH
                model: "f16"
             )
            
+>>>>>>> d91383e8
             pilot: ( Autopilot
                navMode: false
                altitudeHoldMode: false
@@ -51,6 +84,12 @@ simulation: ( WorldModel
                velocityHoldMode: false
             )
 
+<<<<<<< HEAD
+         }   // end player's components
+      )
+
+   }  // end player list
+=======
          }   // End player's components
       )
 
@@ -127,6 +166,7 @@ simulation: ( WorldModel
       )
 
    }  // End player list
+>>>>>>> d91383e8
 
 )
 

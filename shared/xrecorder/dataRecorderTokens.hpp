@@ -10,8 +10,13 @@
 //       (see "mixr/simulation/DataRecorder.hpp")
 //
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+#ifndef __mixr_xrecorder_Id_Tokens_HPP__
+#define __mixr_xrecorder_Id_Tokens_HPP__
+=======
 #ifndef __mixr_xrecorder_Id_Tokens_H__
 #define __mixr_xrecorder_Id_Tokens_H__
+>>>>>>> d91383e8
 
 #include "mixr/simulation/dataRecorderTokens.hpp"
 

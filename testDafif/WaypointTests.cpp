@@ -1,6 +1,21 @@
 
 #include "WaypointTests.hpp"
 
+<<<<<<< HEAD
+#include "mixr/dafif/loaders/WaypointLoader.hpp"
+#include "mixr/base/util/str_utils.hpp"
+
+#include <cstring>
+#include <string>
+#include <iostream>
+
+WaypointTests::WaypointTests(
+               const std::string& country,
+               const std::string& file,
+               const std::string& path)
+{
+   std::string fullname{path + "/" + file};
+=======
 #include "mixr/dafif/WaypointLoader.hpp"
 #include "mixr/base/util/str_utils.hpp"
 
@@ -15,6 +30,7 @@ WaypointTests::WaypointTests(
    mixr::base::utStrcpy(fullname,512,path);
    mixr::base::utStrcat(fullname,512,"/");
    mixr::base::utStrcat(fullname,512,file);
+>>>>>>> d91383e8
    db = new mixr::dafif::WaypointLoader();
    db->setPathname(path);
    db->setFilename(file);
@@ -25,7 +41,11 @@ WaypointTests::WaypointTests(
 
 WaypointTests::~WaypointTests()
 {
+<<<<<<< HEAD
+   if (db != nullptr) { db->unref(); db = nullptr; }
+=======
    delete db;
+>>>>>>> d91383e8
 }
 
 void WaypointTests::dump()
@@ -43,7 +63,11 @@ void WaypointTests::func30()
 void WaypointTests::func31(const double acLat, const double acLon, const double acElev, const bool printData)
 {
    std::cout << "Enter index (-1 to end):";
+<<<<<<< HEAD
+   int idx{};
+=======
    int idx;
+>>>>>>> d91383e8
    std::cin >> idx;
 
    while (idx >= 0) {
@@ -72,6 +96,15 @@ void WaypointTests::func32(const double acLat, const double acLon, const double 
    std::cin >> id;
 
 
+<<<<<<< HEAD
+   while (std::strcmp(id, "done") != 0) {
+
+      int found{db->queryByIdent(id)};
+      std::cout << "found = " << found << std::endl;
+
+      for (int i = 0; i < found; i++) {
+         mixr::dafif::Waypoint* wp{db->getWaypoint(i)};
+=======
    while ( strcmp(id,"done") != 0) {
 
       int found = db->queryByIdent(id);
@@ -79,6 +112,7 @@ void WaypointTests::func32(const double acLat, const double acLon, const double 
 
       for (int i = 0; i < found; i++) {
          mixr::dafif::Waypoint* wp = db->getWaypoint(i);
+>>>>>>> d91383e8
          wp->printRecord(std::cout);
 		 if (printData)
     		 wp->printTrueBearingRange(std::cout, acLat, acLon, acElev);
@@ -133,6 +167,15 @@ void WaypointTests::func36(const double acLat, const double acLon, const double 
    char key[16];
    std::cin.getline(key,14,'\n');
 
+<<<<<<< HEAD
+   while (std::strcmp(key, "done") != 0) {
+
+      int found{db->queryByKey(key)};
+      std::cout << "found = " << found << std::endl;
+
+      for (int i = 0; i < found; i++) {
+         mixr::dafif::Waypoint* wp{db->getWaypoint(i)};
+=======
    while ( strcmp(key,"done") != 0) {
 
       int found  = db->queryByKey(key);
@@ -140,6 +183,7 @@ void WaypointTests::func36(const double acLat, const double acLon, const double 
 
       for (int i = 0; i < found; i++) {
          mixr::dafif::Waypoint* wp = db->getWaypoint(i);
+>>>>>>> d91383e8
          wp->printRecord(std::cout);
 		 if (printData)
     		 wp->printTrueBearingRange(std::cout, acLat, acLon, acElev);
@@ -168,6 +212,15 @@ void WaypointTests::func3B(const double acLat, const double acLon, const double 
    std::cin >> code;
 
 
+<<<<<<< HEAD
+   while (std::strcmp(code, "done") != 0) {
+
+      int found{db->queryByIcao(code)};
+      std::cout << "found = " << found << std::endl;
+
+      for (int i = 0; i < found; i++) {
+         mixr::dafif::Waypoint* wp{db->getWaypoint(i)};
+=======
    while ( strcmp(code,"done") != 0) {
 
       int found = db->queryByIcao(code);
@@ -175,6 +228,7 @@ void WaypointTests::func3B(const double acLat, const double acLon, const double 
 
       for (int i = 0; i < found; i++) {
          mixr::dafif::Waypoint* wp = db->getWaypoint(i);
+>>>>>>> d91383e8
          wp->printRecord(std::cout);
 		 if (printData)
     		 wp->printTrueBearingRange(std::cout, acLat, acLon, acElev);

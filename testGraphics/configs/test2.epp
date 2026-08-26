@@ -4,7 +4,11 @@
 
 ( TestDisplay
     
+<<<<<<< HEAD
+    name: "testGraphics -f test2.edl"
+=======
     name: "Main Window"
+>>>>>>> d91383e8
     
     vpX:        100
     vpY:        100

@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __ObjectHandler_HPP__
+#define __ObjectHandler_HPP__
+=======
 #ifndef __ObjectHandler_H__
 #define __ObjectHandler_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 
@@ -17,9 +22,15 @@ class ObjectHandler final: public mixr::graphics::Graphic
    DECLARE_SUBCLASS(ObjectHandler, mixr::graphics::Graphic)
 
 public:
+<<<<<<< HEAD
+   ObjectHandler()     { STANDARD_CONSTRUCTOR() }
+
+   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+=======
    ObjectHandler();
 
    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
+>>>>>>> d91383e8
 
 private:
    bool onUpdateObject(const TestObject* const);

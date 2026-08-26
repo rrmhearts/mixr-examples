@@ -3,6 +3,15 @@
 
 #include "TestStation.hpp"
 
+<<<<<<< HEAD
+//#include "mixr/models/player/air/IAirVehicle.hpp"
+#include "mixr/models/player/air/IAircraft.hpp"
+
+#include "mixr/base/osg/Vec3d"
+
+#include "mixr/base/qty/lengths.hpp"
+#include "mixr/base/qty/times.hpp"
+=======
 #include "mixr/models/player/air/AirVehicle.hpp"
 #include "mixr/models/player/air/Aircraft.hpp"
 
@@ -10,6 +19,7 @@
 
 #include "mixr/base/units/Distances.hpp"
 #include "mixr/base/units/Times.hpp"
+>>>>>>> d91383e8
 
 IMPLEMENT_EMPTY_SLOTTABLE_SUBCLASS(AdiDisplay, "AdiDisplay")
 EMPTY_DELETEDATA(AdiDisplay)
@@ -45,7 +55,11 @@ void AdiDisplay::updateData(const double dt)
    mixr::base::Vec3d av;
 
    // get access pointer to ownship
+<<<<<<< HEAD
+   mixr::models::IAircraft* pA{getOwnship()};
+=======
    mixr::models::Aircraft* pA{getOwnship()};
+>>>>>>> d91383e8
    if (pA != nullptr) {
       psiRO = pA->getHeadingD();
       thtRO = pA->getPitchD();
@@ -81,10 +95,17 @@ void AdiDisplay::updateData(const double dt)
    //send("pitchangle",   UPDATE_INSTRUMENTS, pitch,    pitchSD);
 }
 
+<<<<<<< HEAD
+mixr::simulation::IStation* AdiDisplay::getStation()
+{
+   if (myStation == nullptr) {
+      const auto s = dynamic_cast<mixr::simulation::IStation*>( findContainerByType(typeid(mixr::simulation::IStation)) );
+=======
 mixr::simulation::Station* AdiDisplay::getStation()
 {
    if (myStation == nullptr) {
       const auto s = dynamic_cast<mixr::simulation::Station*>( findContainerByType(typeid(mixr::simulation::Station)) );
+>>>>>>> d91383e8
       if (s != nullptr) {
          myStation = s;
       }
@@ -92,12 +113,21 @@ mixr::simulation::Station* AdiDisplay::getStation()
    return myStation;
 }
 
+<<<<<<< HEAD
+mixr::models::IAircraft* AdiDisplay::getOwnship()
+{
+   mixr::models::IAircraft* pA{};
+   mixr::simulation::IStation* sta{getStation()};
+   if (sta != nullptr) {
+      pA = dynamic_cast<mixr::models::IAircraft*>(sta->getOwnship());
+=======
 mixr::models::Aircraft* AdiDisplay::getOwnship()
 {
    mixr::models::Aircraft* pA{};
    mixr::simulation::Station* sta{getStation()};
    if (sta != nullptr) {
       pA = dynamic_cast<mixr::models::Aircraft*>(sta->getOwnship());
+>>>>>>> d91383e8
       //const unsigned int ffrate = 5;    //LDB
       //sta->setFastForwardRate(ffrate);  //LDB
    }

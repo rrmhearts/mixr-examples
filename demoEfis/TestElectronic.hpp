@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestElectronic_HPP__
+#define __TestElectronic_HPP__
+=======
 #ifndef __TestElectronic_H__
 #define __TestElectronic_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 
@@ -22,7 +27,11 @@ private:
 
     enum class NavType { VORTAC, TACAN, INAV, VORDME, VOR };
     enum class NavMode { DECLUTTER, MAP_MODE, NORMAL, HSI_MODE, ARC_MODE, ARC_MAP_MODE };
+<<<<<<< HEAD
+    enum class NavSource:int { PRIMARY=0, SECONDARY=1 };
+=======
     enum class NavSource { PRIMARY=0, SECONDARY=1 };
+>>>>>>> d91383e8
     enum class Location { PILOT, COPILOT };
     // readout modes
     // ND_TTG  : time to go
@@ -30,7 +39,11 @@ private:
     // ND_TAS  : true air speed
     // ND_ET   : elapsed time
     // ND_WIND : wind dir/speed, drift angle
+<<<<<<< HEAD
+    enum class ReadoutMode:int { ND_TTG=1, ND_GSP=2, ND_TAS=3, ND_ET=4, ND_WIND=5 };
+=======
     enum class ReadoutMode { ND_TTG=1, ND_GSP=2, ND_TAS=3, ND_ET=4, ND_WIND=5 };
+>>>>>>> d91383e8
 
     void updateTestValues(const double dt);    // update our data
 

@@ -7,7 +7,11 @@
     pickWidth:  14
     pickHeight: 14
 
+<<<<<<< HEAD
+    name: "testGraphics -f test1.edl"
+=======
     name: "Main Window"
+>>>>>>> d91383e8
 
     left:       -10.5
     right:       10.5
@@ -22,7 +26,11 @@
     vpX:        300
     vpY:        200
     //vpWidth:    500
+<<<<<<< HEAD
+    vpWidth:    500    //   200 + 100 + 100 + 50 + 25 + 10 + 10 + 5
+=======
     vpWidth:    ( + 200 100 100 50 25 10 10 5)
+>>>>>>> d91383e8
     vpHeight:   500
 
     #include "testBasic.epp"

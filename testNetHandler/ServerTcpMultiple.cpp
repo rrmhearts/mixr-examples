@@ -1,8 +1,11 @@
 
 #include "ServerTcpMultiple.hpp"
 
+<<<<<<< HEAD
+=======
 #include "mixr/base/numeric/Number.hpp"
 
+>>>>>>> d91383e8
 #include <iostream>
 
 using namespace mixr;

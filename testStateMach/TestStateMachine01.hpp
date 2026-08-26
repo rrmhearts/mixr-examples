@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
+#ifndef __TestStateMachine01_HPP__
+#define __TestStateMachine01_HPP__
+
+#include "mixr/base/IStateMachine.hpp"
+=======
 #ifndef __TestStateMachine01_H__
 #define __TestStateMachine01_H__
 
 #include "mixr/base/StateMachine.hpp"
+>>>>>>> d91383e8
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine01
@@ -14,9 +21,15 @@
 //    select each state's specific code.
 //
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class TestStateMachine01 final: public mixr::base::IStateMachine
+{
+   DECLARE_SUBCLASS(TestStateMachine01, mixr::base::IStateMachine)
+=======
 class TestStateMachine01 final: public mixr::base::StateMachine
 {
    DECLARE_SUBCLASS(TestStateMachine01, mixr::base::StateMachine)
+>>>>>>> d91383e8
 
 public:
    enum { CALL_01 = 11, CALL_02 = 22 };

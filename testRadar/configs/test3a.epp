@@ -72,7 +72,11 @@
             id: 1
             side: blue
             type: "F-16"
+<<<<<<< HEAD
+            signature: ( RfSphereSignature radius: 2.0 )
+=======
             signature: ( SigSphere radius: 2.0 )
+>>>>>>> d91383e8
             initPosition: [ -15000 0 -10000 ]
             initHeading: ( Degrees 10 )
             initVelocity: 250
@@ -107,7 +111,11 @@
                   powerPeak:  ( KiloWatts 500.0 )
                   frequency:  ( GigaHertz 3.0 )
                   bandwidth:  ( GigaHertz 2.0 )
+<<<<<<< HEAD
+                  PRF:        ( Hertz 500.0 )
+=======
                   PRF:        ( Hertz 500.0 ) 
+>>>>>>> d91383e8
                   pulseWidth: ( MilliSeconds 0.01 )
                   threshold:  ( dB 0.0 )
                   ranges:     [ 10 20 40 80 160 ]

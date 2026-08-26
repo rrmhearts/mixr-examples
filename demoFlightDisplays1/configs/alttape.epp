@@ -350,7 +350,11 @@
         )   
         // now draw all of the lines 
         ( SpdLines 
+<<<<<<< HEAD
+            isAlt: true
+=======
             isAlt: 1
+>>>>>>> d91383e8
         )
     }
 )

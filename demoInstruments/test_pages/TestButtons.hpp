@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestButtons_HPP__
+#define __TestButtons_HPP__
+=======
 #ifndef __TestButtons_H__
 #define __TestButtons_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 
@@ -19,7 +24,11 @@ public:
    enum { REGULAR = 0, PUSH_MAINTAINED, PUSH_MOMENTARY, ROTARY, KNOB, SOLENOID };
 
    void updateData(const double dt = 0.0) final;
+<<<<<<< HEAD
+   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+=======
    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
+>>>>>>> d91383e8
 
 private:
     bool regularButton();

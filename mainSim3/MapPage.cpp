@@ -3,7 +3,11 @@
 #include "Station.hpp"
 #include "Display.hpp"
 
+<<<<<<< HEAD
+#include "mixr/models/player/IPlayer.hpp"
+=======
 #include "mixr/models/player/Player.hpp"
+>>>>>>> d91383e8
 #include "mixr/models/WorldModel.hpp"
 
 #include "mixr/graphics/SymbolLoader.hpp"
@@ -192,6 +196,16 @@ void MapPage::updateData(const double dt)
         mixr::base::PairStream* stream {stn->getPlayers()};
         if (stream != nullptr) {
             // create our new player list
+<<<<<<< HEAD
+            mixr::models::IPlayer* newPlayers[MAX_PLAYERS]{};
+            int numNewPlayers{};
+            // go through all of our non-ownship players and populate our new list
+            mixr::base::IList::Item* item {stream->getFirstItem()};
+            while (item != nullptr && numNewPlayers < MAX_PLAYERS) {
+                const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
+                if (pair != nullptr) {
+                    const auto ply = dynamic_cast<mixr::models::IPlayer*>(pair->object());
+=======
             mixr::models::Player* newPlayers[MAX_PLAYERS]{};
             int numNewPlayers{};
             // go through all of our non-ownship players and populate our new list
@@ -200,6 +214,7 @@ void MapPage::updateData(const double dt)
                 const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
                 if (pair != nullptr) {
                     const auto ply = dynamic_cast<mixr::models::Player*>(pair->object());
+>>>>>>> d91383e8
                     if (ply != nullptr) {
                         newPlayers[numNewPlayers] = ply;
                         newPlayers[numNewPlayers++]->ref();
@@ -245,10 +260,17 @@ void MapPage::updateData(const double dt)
                             player[j] = newPlayers[i];
                             player[j]->ref();
                             int type{1};
+<<<<<<< HEAD
+                            if (player[j]->isSide(mixr::models::IPlayer::RED)) type = 2;
+                            playerIdx[j] = loader->addSymbol(type, "player");
+                            if (player[j]->getName() != "") {
+                                loader->updateSymbolText(playerIdx[j], "name", player[j]->getName().c_str());
+=======
                             if (player[j]->isSide(mixr::models::Player::RED)) type = 2;
                             playerIdx[j] = loader->addSymbol(type, "player");
                             if (player[j]->getName() != nullptr) {
                                 loader->updateSymbolText(playerIdx[j], "name", player[j]->getName()->getString());
+>>>>>>> d91383e8
                             }
                             // now let's empty our new player list
                             newPlayers[i]->unref();

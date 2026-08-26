@@ -2,14 +2,22 @@
 ( WorldModel
 
     // reference gaming area
+<<<<<<< HEAD
+    latitude:   41.0
+=======
     latitude:   41.0  
+>>>>>>> d91383e8
     longitude: -112
 
     players: {
         p1: ( Aircraft
                     id: 101
                     type: "F-16A"
+<<<<<<< HEAD
+                    signature: ( RfSphereSignature radius: 1.0 )
+=======
                     signature: ( SigSphere radius: 1.0 )
+>>>>>>> d91383e8
                     initXPos: ( NauticalMiles 0 )
                     initYPos: ( NauticalMiles 0 )
                     initAlt: ( Feet 20000 )
@@ -17,7 +25,11 @@
                     initVelocity: 250
                     side: blue
               )
+<<<<<<< HEAD
+
+=======
               
+>>>>>>> d91383e8
     } // players
 
 ) // world model

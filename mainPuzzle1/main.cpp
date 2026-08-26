@@ -4,7 +4,11 @@
 
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+#include "mixr/base/timers/ITimer.hpp"
+=======
 #include "mixr/base/Timers.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/util/system_utils.hpp"
 
 #include <iostream>
@@ -32,7 +36,11 @@ void timerCB(int)
    const double dt{time - time0};
    time0 = time;
 
+<<<<<<< HEAD
+   mixr::base::ITimer::updateTimers(static_cast<double>(dt));
+=======
    mixr::base::Timer::updateTimers(static_cast<double>(dt));
+>>>>>>> d91383e8
    mixr::graphics::Graphic::flashTimer(static_cast<double>(dt));
    board->tcFrame(static_cast<double>(dt));
 }
@@ -42,7 +50,11 @@ PuzzleBoard* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -76,7 +88,11 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"puzzle.edl"};
+=======
    std::string configFilename = "puzzle.edl";
+>>>>>>> d91383e8
 
    board = builder(configFilename);
 

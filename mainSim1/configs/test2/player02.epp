@@ -8,6 +8,17 @@ p02:
     id: 2
     side: blue
     type: "F-16C"
+<<<<<<< HEAD
+    signature: ( RfSphereSignature radius: 2.0 )
+
+    initLatitude:  ( Latitude  direction: north degrees: 37.0  minutes: 13.0 )
+    initLongitude: ( Longitude direction: west  degrees: 116.0 minutes: 27.0 )
+
+    initAlt: ( Feet 10000 )
+    initHeading: ( Degrees  0.0 )      // Initial heading
+    initVelocity: 275
+
+=======
     signature: ( SigSphere radius: 2.0 )
 
     initLatitude:  ( LatLon direction: "n" degrees: 37.0 minutes: 13.0 )
@@ -17,12 +28,18 @@ p02:
     initHeading: ( Degrees  0.0 )      // Initial heading
     initVelocity: 275
     
+>>>>>>> d91383e8
     positionFreeze: false
 
     components: {
 
+<<<<<<< HEAD
+      dynamicsModel: ( RacDynamics )
+
+=======
       dynamicsModel: ( RacModel )
      
+>>>>>>> d91383e8
       pilot: ( Autopilot
          navMode: true
          leadFollowingDistanceTrail: ( NauticalMiles 1.0 )
@@ -39,6 +56,10 @@ p02:
          utc: ( Seconds 0 )
          #include "route01.epp"
       )
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> d91383e8
     }
 )

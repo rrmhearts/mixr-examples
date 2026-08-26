@@ -1,10 +1,19 @@
 
+<<<<<<< HEAD
+#ifndef __mixr_xpanel_SpdLines_HPP__
+#define __mixr_xpanel_SpdLines_HPP__
+=======
 #ifndef __mixr_xpanel_SpdLines_H__
 #define __mixr_xpanel_SpdLines_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 
 namespace mixr {
+<<<<<<< HEAD
+namespace base { class Boolean; }
+=======
+>>>>>>> d91383e8
 namespace xpanel {
 
 //------------------------------------------------------------------------------
@@ -16,7 +25,11 @@ namespace xpanel {
 //------------------------------------------------------------------------------
 class SpdLines final: public graphics::Graphic
 {
+<<<<<<< HEAD
+    DECLARE_SUBCLASS(SpdLines, graphics::Graphic)
+=======
     DECLARE_SUBCLASS(SpdLines,graphics::Graphic)
+>>>>>>> d91383e8
 
 public:
     SpdLines();
@@ -28,6 +41,16 @@ public:
     bool isAltSelected()                    { return isAlt; }
 
     void drawFunc() final;
+<<<<<<< HEAD
+    bool event(const int event, base::IObject* const obj = nullptr) final;
+
+protected:
+    bool setSlotIsAlt(const base::Boolean*);
+
+private:
+    // event function
+    bool onEventSetIsAltSpdLines(const base::Boolean* const);
+=======
     bool event(const int event, base::Object* const obj = nullptr) final;
 
 protected:
@@ -36,6 +59,7 @@ protected:
 private:
     // event function
     bool onEventSetIsAltSpdLines(const base::Number* const);
+>>>>>>> d91383e8
 
     bool isAlt{};     // are we drawing the altitude lines instead?
 };

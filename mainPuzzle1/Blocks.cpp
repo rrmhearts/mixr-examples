@@ -2,7 +2,11 @@
 #include "Blocks.hpp"
 
 #include "mixr/base/numeric/Integer.hpp"
+<<<<<<< HEAD
+#include "mixr/base/IList.hpp"
+=======
 #include "mixr/base/List.hpp"
+>>>>>>> d91383e8
 
 IMPLEMENT_ABSTRACT_SUBCLASS(Block, "PuzzleBlock")
 EMPTY_DELETEDATA(Block)
@@ -13,7 +17,11 @@ BEGIN_SLOTTABLE(Block)
 END_SLOTTABLE(Block)
 
 BEGIN_SLOT_MAP(Block)
+<<<<<<< HEAD
+    ON_SLOT( 1, setSlotPosition, mixr::base::IList)
+=======
     ON_SLOT( 1, setSlotPosition, mixr::base::List)
+>>>>>>> d91383e8
     ON_SLOT( 2, setSlotRefId, mixr::base::Integer)
 END_SLOT_MAP()
 
@@ -148,7 +156,11 @@ bool Block::setReferenceID(const int v)
 //------------------------------------------------------------------------------
 // Slot function(s)
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool Block::setSlotPosition(const mixr::base::IList* const msg)
+=======
 bool Block::setSlotPosition(const mixr::base::List* const msg)
+>>>>>>> d91383e8
 {
    bool ok{};
    if (msg != nullptr) {
@@ -165,7 +177,11 @@ bool Block::setSlotRefId(const mixr::base::Integer* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
+<<<<<<< HEAD
+      const int i{msg->asInt()};
+=======
       const int i{msg->getInt()};
+>>>>>>> d91383e8
       if (i >= 0) {
          const auto id = static_cast<unsigned int>(i);
          ok = setReferenceID(id);

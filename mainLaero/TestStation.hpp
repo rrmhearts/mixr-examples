@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
+#ifndef __TestStation_HPP__
+#define __TestStation_HPP__
+
+#include "mixr/simulation/IStation.hpp"
+
+namespace mixr {
+namespace base { class Number; }
+namespace glut { class IGlutDisplay; }
+=======
 #ifndef __TestStation_H__
 #define __TestStation_H__
 
@@ -7,6 +17,7 @@
 namespace mixr {
 namespace base { class Number; }
 namespace glut { class GlutDisplay; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -20,9 +31,15 @@ namespace glut { class GlutDisplay; }
 // Slots:
 //   glutDisplay  <graphics::GlutDisplay>  ! All of our display components
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class TestStation final: public mixr::simulation::IStation
+{
+   DECLARE_SUBCLASS(TestStation, mixr::simulation::IStation)
+=======
 class TestStation final: public mixr::simulation::Station
 {
    DECLARE_SUBCLASS(TestStation, mixr::simulation::Station)
+>>>>>>> d91383e8
 
 public:
    TestStation();
@@ -32,15 +49,25 @@ public:
    void reset() final;
 
 private:
+<<<<<<< HEAD
+   mixr::base::safe_ptr<mixr::glut::IGlutDisplay> glutDisplay;
+   mixr::base::safe_ptr<mixr::glut::IGlutDisplay> mapDisplay;
+=======
    mixr::base::safe_ptr<mixr::glut::GlutDisplay> glutDisplay;
    mixr::base::safe_ptr<mixr::glut::GlutDisplay> mapDisplay;
+>>>>>>> d91383e8
    bool glutDisplayInit{};
    bool mapDisplayInit{};
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotGlutDisplay(mixr::glut::IGlutDisplay* const);
+   bool setSlotMapDisplay(mixr::glut::IGlutDisplay* const);
+=======
    bool setSlotGlutDisplay(mixr::glut::GlutDisplay* const);
    bool setSlotMapDisplay(mixr::glut::GlutDisplay* const);
+>>>>>>> d91383e8
 };
 
 #endif

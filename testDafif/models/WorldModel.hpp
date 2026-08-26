@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
+#ifndef __WorldModel_HPP__
+#define __WorldModel_HPP__
+
+#include "mixr/models/IWorldModel.hpp"
+=======
 #ifndef __WorldModel_H__
 #define __WOrldModel_H__
 
 #include "mixr/models/WorldModel.hpp"
+>>>>>>> d91383e8
 
 namespace mixr {
 namespace dafif { class AirportLoader; class NavaidLoader; class WaypointLoader; }
@@ -21,9 +28,15 @@ namespace dafif { class AirportLoader; class NavaidLoader; class WaypointLoader;
 //
 // Factory name: WorldModel
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class WorldModel final: public mixr::models::IWorldModel
+{
+   DECLARE_SUBCLASS(WorldModel, mixr::models::IWorldModel)
+=======
 class WorldModel : public mixr::models::WorldModel
 {
    DECLARE_SUBCLASS(WorldModel, mixr::models::WorldModel)
+>>>>>>> d91383e8
 
 public:
    WorldModel();
@@ -35,8 +48,13 @@ public:
    void updateData(const double dt = 0.0) override;
 
 private:
+<<<<<<< HEAD
+   mixr::dafif::AirportLoader*  airports{};    // Airport loader
+   mixr::dafif::NavaidLoader*   navaids{};     // NAVAID loader
+=======
    mixr::dafif::AirportLoader*  airports{};   // Airport loader
    mixr::dafif::NavaidLoader*   navaids{};    // NAVAID loader
+>>>>>>> d91383e8
    mixr::dafif::WaypointLoader* waypoints {};  // Waypoint loader
 
 private:

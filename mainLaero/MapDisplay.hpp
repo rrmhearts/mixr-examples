@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
+#ifndef __MapDisplay_HPP__
+#define __MapDisplay_HPP__
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+
+namespace mixr {
+namespace models { class IAircraft; }
+namespace simulation { class IStation; }
+=======
 #ifndef __MapDisplay_H__
 #define __MapDisplay_H__
 
@@ -7,6 +17,7 @@
 namespace mixr {
 namespace models { class Aircraft; }
 namespace simulation { class Station; }
+>>>>>>> d91383e8
 }
 
 // -------------------------------------------------------------------------------
@@ -15,9 +26,15 @@ namespace simulation { class Station; }
 // Description:
 //      Derived MapDisplay that will simply make our map page move.
 // -------------------------------------------------------------------------------
+<<<<<<< HEAD
+class MapDisplay final: public mixr::glut::IGlutDisplay
+{
+   DECLARE_SUBCLASS(MapDisplay, mixr::glut::IGlutDisplay)
+=======
 class MapDisplay final: public mixr::glut::GlutDisplay
 {
    DECLARE_SUBCLASS(MapDisplay, mixr::glut::GlutDisplay)
+>>>>>>> d91383e8
 
 public:
    MapDisplay();
@@ -30,11 +47,19 @@ public:
    void updateData(const double dt = 0.0) final;
 
 private:
+<<<<<<< HEAD
+   mixr::models::IAircraft* getOwnship();
+   mixr::simulation::IStation* getStation();
+
+   // button hit enumerations
+   enum class Btn:int {
+=======
    mixr::models::Aircraft* getOwnship();
    mixr::simulation::Station* getStation();
 
    // button hit enumerations
    enum class Btn {
+>>>>>>> d91383e8
       DEC_RANGE = 101,           // Increase / decrease the map range (NM)
       INC_RANGE,
       DEC_CMD_AS,                // Increase / decrease the commanded airspeed (Kts - only works with no autopilot mode engaged)
@@ -56,7 +81,11 @@ private:
       CHANGE_AP_MODE             // Change the autopilot mode (Nav/Loiter/FollowTheLead or None)
    };
 
+<<<<<<< HEAD
+   mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+=======
    mixr::base::safe_ptr<mixr::simulation::Station> myStation;
+>>>>>>> d91383e8
 
    int startX{};         // startX of our last mouse position
    int startY{};         // startY of our last mouse position

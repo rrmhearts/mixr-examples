@@ -13,7 +13,11 @@
     vpHeight: 500
     clearDepth: 1.0
     clearColor: (rgb 0 0 0)
+<<<<<<< HEAD
+    fullScreen: false
+=======
     fullScreen: 0
+>>>>>>> d91383e8
     
     #if defined (SHOW_MATERIALS)
     materials: {
@@ -44,7 +48,11 @@
     fonts: {
         // normal font for the instruments
         default: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -60,7 +68,11 @@
 
         // small font for the instruments
         smallfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -76,7 +88,11 @@
         
         // smaller font for the instruments
         smallerfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -91,7 +107,11 @@
         )
         
         arialfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another

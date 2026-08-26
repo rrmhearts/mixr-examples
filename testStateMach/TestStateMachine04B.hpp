@@ -1,16 +1,29 @@
 
+<<<<<<< HEAD
+#ifndef __TestStateMachine04B_HPP__
+#define __TestStateMachine04B_HPP__
+
+#include "mixr/base/IStateMachine.hpp"
+=======
 #ifndef __TestStateMachine04B_H__
 #define __TestStateMachine04B_H__
 
 #include "mixr/base/StateMachine.hpp"
+>>>>>>> d91383e8
 
 //------------------------------------------------------------------------------
 // Class: TestStateMachine04B
 //
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class TestStateMachine04B final: public mixr::base::IStateMachine
+{
+   DECLARE_SUBCLASS(TestStateMachine04B, mixr::base::IStateMachine)
+=======
 class TestStateMachine04B final: public mixr::base::StateMachine
 {
    DECLARE_SUBCLASS(TestStateMachine04B, mixr::base::StateMachine)
+>>>>>>> d91383e8
 
 public:
    TestStateMachine04B();

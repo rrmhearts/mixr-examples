@@ -1,15 +1,33 @@
 #define MASK 0
 #define NO_DISPLAY_LIST 0
+<<<<<<< HEAD
+#define FILLED true
+
+// this is the page in which we will setup simple openGL materials, as well as masking as well
+materials:
+( Page
+=======
 #define FILLED 1
 
 // this is the page in which we will setup simple openGL materials, as well as masking as well
 materials:
 ( MfdPage
+>>>>>>> d91383e8
     pagingEvent: {
         n: xx
         p: yiqcolors
     }
     components: {
+<<<<<<< HEAD
+
+#if 1
+        ( Teapot
+            // test the material object
+            material:
+            ( Material
+                diffuseColor: { 0.8 0.3 0.1 }
+                specularColor: { 0.8 0.8 0.8 }
+=======
         
 #if 1    
         ( Teapot
@@ -18,6 +36,7 @@ materials:
             ( Material
                 diffuseColor: { 0.8 0.3 0.1 } 
                 specularColor: { 0.8 0.8 0.8 } 
+>>>>>>> d91383e8
                 shininess: 20
             )
             filled: FILLED
@@ -31,14 +50,24 @@ materials:
         ( Icosahedron
             material: m8
             filled: FILLED
+<<<<<<< HEAD
+            transform: ( Translation 5 8 )
+        )
+
+=======
             transform: ( Translation 5 8 ) 
         )
         
+>>>>>>> d91383e8
         ( Tetrahedron
             material: m7
             filled: FILLED
             transform: { ( Translation -8 0 )  ( Rotation 3.1 2 1 1 ) ( Scale 2 2 2 2 ) }
+<<<<<<< HEAD
+        )
+=======
         )            
+>>>>>>> d91383e8
         ( Dodecahedron
             material: m6
             filled: FILLED
@@ -53,7 +82,11 @@ materials:
             outerRadius: 2
             transform: { ( Translation 0 8 ) ( Rotation 1 2 3 2 )  }
         )
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> d91383e8
         ( Cube
             filled: FILLED
             size: 3
@@ -84,31 +117,55 @@ materials:
             height: 4
             radius: 2
         )
+<<<<<<< HEAD
+        ( TestRotator
+            transform: ( Translation -20 0 )
+            material: m2
+        )
+
+
+=======
         ( TestRotator 
             transform: ( Translation -20 0 )
             material: m2
         )
         
     
+>>>>>>> d91383e8
         rotator:
         ( Graphic
             transform: { ( Translation -8 -8 )( Rotation 1.5 1 1 1 ) }
             components: {
+<<<<<<< HEAD
+
+                ( Polygon
+                    material: m1
+                    noDisplayList: true
+=======
             
                 ( Polygon
                     material: m1
                     noDisplayList: 1
+>>>>>>> d91383e8
                     //color: yellow
                     vertices: {
                         // front side
                         [ -3  3  3 ]
                         [  3  3  3 ]
                         [  3 -3  3 ]
+<<<<<<< HEAD
+                        [ -3 -3  3 ]
+                    }
+                )
+                ( Polygon
+                    noDisplayList: true
+=======
                         [ -3 -3  3 ] 
                     }
                 )
                 ( Polygon
                     noDisplayList: 1
+>>>>>>> d91383e8
                     texture: t1
                     vertices: {
                         // bottom side
@@ -121,11 +178,19 @@ materials:
                         [ 0 0 ]
                         [ 0 1 ]
                         [ 1 1 ]
+<<<<<<< HEAD
+                        [ 1 0 ]
+                    }
+                )
+                ( Polygon
+                    noDisplayList: true
+=======
                         [ 1 0 ] 
                     }
                 )
                 ( Polygon
                     noDisplayList: 1
+>>>>>>> d91383e8
                     //color: red
                     material: m2
                     vertices: {
@@ -137,7 +202,11 @@ materials:
                     }
                 )
                 ( Polygon
+<<<<<<< HEAD
+                    noDisplayList: true
+=======
                     noDisplayList: 1
+>>>>>>> d91383e8
                     //color: green
                     material: m3
                     vertices: {
@@ -149,7 +218,11 @@ materials:
                     }
                 )
                 ( Polygon
+<<<<<<< HEAD
+                    noDisplayList: true
+=======
                     noDisplayList: 1
+>>>>>>> d91383e8
                     //color: cyan
                     material: m4
                     vertices: {
@@ -161,7 +234,11 @@ materials:
                     }
                 )
                 ( Polygon
+<<<<<<< HEAD
+                    noDisplayList: true
+=======
                     noDisplayList: 1
+>>>>>>> d91383e8
                     //color: white
                     material: m2
                     vertices: {
@@ -172,6 +249,15 @@ materials:
                         [  -3  3  -3 ]
                     }
                 )
+<<<<<<< HEAD
+
+
+            }
+        )
+#endif
+#if 0
+
+=======
                 
                         
             }
@@ -179,6 +265,7 @@ materials:
 #endif        
 #if 0
         
+>>>>>>> d91383e8
         ( Graphic
             color: red
             transform: ( Translation 0 10 )
@@ -326,8 +413,15 @@ materials:
                 #include "polygontest.epp"
             }
         )
+<<<<<<< HEAD
+
+#endif
+    }
+)
+=======
         
 #endif
     }   
 )
 
+>>>>>>> d91383e8

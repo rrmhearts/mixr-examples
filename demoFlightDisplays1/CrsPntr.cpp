@@ -1,14 +1,26 @@
 
 #include "CrsPntr.hpp"
+<<<<<<< HEAD
+#include "mixr/base/numeric/Boolean.hpp"
+#include "mixr/base/numeric/Integer.hpp"
+#include "mixr/base/numeric/INumber.hpp"
+#include "mixr/base/qty/angles.hpp"
+=======
 #include "mixr/base/numeric/Number.hpp"
 #include "mixr/base/units/Angles.hpp"
+>>>>>>> d91383e8
 
 IMPLEMENT_SUBCLASS(CrsPntr, "CrsPntr")
 EMPTY_DELETEDATA(CrsPntr)
 
 BEGIN_EVENT_HANDLER(CrsPntr)
+<<<<<<< HEAD
+    ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateCdiDotsCrsPntr, mixr::base::INumber)
+    ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateToFromCrsPntr,  mixr::base::INumber)
+=======
     ON_EVENT_OBJ(UPDATE_VALUE7, onUpdateCdiDotsCrsPntr, mixr::base::Number)
     ON_EVENT_OBJ(UPDATE_VALUE8, onUpdateToFromCrsPntr, mixr::base::Number)
+>>>>>>> d91383e8
 END_EVENT_HANDLER()
 
 BEGIN_SLOTTABLE(CrsPntr)
@@ -20,11 +32,19 @@ BEGIN_SLOTTABLE(CrsPntr)
 END_SLOTTABLE(CrsPntr)
 
 BEGIN_SLOT_MAP(CrsPntr)
+<<<<<<< HEAD
+    ON_SLOT(1, setSlotNumCdiDots,  mixr::base::Integer)
+    ON_SLOT(2, setSlotNumInches,   mixr::base::INumber)
+    ON_SLOT(3, setSlotShowCdi,     mixr::base::Boolean)
+    ON_SLOT(4, setSlotShowCrsPntr, mixr::base::Boolean)
+    ON_SLOT(5, setSlotShowToFrom,  mixr::base::Boolean)
+=======
     ON_SLOT(1, setSlotNumCdiDots, mixr::base::Number)
     ON_SLOT(2, setSlotNumInches, mixr::base::Number)
     ON_SLOT(3, setSlotShowCdi, mixr::base::Number)
     ON_SLOT(4, setSlotShowCrsPntr, mixr::base::Number)
     ON_SLOT(5, setSlotShowToFrom, mixr::base::Number)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 CrsPntr::CrsPntr()
@@ -90,6 +110,18 @@ bool CrsPntr::setShowToFrom(const bool newTF)
 }
 
 // Event functions
+<<<<<<< HEAD
+bool CrsPntr::onUpdateCdiDotsCrsPntr(const mixr::base::INumber* const x)
+{
+    bool ok{};
+    if (x != nullptr) ok = setCdiDots(x->asDouble());
+    return ok;
+}
+bool CrsPntr::onUpdateToFromCrsPntr(const mixr::base::INumber* const x)
+{
+    bool ok{};
+    if (x != nullptr) ok = setToFrom(x->asDouble());
+=======
 bool CrsPntr::onUpdateCdiDotsCrsPntr(const mixr::base::Number* const x)
 {
     bool ok{};
@@ -100,6 +132,7 @@ bool CrsPntr::onUpdateToFromCrsPntr(const mixr::base::Number* const x)
 {
     bool ok{};
     if (x != nullptr) ok = setToFrom(x->getReal());
+>>>>>>> d91383e8
     return ok;
 }
 
@@ -195,46 +228,81 @@ void CrsPntr::updateData(const double dt)
 //------------------------------------------------------------------------------
 // setSlotNumCdiDots() - set the number of cdi dots we are using
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool CrsPntr::setSlotNumCdiDots(const mixr::base::Integer* const newCDI)
+{
+    bool ok{};
+    if (newCDI != nullptr) ok = setNumCdiDots(newCDI->asInt());
+=======
 bool CrsPntr::setSlotNumCdiDots(const mixr::base::Number* const newCDI)
 {
     bool ok{};
     if (newCDI != nullptr) ok = setNumCdiDots(newCDI->getInt());
+>>>>>>> d91383e8
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotNumInches() - set the number of inches we are scaling across the dots
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool CrsPntr::setSlotNumInches(const mixr::base::INumber* const newNI)
+{
+    bool ok{};
+    if (newNI != nullptr) ok = setNumInches(newNI->asDouble());
+=======
 bool CrsPntr::setSlotNumInches(const mixr::base::Number* const newNI)
 {
     bool ok{};
     if (newNI != nullptr) ok = setNumInches(newNI->getReal());
+>>>>>>> d91383e8
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotShowCdi() - display the cdi?
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool CrsPntr::setSlotShowCdi(const mixr::base::Boolean* const newSCDI)
+{
+    bool ok{};
+    if (newSCDI != nullptr) ok = setShowCdi(newSCDI->asBool());
+=======
 bool CrsPntr::setSlotShowCdi(const mixr::base::Number* const newSCDI)
 {
     bool ok{};
     if (newSCDI != nullptr) ok = setShowCdi(newSCDI->getBoolean());
+>>>>>>> d91383e8
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotShowCrsPntr() - display the course pointer?
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool CrsPntr::setSlotShowCrsPntr(const mixr::base::Boolean* const newSCP)
+{
+    bool ok{};
+    if (newSCP != nullptr) ok = setShowCrsPntr(newSCP->asBool());
+=======
 bool CrsPntr::setSlotShowCrsPntr(const mixr::base::Number* const newSCP)
 {
     bool ok{};
     if (newSCP != nullptr) ok = setShowCrsPntr(newSCP->getBoolean());
+>>>>>>> d91383e8
     return ok;
 }
 //------------------------------------------------------------------------------
 // setSlotShowToFrom() - display the to from arrow?
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool CrsPntr::setSlotShowToFrom(const mixr::base::Boolean* const newTF)
+{
+    bool ok{};
+    if (newTF != nullptr) ok = setShowToFrom(newTF->asBool());
+=======
 bool CrsPntr::setSlotShowToFrom(const mixr::base::Number* const newTF)
 {
     bool ok{};
     if (newTF != nullptr) ok = setShowToFrom(newTF->getBoolean());
+>>>>>>> d91383e8
     return ok;
 }
 

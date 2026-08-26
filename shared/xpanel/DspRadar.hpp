@@ -1,13 +1,22 @@
 
+<<<<<<< HEAD
+#ifndef __mixr_xpanel_DspRadar_HPP__
+#define __mixr_xpanel_DspRadar_HPP__
+=======
 #ifndef __mixr_xpanel_DspRadar_H__
 #define __mixr_xpanel_DspRadar_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 #include <array>
 
 namespace mixr {
 namespace base   { class PairStream; }
+<<<<<<< HEAD
+namespace models { class IRadar; }
+=======
 namespace models { class Radar; }
+>>>>>>> d91383e8
 namespace xpanel {
 
 //------------------------------------------------------------------------------
@@ -23,9 +32,15 @@ class DspRadar final: public graphics::Graphic
 public:
    DspRadar();
 
+<<<<<<< HEAD
+   const models::IRadar* getRadar()         { return radar; }
+   const models::IRadar* getRadar() const   { return radar; }
+   bool setRadar(models::IRadar* const s)   { radar = s; return true; }
+=======
    const models::Radar* getRadar()         { return radar; }
    const models::Radar* getRadar() const   { return radar; }
    bool setRadar(models::Radar* const s)   { radar = s; return true; }
+>>>>>>> d91383e8
 
    void drawFunc() final;
    void updateData(const double dt = 0.0) final;
@@ -33,7 +48,11 @@ public:
 private:
     static const int MAX_TRKS{50};
 
+<<<<<<< HEAD
+    const models::IRadar* radar{};                // The test RADAR sensor
+=======
     const models::Radar* radar{};                 // The test RADAR sensor
+>>>>>>> d91383e8
     SendData azSD;
     SendData elSD;
 

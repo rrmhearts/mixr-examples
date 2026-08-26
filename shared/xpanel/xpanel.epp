@@ -74,7 +74,11 @@ display:
 
    fonts: {
 
+<<<<<<< HEAD
+      font1: ( FTGLPolygonFont
+=======
       font1: ( FTGLPolygonFonts 
+>>>>>>> d91383e8
          fontPosition: [ -2.7 2.0 ]
          path: MIXR_DATA_FONT_PATH
          file: "arialn.ttf"
@@ -85,7 +89,11 @@ display:
          lineSpacing: 0.16
       )
 
+<<<<<<< HEAD
+      font2: ( FTGLPolygonFont
+=======
       font2: ( FTGLPolygonFonts 
+>>>>>>> d91383e8
          path: MIXR_DATA_FONT_PATH
          file: "arialn.ttf"
          fontWidth: 1
@@ -97,7 +105,11 @@ display:
 
         // normal font for the instruments
         instnormfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -113,7 +125,11 @@ display:
 
         // reverse font for the instruments
         instrevfont: 
+<<<<<<< HEAD
+        (FTGLPolygonFont
+=======
         (FTGLPolygonFonts
+>>>>>>> d91383e8
             fontPosition: [ -10.5 10.5 ]
             fontWidth: 1
             fontHeight: 1
@@ -125,7 +141,11 @@ display:
 
         // special font for the instruments
         instspecfont:
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts 
+>>>>>>> d91383e8
             fontPosition: [ -10.5 10.5 ]
             fontWidth: 1          // Font width scaling 
             fontHeight: 1         // Font height scaling 
@@ -137,7 +157,11 @@ display:
 
         // normal font
         pfdnormfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts 
+>>>>>>> d91383e8
             fontPosition: [ -3.1 4.15 ]
             path: MIXR_DATA_FONT_PATH
             file: "arialn.ttf"
@@ -151,7 +175,11 @@ display:
 
         // special font 
         pfdspecfont: 
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts 
+>>>>>>> d91383e8
             path: MIXR_DATA_FONT_PATH
             file: "arialn.ttf"
             // facesize is default to 1 inch, so you can maninpulate the norm with font width and height
@@ -186,7 +214,11 @@ display:
             ( AsciiText color: white transform: ( Translation 0 -1.5 ) text: "Signal(log10)" )
             ( Graphic   // background display
                components: {
+<<<<<<< HEAD
+                  ( Circle color: ( hsv 120.0 0.5 0.0 ) radius: 1.0  slices: 50 filled: true transform: ( Translation 0.0 0.0 -0.5 ) )
+=======
                   ( Circle color: ( hsv 120.0 0.5 0.0 ) radius: 1.0  slices: 50 filled: 1 transform: ( Translation 0.0 0.0 -0.5 ) )
+>>>>>>> d91383e8
                   ( Circle color: white radius: 0.01 slices: 4 )
                   ( Circle color: white radius: 0.2  slices: 25 )
                   ( Circle color: white radius: 0.4  slices: 25 )
@@ -212,7 +244,11 @@ display:
 
             ( Line
                color: white
+<<<<<<< HEAD
+               segment: true
+=======
                segment: 1
+>>>>>>> d91383e8
                vertices: {
                   [ -1.0   0.0 ] [ -1.0    2.0 ]      // Left Side
                   [  1.0   0.0 ] [  1.0    2.0 ]      // Right Side
@@ -255,7 +291,11 @@ display:
          transform: { ( Translation SA_X SA_Y -0.5 ) ( Scale SA_SCALE ) }
          components: {
 
+<<<<<<< HEAD
+            ( Circle selectName: 0x1001 color: ( hsv 100.0 0.9 0.0 ) radius: AIR_TRACKS_RADIUS  slices: 50 filled: true transform: ( Translation 0.0 0.0 -0.5 ) )
+=======
             ( Circle selectName: 0x1001 color: ( hsv 100.0 0.9 0.0 ) radius: AIR_TRACKS_RADIUS  slices: 50 filled: 1 transform: ( Translation 0.0 0.0 -0.5 ) )
+>>>>>>> d91383e8
             ( Circle selectName: 0x1002 color: white radius: AIR_TRACKS_RADIUS  slices: 50  )
             ( Circle selectName: 0x1003 color: white radius: 0.9  slices: 50  )
 
@@ -357,7 +397,11 @@ display:
                }
             )
             ( Line
+<<<<<<< HEAD
+               segment: true
+=======
                segment: 1
+>>>>>>> d91383e8
                vertices: {
                   [  0.0  -0.15 ]  [  0.0  0.05 ]
                   [  0.1   0.0  ]  [ -0.1  0.0  ]
@@ -525,7 +569,11 @@ display:
 
        ( Polygon
           transform: ( Translation 0 0 -1.5 )
+<<<<<<< HEAD
+           noDisplayList: true
+=======
            noDisplayList: 1
+>>>>>>> d91383e8
            color: ( rgba 0 0 0 0.2 )
            texture: t2
            vertices: {

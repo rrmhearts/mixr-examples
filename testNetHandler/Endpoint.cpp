@@ -1,8 +1,14 @@
 
 #include "Endpoint.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/network/INetHandler.hpp"
+#include "mixr/base/numeric/Boolean.hpp"
+#include "mixr/base/numeric/Integer.hpp"
+=======
 #include "mixr/base/network/TcpHandler.hpp"
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 #include <iostream>
 
 using namespace mixr;
@@ -19,11 +25,19 @@ BEGIN_SLOTTABLE(Endpoint)
 END_SLOTTABLE(Endpoint)
 
 BEGIN_SLOT_MAP(Endpoint)
+<<<<<<< HEAD
+    ON_SLOT(1, setSlotNetwork,   mixr::base::INetHandler)
+    ON_SLOT(2, setSlotNetInput,  mixr::base::INetHandler)
+    ON_SLOT(3, setSlotNetwork,   mixr::base::INetHandler)
+    ON_SLOT(4, setSlotNoWait,    mixr::base::Boolean)
+    ON_SLOT(5, setSlotLoops,     mixr::base::Integer)
+=======
     ON_SLOT(1, setSlotNetwork,   mixr::base::NetHandler)
     ON_SLOT(2, setSlotNetInput,  mixr::base::NetHandler)
     ON_SLOT(3, setSlotNetwork,   mixr::base::NetHandler)
     ON_SLOT(4, setSlotNoWait,    mixr::base::Number)
     ON_SLOT(5, setSlotLoops,     mixr::base::Number)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 Endpoint::Endpoint()
@@ -145,36 +159,60 @@ void Endpoint::closeConnections()
 }
 
 // Network Handler
+<<<<<<< HEAD
+bool Endpoint::setSlotNetwork(mixr::base::INetHandler* const msg)
+=======
 bool Endpoint::setSlotNetwork(mixr::base::NetHandler* const msg)
+>>>>>>> d91383e8
 {
     netHandler = msg;
     return true;
 }
 
 // Input Handler
+<<<<<<< HEAD
+bool Endpoint::setSlotNetInput(mixr::base::INetHandler* const msg)
+=======
 bool Endpoint::setSlotNetInput(mixr::base::NetHandler* const msg)
+>>>>>>> d91383e8
 {
     netInput = msg;
     return true;
 }
 
 // No wait (unblocked) I/O flag
+<<<<<<< HEAD
+bool Endpoint::setSlotNoWait(mixr::base::Boolean* const msg)
+{
+    bool ok{};
+    if (msg != nullptr) {
+        noWaitFlag = msg->asBool();
+=======
 bool Endpoint::setSlotNoWait(mixr::base::Number* const msg)
 {
     bool ok{};
     if (msg != nullptr) {
         noWaitFlag = msg->getBoolean();
+>>>>>>> d91383e8
         ok = true;
     }
     return ok;
 }
 
 // Number of message loops
+<<<<<<< HEAD
+bool Endpoint::setSlotLoops(mixr::base::Integer* const msg)
+{
+    bool ok{};
+    if (msg != nullptr) {
+        const int ia{msg->asInt()};
+=======
 bool Endpoint::setSlotLoops(mixr::base::Number* const msg)
 {
     bool ok{};
     if (msg != nullptr) {
         const int ia{msg->getInt()};
+>>>>>>> d91383e8
         if (ia >= 0) {
             loops = ia;
             ok = true;

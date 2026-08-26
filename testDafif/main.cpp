@@ -2,11 +2,21 @@
 #include "AirportTests.hpp"
 #include "NavaidTests.hpp"
 #include "WaypointTests.hpp"
+<<<<<<< HEAD
+
+#include <string>
+#include <iostream>
+
+void testAirports(const std::string& ccode, const double acLat, const double acLon, const double acElev, const bool printData)
+{
+   AirportTests tester(ccode, "FILE0", "../../mixr-data/DAFIF/FULLALL/");
+=======
 #include <iostream>
 
 void testAirports(const char* const ccode, const double acLat, const double acLon, const double acElev, const bool printData)
 {
    AirportTests tester(ccode);
+>>>>>>> d91383e8
 
    int id{999};
    while (id > 0) {
@@ -92,9 +102,15 @@ void testAirports(const char* const ccode, const double acLat, const double acLo
 }
 
 
+<<<<<<< HEAD
+void testNavaids(const std::string& ccode, const double acLat, const double acLon, const double acElev, const bool printData)
+{
+   NavaidTests tester(ccode, "FILE2", "../../mixr-data/DAFIF/FULLALL/");
+=======
 void testNavaids(const char* const ccode, const double acLat, const double acLon, const double acElev, const bool printData)
 {
    NavaidTests tester(ccode);
+>>>>>>> d91383e8
 
    int id{999};
    while (id > 0) {
@@ -143,9 +159,15 @@ void testNavaids(const char* const ccode, const double acLat, const double acLon
    }
 }
 
+<<<<<<< HEAD
+void testWaypoints(const std::string& ccode, const double acLat, const double acLon, const double acElev, const bool printData)
+{
+   WaypointTests tester(ccode, "FILE3", "../../mixr-data/DAFIF/FULLALL/");
+=======
 void testWaypoints(const char* const ccode, const double acLat, const double acLon, const double acElev, const bool printData)
 {
    WaypointTests tester(ccode);
+>>>>>>> d91383e8
 
    int id{99};
    while (id > 0) {
@@ -186,7 +208,11 @@ void testWaypoints(const char* const ccode, const double acLat, const double acL
 
 int main(int argc, char* argv[])
 {
+<<<<<<< HEAD
+   std::string ccode;
+=======
    char* ccode{};
+>>>>>>> d91383e8
    if (argc > 1) {
       ccode = argv[1];
    }
@@ -208,7 +234,11 @@ int main(int argc, char* argv[])
    char useStandardTest{};
    std::cout << "Y / N: " ; 
    std::cin >> useStandardTest;
+<<<<<<< HEAD
+
+=======
    
+>>>>>>> d91383e8
    if (useStandardTest != 'Y' && useStandardTest != 'y') {
       std::cout << "Input aircraft Latitude: " ; 
       std::cin >> acLat;

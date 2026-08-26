@@ -12,9 +12,17 @@ OBJS = \
 	main.o
 
 LDFLAGS += -lxzmq -l:libzmq.a
+<<<<<<< HEAD
+LDFLAGS += -lmixr_interop_dis -lmixr_interop
+LDFLAGS += -lmixr_models_jsbsim -lmixr_models -lJSBSim
+LDFLAGS += -lmixr_simulation
+LDFLAGS += -lmixr_instruments -lmixr_linkage
+LDFLAGS += -lmixr_ighost_cigi -lmixr_ighost_flightgear
+=======
 LDFLAGS += -lmixr_interop_dis -lmixr_interop -lmixr_models -lmixr_simulation -lJSBSim
 LDFLAGS += -lmixr_instruments -lmixr_linkage
 LDFLAGS += -lmixr_ighost_cigi -lmixr_ighost_pov
+>>>>>>> d91383e8
 LDFLAGS += -lmixr_terrain
 LDFLAGS += -lmixr_ui_glut -lmixr_graphics -lmixr_base -lrt -lcigicl
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11

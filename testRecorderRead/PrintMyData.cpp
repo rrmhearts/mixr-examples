@@ -1,9 +1,16 @@
 
 #include "PrintMyData.hpp"
 
+<<<<<<< HEAD
+#include "xrecorder/proto/DataRecord.pb.h"
+#include "xrecorder/dataRecorderTokens.hpp"
+
+#include "mixr/recorder/protobuf_v2/DataRecordHandle.hpp"
+=======
 #include "xrecorder/protobuf/DataRecord.pb.h"
 #include "xrecorder/dataRecorderTokens.hpp"
 #include "mixr/recorder/DataRecordHandle.hpp"
+>>>>>>> d91383e8
 
 using namespace mixr;
 
@@ -14,6 +21,16 @@ EMPTY_COPYDATA(PrintMyData)
 EMPTY_DELETEDATA(PrintMyData)
 
 // print the data
+<<<<<<< HEAD
+void PrintMyData::processRecordImp(const mixr::recorder::protobuf_v2::DataRecordHandle* const handle)
+{
+   if (handle == nullptr) return;  // cannot continue
+   const mixr::recorder::protobuf_v2::proto::DataRecord* dataRecord{handle->getRecord()};
+   if (dataRecord == nullptr) return;  // cannot continue
+
+   // Get the time msg
+   const mixr::recorder::protobuf_v2::proto::Time* timeMsg{};
+=======
 void PrintMyData::processRecordImp(const mixr::recorder::DataRecordHandle* const handle)
 {
    if (handle == nullptr) return;  // cannot continue
@@ -22,6 +39,7 @@ void PrintMyData::processRecordImp(const mixr::recorder::DataRecordHandle* const
 
    // Get the time msg
    const mixr::recorder::pb::Time* timeMsg{};
+>>>>>>> d91383e8
    if (dataRecord->has_time()) {
       timeMsg = &dataRecord->time();
    }
@@ -42,12 +60,20 @@ void PrintMyData::processRecordImp(const mixr::recorder::DataRecordHandle* const
                }
             }
 
+<<<<<<< HEAD
+            const mixr::recorder::protobuf_v2::proto::MarkerMsg* msg{&dataRecord->marker_msg()};
+=======
             const mixr::recorder::pb::MarkerMsg* msg{&dataRecord->marker_msg()};
+>>>>>>> d91383e8
 
             if (msg->has_id()) sout << "id= " << msg->id() << ";  ";
             if (msg->has_source_id()) sout << "source_id= " << msg->source_id() << ";  ";
 
+<<<<<<< HEAD
+            if (msg->HasExtension( mixr::xrecorder::proto::foo )) sout << "foo= " << msg->GetExtension( mixr::xrecorder::proto::foo ) << ";  ";
+=======
             if (msg->HasExtension( mixr::xrecorder::pb::foo )) sout << "foo= " << msg->GetExtension( mixr::xrecorder::pb::foo ) << ";  ";
+>>>>>>> d91383e8
 
             printToOutput( sout.str().c_str() );
          }
@@ -56,7 +82,11 @@ void PrintMyData::processRecordImp(const mixr::recorder::DataRecordHandle* const
 
       // MyData message event
       case REID_MY_DATA_EVENT : {
+<<<<<<< HEAD
+         if (dataRecord->HasExtension(mixr::xrecorder::proto::my_data_msg)) {
+=======
          if (dataRecord->HasExtension( mixr::xrecorder::pb::my_data_msg )) {
+>>>>>>> d91383e8
             std::stringstream sout;
 
             sout << "MY_DATA " << "   ";
@@ -66,7 +96,11 @@ void PrintMyData::processRecordImp(const mixr::recorder::DataRecordHandle* const
                }
             }
 
+<<<<<<< HEAD
+            const mixr::xrecorder::proto::MyDataMsg* msg = &dataRecord->GetExtension(mixr::xrecorder::proto::my_data_msg);
+=======
             const mixr::xrecorder::pb::MyDataMsg* msg = &dataRecord->GetExtension( mixr::xrecorder::pb::my_data_msg );
+>>>>>>> d91383e8
 
             if (msg->has_fee()) sout << "fee= " << msg->fee() << ";  ";
             if (msg->has_fi()) sout << "fi= " << msg->fi() << ";  ";

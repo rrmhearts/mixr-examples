@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __mixr_xpanel_DspRwr_HPP__
+#define __mixr_xpanel_DspRwr_HPP__
+=======
 #ifndef __mixr_xpanel_DspRwr_H__
 #define __mixr_xpanel_DspRwr_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 

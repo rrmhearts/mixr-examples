@@ -9,7 +9,11 @@
    // Tab Printer
    tabPrinter: ( TabPrinter
       filename: "./fileWrite.txt"
+<<<<<<< HEAD
+      msgHdrOptn: on_change
+=======
       msgHdrOptn: "ON_CHANGE"
+>>>>>>> d91383e8
    )
    // print player
    //   printPlayer: ( PrintPlayer

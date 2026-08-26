@@ -9,7 +9,11 @@
 
    // image generator host interface
    igHosts: {
+<<<<<<< HEAD
+      //#include "ighosts/flightgear.epp"
+=======
       //#include "ighosts/pov.epp"
+>>>>>>> d91383e8
       //#include "ighosts/cigi.epp"
    }
 
@@ -21,14 +25,22 @@
    // Simulation scenario
    ownship: xper
    simulation: ( WorldModel
+<<<<<<< HEAD
+                  latitude:   37.0
+=======
                   latitude:   37.0  
+>>>>>>> d91383e8
                   longitude: -116.0
 
                   players: {
                      xper: ( Aircraft
                         id: 101
                         type: "F-16A"
+<<<<<<< HEAD
+                        signature: ( RfSphereSignature radius: 1.0 )
+=======
                         signature: ( SigSphere radius: 1.0 )
+>>>>>>> d91383e8
                         initXPos: ( NauticalMiles 0 )
                         initYPos: ( NauticalMiles 0 )
                         initAlt: ( Feet 20000 )
@@ -36,7 +48,11 @@
                         initVelocity: 250
                         side: blue
                      )
+<<<<<<< HEAD
+
+=======
               
+>>>>>>> d91383e8
                   } // players
 
                ) // simulation

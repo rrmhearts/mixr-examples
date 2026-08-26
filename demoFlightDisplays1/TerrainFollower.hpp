@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TerrainFollower_HPP__
+#define __TerrainFollower_HPP__
+=======
 #ifndef __TerrainFollower_H__
 #define __TerrainFollower_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 
@@ -25,7 +30,11 @@ public:
     TerrainFollower();
 
     void updateData(const double dt = 0.0) final;
+<<<<<<< HEAD
+    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+=======
     bool event(const int event, mixr::base::Object* const obj = nullptr) final;
+>>>>>>> d91383e8
     void drawFunc() final;
 
     // set functions
@@ -42,10 +51,17 @@ private:
     static const int MAX_POINTS{1000}; // maximum number of terrain elevation points
 
     // event functions
+<<<<<<< HEAD
+    bool onEventSetPlaneAltTerrainFollower(const mixr::base::INumber* const);
+    bool onEventSetScanRangeTerrainFollower(const mixr::base::INumber* const);
+    bool onEventSetViewHeightTerrainFollower(const mixr::base::INumber* const);
+    bool onEventSetViewWidthTerrainFollower(const mixr::base::INumber* const);
+=======
     bool onEventSetPlaneAltTerrainFollower(const mixr::base::Number* const);
     bool onEventSetScanRangeTerrainFollower(const mixr::base::Number* const);
     bool onEventSetViewHeightTerrainFollower(const mixr::base::Number* const);
     bool onEventSetViewWidthTerrainFollower(const mixr::base::Number* const);
+>>>>>>> d91383e8
 
     double range{10.0};            // our scan range ahead of us
     double maxAlt{1500.0};         // where do we want our max altitude (1)? (feet)

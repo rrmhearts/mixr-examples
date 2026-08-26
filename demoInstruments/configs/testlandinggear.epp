@@ -27,8 +27,13 @@ gearRO: ( NumericReadout
         )
         // Label to tell us what test we are running
         ( AsciiText
+<<<<<<< HEAD
+            color: white
+            position: [ 20 2 ]
+=======
             position: [ 26 2 ]
             color: white
+>>>>>>> d91383e8
             text: "testlandinggear.epp"
         )
     }

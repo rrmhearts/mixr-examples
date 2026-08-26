@@ -1,7 +1,11 @@
 
 #include "PriorityArbiter.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/IList.hpp"
+=======
 #include "mixr/base/List.hpp"
+>>>>>>> d91383e8
 
 #include "PlaneAction.hpp"
 #include <iostream>
@@ -15,7 +19,11 @@ EMPTY_CONSTRUCTOR(PriorityArbiter)
 EMPTY_COPYDATA(PriorityArbiter)
 EMPTY_DELETEDATA(PriorityArbiter)
 
+<<<<<<< HEAD
+base::ubf::IAction* PriorityArbiter::genComplexAction(base::IList* const actionSet)
+=======
 base::ubf::AbstractAction* PriorityArbiter::genComplexAction(base::List* const actionSet)
+>>>>>>> d91383e8
 {
    const auto complexAction = new PlaneAction;
 
@@ -27,7 +35,11 @@ base::ubf::AbstractAction* PriorityArbiter::genComplexAction(base::List* const a
    int maxPitchTrimVote{};
 
    // process entire action set
+<<<<<<< HEAD
+   const base::IList::Item* item{actionSet->getFirstItem()};
+=======
    const base::List::Item* item{actionSet->getFirstItem()};
+>>>>>>> d91383e8
    while (item != nullptr) {
       const auto action = dynamic_cast<const PlaneAction*>(item->getValue());
       if (action!=nullptr) {
@@ -74,7 +86,11 @@ base::ubf::AbstractAction* PriorityArbiter::genComplexAction(base::List* const a
    return complexAction;
 }
 
+<<<<<<< HEAD
+void PriorityArbiter::trimChangeValidation(base::ubf::IAction* const complexAction)
+=======
 void PriorityArbiter::trimChangeValidation(base::ubf::AbstractAction* const complexAction)
+>>>>>>> d91383e8
 {
    const auto action = static_cast<PlaneAction*>(complexAction);
 

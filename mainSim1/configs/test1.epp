@@ -9,7 +9,11 @@
 
    // image generator host interface
    igHosts: {
+<<<<<<< HEAD
+      //#include "ighosts/flightgear.epp"
+=======
       //#include "ighosts/pov.epp"
+>>>>>>> d91383e8
       //#include "ighosts/cigi.epp"
    }
 
@@ -21,16 +25,26 @@
    // Simulation scenario
    ownship: xper
    simulation: ( WorldModel
+<<<<<<< HEAD
+                //latitude:   41.0
+=======
                 //latitude:   41.0  
+>>>>>>> d91383e8
                 //longitude: -112
 
        players: {
             xper: ( Helicopter
                     id: 101
                     type: "AttackHelicopter"
+<<<<<<< HEAD
+                    signature: ( RfSphereSignature radius: 1.0 )
+                    side: blue
+
+=======
                     signature: ( SigSphere radius: 1.0 )
                     side: blue
                     
+>>>>>>> d91383e8
                     initXPos: ( NauticalMiles 0 )
                     initYPos: ( NauticalMiles 0 )
                     initAlt: ( Feet 20000 )
@@ -38,6 +52,15 @@
                     initRoll: ( Degrees 0 )
                     initPitch: ( Degrees 0 )
                     initHeading: ( Degrees 0 )
+<<<<<<< HEAD
+
+                    //testRollRate: ( Degrees 0.0 )   // Test roll rate (qty per second)
+                    //testPitchRate: ( Degrees 0.0 )  // Test pitch rate (qty per second)
+                    testYawRate: ( Degrees 5.0 )      // Test heading rate (qty per second)
+                    //testBodyAxis: false             // Test rates are in body coordinates else euler rates (default: false)
+                  )
+
+=======
                   
                     //testRollRate: ( Degrees 0.0 )   // Test roll rate (units per second)
                     //testPitchRate: ( Degrees 0.0 )  // Test pitch rate (units per second)
@@ -45,6 +68,7 @@
                     //testBodyAxis: false             // Test rates are in body coordinates else euler rates (default: false)
                   )
               
+>>>>>>> d91383e8
                 } // players
 
               ) // simulation

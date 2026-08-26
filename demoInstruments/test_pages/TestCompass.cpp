@@ -3,7 +3,11 @@
 
 #include "mixr/base/colors/Rgb.hpp"
 #include "mixr/base/Pair.hpp"
+<<<<<<< HEAD
+#include "mixr/base/util/str_utils.hpp"
+=======
 #include "mixr/base/PairStream.hpp"
+>>>>>>> d91383e8
 
 #include "mixr/graphics/MapPage.hpp"
 #include "mixr/graphics/SymbolLoader.hpp"

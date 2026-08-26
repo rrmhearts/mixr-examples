@@ -19,7 +19,11 @@ testalt:
         ( NumericReadout
             color: white
             transform: ( Translation 1 7 )
+<<<<<<< HEAD
+            format: "#####"
+=======
             format: #####
+>>>>>>> d91383e8
         )
         // Label to tell us what test we are running
         ( AsciiText

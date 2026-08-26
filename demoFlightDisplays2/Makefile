@@ -9,13 +9,23 @@ OBJS =  \
 	SpdLines.o \
 	TestPfd.o
 
+<<<<<<< HEAD
+LDFLAGS += -lmixr_ui_glut -lmixr_instruments -lmixr_graphics -lmixr_graphics_ftgl -lmixr_base
+=======
 LDFLAGS += -lmixr_ui_glut -lmixr_instruments -lmixr_graphics -lmixr_base
+>>>>>>> d91383e8
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
 #LDFLAGS += -lXi -lXmu
 LDFLAGS += -lrt
 
 all: edl $(PGM)
 
+<<<<<<< HEAD
+run: all
+	./$(PGM) -f test.edl
+
+=======
+>>>>>>> d91383e8
 edl:
 	cpp configs/test.epp >test.edl $(EPPFLAGS)
 

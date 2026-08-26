@@ -1,6 +1,10 @@
 ( AdiDisplay
 
+<<<<<<< HEAD
+      name: "mainLareo -f test.edl"
+=======
       name: "Cockpit Display"
+>>>>>>> d91383e8
 
       left:   -10.5
       right:   10.5
@@ -14,7 +18,11 @@
       vpHeight: 800
       clearDepth: 1.0
       clearColor: (rgb 0 0 0)
+<<<<<<< HEAD
+      fullScreen: false
+=======
       fullScreen: 0
+>>>>>>> d91383e8
 
       // color is different.
       colorTable: {
@@ -35,11 +43,19 @@
          gray8:      ( rgb 0.8 0.8 0.8 )
       }
 
+<<<<<<< HEAD
+      // Again, an example of an PairStream, this time setting up our fonts.
+      fonts: {
+        // normal font for the instruments
+        default:
+        ( FTGLPolygonFont
+=======
       // Again, an example of an PairStream, this time setting up our fonts. 
       fonts: {
         // normal font for the instruments
         default: 
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -51,10 +67,17 @@
             path: MIXR_DATA_FONT_PATH
             file: "arialn.ttf"
         )
+<<<<<<< HEAD
+
+        // smaller font for the instruments
+        smallerfont:
+        ( FTGLPolygonFont
+=======
         
         // smaller font for the instruments
         smallerfont: 
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
            // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -10.5 10.5 ]
             // this is a unit value, telling us our width and height are proportional to one another
@@ -68,9 +91,15 @@
             file: "arialn.ttf"
         )
       }
+<<<<<<< HEAD
+
+      normalFont: default
+
+=======
       
       normalFont: default
       
+>>>>>>> d91383e8
         components: {
          //-------------------------------------------
          // start of readouts graphic
@@ -81,9 +110,15 @@
                  // start bank NRO graphic
                  //-------------------------------------------
                  ( Graphic
+<<<<<<< HEAD
+                     transform: ( Translation -7.85  6.15 )
+                     components: {
+                         phiRO:
+=======
                      transform: ( Translation -7.85  6.15 ) 
                      components: {
                          phiRO: 
+>>>>>>> d91383e8
                          ( NumericReadout
                              color: white
                              value: 999
@@ -96,16 +131,28 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+                                 [  2.5   -0.15 ]
+                             }
+                         )
+                         ( Polygon
+=======
                                  [  2.5    0.85 ] 
                                  [  2.5   -0.15 ]
                              }
                          )
                          ( Polygon 
+>>>>>>> d91383e8
                              color: red
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+=======
                                  [  2.5    0.85 ] 
+>>>>>>> d91383e8
                                  [  2.5   -0.15 ]
                              }
                          )
@@ -123,6 +170,17 @@
                  //-------------------------------------------
                  // start pitch NRO graphic
                  //-------------------------------------------
+<<<<<<< HEAD
+                 pitch:
+                 ( Graphic
+                     transform: ( Translation -1.325 6.15  )
+                     components: {
+                         thtRO:
+                         ( NumericReadout
+                             color: white
+                             value: 999
+                             transform: ( Translation 0 0 )
+=======
                  pitch: 
                  ( Graphic
                      transform: ( Translation -1.325 6.15  )
@@ -132,6 +190,7 @@
                              color: white
                              value: 999
                              transform: ( Translation 0 0 ) 
+>>>>>>> d91383e8
                              format: "#####"
                          )
                          ( LineLoop
@@ -140,16 +199,28 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+                                 [  2.5   -0.15 ]
+                             }
+                         )
+                         ( Polygon
+=======
                                  [  2.5    0.85 ] 
                                  [  2.5   -0.15 ]
                              }
                          )
                          ( Polygon 
+>>>>>>> d91383e8
                              color: red
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+=======
                                  [  2.5    0.85 ] 
+>>>>>>> d91383e8
                                  [  2.5   -0.15 ]
                              }
                          )
@@ -167,11 +238,19 @@
                  //-------------------------------------------
                  // start heading NRO graphic
                  //-------------------------------------------
+<<<<<<< HEAD
+                 magneticheading:
+                 (Graphic
+                     transform: ( Translation 5.5 6.15 )
+                     components: {
+                         psiRO:
+=======
                  magneticheading: 
                  (Graphic
                      transform: ( Translation 5.5 6.15 )
                      components: {
                          psiRO: 
+>>>>>>> d91383e8
                          ( NumericReadout
                              color: white
                              transform: ( Translation 0 0 )
@@ -183,16 +262,28 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+                                 [  2.5   -0.15 ]
+                             }
+                         )
+                         ( Polygon
+=======
                                  [  2.5    0.85 ] 
                                  [  2.5   -0.15 ]
                              }
                          )
                          ( Polygon 
+>>>>>>> d91383e8
                              color: red
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+=======
                                  [  2.5    0.85 ] 
+>>>>>>> d91383e8
                                  [  2.5   -0.15 ]
                              }
                          )
@@ -213,10 +304,17 @@
                  ( Graphic
                      transform: ( Translation -9.85 9.0 )
                      components: {
+<<<<<<< HEAD
+                         velRO:
+                         ( NumericReadout
+                             color: white
+                             transform: ( Translation 0.0 0.0  )
+=======
                          velRO:  
                          ( NumericReadout
                              color: white
                              transform: ( Translation 0.0 0.0  ) 
+>>>>>>> d91383e8
                              format: "#####"
                          )
                          ( LineLoop
@@ -225,16 +323,28 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+                                 [  2.5   -0.15 ]
+                             }
+                         )
+                         ( Polygon
+=======
                                  [  2.5    0.85 ] 
                                  [  2.5   -0.15 ]
                              }
                          )
                          ( Polygon 
+>>>>>>> d91383e8
                              color: red
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.5    0.85 ]
+=======
                                  [  2.5    0.85 ] 
+>>>>>>> d91383e8
                                  [  2.5   -0.15 ]
                              }
                          )
@@ -254,9 +364,15 @@
                  //-------------------------------------------
                  altitude:
                  ( Graphic
+<<<<<<< HEAD
+                     transform: ( Translation 7.0 9.0 )
+                     components: {
+                         altRO:
+=======
                      transform: ( Translation 7.0 9.0 ) 
                      components: {
                          altRO: 
+>>>>>>> d91383e8
                          ( NumericReadout
                              color: white
                              transform: ( Translation 0 0 )
@@ -268,7 +384,11 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  3.0    0.85 ]
+=======
                                  [  3.0    0.85 ] 
+>>>>>>> d91383e8
                                  [  3.0   -0.15 ]
                              }
                          )
@@ -277,7 +397,11 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  3.0    0.85 ]
+=======
                                  [  3.0    0.85 ] 
+>>>>>>> d91383e8
                                  [  3.0   -0.15 ]
                              }
                          )
@@ -296,7 +420,11 @@
                  // start roll rate NRO graphic
                  //-------------------------------------------
                  ( Graphic
+<<<<<<< HEAD
+                     transform: ( Translation -7.85  -6.875 )
+=======
                      transform: ( Translation -7.85  -6.875 ) 
+>>>>>>> d91383e8
                      components: {
                          pRO:
                          ( NumericReadout
@@ -311,16 +439,28 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.0    0.85 ]
+                                 [  2.0   -0.15 ]
+                             }
+                         )
+                         ( Polygon
+=======
                                  [  2.0    0.85 ] 
                                  [  2.0   -0.15 ]
                              }
                          )
                          ( Polygon 
+>>>>>>> d91383e8
                              color: red
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.0    0.85 ]
+=======
                                  [  2.0    0.85 ] 
+>>>>>>> d91383e8
                                  [  2.0   -0.15 ]
                              }
                          )
@@ -339,9 +479,15 @@
                  // start pitch rate NRO graphic
                  //-------------------------------------------
                  ( Graphic
+<<<<<<< HEAD
+                     transform: ( Translation -0.925 -6.875 )
+                     components: {
+                         qRO:
+=======
                      transform: ( Translation -0.925 -6.875 ) 
                      components: {
                          qRO: 
+>>>>>>> d91383e8
                          ( NumericReadout
                              color: white
                              value: 999
@@ -354,16 +500,28 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.0    0.85 ]
+                                 [  2.0   -0.15 ]
+                             }
+                         )
+                         ( Polygon
+=======
                                  [  2.0    0.85 ] 
                                  [  2.0   -0.15 ]
                              }
                          )
                          ( Polygon 
+>>>>>>> d91383e8
                              color: red
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.0    0.85 ]
+=======
                                  [  2.0    0.85 ] 
+>>>>>>> d91383e8
                                  [  2.0   -0.15 ]
                              }
                          )
@@ -384,7 +542,11 @@
                  ( Graphic
                      transform: ( Translation 6.0 -6.875 )
                      components: {
+<<<<<<< HEAD
+                         rRO:
+=======
                          rRO: 
+>>>>>>> d91383e8
                          ( NumericReadout
                              color: white
                              value: 9
@@ -397,16 +559,28 @@
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.0    0.85 ]
+                                 [  2.0   -0.15 ]
+                             }
+                         )
+                         ( Polygon
+=======
                                  [  2.0    0.85 ] 
                                  [  2.0   -0.15 ]
                              }
                          )
                          ( Polygon 
+>>>>>>> d91383e8
                              color: red
                              vertices: {
                                  [ -0.15  -0.15 ]
                                  [ -0.15   0.85 ]
+<<<<<<< HEAD
+                                 [  2.0    0.85 ]
+=======
                                  [  2.0    0.85 ] 
+>>>>>>> d91383e8
                                  [  2.0   -0.15 ]
                              }
                          )
@@ -435,7 +609,11 @@
              components: {
                  // waterline
                  ( Line
+<<<<<<< HEAD
+                     segment: true
+=======
                      segment: 1
+>>>>>>> d91383e8
                      vertices: {
                          [  0.0  0.0 ] [ -0.2 -0.2 ]
                          [ -0.2 -0.2 ] [ -0.4  0.0 ]
@@ -447,6 +625,15 @@
                  )
                  // this rotates with our bank angle, and is our bank angle.
                  // DialPointer is explained in speedbrake.epp
+<<<<<<< HEAD
+                 bankADI:
+                 ( DialPointer
+                     components: {
+                         ( Polygon
+                             transform: ( Translation 0.0 -4.5 )
+                             vertices: {
+                                 [ -0.2  0.0 ]
+=======
                  bankADI:  
                  ( DialPointer
                      components: {
@@ -454,6 +641,7 @@
                              transform: ( Translation 0.0 -4.5 ) 
                              vertices: {
                                  [ -0.2  0.0 ] 
+>>>>>>> d91383e8
                                  [  0.2  0.0 ]
                                  [  0.0  0.4 ]
                              }
@@ -462,7 +650,11 @@
                  )
 
                  // these are the tic marks that are ALWAYS visible
+<<<<<<< HEAD
+                 bankangleticmarks:
+=======
                  bankangleticmarks: 
+>>>>>>> d91383e8
                  ( Graphic
                      color: black
                      components: {
@@ -476,6 +668,26 @@
                              }
                          )
                          // +- 10 and 20 degree tics
+<<<<<<< HEAD
+                         ( Line
+                             transform: ( Rotation 0.174444584  )
+                             vertices: { [ 0.0 -4.1 ] [ 0.0 -3.9 ] }
+                         )
+                         ( Line
+                             transform: ( Rotation 0.348889168  )
+                             vertices: { [ 0.0 -4.1 ] [ 0.0 -3.9 ] }
+                         )
+                         ( Line
+                             transform: ( Rotation -0.174444584  )
+                             vertices: { [ 0.0 -4.1 ] [ 0.0 -3.9 ] }
+                         )
+                         ( Line
+                             transform: ( Rotation -0.348889168  )
+                             vertices: { [ 0.0 -4.1 ] [ 0.0 -3.9 ] }
+                         )
+                         // +- 30 degree tics
+                         ( Line
+=======
                          ( Line 
                              transform: ( Rotation 0.174444584  ) 
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.9 ] }
@@ -494,20 +706,33 @@
                          )
                          // +- 30 degree tics
                          ( Line 
+>>>>>>> d91383e8
                              linewidth: 2
                              transform: ( Rotation 0.523333752 )
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.6 ] }
                          )
+<<<<<<< HEAD
+                         ( Line
+=======
                          ( Line 
+>>>>>>> d91383e8
                              linewidth: 2
                              transform: ( Rotation -0.523333752 )
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.6 ] }
                          )
+<<<<<<< HEAD
+
+                     }
+                 ) // end of bank angle tic marks graphic
+
+                 // Our test routine TestMfdAdi.cpp will look up each of these graphics by name
+=======
                          
                      }
                  ) // end of bank angle tic marks graphic 
 
                  // Our test routine TestMfdAdi.cpp will look up each of these graphics by name 
+>>>>>>> d91383e8
                  // and depending on the roll value, will make them visible or not by sending
                  // the event message SET_VISIBILITY
                  // 45 and 60 degree tic marks for a roll over 25 degrees
@@ -535,9 +760,15 @@
                      }
                  ) // end of over 25 neg graphic
 
+<<<<<<< HEAD
+                 // 90 degree tic mark for a roll over 55 degrees
+                 over55:
+                 ( Graphic
+=======
                  // 90 degree tic mark for a roll over 55 degrees 
                  over55: 
                  ( Graphic 
+>>>>>>> d91383e8
                      linewidth: 2
                      color: black
                      components: {
@@ -548,7 +779,11 @@
                          ( Line
                                  transform: ( Rotation -1.570001256 )
                              vertices: { [ 0.0 -4.1 ] [ 0.0 -3.6 ] }
+<<<<<<< HEAD
+                         )
+=======
                          )   
+>>>>>>> d91383e8
                      }
                  ) // end of over 55 graphic
 
@@ -573,6 +808,16 @@
              // here is our MfdAdi - notice we scissor it instead of giving it an AdiOcclusionCircle
          ( Graphic
              scissorX: -8
+<<<<<<< HEAD
+             scissorWidth: 16
+             scissorY: -6
+             scissorHeight: 12
+             components: {
+                 // MfdAdi works a lot like adi, which is explained in adi.epp.  However, MfdAdi also
+                 // has a slot which handles the ghost horizon, and tells us how much pitch we have to
+                 // exceed for the ghost horizon to show up.  MfdAdi also has a climb dive marker, which
+                 // will translate and rotate in accordance to the values it receives.  Other than that,
+=======
              scissorWidth: 16 
              scissorY: -6
              scissorHeight: 12
@@ -581,10 +826,28 @@
                  // has a slot which handles the ghost horizon, and tells us how much pitch we have to 
                  // exceed for the ghost horizon to show up.  MfdAdi also has a climb dive marker, which 
                  // will translate and rotate in accordance to the values it receives.  Other than that, 
+>>>>>>> d91383e8
                  // it works exactly like the regular adi.
                  mfdADI:
                  ( Adi
                      // Every time you pitch over 40 or -40 degrees, the ghost horizon bar will become visible
+<<<<<<< HEAD
+                     scalingTable:
+                     ( Table1
+                         x:    [ -90  90 ]
+                         data: [  20 -20 ]
+                     )
+                     components: {
+                         //pitchladder:
+                         ( Graphic
+                             components: {
+                                 // sky background
+                                 ( Polygon
+                                     color: ( rgb 0 0 0.5  )
+                                     transform: ( Translation 0 0 -1 )
+                                     vertices: {
+                                         [ -100.0   0.0 ]
+=======
                      scalingTable: 
                      ( Table1
                          x:    [ -90  90 ]
@@ -600,6 +863,7 @@
                                      transform: ( Translation 0 0 -1 )
                                      vertices: {
                                          [ -100.0   0.0 ] 
+>>>>>>> d91383e8
                                          [ -100.0 100.0 ]
                                          [  100.0 100.0 ]
                                          [  100.0   0.0 ]
@@ -616,14 +880,24 @@
                                          [  100.0    0.0 ]
                                      }
                                  )
+<<<<<<< HEAD
+                                 zenith:
+                                 ( Graphic
+                                     transform: ( Translation 0.0 20 )
+=======
                                  zenith: 
                                  ( Graphic
                                      transform: ( Translation 0.0 20 ) 
+>>>>>>> d91383e8
                                      color: white
                                      linewidth: 2
                                      components: {
                                          ( LineLoop
+<<<<<<< HEAD
+                                             vertices: {
+=======
                                              vertices: { 
+>>>>>>> d91383e8
                                                  [  0.0  -0.92 ]
                                                  [  0.06 -0.08 ]
                                                  [  0.29  0.0  ]
@@ -646,11 +920,19 @@
                                          )
                                      }
                                  ) // end of zenith graphic
+<<<<<<< HEAD
+                                 horizonbar:
+                                 ( Line
+                                     color: white
+                                     linewidth: 2
+                                     segment: true
+=======
                                  horizonbar: 
                                  ( Line
                                      color: white
                                      linewidth: 2
                                      segment: 1
+>>>>>>> d91383e8
                                      vertices: {
                                          [ -1.0  0.0 ] [ -100 0.0 ]
                                          [  1.0  0.0 ] [  100 0.0 ]
@@ -688,7 +970,11 @@
                                      gaugeLength: 20
                                      quantity: 10
                                      tickLength: -0.2
+<<<<<<< HEAD
+                                     flip: true
+=======
                                      flip: 1
+>>>>>>> d91383e8
                                      color: white
                                  )
                                  ( TickMarks
@@ -697,7 +983,11 @@
                                      gaugeLength: 20
                                      quantity: 10
                                      tickLength: -0.2
+<<<<<<< HEAD
+                                     flip: true
+=======
                                      flip: 1
+>>>>>>> d91383e8
                                      color: white
                                  )
 
@@ -705,7 +995,11 @@
                                  ( NumericReadout
                                      color: cyan
                                      font: smallerfont
+<<<<<<< HEAD
+                                     transform: ( Translation -1.6 6.2 )
+=======
                                      transform: ( Translation -1.6 6.2 ) 
+>>>>>>> d91383e8
                                      value: 30
                                      format: "##"
                                  )
@@ -713,7 +1007,11 @@
                                  ( NumericReadout
                                      color: cyan
                                      font: smallerfont
+<<<<<<< HEAD
+                                     transform: ( Translation -1.6 12.9 )
+=======
                                      transform: ( Translation -1.6 12.9 ) 
+>>>>>>> d91383e8
                                      value: 60
                                      format: "##"
                                  )
@@ -723,6 +1021,20 @@
                                      transform: ( Translation 0.0 -20 )
                                      color: white
                                      components: {
+<<<<<<< HEAD
+                                         ( OcclusionCircle
+                                             radius: 0.35
+                                             outerRadius: 0.4
+                                             slices: 100
+                                             filled: true
+                                         )
+                                         ( Line
+                                             linewidth: 2
+                                             vertices: {
+                                                 [ 0.0 0.4 ]
+                                                 [ 0.0 0.8 ]
+                                             }
+=======
                                          ( OcclusionCircle 
                                              radius: 0.35 
                                              outerRadius: 0.4
@@ -735,6 +1047,7 @@
                                                  [ 0.0 0.4 ] 
                                                  [ 0.0 0.8 ] 
                                              } 
+>>>>>>> d91383e8
                                          )
                                          // occlude those last two tick marks
                                          ( Polygon
@@ -750,27 +1063,47 @@
                                  ) // end of nadir graphic
 
                                  // negative tick marks
+<<<<<<< HEAD
+                                 ( TickMarks
+=======
                                  ( TickMarks  
+>>>>>>> d91383e8
                                      linewidth: 2
                                      transform: ( Translation 1 -2.2 )
                                      gaugeLength: -20
                                      quantity: 10
+<<<<<<< HEAD
+                                     flip: true
+                                     tickLength: 0.3
+                                     color: white
+                                 )
+                                 ( TickMarks
+=======
                                      flip: 1
                                      tickLength: 0.3
                                      color: white
                                  )
                                  ( TickMarks  
+>>>>>>> d91383e8
                                      linewidth: 2
                                      transform: ( Translation -1 -2.2 )
                                      gaugeLength: -20
                                      quantity: 10
+<<<<<<< HEAD
+                                     flip: true
+=======
                                      flip: 1
+>>>>>>> d91383e8
                                      tickLength: 0.3
                                      color: white
                                  )
 
                                  -10degree:
+<<<<<<< HEAD
+                                 ( Graphic
+=======
                                  ( Graphic 
+>>>>>>> d91383e8
                                      color: white
                                      transform: ( Translation 0 -2.2 )
                                      components: {
@@ -778,7 +1111,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.087 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -788,7 +1125,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.087 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [  0.0    0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]
@@ -808,7 +1149,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.174 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -818,7 +1163,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.174 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [  0.0    0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]
@@ -837,7 +1186,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.262 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -847,7 +1200,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.262 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [  0.0    0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]
@@ -856,12 +1213,21 @@
                                          )
                                      }
                                  ) // end of -30 degree graphic (small bar)
+<<<<<<< HEAD
+
+                                 -30degreetext:
+                                 ( NumericReadout
+                                     color: cyan
+                                     font: smallerfont
+                                     transform: ( Translation 1.6 -6.6 )
+=======
                                  
                                  -30degreetext:   
                                  ( NumericReadout
                                      color: cyan
                                      font: smallerfont
                                      transform: ( Translation 1.6 -6.6 ) 
+>>>>>>> d91383e8
                                      value: 30
                                      format: "##"
                                  )
@@ -875,7 +1241,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.349 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -885,7 +1255,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.349 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [  0.0    0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]
@@ -904,7 +1278,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.436 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -914,7 +1292,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.436 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0     0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]
@@ -934,7 +1316,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.52 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -944,7 +1330,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.52 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [  0.0    0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]
@@ -953,11 +1343,19 @@
                                          )
                                      }
                                  ) // end of -60 degree graphic (small bar)
+<<<<<<< HEAD
+                                 -60degreetext:
+                                 ( NumericReadout
+                                     color: cyan
+                                     font: smallerfont
+                                     transform: ( Translation 1.6 -13.3 )
+=======
                                  -60degreetext:   
                                  ( NumericReadout
                                      color: cyan
                                      font: smallerfont
                                      transform: ( Translation 1.6 -13.3 ) 
+>>>>>>> d91383e8
                                      value: 60
                                      format: "##"
                                  )
@@ -971,7 +1369,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.61 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -981,7 +1383,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.61 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [  0.0    0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]
@@ -1000,7 +1406,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation 1 0 ) ( Rotation -0.7 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [ 0.0    0.0 ] [ 0.195  0.0 ]
                                                  [ 0.2925 0.0 ] [ 0.4875 0.0 ]
@@ -1010,7 +1420,11 @@
                                          ( Line
                                              linewidth: 2
                                              transform: { ( Translation -1 0 ) ( Rotation 0.7 ) }
+<<<<<<< HEAD
+                                             segment: true
+=======
                                              segment: 1
+>>>>>>> d91383e8
                                              vertices: {
                                                  [  0.0    0.0 ] [ -0.195  0.0 ]
                                                  [ -0.2925 0.0 ] [ -0.4875 0.0 ]

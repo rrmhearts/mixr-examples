@@ -1,5 +1,11 @@
 
 #include "SituationalDisplay.hpp"
+<<<<<<< HEAD
+
+#include "mixr/base/util/str_utils.hpp"
+
+=======
+>>>>>>> d91383e8
 #include <cstring>
 
 using namespace mixr;

@@ -1,6 +1,16 @@
 
 
 #include "SimStation.hpp"
+<<<<<<< HEAD
+#include "factory.hpp"
+
+#include "mixr/base/IComponent.hpp"
+#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/edl_parser.hpp"
+#include "mixr/base/util/system_utils.hpp"
+
+=======
 
 #include "factory.hpp"
 
@@ -13,6 +23,7 @@
 #include "mixr/base/util/system_utils.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 #include <GL/glut.h>
 
 #include <string>
@@ -30,7 +41,11 @@ SimStation* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   base::IObject* obj{base::edl_parser(filename, factory, &num_errors)};
+=======
    base::Object* obj{base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -83,9 +98,15 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration filename
+<<<<<<< HEAD
+   std::string configFilename{"test0.edl"};
+   // parse arguments
+   for (int i{1}; i < argc; i++) {
+=======
    std::string configFilename = "test0.edl";
    // parse arguments
    for (int i = 1; i < argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -93,7 +114,11 @@ int main(int argc, char* argv[])
    simStation = builder(configFilename);
 
    // reset station
+<<<<<<< HEAD
+   simStation->event(base::IComponent::RESET_EVENT);
+=======
    simStation->event(base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    // set timer for background tasks
    const double dt{1.0 / static_cast<double>(BG_RATE)};
@@ -102,7 +127,10 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    simStation->updateData(dt);
    simStation->updateTC(dt);
+<<<<<<< HEAD
+=======
    simStation->event(base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    glutTimerFunc(msecs, updateDataCB, msecs);
 

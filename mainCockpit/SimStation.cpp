@@ -1,6 +1,21 @@
 
 #include "SimStation.hpp"
 
+<<<<<<< HEAD
+#include "mixr/simulation/ISimulation.hpp"
+
+#include "mixr/models/player/air/IAirVehicle.hpp"
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+
+#include "mixr/base/Identifier.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/PairStream.hpp"
+#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/numeric/Boolean.hpp"
+#include "mixr/base/qty/angles.hpp"
+#include "mixr/base/qty/times.hpp"
+=======
 #include "mixr/simulation/Simulation.hpp"
 
 #include "mixr/models/player/air/AirVehicle.hpp"
@@ -13,6 +28,7 @@
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/units/Angles.hpp"
 #include "mixr/base/units/Times.hpp"
+>>>>>>> d91383e8
 
 IMPLEMENT_SUBCLASS(SimStation, "SimStation")
 EMPTY_DELETEDATA(SimStation)
@@ -23,8 +39,13 @@ BEGIN_SLOTTABLE(SimStation)
 END_SLOTTABLE(SimStation)
 
 BEGIN_SLOT_MAP(SimStation)
+<<<<<<< HEAD
+    ON_SLOT( 1, setSlotMainDisplay,    mixr::glut::IGlutDisplay)
+    ON_SLOT( 2, setSlotAutoResetTime,  mixr::base::ITime)
+=======
     ON_SLOT( 1, setSlotMainDisplay,    mixr::glut::GlutDisplay)
     ON_SLOT( 2, setSlotAutoResetTime,  mixr::base::Time)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 SimStation::SimStation()
@@ -54,7 +75,11 @@ void SimStation::reset()
 
     // auto reset timer
     if (autoResetTimer0 != nullptr) {
+<<<<<<< HEAD
+        autoResetTimer = autoResetTimer0->getValueInSeconds();
+=======
         autoResetTimer = mixr::base::Seconds::convertStatic(*autoResetTimer0);
+>>>>>>> d91383e8
     } else {
         autoResetTimer = 0;
     }
@@ -68,7 +93,11 @@ void SimStation::updateTC(const double dt)
     // update station
     BaseClass::updateTC(dt);
 
+<<<<<<< HEAD
+    mixr::base::ITimer::updateTimers(dt);
+=======
     mixr::base::Timer::updateTimers(dt);
+>>>>>>> d91383e8
     mixr::graphics::Graphic::flashTimer(dt);
 
     // Update any TC stuff in our main display
@@ -102,6 +131,21 @@ void SimStation::stepOwnshipPlayer()
    mixr::base::PairStream* pl{getSimulation()->getPlayers()};
    if (pl != nullptr) {
 
+<<<<<<< HEAD
+      mixr::models::IPlayer* f{};
+      mixr::models::IPlayer* n{};
+      bool found = false;
+
+      // Find the next player
+      mixr::base::IList::Item* item{pl->getFirstItem()};
+      while (item != nullptr) {
+         const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
+         if (pair != nullptr) {
+            const auto ip = static_cast<mixr::models::IPlayer*>(pair->object());
+            if ( ip->isMode(mixr::models::IPlayer::Mode::ACTIVE) &&
+               ip->isLocalPlayer() &&
+               ip->isClassType(typeid(mixr::models::IAirVehicle))
+=======
       mixr::models::Player* f{};
       mixr::models::Player* n{};
       bool found = false;
@@ -115,6 +159,7 @@ void SimStation::stepOwnshipPlayer()
             if ( ip->isMode(mixr::models::Player::ACTIVE) &&
                ip->isLocalPlayer() &&
                ip->isClassType(typeid(mixr::models::AirVehicle))
+>>>>>>> d91383e8
                ) {
                   if (f == nullptr) { f = ip; }  // Remember the first
                   if (found) { n = ip; ; break; }
@@ -131,7 +176,11 @@ void SimStation::stepOwnshipPlayer()
 }
 
 // Main Display
+<<<<<<< HEAD
+bool SimStation::setSlotMainDisplay(mixr::glut::IGlutDisplay* const d)
+=======
 bool SimStation::setSlotMainDisplay(mixr::glut::GlutDisplay* const d)
+>>>>>>> d91383e8
 {
     if (mainDisplay != nullptr) mainDisplay->container(nullptr);
     mainDisplay = d;
@@ -141,7 +190,11 @@ bool SimStation::setSlotMainDisplay(mixr::glut::GlutDisplay* const d)
 }
 
 // setSlotAutoResetTime() -- Sets the startup RESET pulse timer
+<<<<<<< HEAD
+bool SimStation::setSlotAutoResetTime(const mixr::base::ITime* const num)
+=======
 bool SimStation::setSlotAutoResetTime(const mixr::base::Time* const num)
+>>>>>>> d91383e8
 {
     if (autoResetTimer0 != nullptr) {
         autoResetTimer0->unref();
@@ -151,7 +204,11 @@ bool SimStation::setSlotAutoResetTime(const mixr::base::Time* const num)
     autoResetTimer0 = num;
     if (autoResetTimer0 != nullptr) {
         autoResetTimer0->ref();
+<<<<<<< HEAD
+        autoResetTimer = autoResetTimer0->getValueInSeconds();
+=======
         autoResetTimer = mixr::base::Seconds::convertStatic(*autoResetTimer0);
+>>>>>>> d91383e8
     }
     return true;
 }

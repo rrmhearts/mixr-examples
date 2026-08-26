@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestCompass_HPP__
+#define __TestCompass_HPP__
+=======
 #ifndef __TestCompass_H__
 #define __TestCompass_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 
@@ -17,7 +22,11 @@ public:
     TestCompass();
 
     void updateData(const double dt = 0.0) final;
+<<<<<<< HEAD
+    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+=======
     bool event(const int event, mixr::base::Object* const obj = nullptr) final;
+>>>>>>> d91383e8
 
     static const int MAX_TRACKS{8};
     static const int MAX_AIRPORTS{8};

@@ -15,7 +15,11 @@
 dataRecorder: ( XDataRecorder
 
    outputHandler:
+<<<<<<< HEAD
+   ( OutputHandler
+=======
    ( RecorderOutputHandler
+>>>>>>> d91383e8
       components: {
 
          // Binary file writer
@@ -39,7 +43,11 @@ dataRecorder: ( XDataRecorder
 
          // Test tab printer
          ( TabPrinter
+<<<<<<< HEAD
+            msgHdrOptn: new_msg
+=======
             msgHdrOptn: NEW_MSG
+>>>>>>> d91383e8
             filename: "./zTabPrinter.csv"
          )
 

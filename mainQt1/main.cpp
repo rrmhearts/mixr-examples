@@ -1,9 +1,12 @@
 
 #include <QApplication>
 
+<<<<<<< HEAD
+=======
 #include "MainWindow.hpp"
 #include "Station.hpp"
 
+>>>>>>> d91383e8
 #include "mixr/base/edl_parser.hpp"
 #include "mixr/base/Pair.hpp"
 
@@ -13,6 +16,12 @@
 #include "mixr/models/factory.hpp"
 #include "mixr/interop/dis/factory.hpp"
 
+<<<<<<< HEAD
+#include "MainWindow.hpp"
+#include "Station.hpp"
+
+=======
+>>>>>>> d91383e8
 #include <cstdlib>
 #include <string>
 
@@ -28,7 +37,11 @@ mixr::base::Object* factory(const std::string& name)
    if (obj == nullptr)  { obj = mixr::simulation::factory(name);  }
    if (obj == nullptr)  { obj = mixr::models::factory(name);  }
    if (obj == nullptr)  { obj = mixr::base::factory(name);        }
+<<<<<<< HEAD
+
+=======
    
+>>>>>>> d91383e8
    return obj;
 }
 

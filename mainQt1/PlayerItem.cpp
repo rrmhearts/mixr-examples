@@ -110,17 +110,27 @@ void PlayerItem::refreshPlayer(const mixr::models::Player* const ownship)
       }
       setRotation(ownship->getHeadingD());
       // update the player's name
+<<<<<<< HEAD
+      if (ownship->getName() != "") {
+         name = ownship->getName().c_str();
+      } else {
+=======
       if (ownship->getName() != nullptr) {
          name = ownship->getName()->getString();
       }
       else {
+>>>>>>> d91383e8
          std::ostringstream stream;
          stream << plyId;
          name = stream.str().c_str();
       }
 
+<<<<<<< HEAD
+   } else {
+=======
    }
    else {
+>>>>>>> d91383e8
       plyId = 0;
    }
 }

@@ -2,6 +2,17 @@
 // Example program that demonstrates UBF functionality
 //--------------------------------------------------------------
 
+<<<<<<< HEAD
+#include "mixr/base/IComponent.hpp"
+
+#include "mixr/graphics/Graphic.hpp"
+#include "mixr/base/edl_parser.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/util/system_utils.hpp"
+
+#include "SimStation.hpp"
+=======
 #include "mixr/simulation/Station.hpp"
 #include "mixr/graphics/Graphic.hpp"
 #include "mixr/base/edl_parser.hpp"
@@ -9,6 +20,7 @@
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/util/system_utils.hpp"
 
+>>>>>>> d91383e8
 #include "factory.hpp"
 
 #include <GL/glut.h>
@@ -17,6 +29,16 @@
 
 // default background frame rate
 const int bgRate{10};
+<<<<<<< HEAD
+SimStation* station{};
+
+// station builder
+SimStation* builder(const std::string& filename)
+{
+   // read configuration file
+   int num_errors{};
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
 mixr::simulation::Station* station{};
 
 // station builder
@@ -25,6 +47,7 @@ mixr::simulation::Station* builder(const std::string& filename)
    // read configuration file
    int num_errors{};
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -45,7 +68,11 @@ mixr::simulation::Station* builder(const std::string& filename)
    }
 
    // try to cast to proper object, and check
+<<<<<<< HEAD
+   const auto station = dynamic_cast<SimStation*>(obj);
+=======
    const auto station = dynamic_cast<mixr::simulation::Station*>(obj);
+>>>>>>> d91383e8
    if (station == nullptr) {
       std::cerr << "Invalid configuration file!" << std::endl;
       std::exit(EXIT_FAILURE);
@@ -79,10 +106,17 @@ int main(int argc, char* argv[])
    glutInit(&argc, argv);
 
    // default configuration file
+<<<<<<< HEAD
+   std::string configFilename{"test00.edl"};
+
+   // parse command arguments
+   for (int i{1}; i<argc; i++) {
+=======
    std::string configFilename = "test00.edl";
 
    // parse command arguments
    for (int i=1; i<argc; i++) {
+>>>>>>> d91383e8
       if ( std::string(argv[i]) == "-f" ) {
          configFilename = argv[++i];
       }
@@ -92,7 +126,11 @@ int main(int argc, char* argv[])
    station = builder(configFilename);
 
    // reset the simulation
+<<<<<<< HEAD
+   station->event(mixr::base::IComponent::RESET_EVENT);
+=======
    station->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    // set timer for the background tasks
    const double dt{1.0 / static_cast<double>(bgRate)};
@@ -101,7 +139,11 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    station->updateData(dt);
    station->updateTC(dt);
+<<<<<<< HEAD
+   station->event(mixr::base::IComponent::RESET_EVENT);
+=======
    station->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
    station->reset();
 
    glutTimerFunc(msecs, updateDataCB, msecs);

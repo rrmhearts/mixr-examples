@@ -3,6 +3,10 @@
 
    display:
    ( SimpleIGen
+<<<<<<< HEAD
+      name: "mainIgViewer -f test.edl"
+=======
+>>>>>>> d91383e8
       left:       -5.0
       right:       5.0
       bottom:     -3.0
@@ -14,7 +18,11 @@
       vpWidth:     800
       vpHeight:    600
 
+<<<<<<< HEAD
+      netInput: ( UdpUnicastHandler localIpAddress: localhost ipAddress: localhost port: 5500)
+=======
       netInput: ( UdpUnicastHandler localIpAddress: localhost ipAddress: localhost port: 4950)
+>>>>>>> d91383e8
       databasePath: MIXR_DATA_VISUALDB_PATH
 
       //Since this display will be drawn by OpenSceneGraph, no graphical components are placed here.

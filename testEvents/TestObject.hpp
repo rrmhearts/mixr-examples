@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
+#ifndef __TestObject_HPP__
+#define __TestObject_HPP__
+
+#include "mixr/base/IObject.hpp"
+=======
 #ifndef __TestObject_H__
 #define __TestObject_H__
 
 #include "mixr/base/Object.hpp"
+>>>>>>> d91383e8
 #include <string>
 
 //------------------------------------------------------------------------------
@@ -12,6 +19,16 @@
 // ObjectHandler will extract the data and send it to the output.  This tests
 // the send command passing objects.
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class TestObject final: public mixr::base::IObject
+{
+   DECLARE_SUBCLASS(TestObject, mixr::base::IObject)
+
+public:
+   TestObject()                        { STANDARD_CONSTRUCTOR() }
+
+   // set/get data
+=======
 class TestObject final: public mixr::base::Object
 {
    DECLARE_SUBCLASS(TestObject, mixr::base::Object)
@@ -20,19 +37,28 @@ public:
    TestObject();
 
    // set functions
+>>>>>>> d91383e8
    void setBoolean(const bool x)       { boolVal = x;      }
    void setInteger(const int x)        { intVal = x;       }
    void setFloat(const float x)        { floatVal = x;     }
    void setDouble(const double x)      { doubleVal = x;    }
+<<<<<<< HEAD
+   void setChar(const std::string& x)  { charVal = x;      }
+
+=======
    void setReal(const double x)        { realVal = x;      }
    void setChar(const std::string& x)  { charVal = x;      }
 
    // get functions
+>>>>>>> d91383e8
    bool getBoolean()                   { return boolVal;   }
    int getInteger()                    { return intVal;    }
    float getFloat()                    { return floatVal;  }
    double getDouble()                  { return doubleVal; }
+<<<<<<< HEAD
+=======
    double getReal()                    { return realVal;   }
+>>>>>>> d91383e8
    const std::string& getChar()        { return charVal;   }
 
 private:
@@ -40,8 +66,12 @@ private:
    int intVal{};
    float floatVal{};
    double doubleVal{};
+<<<<<<< HEAD
+   std::string charVal{"ASCII"};
+=======
    double realVal{};
    std::string charVal = "ASCII";
+>>>>>>> d91383e8
 };
 
 #endif

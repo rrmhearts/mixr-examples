@@ -1,7 +1,13 @@
 
 #include "Pfd.hpp"
+<<<<<<< HEAD
+
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/qty/util/length_utils.hpp"
+=======
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/units/distance_utils.hpp"
+>>>>>>> d91383e8
 
 namespace mixr {
 namespace xpanel {
@@ -249,8 +255,13 @@ void Pfd::updateData(const double dt)
     // send our ghost horizon data
     send("ghosthorizonbar", UPDATE_INSTRUMENTS, pitch, pitchGhostSD);
     // convert alt to meters and send it to our meters readout
+<<<<<<< HEAD
+    int mAlt{static_cast<int>(base::length::FeetToMeters(alt))};
+    double mAltBug{base::length::FeetToMeters(cmdAlt)};
+=======
     int mAlt{static_cast<int>(base::distance::FeetToMeters(alt))};
     double mAltBug{base::distance::FeetToMeters(cmdAlt)};
+>>>>>>> d91383e8
     send("malt", UPDATE_VALUE, mAlt, mAltSD);
     send("cmdmalt", UPDATE_VALUE, mAltBug, cmdMAltSD);
 }

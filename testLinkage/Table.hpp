@@ -1,4 +1,13 @@
 
+<<<<<<< HEAD
+#ifndef __Table_HPP__
+#define __Table_HPP__
+
+#include "mixr/graphics/readouts/IReadout.hpp"
+
+namespace mixr {
+namespace base { class Integer; class PairStream; }
+=======
 #ifndef __Table_H__
 #define __Table_H__
 
@@ -6,6 +15,7 @@
 
 namespace mixr {
 namespace base { class Number; class PairStream; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -14,6 +24,15 @@ namespace base { class Number; class PairStream; }
 //
 // Factory name: Table
 // Slots:
+<<<<<<< HEAD
+//    rows     <Integer>     ! Number of rows (default: 1)
+//    spacing  <Integer>     ! Spacing between rows (default: 1)
+//    columns  <PairStream>  ! Column descriptions: list of items in each row
+//------------------------------------------------------------------------------
+class Table final: public mixr::graphics::IReadout
+{
+   DECLARE_SUBCLASS(Table, mixr::graphics::IReadout)
+=======
 //    rows     <Number>     ! Number of rows (default: 1)
 //    spacing  <Number>     ! Spacing between rows (default: 1)
 //    columns  <PairStream> ! Column descriptions: list of items in each row
@@ -21,6 +40,7 @@ namespace base { class Number; class PairStream; }
 class Table final: public mixr::graphics::AbstractField
 {
    DECLARE_SUBCLASS(Table, mixr::graphics::AbstractField)
+>>>>>>> d91383e8
 
 public:
    Table();
@@ -28,11 +48,19 @@ public:
    const mixr::base::PairStream* getColumns() const;
    int getNumberOfRows() const;
 
+<<<<<<< HEAD
+   // graphics::Readout interface
+   int line() const final;
+   void line(const int ll) final;
+   int column() const final;
+   void column(const int cc) final;
+=======
    // graphics::AbstractField interface
    int line() const final;
    int line(const int ll) final;
    int column() const final;
    int column(const int cc) final;
+>>>>>>> d91383e8
 
    // base::Component interface
    void reset() final;
@@ -50,8 +78,13 @@ private:
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotRows(mixr::base::Integer* const);
+   bool setSlotSpacing(mixr::base::Integer* const);
+=======
    bool setSlotRows(mixr::base::Number* const);
    bool setSlotSpacing(mixr::base::Number* const);
+>>>>>>> d91383e8
    bool setSlotColumns(mixr::base::PairStream* const);
 };
 

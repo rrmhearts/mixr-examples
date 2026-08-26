@@ -3,10 +3,21 @@
 
 #include "events.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/String.hpp"
+#include "mixr/base/network/INetHandler.hpp"
+#include "mixr/base/qty/util/length_utils.hpp"
+#include "mixr/base/qty/util/angle_utils.hpp"
+#include "mixr/base/util/endian_utils.hpp"
+
+#include "mixr/ighost/pov/Pov.hpp"
+#include "mixr/ighost/pov/swap_endian.hpp"
+=======
 #include "mixr/base/units/Distances.hpp"
 #include "mixr/base/units/distance_utils.hpp"
 
 #include "mixr/base/network/NetHandler.hpp"
+>>>>>>> d91383e8
 
 #include <iostream>
 
@@ -29,14 +40,21 @@ END_SLOTTABLE(SimpleIGen)
 
 BEGIN_SLOT_MAP(SimpleIGen)
   ON_SLOT(1, setSlotDatabasePath, base::String)
+<<<<<<< HEAD
+  ON_SLOT(2, setSlotNetInput,     base::INetHandler)
+=======
   ON_SLOT(2, setSlotNetInput,     base::NetHandler)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 SimpleIGen::SimpleIGen()
 {
    STANDARD_CONSTRUCTOR()
+<<<<<<< HEAD
+=======
    x = -20.0f * base::distance::KM2M;
    y = -20.0f * base::distance::KM2M;
+>>>>>>> d91383e8
    viewer = new osgViewer::Viewer;
 }
 
@@ -45,14 +63,22 @@ bool SimpleIGen::setSlotDatabasePath(base::String* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
+<<<<<<< HEAD
+      databasePath = msg->c_str();
+=======
       databasePath = msg->getString();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
 }
 
 // Set Network Input Handler
+<<<<<<< HEAD
+bool SimpleIGen::setSlotNetInput(base::INetHandler* const msg)
+=======
 bool SimpleIGen::setSlotNetInput(base::NetHandler* const msg)
+>>>>>>> d91383e8
 {
    bool ok{};
    if (msg != nullptr) {
@@ -99,6 +125,29 @@ void SimpleIGen::updateData(const double dt)
 
 void SimpleIGen::draw()
 {
+<<<<<<< HEAD
+   // position & orientation
+   static float x{}, y{}, z{1000.0};
+   static float heading{}, pitch{}, roll{};
+   if (viewer->isRealized()) {
+
+      int n{recv(reinterpret_cast<char*>(&pov))};
+      if (n > 0) {
+
+         // swap endian
+         if (!base::is_big_endian()) {
+            mixr::ighost::pov::swap_endian(&pov);
+         }
+
+         // update position
+         x = pov.east;
+         y = pov.north;
+         z = pov.alt_agl;
+         // update orientation
+         heading = -pov.heading;
+         pitch = pov.pitch;
+         roll = pov.roll;
+=======
    if (viewer->isRealized()) {
       
       int n{recv((char*)&entityState)};
@@ -111,6 +160,7 @@ void SimpleIGen::draw()
          yaw = -entityState.psi;     // OSE heading is -(A/C heading)
          pitch = entityState.theta;
          roll = entityState.phi;
+>>>>>>> d91383e8
       }
 
       viewMatrix.set(
@@ -120,9 +170,15 @@ void SimpleIGen::draw()
          0, 0, 0, 1);
 
       rotate = osg::Matrix::rotate(osg::DegreesToRadians(roll), osg::Y_AXIS, osg::DegreesToRadians(pitch),
+<<<<<<< HEAD
+                                   osg::X_AXIS, osg::DegreesToRadians(heading), osg::Z_AXIS);
+      translate = osg::Matrix::translate(x, y, z);
+
+=======
                                    osg::X_AXIS, osg::DegreesToRadians(yaw), osg::Z_AXIS);
       translate = osg::Matrix::translate(x, y, z);
       
+>>>>>>> d91383e8
       // Setup Rotation and Position Matrix
       viewRotAndPosMatrix = rotate * translate;
       // Invert Model View Matrix

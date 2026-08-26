@@ -16,6 +16,8 @@ export MIXR_ROOT
 MIXR_EXAMPLES_ROOT=$PWD
 export MIXR_EXAMPLES_ROOT
 
+<<<<<<< HEAD
+=======
 # ---
 # MIXR examples library path
 # ---
@@ -23,6 +25,7 @@ MIXR_EXAMPLES_LIB_PATH=$PWD/lib
 export MIXR_EXAMPLES_LIB_PATH
 
 # ---
+>>>>>>> d91383e8
 # MIXR data
 # ---
 MIXR_DATA_ROOT=$PWD/../mixr-data

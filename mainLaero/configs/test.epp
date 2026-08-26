@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+
+( TestStation
+
+   glutDisplay:
+   #include "adidisplay.epp"
+
+   mapDisplay:
+   #include "mapdisplay.epp"
+
+   // image generator host interface
+   igHosts: {
+      //#include "ighosts/flightgear.epp"
+      #include "ighosts/pov.epp"
+   }
+
+=======
 ( TestStation
 
    glutDisplay: 
@@ -6,6 +23,7 @@
    mapDisplay: 
    #include "mapdisplay.epp"
 
+>>>>>>> d91383e8
    ownship: player1
 
    simulation:
@@ -22,17 +40,27 @@
             id:            1
             side:          blue
             type:          "F-16"
+<<<<<<< HEAD
+            signature:     ( RfSphereSignature radius: 2.0 )
+            initAlt:       ( Meters 500 )
+=======
             signature:     ( SigSphere radius: 2.0 )
             initLatitude:  ( Degrees  0 )
             initLongitude: ( Degrees  0 )
             initAlt:       ( Feet 20000 )
+>>>>>>> d91383e8
             initHeading:   ( Degrees 0 )
             initVelocity:  100
 
             components: {
                pilot:
+<<<<<<< HEAD
+               ( Autopilot
+                  navMode:             false
+=======
                ( Autopilot 
                   navMode:             0
+>>>>>>> d91383e8
                   // maximum rate of turn in degrees per second (PILOT limit)
                   //maxRateOfTurnDps:    10
                   // maximum bank angle in degrees (PILOT limit)
@@ -49,6 +77,12 @@
                   //loiterPatternTime: ( Minutes 3 )
                   //loiterPatternLength: 2
                )
+<<<<<<< HEAD
+
+               dynamicsModel:
+               ( LaeroDynamics )
+
+=======
                
                #if 1
                   dynamicsModel:
@@ -60,6 +94,7 @@
                   ( JSBSimModel )
                #endif
                
+>>>>>>> d91383e8
                navigation:
                ( Navigation
                   route:
@@ -69,10 +104,17 @@
                         ( Steerpoint
                            latitude:   0.1
                            longitude:  0.1
+<<<<<<< HEAD
+                           altitude: ( Feet 20000 )
+                           airspeed: 300
+                        )
+                        ( Steerpoint
+=======
                            altitude: ( Feet 12000 )
                            airspeed: 300
                         )
                         ( Steerpoint 
+>>>>>>> d91383e8
                            latitude:   0.1
                            longitude: -0.1
                            altitude: ( Feet 13000 )

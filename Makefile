@@ -17,6 +17,10 @@ APPLICATIONS += mainGlut
 
 # non-real-time simulation
 APPLICATIONS += mainNonRT1
+<<<<<<< HEAD
+APPLICATIONS += mainNonRT2
+=======
+>>>>>>> d91383e8
 
 # terrain database loader
 APPLICATIONS += mainTerrain
@@ -79,6 +83,12 @@ APPLICATIONS += testRecorderWrite
 # test VMAP0 loader library
 APPLICATIONS += testVmap
 
+<<<<<<< HEAD
+# general purpose test program to exercise base and graphics library functionalities
+APPLICATIONS += test
+
+=======
+>>>>>>> d91383e8
 # tutorial examples
 APPLICATIONS += tutorial01
 APPLICATIONS += tutorial02
@@ -100,8 +110,13 @@ $(PROJECTS):
 
 $(APPLICATIONS): shared
 
+<<<<<<< HEAD
+run:
+	-for d in $(PROJECTS); do (cd $$d; $(MAKE) run ); done
+=======
 edl:
 	-for d in $(PROJECTS); do (cd $$d; $(MAKE) edl ); done
+>>>>>>> d91383e8
 
 clean:
 	-for d in $(PROJECTS); do (cd $$d; $(MAKE) clean ); done

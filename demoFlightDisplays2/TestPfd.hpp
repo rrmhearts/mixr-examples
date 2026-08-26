@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestPfd_HPP__
+#define __TestPfd_HPP__
+=======
 #ifndef __TestPfd_H__
 #define __TestPfd_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 

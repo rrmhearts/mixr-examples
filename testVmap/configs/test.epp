@@ -49,7 +49,11 @@
             components: {
                 places:
                 ( SymbolLoader 
+<<<<<<< HEAD
+                    showOnlyInRange: false
+=======
                     showOnlyInRange: 0
+>>>>>>> d91383e8
                     templates: {
                         ( Graphic
                             components: {
@@ -64,14 +68,22 @@
                 )
                 points:
                 ( SymbolLoader 
+<<<<<<< HEAD
+                    showOnlyInRange: true
+=======
                     showOnlyInRange: 1
+>>>>>>> d91383e8
                     templates: {
                         ( Graphic
                             components: {
                                 ( Circle
                                     color: cyan
                                     radius: 0.05
+<<<<<<< HEAD
+                                    filled: true
+=======
                                     filled: 1
+>>>>>>> d91383e8
                                     slices: 100
                                 )
                             }
@@ -81,7 +93,11 @@
                 // here is a line to show center
                 ( Line
                     color: yellow
+<<<<<<< HEAD
+                    segment: true
+=======
                     segment: 1
+>>>>>>> d91383e8
                     vertices: {
                         [ -180 0 ] [ 180 0 ]
                         [ 0 -90 ] [ 0 90 ]

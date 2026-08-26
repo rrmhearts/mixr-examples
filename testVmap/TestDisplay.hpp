@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
+#ifndef __TestDisplay_HPP__
+#define __TestDisplay_HPP__
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #ifndef __TestDisplay_H__
 #define __TestDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 
 #include "mixr/base/osg/Vec3d"
 
@@ -14,6 +21,15 @@ namespace graphics { class Graphic; }
 namespace vpf { class VpfTable; class VMap0MainDirectory; }
 }
 
+<<<<<<< HEAD
+class TestDisplay final: public mixr::glut::IGlutDisplay
+{
+    DECLARE_SUBCLASS(TestDisplay, mixr::glut::IGlutDisplay)
+
+public:
+    TestDisplay();
+
+=======
 class TestDisplay final: public mixr::glut::GlutDisplay
 {
     DECLARE_SUBCLASS(TestDisplay, mixr::glut::GlutDisplay)
@@ -21,6 +37,7 @@ class TestDisplay final: public mixr::glut::GlutDisplay
 public:
     TestDisplay();
     
+>>>>>>> d91383e8
     void drawIt() final;
     void mouseEvent(const int button, const int state, const int x, const int y) final;
     void updateData(const double dt = 0.0) final;

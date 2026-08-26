@@ -11,7 +11,11 @@ set MIXR_DATA_ROOT=../../mixr-data
 
 set EPPFLAGS=^
     -I %MIXR_DATA_ROOT% ^
+<<<<<<< HEAD
+    -I %MIXR_ROOT%/../mixr-examples/shared/include/shared ^
+=======
     -I %MIXR_ROOT%/../mixr-examples/shared ^
+>>>>>>> d91383e8
     -I %MIXR_ROOT%/include ^
     -DMIXR_DATA_PATH=\"%MIXR_DATA_ROOT%\" ^
     -DMIXR_DATA_FONT_PATH=\"%MIXR_DATA_ROOT%/fonts/\" ^

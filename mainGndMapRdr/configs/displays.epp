@@ -3,7 +3,11 @@
 display:
 ( RbrDisplay
     
+<<<<<<< HEAD
+    name: "mainGndMapRdr -f test.edl"
+=======
     name: "Ground Mapping Radar Example"
+>>>>>>> d91383e8
     
     textureTest:    true            // True to load & draw a texture, else use glDrawPixels()
     

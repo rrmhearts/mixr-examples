@@ -9,6 +9,29 @@ OBJS = \
 	main.o \
 	factory.o
 
+<<<<<<< HEAD
+EDLS = test.edl
+
+CPPFLAGS += -DOSG_LIBRARY_STATIC
+
+LDFLAGS += -lmixr_models_jsbsim -lmixr_models -lJSBSim
+LDFLAGS += -lmixr_simulation -lmixr_terrain
+LDFLAGS += -lmixr_ui_glut -lmixr_graphics -lmixr_base -lmixr_ighost_pov
+
+LDFLAGS += -losgdb_txp -losgText -losgSim -losgViewer -losgUtil -losgGA -losgDB -losg -lOpenThreads -ldl
+
+LDFLAGS += -lfontconfig -lftgl -lfreetype -lglut -lGLU -lGL -lX11 -lpthread
+#LDFLAGS += -lXi -lXmu
+LDFLAGS += -lrt
+
+all: $(EDLS) $(PGM)
+
+run: all
+	./$(PGM) -f test.edl
+
+$(EDLS):
+	cpp configs/$(basename $@).epp > $@ $(EPPFLAGS)
+=======
 
 CPPFLAGS += -DOSG_LIBRARY_STATIC
 
@@ -26,6 +49,7 @@ all: edl $(PGM)
 
 edl:
 	cpp configs/test.epp > test.edl $(EPPFLAGS)
+>>>>>>> d91383e8
 
 $(PGM): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS)

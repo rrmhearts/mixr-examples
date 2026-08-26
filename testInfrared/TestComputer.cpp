@@ -1,9 +1,16 @@
 
 #include "TestComputer.hpp"
 
+<<<<<<< HEAD
+#include "mixr/models/track/ITrack.hpp"
+#include "mixr/models/track/IrTrack.hpp"
+#include "mixr/models/system/trackmanager/AngleOnlyTrackManager.hpp"
+#include "mixr/models/player/weapon/IWeapon.hpp"
+=======
 #include "mixr/models/Track.hpp"
 #include "mixr/models/system/trackmanager/AngleOnlyTrackManager.hpp"
 #include "mixr/models/player/weapon/AbstractWeapon.hpp"
+>>>>>>> d91383e8
 #include "mixr/models/system/IrSeeker.hpp"
 #include "mixr/models/system/IrSensor.hpp"
 
@@ -58,14 +65,22 @@ void TestComputer::updateTC(const double dt0)
    // ---
    // Four phases per frame
    // ---
+<<<<<<< HEAD
+   mixr::simulation::ISimulation* sim{getOwnship()->getWorldModel()};
+=======
    mixr::simulation::Simulation* sim{getOwnship()->getWorldModel()};
+>>>>>>> d91383e8
    if (sim == nullptr) return;
 
    // ---
    // bypass System:: version, forward call to Component directly,
    // and use 'dt' because if we're frozen then so are our subcomponents.
    // ---
+<<<<<<< HEAD
+   mixr::base::IComponent::updateTC(dt);
+=======
    mixr::base::Component::updateTC(dt);
+>>>>>>> d91383e8
 
    switch (sim->phase()) {
 
@@ -109,12 +124,20 @@ void TestComputer::process(const double dt)
 bool TestComputer::processIr()
 {
    // set the seeker/gimbal free to track target if just launched
+<<<<<<< HEAD
+   if (uncaged==false && getOwnship()->isMode(mixr::models::IPlayer::Mode::ACTIVE))
+=======
    if (uncaged==false && getOwnship()->isMode(mixr::models::Player::ACTIVE))
+>>>>>>> d91383e8
       uncaged = true;
 
    // waiting on getnexttarget may mean missing one or two updates
    // because we have to wait for obc::updateShootList which is an updateData task
+<<<<<<< HEAD
+   mixr::models::ITrack* irTrk{getNextTarget()};
+=======
    mixr::models::Track* irTrk{getNextTarget()};
+>>>>>>> d91383e8
    if (irTrk && uncaged) {
       // we have a target and our gimbal must be updated
       double pt_az{irTrk->getPredictedAzimuth()};
@@ -131,13 +154,21 @@ bool TestComputer::processIr()
       }
    }
 
+<<<<<<< HEAD
+   const auto ourWeapon = dynamic_cast<mixr::models::IWeapon*>(getOwnship());
+=======
    const auto ourWeapon = dynamic_cast<mixr::models::AbstractWeapon*>(getOwnship());
+>>>>>>> d91383e8
 
    // update the weapon's tracking if the target changed (includes loss of target)
    // weapon::targetPlayer tells the dynamics model where the target is -
    // if the seeker has no track, then the targetPlayer must be cleared
 
+<<<<<<< HEAD
+   mixr::models::IPlayer* irTarget{};
+=======
    mixr::models::Player* irTarget{};
+>>>>>>> d91383e8
    if (irTrk)
       irTarget = irTrk->getTarget();
    // tell the missile what to track
@@ -160,15 +191,26 @@ void TestComputer::updateShootList(const bool step)
 
    // First, let's get the active track list
    const unsigned int MAX_TRKS{20};
+<<<<<<< HEAD
+   mixr::base::safe_ptr<mixr::models::ITrack> trackList[MAX_TRKS];
+
+   int n{};
+   mixr::models::ITrackMgr* tm{getTrackManagerByType(typeid(mixr::models::AngleOnlyTrackManager))};
+=======
    mixr::base::safe_ptr<mixr::models::Track> trackList[MAX_TRKS];
 
    int n{};
    mixr::models::TrackManager* tm{getTrackManagerByType(typeid(mixr::models::AngleOnlyTrackManager))};
+>>>>>>> d91383e8
    if (tm != nullptr) n = tm->getTrackList(trackList, MAX_TRKS);
 
    if (isMessageEnabled(MSG_DEBUG)) {
       for (int i = 0; i < n; i++) {
+<<<<<<< HEAD
+         mixr::models::ITrack* trk{trackList[i]};
+=======
          mixr::models::Track* trk{trackList[i]};
+>>>>>>> d91383e8
          const auto irTrk = dynamic_cast<mixr::models::IrTrack*>(trk);
          std::cout << irTrk->getTarget()->getID() << " avg " << irTrk->getAvgSignal() << " max " << irTrk->getMaxSignal() << std::endl;
       }
@@ -185,7 +227,11 @@ void TestComputer::updateShootList(const bool step)
             //if (trackList[i]->getGroundSpeed() >= 1.0f) {
                if (nNTS >= 0) {
                   // is this one closer?
+<<<<<<< HEAD
+                  mixr::models::ITrack* trk{trackList[i]};
+=======
                   mixr::models::Track* trk{trackList[i]};
+>>>>>>> d91383e8
                   const auto irTrk = dynamic_cast<mixr::models::IrTrack*>(trk);
 
                   trk = trackList[nNTS];

@@ -4,6 +4,15 @@
 #include "configs/linkage/channel_map.hpp"
 
 #include "mixr/models/system/Autopilot.hpp"
+<<<<<<< HEAD
+#include "mixr/models/player/air/IAirVehicle.hpp"
+#include "mixr/models/navigation/INavigation.hpp"
+#include "mixr/models/navigation/Route.hpp"
+
+#include "mixr/simulation/ISimulation.hpp"
+
+#include "mixr/base/concepts/linkage/IIoData.hpp"
+=======
 #include "mixr/models/player/air/AirVehicle.hpp"
 #include "mixr/models/navigation/Navigation.hpp"
 #include "mixr/models/navigation/Route.hpp"
@@ -11,6 +20,7 @@
 #include "mixr/simulation/Simulation.hpp"
 
 #include "mixr/base/concepts/linkage/AbstractIoData.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/numeric/Boolean.hpp"
 #include "mixr/base/util/math_utils.hpp"
 
@@ -50,19 +60,32 @@ void TestIoHandler::inputDevicesImpl(const double dt)
    // ---
    // get the Input data buffer
    // ---
+<<<<<<< HEAD
+   const mixr::base::IIoData* const inData{getInputData()};
+=======
    const mixr::base::AbstractIoData* const inData{getInputData()};
+>>>>>>> d91383e8
 
    // ---
    // get the Station, Simulation and our ownship player
    // ---
    const auto sta = static_cast<SimStation*>( findContainerByType(typeid(SimStation)) );
 
+<<<<<<< HEAD
+   mixr::simulation::ISimulation* sim{};
+   mixr::models::IAirVehicle* av{};
+
+   if (sta != nullptr) {
+      sim = sta->getSimulation();
+      av = dynamic_cast<mixr::models::IAirVehicle*>(sta->getOwnship());
+=======
    mixr::simulation::Simulation* sim{};
    mixr::models::AirVehicle* av{};
 
    if (sta != nullptr) {
       sim = sta->getSimulation();
       av = dynamic_cast<mixr::models::AirVehicle*>(sta->getOwnship());
+>>>>>>> d91383e8
    }
 
    // ---
@@ -236,7 +259,11 @@ void TestIoHandler::inputDevicesImpl(const double dt)
          inData->getDiscreteInput(DMS_UP_SW, &incStptSw);
          if(incStptSw && !incStptSw1) {
             // find our route and increment the steerpoint
+<<<<<<< HEAD
+            mixr::models::INavigation* myNav{av->getNavigation()};
+=======
             mixr::models::Navigation* myNav{av->getNavigation()};
+>>>>>>> d91383e8
             if (myNav != nullptr) {
                myNav->ref();
                mixr::models::Route* myRoute{myNav->getPriRoute()};
@@ -255,7 +282,11 @@ void TestIoHandler::inputDevicesImpl(const double dt)
          inData->getDiscreteInput(DMS_DOWN_SW, &decStptSw);
          if (decStptSw && !decStptSw1) {
             // find our route and increment the steerpoint
+<<<<<<< HEAD
+            mixr::models::INavigation* myNav{av->getNavigation()};
+=======
             mixr::models::Navigation* myNav{av->getNavigation()};
+>>>>>>> d91383e8
             if (myNav != nullptr) {
                myNav->ref();
                mixr::models::Route* myRoute{myNav->getPriRoute()};

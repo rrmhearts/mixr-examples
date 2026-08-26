@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __SituationalDisplay_HPP__
+#define __SituationalDisplay_HPP__
+=======
 #ifndef __SituationalDisplay_H__
 #define __SituationalDisplay_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 

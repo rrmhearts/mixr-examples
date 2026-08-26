@@ -1,7 +1,11 @@
 
 #include "factory.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/IObject.hpp"
+=======
 #include "mixr/base/Object.hpp"
+>>>>>>> d91383e8
 
 #include "TestStation.hpp"
 #include "AdiDisplay.hpp"
@@ -9,14 +13,34 @@
 #include "MapPage.hpp"
 
 // factories
+<<<<<<< HEAD
+#include "xzmq/factory.hpp"
+#include "mixr/base/factory.hpp"
+#include "mixr/simulation/factory.hpp"
+#include "mixr/models/factory.hpp"
+#include "mixr/models/dynamics/jsbsim/factory.hpp"
+=======
 #include "../shared/xzmq/factory.hpp"
 #include "mixr/base/factory.hpp"
 #include "mixr/simulation/factory.hpp"
 #include "mixr/models/factory.hpp"
+>>>>>>> d91383e8
 #include "mixr/terrain/factory.hpp"
 #include "mixr/interop/dis/factory.hpp"
 #include "mixr/instruments/factory.hpp"
 #include "mixr/graphics/factory.hpp"
+<<<<<<< HEAD
+#include "mixr/graphics/fonts/ftgl/factory.hpp"
+#include "mixr/ui/glut/factory.hpp"
+#include "mixr/ighost/flightgear/factory.hpp"
+#include "mixr/ighost/pov/factory.hpp"
+
+#include <string>
+
+mixr::base::IObject* factory(const std::string& name)
+{
+    mixr::base::IObject* obj{};
+=======
 #include "mixr/ui/glut/factory.hpp"
 
 #include <string>
@@ -24,6 +48,7 @@
 mixr::base::Object* factory(const std::string& name)
 {
     mixr::base::Object* obj{};
+>>>>>>> d91383e8
 
     if ( name == TestStation::getFactoryName() ) {
         obj = new TestStation();
@@ -44,10 +69,21 @@ mixr::base::Object* factory(const std::string& name)
     // Framework libraries
     if (obj == nullptr) obj = mixr::simulation::factory(name);
     if (obj == nullptr) obj = mixr::models::factory(name);
+<<<<<<< HEAD
+    if (obj == nullptr) obj = mixr::models::jsbsim::factory(name);
+    if (obj == nullptr) obj = mixr::terrain::factory(name);
+    if (obj == nullptr) obj = mixr::instruments::factory(name);
+    if (obj == nullptr) obj = mixr::ighost::flightgear::factory(name);
+    if (obj == nullptr) obj = mixr::ighost::pov::factory(name);
+    if (obj == nullptr) obj = mixr::dis::factory(name);
+    if (obj == nullptr) obj = mixr::graphics::factory(name);
+    if (obj == nullptr) obj = mixr::graphics::ftgl::factory(name);
+=======
     if (obj == nullptr) obj = mixr::terrain::factory(name);
     if (obj == nullptr) obj = mixr::instruments::factory(name);
     if (obj == nullptr) obj = mixr::dis::factory(name);
     if (obj == nullptr) obj = mixr::graphics::factory(name);
+>>>>>>> d91383e8
     if (obj == nullptr) obj = mixr::glut::factory(name);
     if (obj == nullptr) obj = mixr::base::factory(name);
 

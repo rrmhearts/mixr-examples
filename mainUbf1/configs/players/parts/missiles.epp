@@ -7,7 +7,11 @@
 ( AamMissile                                          \
    id: ID                                             \
    type: "AIM-120C"                                   \
+<<<<<<< HEAD
+   signature: ( RfDihedralCRSignature a: 0.1 )        \
+=======
    signature: ( SigDihedralCR a: 0.1 )                \
+>>>>>>> d91383e8
    mode: inactive                                     \
    minSpeed: 0                                        \
    maxSpeed: 800                                      \

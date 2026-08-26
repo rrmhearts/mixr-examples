@@ -1,7 +1,10 @@
 
 #include "Echo.hpp"
 
+<<<<<<< HEAD
+=======
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/util/system_utils.hpp"
 
 #include <cstdlib>

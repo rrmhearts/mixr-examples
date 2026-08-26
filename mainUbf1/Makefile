@@ -7,10 +7,18 @@ PGM = mainUbf1
 OBJS = main.o
 OBJS += SimStation.o TestDisplay.o factory.o
 
+<<<<<<< HEAD
+LDFLAGS += -lmixr_models_jsbsim -lmixr_models -lJSBSim
+LDFLAGS += -lxbehaviors -lxpanel
+LDFLAGS += -lmixr_interop_dis -lmixr_interop -lmixr_graphics -lmixr_graphics_ftgl
+LDFLAGS += -lmixr_ui_glut -lmixr_instruments -lmixr_simulation
+LDFLAGS += -lmixr_ighost_cigi -lmixr_ighost_flightgear
+=======
 LDFLAGS += -lmixr_models -lJSBSim
 LDFLAGS += -lxbehaviors -lxpanel
 LDFLAGS += -lmixr_interop_dis -lmixr_interop -lmixr_graphics -lmixr_ui_glut -lmixr_instruments -lmixr_simulation
 LDFLAGS += -lmixr_ighost_cigi -lmixr_ighost_pov
+>>>>>>> d91383e8
 LDFLAGS += -lmixr_terrain
 LDFLAGS += -lJSBSim -lmixr_base
 LDFLAGS += -lftgl -lfreetype -lglut -lGLU -lGL -lX11

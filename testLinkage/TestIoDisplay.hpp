@@ -1,14 +1,25 @@
 
+<<<<<<< HEAD
+#ifndef __TestIoDisplay_HPP__
+#define __TestIoDisplay_HPP__
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #ifndef __TestIoDisplay_H__
 #define __TestIoDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 
 #include <array>
 #include <string>
 
 namespace mixr {
+<<<<<<< HEAD
+namespace base { class IIoHandler; class Integer; class String; }
+=======
 namespace base { class AbstractIoHandler; class Number; class String; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -35,9 +46,15 @@ namespace base { class AbstractIoHandler; class Number; class String; }
 //       item:  5   di: 11    // Item #4 is DI #11
 //   )
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class TestIoDisplay final: public mixr::glut::IGlutDisplay
+{
+   DECLARE_SUBCLASS(TestIoDisplay, mixr::glut::IGlutDisplay)
+=======
 class TestIoDisplay final: public mixr::glut::GlutDisplay
 {
    DECLARE_SUBCLASS(TestIoDisplay, mixr::glut::GlutDisplay)
+>>>>>>> d91383e8
 
 public:
    static const int ROWS{20};            // see display.epp/
@@ -60,7 +77,11 @@ private:
    void initData();
    void updateDisplay();
 
+<<<<<<< HEAD
+   mixr::base::safe_ptr<mixr::base::IIoHandler> ioHandler;   // The I/O data handler
+=======
    mixr::base::safe_ptr<mixr::base::AbstractIoHandler> ioHandler;   // The I/O data handler
+>>>>>>> d91383e8
 
    // Item/Channel mapping
    int item{};
@@ -81,10 +102,17 @@ private:
 
 private:
    // slot table helper methods
+<<<<<<< HEAD
+   bool setSlotIoHandler(mixr::base::IIoHandler* const);
+   bool setSlotItem(const mixr::base::Integer* const);
+   bool setSlotAiChannel(const mixr::base::Integer* const);
+   bool setSlotDiChannel(const mixr::base::Integer* const);
+=======
    bool setSlotIoHandler(mixr::base::AbstractIoHandler* const);
    bool setSlotItem(const mixr::base::Number* const);
    bool setSlotAiChannel(const mixr::base::Number* const);
    bool setSlotDiChannel(const mixr::base::Number* const);
+>>>>>>> d91383e8
    bool setSlotLabel(const mixr::base::String* const);
 };
 

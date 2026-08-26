@@ -2,6 +2,24 @@
 #include "Display.hpp"
 #include "RealBeamRadar.hpp"
 
+<<<<<<< HEAD
+#include "mixr/models/player/IPlayer.hpp"
+
+#include "mixr/simulation/ISimulation.hpp"
+#include "mixr/simulation/Station.hpp"
+
+#include "mixr/base/numeric/Boolean.hpp"
+
+#include "mixr/base/colors/IColor.hpp"
+#include "mixr/base/colors/Rgb.hpp"
+#include "mixr/base/colors/Hsva.hpp"
+
+#include "mixr/base/qty/angles.hpp"
+#include "mixr/base/qty/lengths.hpp"
+
+#include "mixr/base/String.hpp"
+#include "mixr/base/Pair.hpp"
+=======
 #include "mixr/models/player/Player.hpp"
 
 #include "mixr/simulation/Simulation.hpp"
@@ -19,6 +37,7 @@
 #include "mixr/base/String.hpp"
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
+>>>>>>> d91383e8
 
 using namespace mixr;
 
@@ -29,7 +48,11 @@ BEGIN_SLOTTABLE(Display)
 END_SLOTTABLE(Display)
 
 BEGIN_SLOT_MAP(Display)
+<<<<<<< HEAD
+   ON_SLOT( 1, setSlotTextureTest, base::Boolean)
+=======
    ON_SLOT( 1, setSlotTextureTest, base::Number)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 Display::Display()
@@ -54,39 +77,70 @@ void Display::deleteData()
 //------------------------------------------------------------------------------
 // Simulation access functions
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+models::IPlayer* Display::getOwnship()
+{
+    models::IPlayer* p{};
+    simulation::IStation* sta{getStation()};
+    if (sta != nullptr) {
+        p = dynamic_cast<models::IPlayer*>(sta->getOwnship());
+=======
 models::Player* Display::getOwnship()
 {
     models::Player* p{};
     simulation::Station* sta{getStation()};
     if (sta != nullptr) {
         p = dynamic_cast<models::Player*>(sta->getOwnship());
+>>>>>>> d91383e8
     }
     return p;
 }
 
+<<<<<<< HEAD
+simulation::ISimulation* Display::getSimulation()
+{
+    simulation::ISimulation* s{};
+    simulation::IStation* sta{getStation()};
+=======
 simulation::Simulation* Display::getSimulation()
 {
     simulation::Simulation* s{};
     simulation::Station* sta{getStation()};
+>>>>>>> d91383e8
     if (sta != nullptr) s = sta->getSimulation();
     return s;
 }
 
+<<<<<<< HEAD
+simulation::IStation* Display::getStation()
+{
+    if (myStation == nullptr) {
+        const auto s = dynamic_cast<simulation::IStation*>( findContainerByType(typeid(simulation::IStation)) );
+=======
 simulation::Station* Display::getStation()
 {
     if (myStation == nullptr) {
         const auto s = dynamic_cast<simulation::Station*>( findContainerByType(typeid(simulation::Station)) );
+>>>>>>> d91383e8
         if (s != nullptr) myStation = s;
     }
     return myStation;
 }
 
 // Set texture test flag
+<<<<<<< HEAD
+bool Display::setSlotTextureTest(const base::Boolean* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      testTexture = msg->asBool();
+=======
 bool Display::setSlotTextureTest(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       testTexture = msg->getBoolean();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
@@ -94,7 +148,11 @@ bool Display::setSlotTextureTest(const base::Number* const msg)
 
 void Display::drawFunc()
 {
+<<<<<<< HEAD
+   const auto own = dynamic_cast<models::IPlayer*>(getOwnship());
+=======
    const auto own = dynamic_cast<models::Player*>(getOwnship());
+>>>>>>> d91383e8
 
    const base::Pair* pair{};
    if (own != nullptr) pair = own->getSensorByType(typeid(RealBeamRadar));

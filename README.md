@@ -2,14 +2,23 @@
 Mixed Reality Simulation Platform (MIXR) Examples
 =================================================
 
+<<<<<<< HEAD
+The most current version of the mixed reality simulation platform can be found at [www.mixr-platform.org][mixr].
+=======
 The most current version of the mixed reality simulation platform can be found at [www.mixr-platform.org][mixr]. This repository is 18.01 for learning and notes.
+>>>>>>> d91383e8
 
 Notes
 -----
 
+<<<<<<< HEAD
+*  Use make-edl.cmd to generate the example *.edl files under windows, and
+   use 'make edl' to generate the *.edl files under Linux.
+=======
 *  Use `make-edl.cmd` to generate the example `*.edl` files under windows, and
    use `make edl` to generate the `*.edl` files under linux.
    This is required to **run most of the examples.**
+>>>>>>> d91383e8
 
 
 Demonstration Applications
@@ -39,7 +48,11 @@ Example Applications
 
 * mainIGViewer -- simple image generator
 
+<<<<<<< HEAD
+* mainLaero -- demonstrates flight navigation
+=======
 * mainLaero -- demostrates flight navigation
+>>>>>>> d91383e8
 
 * mainNonRT1 -- executes a simulation as fast as possible (not real-time, no concern about wall clock)
 
@@ -47,7 +60,11 @@ Example Applications
 
 * mainPuzzle2 -- puzzle problem solver (15 block puzzle)
 
+<<<<<<< HEAD
+* mainSim1 -- presents the simplest full-featured simulation that can be built with and only with MIXR classes.
+=======
 * mainSim1 -- presents the simpest full-featured simulation that can be built with and only with MIXR classes.
+>>>>>>> d91383e8
 
 * mainSim2 -- same as mainSim1 except the vehicle can be flown with a joystick and supports the JSBSim model
 
@@ -55,7 +72,11 @@ Example Applications
 
 * mainTerrain -- draws terrain elevation data
 
+<<<<<<< HEAD
+* mainUbf1 -- A version of 'mainCockpit' that uses UBF behaviors to 'fly' an aircraft
+=======
 * mainUbf1 -- A version of `mainCockpit` that uses UBF behaviors to 'fly' an aircraft
+>>>>>>> d91383e8
 
 Example GUI Applications
 ------------------------
@@ -67,11 +88,19 @@ Example GUI Applications
 Test Applications
 -----------------
 
+<<<<<<< HEAD
+* testDafif -- tests DAFIF library capabilities
+
+* testEvents -- tests Component class send() methods
+
+* testGraphics -- tests graphic class available in 'graphics' library
+=======
 * testDafif -- exercises DAFIF library capabilities
 
 * testEvents -- exercises `Component` class `send()` methods
 
 * testGraphics -- exercises graphic class available in 'graphics' library
+>>>>>>> d91383e8
     1. Contains several test MFD pages with common background graphics
     2. Use 'n' and 'p' (next and previous) to move between pages
     3. OpenGL selection test: use cursor and left mouse button to select a graphic item.  The selected item will flash.
@@ -79,6 +108,19 @@ Test Applications
 
 * testInfrared -- general IR test program
 
+<<<<<<< HEAD
+* testLinkage -- tests linkage architecture that interfaces applications to physical I/O devices
+
+* testLinearSys
+
+* testMatrix -- tests Matrix class functionality
+
+* testMetaObject -- tests meta-object functionality
+
+* testNavUtils -- extensive set of navigation test routines
+
+* testNetHandler -- tests the network handlers (derived from NetHandler).  Includes client and server side tests/examples for the UDP, TCP, broadcast, and multicast handlers.
+=======
 * testLinkage -- exercises linkage architecture that interfaces applications to physical I/O devices
 
 * testLinearSys
@@ -90,12 +132,17 @@ Test Applications
 * testNavUtils -- extensive set of navigation test routines
 
 * testNetHandler -- tests the network handlers (derived from `NetHandler`).  Includes client and server side tests/examples for the UDP, TCP, broadcast, and multicast handlers.
+>>>>>>> d91383e8
 
 * testRadar -- general radar test program
 
 * testRecordData -- variation of 'mainy1' that has a DataRecorder attached and records a data file that can be read by 'testRecordRead'.
 
+<<<<<<< HEAD
+* testRecorderRead -- reads and prints recorder data streams or binary files. Can be used with 'testRecordData' or 'testRecorderWrite'.
+=======
 * testRecorderRead -- reads and prints recorder data streams or binary files. Can be used with `testRecordData` or `testRecorderWrite`.
+>>>>>>> d91383e8
 
 * testRecorderWrite -- write test data recorder files.
 
@@ -103,6 +150,15 @@ Test Applications
 
 * testStateMach -- example and test of state machine class
 
+<<<<<<< HEAD
+* testTables -- collection of Table tests programs
+
+* testTemplates -- a bit of a playground for testing templates
+
+* testTimer -- tests the functionality of the Timer class.
+
+* test  -- tests base and graphics library functionalities
+=======
 * testTables -- collection of `Table` tests programs
 
 * testTemplates -- a bit of a playground for testing templates
@@ -110,6 +166,7 @@ Test Applications
 * testTimer -- tests the functionality of the `Timer` class.
 
 * testUnits  -- temporary location for misc docs for how unit conversions were tested
+>>>>>>> d91383e8
 
 Tutorial applications:
 --------------------------------------------------------------------------------------------
@@ -118,6 +175,15 @@ Tutorial applications:
 
 * tutorial02 -- This example demonstrates the creation of an MIXR compliant class called Random. As with most extensible platforms, macros are used to spell out the boilerplate code that needs to be defined in order to create a "well defined" class. The macros make it easy to develop native toolkit components quickly. This example purposely focuses on a simple class so that the developer can focus on the boilerplate aspects of MIXR classes.
 
+<<<<<<< HEAD
+* tutorial03 -- This example extends the capability of the Random class from tutorial02. The application has been enhanced so that it can read an input file and have the native toolkit parser create the Random class with attributes specified at run-time. This example is focused as a starting point for understanding how to use the MIXR parser and input language.
+
+* tutorial04 -- tutorial03 has been enhanced so that the Random class can provide numbers drawn from different distributions. Two specific distributions have been added: uniform and exponential. The Random class has been redefined to be abstract.
+
+* tutorial05 -- This tutorial creates a class called MyObj that can process several types of inputs. Specifically it understands a list of colors and a vector.
+
+* tutorial06 -- This tutorial presents the construction of a very simple component called MyComp. MyComp only understands one attribute called "str". Because MyComp is built off of component, MyComp can also manage a list of pairs (a pairstream) where each Pair contains another component. This list of pairs (the pairstream) is our components container.
+=======
 * tutorial03 -- This example extends the capability of the Random class from `tutorial02`. The application has been enhanced so that it can read an input file and have the native toolkit parser create the Random class with attributes specified at run-time. This example is focused as a starting point for understanding how to use the MIXR parser and input language.
 
 * tutorial04 -- tutorial03 has been enhanced so that the Random class can provide numbers drawn from different distributions. Two specific distributions have been added: uniform and exponential. The Random class has been redefined to be abstract.
@@ -125,6 +191,7 @@ Tutorial applications:
 * tutorial05 -- This tutorial creates a class called `MyObj` that can process several types of inputs. Specifically it understands a list of colors and a vector.
 
 * tutorial06 -- This tutorial presents the construction of a very simple component called `MyComp`. `MyComp` only understands one attribute called "str". Because `MyComp` is built off of component, `MyComp` can also manage a list of pairs (a pairstream) where each Pair contains another component. This list of pairs (the pairstream) is our components container.
+>>>>>>> d91383e8
 
 * tutorial07 -- Simple graphics application.
 
@@ -135,7 +202,11 @@ Libraries: (the 'x' in library name indicates eXample)
 --------------------------------------------------------------------------------------------
 * xBehaviors -- eXample UBF behaviors
 
+<<<<<<< HEAD
+* xPanel -- eXample components to display an instrument panel, used by 'mainy1', 'mainUbf1' and 'testRecordData'
+=======
 * xPanel -- eXample components to display an instrument panel, used by `mainy1`, `mainUbf1` and `testRecordData`
+>>>>>>> d91383e8
 
 * xRecorder -- eXample extension of the Data Recorder
 

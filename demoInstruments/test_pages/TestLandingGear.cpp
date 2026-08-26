@@ -22,7 +22,10 @@ void TestLandingGear::copyData(const TestLandingGear& org, const bool)
     gearPositionSD.empty();
     gearRate = org.gearRate;
     gearPositionROSD.empty();
+<<<<<<< HEAD
+=======
 
+>>>>>>> d91383e8
 }
 
 bool TestLandingGear::onUpdateLandingGearTestLandingGear()
@@ -38,8 +41,14 @@ void TestLandingGear::updateData(const double dt)
 
     gearPosition += (gearRate * dt);
 
+<<<<<<< HEAD
+    // bound gear position value between [0.0, 1.0]
+    if (gearPosition > 1.0) gearPosition = 1.0;
+    if (gearPosition < 0.0) gearPosition = 0.0;
+=======
     if (gearPosition > 1) gearPosition = 1;
     if (gearPosition < 0) gearPosition = 0;
+>>>>>>> d91383e8
 
     // here is the gauge display
     send("gear", UPDATE_INSTRUMENTS, gearPosition, gearPositionSD);

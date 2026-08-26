@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
+#ifndef __InstrumentPanel_HPP__
+#define __InstrumentPanel_HPP__
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+
+namespace mixr {
+namespace models { class IPlayer; }
+namespace simulation { class ISimulation; class IStation; }
+=======
 #ifndef __InstrumentPanel_H__
 #define __InstrumentPanel_H__
 
@@ -7,6 +17,7 @@
 namespace mixr {
 namespace models { class Player; }
 namespace simulation { class Simulation; class Station; }
+>>>>>>> d91383e8
 }
 class DedDisplay;
 class MfdDisplay;
@@ -21,18 +32,32 @@ class MfdDisplay;
 //   'f' or 'F'   -- Toggle simulation freeze
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class InstrumentPanel final: public mixr::glut::IGlutDisplay
+{
+   DECLARE_SUBCLASS(InstrumentPanel, mixr::glut::IGlutDisplay)
+=======
 class InstrumentPanel final: public mixr::glut::GlutDisplay
 {
    DECLARE_SUBCLASS(InstrumentPanel, mixr::glut::GlutDisplay)
+>>>>>>> d91383e8
 
 public:
    InstrumentPanel();
 
+<<<<<<< HEAD
+   mixr::models::IPlayer* getOwnship();
+   mixr::simulation::ISimulation* getSimulation();
+   mixr::simulation::IStation* getStation();
+
+   bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+=======
    mixr::models::Player* getOwnship();
    mixr::simulation::Simulation* getSimulation();
    mixr::simulation::Station* getStation();
 
    bool event(const int event, mixr::base::Object* const obj = nullptr) final;
+>>>>>>> d91383e8
    void updateData(const double dt = 0.0) final;
 
 protected:
@@ -42,7 +67,11 @@ protected:
    bool onStepOwnshipKey();
 
 private:
+<<<<<<< HEAD
+   mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+=======
    mixr::base::safe_ptr<mixr::simulation::Station> myStation;
+>>>>>>> d91383e8
 
    // ALT Stuff
    double altitude{};         // our current altitude

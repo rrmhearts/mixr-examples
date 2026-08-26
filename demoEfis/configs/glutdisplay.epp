@@ -1,5 +1,9 @@
 glutdisplay: ( GlutDisplay
+<<<<<<< HEAD
+    name: "demoEfis -f glutdisplay.edl"
+=======
     name: "Flight Display Test"
+>>>>>>> d91383e8
     left:   -3
     right:   3
     bottom: -3
@@ -10,7 +14,11 @@ glutdisplay: ( GlutDisplay
     vpHeight: 1000
     clearDepth: 1.0
     clearColor: (rgb 0 0 0)
+<<<<<<< HEAD
+    fullScreen: false
+=======
     fullScreen: 0
+>>>>>>> d91383e8
 
     colorTable: {
         black:      ( rgba 0 0 0 )
@@ -32,7 +40,11 @@ glutdisplay: ( GlutDisplay
     fonts: {
         // normal font for the instruments
         default:
+<<<<<<< HEAD
+        ( FTGLPolygonFont
+=======
         ( FTGLPolygonFonts
+>>>>>>> d91383e8
             // starting position of our font, notice it the upper left corner of our display, (see the orthos, up top)
             fontPosition: [ -3 3 ]
             // this is a unit value, telling us our width and height are proportional to one another

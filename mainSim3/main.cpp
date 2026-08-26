@@ -1,13 +1,36 @@
 
+<<<<<<< HEAD
+#include "mixr/base/IComponent.hpp"
+#include "mixr/base/Pair.hpp"
+#include "mixr/base/timers/ITimer.hpp"
+#include "mixr/base/edl_parser.hpp"
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/Timers.hpp"
 #include "mixr/base/edl_parser.hpp"
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 #include <GL/glut.h>
 #include "mixr/base/util/system_utils.hpp"
 
 // factories
+<<<<<<< HEAD
+#include "xzmq/factory.hpp"
+#include "mixr/base/factory.hpp"
+#include "mixr/graphics/factory.hpp"
+#include "mixr/graphics/fonts/ftgl/factory.hpp"
+#include "mixr/instruments/factory.hpp"
+#include "mixr/simulation/factory.hpp"
+#include "mixr/models/factory.hpp"
+#include "mixr/models/dynamics/jsbsim/factory.hpp"
+#include "mixr/terrain/factory.hpp"
+#include "mixr/interop/dis/factory.hpp"
+#include "mixr/ighost/cigi/factory.hpp"
+#include "mixr/ighost/flightgear/factory.hpp"
+=======
 #include "../shared/xzmq/factory.hpp"
 #include "mixr/base/factory.hpp"
 #include "mixr/graphics/factory.hpp"
@@ -18,6 +41,7 @@
 #include "mixr/interop/dis/factory.hpp"
 #include "mixr/ighost/cigi/factory.hpp"
 #include "mixr/ighost/pov/factory.hpp"
+>>>>>>> d91383e8
 #include "mixr/ui/glut/factory.hpp"
 
 #include "MapPage.hpp"
@@ -47,14 +71,24 @@ void timerFunc(int)
     const double dt{static_cast<double>(time - time0)};
     time0 = time;
 
+<<<<<<< HEAD
+    mixr::base::ITimer::updateTimers(dt);
+=======
     mixr::base::Timer::updateTimers(dt);
+>>>>>>> d91383e8
     mixr::graphics::Graphic::flashTimer(dt);
     station->updateData(dt);
 }
 
+<<<<<<< HEAD
+mixr::base::IObject* factory(const std::string& name)
+{
+    mixr::base::IObject* obj{};
+=======
 mixr::base::Object* factory(const std::string& name)
 {
     mixr::base::Object* obj{};
+>>>>>>> d91383e8
 
     if ( name == MapPage::getFactoryName() )       { obj = new MapPage(); }
     else if ( name == Station::getFactoryName() )  { obj = new Station(); }
@@ -64,6 +98,20 @@ mixr::base::Object* factory(const std::string& name)
     if (obj == nullptr)  { obj = mixr::xzmq::factory(name);         }
 
     // platform libraries
+<<<<<<< HEAD
+    if (obj == nullptr)  { obj = mixr::ighost::cigi::factory(name);       }
+    if (obj == nullptr)  { obj = mixr::ighost::flightgear::factory(name); }
+    if (obj == nullptr)  { obj = mixr::instruments::factory(name);        }
+    if (obj == nullptr)  { obj = mixr::simulation::factory(name);         }
+    if (obj == nullptr)  { obj = mixr::models::factory(name);             }
+    if (obj == nullptr)  { obj = mixr::models::jsbsim::factory(name);     }
+    if (obj == nullptr)  { obj = mixr::terrain::factory(name);            }
+    if (obj == nullptr)  { obj = mixr::dis::factory(name);                }
+    if (obj == nullptr)  { obj = mixr::graphics::factory(name);           }
+    if (obj == nullptr)  { obj = mixr::graphics::ftgl::factory(name);     }
+    if (obj == nullptr)  { obj = mixr::glut::factory(name);               }
+    if (obj == nullptr)  { obj = mixr::base::factory(name);               }
+=======
     if (obj == nullptr)  { obj = mixr::cigi::factory(name);         }
     if (obj == nullptr)  { obj = mixr::pov::factory(name);    }
     if (obj == nullptr)  { obj = mixr::instruments::factory(name);  }
@@ -74,6 +122,7 @@ mixr::base::Object* factory(const std::string& name)
     if (obj == nullptr)  { obj = mixr::graphics::factory(name);     }
     if (obj == nullptr)  { obj = mixr::glut::factory(name);         }
     if (obj == nullptr)  { obj = mixr::base::factory(name);         }
+>>>>>>> d91383e8
 
     return obj;
 }
@@ -83,7 +132,11 @@ Station* builder(const std::string& filename)
 {
    // read configuration file
    int num_errors{};
+<<<<<<< HEAD
+   mixr::base::IObject* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+=======
    mixr::base::Object* obj{mixr::base::edl_parser(filename, factory, &num_errors)};
+>>>>>>> d91383e8
    if (num_errors > 0) {
       std::cerr << "File: " << filename << ", number of errors: " << num_errors << std::endl;
       std::exit(EXIT_FAILURE);
@@ -124,7 +177,11 @@ int main(int argc, char* argv[])
    station = builder(configFilename);
 
    // reset the Simulation
+<<<<<<< HEAD
+   station->event(mixr::base::IComponent::RESET_EVENT);
+=======
    station->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    // set timer for the background tasks
    const double dt{1.0 / static_cast<double>(frameRate)};
@@ -133,7 +190,10 @@ int main(int argc, char* argv[])
    // ensure everything is reset
    station->updateData(dt);
    station->updateTC(dt);
+<<<<<<< HEAD
+=======
    station->event(mixr::base::Component::RESET_EVENT);
+>>>>>>> d91383e8
 
    glutTimerFunc(millis, timerFunc, 1);
 

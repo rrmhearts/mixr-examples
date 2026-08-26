@@ -1,20 +1,35 @@
 
 #include "Display.hpp"
 
+<<<<<<< HEAD
+#include "mixr/terrain/ITerrain.hpp"
+
+#include "mixr/base/numeric/Boolean.hpp"
+#include "mixr/base/numeric/Integer.hpp"
+
+#include "mixr/base/colors/IColor.hpp"
+=======
 #include "mixr/terrain/Terrain.hpp"
 
 #include "mixr/base/numeric/Number.hpp"
 
 #include "mixr/base/colors/Color.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/colors/Rgb.hpp"
 #include "mixr/base/colors/Hsva.hpp"
 
 #include "mixr/base/String.hpp"
+<<<<<<< HEAD
+
+#include "mixr/base/qty/angles.hpp"
+#include "mixr/base/qty/lengths.hpp"
+=======
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
 
 #include "mixr/base/units/Angles.hpp"
 #include "mixr/base/units/Distances.hpp"
+>>>>>>> d91383e8
 
 #include "mixr/base/util/nav_utils.hpp"
 #include "mixr/base/util/system_utils.hpp"
@@ -23,7 +38,11 @@
 
 using namespace mixr;
 
+<<<<<<< HEAD
+IMPLEMENT_SUBCLASS(Display, "Display")
+=======
 IMPLEMENT_SUBCLASS(Display, "TerrainDisplay")
+>>>>>>> d91383e8
 
 BEGIN_SLOTTABLE(Display)
    "terrain",        //  1) Terrain database
@@ -41,6 +60,20 @@ BEGIN_SLOTTABLE(Display)
 END_SLOTTABLE(Display)
 
 BEGIN_SLOT_MAP(Display)
+<<<<<<< HEAD
+   ON_SLOT( 1, setSlotTerrain,            terrain::ITerrain)
+   ON_SLOT( 2, setSlotMinElevation,       base::ILength)
+   ON_SLOT( 3, setSlotMaxElevation,       base::ILength)
+   ON_SLOT( 4, setSlotAltitude,           base::ILength)
+   ON_SLOT( 5, setSlotLookAngle,          base::IAngle)
+   ON_SLOT( 6, setSlotBeamWidth,          base::IAngle)
+   ON_SLOT( 7, setSlotColorScale,         base::Integer)
+   ON_SLOT( 8, setSlotInterpolate,        base::Boolean)
+   ON_SLOT( 9, setSlotShadowsTest,        base::Boolean)
+   ON_SLOT(10, setSlotAacTest,            base::Boolean)
+   ON_SLOT(11, setSlotEarthCurvatureTest, base::Boolean)
+   ON_SLOT(12, setSlotTextureTest,        base::Boolean)
+=======
    ON_SLOT( 1, setSlotTerrain,       terrain::Terrain)
    ON_SLOT( 2, setSlotMinElevation,  base::Distance)
    ON_SLOT( 3, setSlotMaxElevation,  base::Distance)
@@ -53,6 +86,7 @@ BEGIN_SLOT_MAP(Display)
    ON_SLOT(10, setSlotAacTest,       base::Number)
    ON_SLOT(11, setSlotEarthCurvatureTest, base::Number)
    ON_SLOT(12, setSlotTextureTest, base::Number)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 Display::Display()
@@ -133,7 +167,11 @@ bool Display::clearMaxElevation()
 //------------------------------------------------------------------------------
 // Slot functions
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool Display::setSlotTerrain(terrain::ITerrain* const msg)
+=======
 bool Display::setSlotTerrain(terrain::Terrain* const msg)
+>>>>>>> d91383e8
 {
    if (terrain != nullptr) terrain->unref();
    terrain = msg;
@@ -142,64 +180,112 @@ bool Display::setSlotTerrain(terrain::Terrain* const msg)
 }
 
 // Set min elevation
+<<<<<<< HEAD
+bool Display::setSlotMinElevation(const base::ILength* const x)
+{
+   bool ok{};
+   if (x != nullptr) {
+      ok = setMinElevation(x->getValueInMeters());
+=======
 bool Display::setSlotMinElevation(const base::Distance* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       ok = setMinElevation( base::Meters::convertStatic(*msg) );
+>>>>>>> d91383e8
    }
    return ok;
 }
 
 // Set max elevation
+<<<<<<< HEAD
+bool Display::setSlotMaxElevation(const base::ILength* const x)
+{
+   bool ok{};
+   if (x != nullptr) {
+      ok = setMaxElevation(x->getValueInMeters());
+=======
 bool Display::setSlotMaxElevation(const base::Distance* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       ok = setMaxElevation( base::Meters::convertStatic(*msg) );
+>>>>>>> d91383e8
    }
    return ok;
 }
 
 // Set max elevation
+<<<<<<< HEAD
+bool Display::setSlotAltitude(const base::ILength* const x)
+{
+   bool ok{};
+   if (x != nullptr) {
+      altitude = x->getValueInMeters();
+=======
 bool Display::setSlotAltitude(const base::Distance* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       altitude = base::Meters::convertStatic(*msg);
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
 }
 
 // Set antenna look angle
+<<<<<<< HEAD
+bool Display::setSlotLookAngle(const base::IAngle* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      lookAngle = msg->getValueInDegrees();
+=======
 bool Display::setSlotLookAngle(const base::Angle* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       lookAngle = static_cast<double>(base::Degrees::convertStatic(*msg));
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
 }
 
 // Set beam width
+<<<<<<< HEAD
+bool Display::setSlotBeamWidth(const base::IAngle* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      beamWidth = msg->getValueInDegrees();
+=======
 bool Display::setSlotBeamWidth(const base::Angle* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       beamWidth = static_cast<double>(base::Degrees::convertStatic(*msg));
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
 }
 
 // Set color scale flag
+<<<<<<< HEAD
+bool Display::setSlotColorScale(const base::Integer* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      const int s{msg->asInt()};
+=======
 bool Display::setSlotColorScale(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       const int s{msg->getInt()};
+>>>>>>> d91383e8
       if (s >= 0 && s <= 2) {
          colorDepth = static_cast<ColorDepth>(s);
          ok = true;
@@ -209,44 +295,76 @@ bool Display::setSlotColorScale(const base::Number* const msg)
 }
 
 // Set interpolate flag
+<<<<<<< HEAD
+bool Display::setSlotInterpolate(const base::Boolean* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      interpolate = msg->asBool();
+=======
 bool Display::setSlotInterpolate(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       interpolate = msg->getBoolean();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
 }
 
 // Set shadow test flag
+<<<<<<< HEAD
+bool Display::setSlotShadowsTest(const base::Boolean* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      testShadows = msg->asBool();
+=======
 bool Display::setSlotShadowsTest(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       testShadows = msg->getBoolean();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
 }
 
 // Set AAC test flag
+<<<<<<< HEAD
+bool Display::setSlotAacTest(const base::Boolean* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      testAac = msg->asBool();
+=======
 bool Display::setSlotAacTest(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       testAac = msg->getBoolean();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
 }
 
 // Set earth curvature test flag
+<<<<<<< HEAD
+bool Display::setSlotEarthCurvatureTest(const base::Boolean* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      testEarthCurv = msg->asBool();
+=======
 bool Display::setSlotEarthCurvatureTest(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       testEarthCurv = msg->getBoolean();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
@@ -254,11 +372,19 @@ bool Display::setSlotEarthCurvatureTest(const base::Number* const msg)
 
 
 // Set texture test flag
+<<<<<<< HEAD
+bool Display::setSlotTextureTest(const base::Boolean* const msg)
+{
+   bool ok{};
+   if (msg != nullptr) {
+      testTexture = msg->asBool();
+=======
 bool Display::setSlotTextureTest(const base::Number* const msg)
 {
    bool ok{};
    if (msg != nullptr) {
       testTexture = msg->getBoolean();
+>>>>>>> d91383e8
       ok = true;
    }
    return ok;
@@ -341,8 +467,13 @@ void Display::updateData(const double dt)
          double* curvature{};
          if (testEarthCurv) {
             curvature = new double[NUM_ROWS];
+<<<<<<< HEAD
+            const auto radius = static_cast<double>(base::nav::ERAD60 * base::length::NM2M);
+            const auto maxRng = static_cast<double>(deltaLat * 60.0f * base::length::NM2M);
+=======
             const auto radius = static_cast<double>(base::nav::ERAD60 * base::distance::NM2M);
             const auto maxRng = static_cast<double>(deltaLat * 60.0f * base::distance::NM2M);
+>>>>>>> d91383e8
             for (int irow = 0; irow < NUM_ROWS; irow++) {
                const double curRng{maxRng * static_cast<double>(irow)/static_cast<double>(NUM_ROWS)};
                const double arc{curRng / radius};
@@ -412,7 +543,11 @@ void Display::updateData(const double dt)
 
                // the Lat/long of the southern most point
                const double latitude{cLat + (0 - NUM_ROWS/2) * spacingLat};
+<<<<<<< HEAD
+               const double maxRng{static_cast<double>(deltaLat * 60.0f * base::length::NM2M)};
+=======
                const double maxRng{static_cast<double>(deltaLat * 60.0f * base::distance::NM2M)};
+>>>>>>> d91383e8
 
                // Direction
                //double direction = 30.0f * static_cast<double>(icol - NUM_COLUMNS/2)/static_cast<double>(NUM_COLUMNS/2);
@@ -430,7 +565,11 @@ void Display::updateData(const double dt)
 
                // Generate Masks
                if (testShadows) {
+<<<<<<< HEAD
+                  terrain::ITerrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, NUM_ROWS, maxRng, altitude, lookAngle, beamWidth);
+=======
                   terrain::Terrain::vbwShadowChecker(maskFlgs, elevations, validFlgs, NUM_ROWS, maxRng, altitude, lookAngle, beamWidth);
+>>>>>>> d91383e8
                }
 
                // Compute AAC data
@@ -438,7 +577,11 @@ void Display::updateData(const double dt)
                   //simulation::Terrain::aac(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, altitude);
                   const auto angle = static_cast<double>(-10.0f * base::angle::D2RCC);
                   base::Vec2d vec(std::cos(angle),std::sin(angle));
+<<<<<<< HEAD
+                  terrain::ITerrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
+=======
                   terrain::Terrain::cLight(aacData, elevations, maskFlgs, NUM_ROWS, maxRng, vec);
+>>>>>>> d91383e8
                }
 
             }
@@ -465,11 +608,19 @@ void Display::updateData(const double dt)
                // If valid and not masked, convert the elevation to a color (or gray) value
                if (valid && !(testShadows && maskFlgs[irow])) {
                   if (colorDepth == ColorDepth::GRAY)
+<<<<<<< HEAD
+                     terrain::ITerrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);
+                  else if (colorDepth == ColorDepth::COLOR)
+                     terrain::ITerrain::getElevationColor(elev, minz, maxz, colorTable, 7, color);
+                  else if (colorDepth == ColorDepth::GREEN)
+                     terrain::ITerrain::getElevationColor(elev, minz, maxz, greenTable,  19, color);
+=======
                      terrain::Terrain::getElevationColor(elev, minz, maxz, grayTable,  2, color);
                   else if (colorDepth == ColorDepth::COLOR)
                      terrain::Terrain::getElevationColor(elev, minz, maxz, colorTable, 7, color);
                   else if (colorDepth == ColorDepth::GREEN)
                      terrain::Terrain::getElevationColor(elev, minz, maxz, greenTable,  19, color);
+>>>>>>> d91383e8
                }
 
                // Apply AAC data

@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestNozzle_HPP__
+#define __TestNozzle_HPP__
+=======
 #ifndef __TestNozzle_H__
 #define __TestNozzle_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 

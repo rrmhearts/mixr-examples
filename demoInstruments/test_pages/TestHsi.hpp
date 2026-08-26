@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestHsi_HPP__
+#define __TestHsi_HPP__
+=======
 #ifndef __TestHsi_H__
 #define __TestHsi_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 

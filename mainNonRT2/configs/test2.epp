@@ -1,0 +1,13 @@
+
+( WorldModel
+
+    // reference gaming area
+    latitude:   41.0
+    longitude: -112
+
+    players: {
+#include "player01.epp"
+#include "player02.epp"
+    } // players
+
+) // world model

@@ -2,7 +2,11 @@
 #define SHOW_MATERIALS
 
 ( GlutDisplay
+<<<<<<< HEAD
+    name: "demoSubDisplays -f test.edl"
+=======
     name: "Mutiple Display Test"
+>>>>>>> d91383e8
     left:   -10.5
     right:   10.5
     bottom: -10.5

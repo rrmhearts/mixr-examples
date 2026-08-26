@@ -1,13 +1,22 @@
 
+<<<<<<< HEAD
+#ifndef __DspRadar_HPP__
+#define __DspRadar_HPP__
+=======
 #ifndef __DspRadar_H__
 #define __DspRadar_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Graphic.hpp"
 #include <array>
 
 namespace mixr {
 namespace base { class PairStream; }
+<<<<<<< HEAD
+namespace models { class IRadar; }
+=======
 namespace models { class Radar; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
@@ -23,9 +32,15 @@ class DspRadar final: public mixr::graphics::Graphic
 public:
    DspRadar();
 
+<<<<<<< HEAD
+   const mixr::models::IRadar* getRadar()             { return radar; }
+   const mixr::models::IRadar* getRadar() const       { return radar; }
+   bool setRadar(mixr::models::IRadar* const s)       { radar = s; return true; }
+=======
    const mixr::models::Radar* getRadar()             { return radar; }
    const mixr::models::Radar* getRadar() const       { return radar; }
    bool setRadar(mixr::models::Radar* const s)       { radar = s; return true; }
+>>>>>>> d91383e8
 
    void drawFunc() final;
 
@@ -34,6 +49,19 @@ public:
 private:
     static const int MAX_TRKS{50};
 
+<<<<<<< HEAD
+    const mixr::models::IRadar* radar{};  // The test RADAR sensor
+    SendData azSD;
+    SendData elSD;
+
+    // tracks
+    int nTracks{};                                // number of tracks
+    int ntsTrk{-1};                               // index of the 'next-to-shoot' track
+    std::array<double, MAX_TRKS> trkRng{};        // track's range                    (meters)
+    std::array<double, MAX_TRKS> trkAz{};         // track's relative azimuth
+    std::array<double, MAX_TRKS> trkVel{};        // track's velocity                 (m/s)
+    std::array<double, MAX_TRKS> trkRelGndTrk{};  // track's relative ground track (to nearest 45 deg)
+=======
     const mixr::models::Radar* radar{};  // The test RADAR sensor
     SendData azSD;
     SendData elSD;
@@ -45,6 +73,7 @@ private:
     std::array<double, MAX_TRKS> trkAz{};         // Track's relative azimuth
     std::array<double, MAX_TRKS> trkVel{};        // Track's velocity                 (m/s)
     std::array<double, MAX_TRKS> trkRelGndTrk{};  // Track's relative ground track (to nearest 45 deg)
+>>>>>>> d91383e8
 };
 
 #endif

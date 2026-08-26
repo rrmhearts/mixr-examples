@@ -4,11 +4,20 @@
 // ----------------------
 
 #define JSBSIM_DYNAMICS(MODEL)      \
+<<<<<<< HEAD
+( JSBSimDynamics                    \
+=======
 ( JSBSimModel                       \
+>>>>>>> d91383e8
    rootDir: MIXR_DATA_JSBSIM_PATH   \
    model: MODEL                     \
 )
 
+<<<<<<< HEAD
+#define LAERO_DYNAMICS()            \
+( LaeroDynamics )
+=======
 #define LAERO_DYNAMICS()         \
 ( LaeroModel )
+>>>>>>> d91383e8
 

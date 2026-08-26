@@ -2,19 +2,34 @@
 // Distribution settings
 //
 
+<<<<<<< HEAD
+//( Uniform
+//   min: 0
+//   max: 100
+//)
+=======
 ( Uniform
    min: 0
    max: 100
 )
+>>>>>>> d91383e8
 
 //( Exponential
 //    seed: 12
 //    mean: 50
 //)
 
+<<<<<<< HEAD
+( Lognormal
+    seed: 12
+    mean: 10
+    stddev: 2
+)
+=======
 //( Lognormal
 //    seed: 12
 //    mean: 10
 //    stddev: 2
 //)
+>>>>>>> d91383e8
 

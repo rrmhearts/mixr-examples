@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __TestVVI_HPP__
+#define __TestVVI_HPP__
+=======
 #ifndef __TestVVI_H__
 #define __TestVVI_H__
+>>>>>>> d91383e8
 
 #include "mixr/graphics/Page.hpp"
 

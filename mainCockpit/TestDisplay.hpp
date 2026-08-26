@@ -1,14 +1,26 @@
 
+<<<<<<< HEAD
+#ifndef __TestDisplay_HPP__
+#define __TestDisplay_HPP__
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+=======
 #ifndef __TestDisplay_H__
 #define __TestDisplay_H__
 
 #include "mixr/ui/glut/GlutDisplay.hpp"
+>>>>>>> d91383e8
 
 #include <array>
 
 namespace mixr {
+<<<<<<< HEAD
+namespace simulation { class ISimulation; class IStation; }
+namespace models { class IPlayer; }
+=======
 namespace simulation { class Simulation; class Station; }
 namespace models { class Missile; class Player; }
+>>>>>>> d91383e8
 namespace graphics { class SymbolLoader; }
 namespace xpanel { class DspRadar; class DspRwr; }
 }
@@ -34,9 +46,15 @@ namespace xpanel { class DspRadar; class DspRwr; }
 //   'd' or 'D'   -- Decrease Range
 //   '+'          -- Ownship step (to next local air vehicle)
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class TestDisplay final: public mixr::glut::IGlutDisplay
+{
+    DECLARE_SUBCLASS(TestDisplay, mixr::glut::IGlutDisplay)
+=======
 class TestDisplay final: public mixr::glut::GlutDisplay
 {
     DECLARE_SUBCLASS(TestDisplay, mixr::glut::GlutDisplay)
+>>>>>>> d91383e8
 
 public:
     static const int MAX_TRACKS{60};
@@ -46,14 +64,24 @@ public:
 public:
     TestDisplay();
 
+<<<<<<< HEAD
+    mixr::models::IPlayer* getOwnship();
+    mixr::simulation::ISimulation* getSimulation();
+    mixr::simulation::IStation* getStation();
+=======
     mixr::models::Player* getOwnship();
     mixr::simulation::Simulation* getSimulation();
     mixr::simulation::Station* getStation();
+>>>>>>> d91383e8
 
     void maintainAirTrackSymbols(mixr::graphics::SymbolLoader* loader, const double rng);
 
     void mouseEvent(const int button, const int state, const int x, const int y) final;
+<<<<<<< HEAD
+    bool event(const int event, mixr::base::IObject* const obj = nullptr) final;
+=======
     bool event(const int event, mixr::base::Object* const obj = nullptr) final;
+>>>>>>> d91383e8
     void updateData(const double dt = 0.0) final;
 
 protected:
@@ -81,13 +109,21 @@ private:
     SendData headingSD;
     SendData rangeSD;
 
+<<<<<<< HEAD
+    mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+=======
     mixr::base::safe_ptr<mixr::simulation::Station> myStation;
+>>>>>>> d91383e8
 
     // ---
     // RADAR, RWR and SA stuff
     // ---
 
+<<<<<<< HEAD
+    std::array<mixr::models::IPlayer*, MAX_TRACKS> tracks{}; // players that we're displaying
+=======
     std::array<mixr::models::Player*, MAX_TRACKS> tracks{};  // players that we're displaying
+>>>>>>> d91383e8
     std::array<int, MAX_TRACKS> trkIdx{};                    // Index of track symbols
 
     // ---

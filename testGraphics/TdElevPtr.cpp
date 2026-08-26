@@ -1,6 +1,10 @@
 
 #include "TdElevPtr.hpp"
+<<<<<<< HEAD
+#include "mixr/base/numeric/INumber.hpp"
+=======
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 #include <iostream>
 
 using namespace mixr;
@@ -20,7 +24,11 @@ void TdElevPtr::copyData(const TdElevPtr& org, const bool)
 }
 
 BEGIN_EVENT_HANDLER(TdElevPtr)
+<<<<<<< HEAD
+    ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::INumber)
+=======
     ON_EVENT_OBJ(UPDATE_VALUE, onUpdateValue, base::Number)
+>>>>>>> d91383e8
 END_EVENT_HANDLER()
 
 void TdElevPtr::draw()
@@ -36,8 +44,14 @@ void TdElevPtr::draw()
 //------------------------------------------------------------------------------
 // onUpdateValue()-- event handler for an updated value
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool TdElevPtr::onUpdateValue(const base::INumber* const ouvobj)
+{
+    if (ouvobj != nullptr) elev = ouvobj->asDouble();
+=======
 bool TdElevPtr::onUpdateValue(const base::Number* const ouvobj)
 {
     if (ouvobj != nullptr) elev = ouvobj->getReal();
+>>>>>>> d91383e8
     return true;
 }

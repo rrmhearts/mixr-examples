@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
+#ifndef __Sender_HPP__
+#define __Sender_HPP__
+=======
 #ifndef __Sender_H__
 #define __Sender_H__
+>>>>>>> d91383e8
 
 #include "Endpoint.hpp"
 

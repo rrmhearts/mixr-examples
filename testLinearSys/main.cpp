@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
+#include "mixr/base/linearsystem/Sz1.hpp"
+=======
 #include "mixr/linearsystem/Sz1.hpp"
+>>>>>>> d91383e8
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
@@ -11,7 +15,11 @@ int main(int, char**)
    const int RATE{100};
    const double A{10.0};
 
+<<<<<<< HEAD
+   mixr::base::Sz1 filter;
+=======
    mixr::linearsystem::Sz1 filter;
+>>>>>>> d91383e8
 
    filter.setN1(0.0);
    filter.setN2(1.0);

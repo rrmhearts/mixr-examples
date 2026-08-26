@@ -1,11 +1,18 @@
 
 #include "Sender.hpp"
 
+<<<<<<< HEAD
+=======
 #include "mixr/base/numeric/Number.hpp"
+>>>>>>> d91383e8
 #include "mixr/base/util/system_utils.hpp"
 
 #include <cstdio>
 #include <cstdlib>
+<<<<<<< HEAD
+#include <cstring>
+=======
+>>>>>>> d91383e8
 #include <iostream>
 
 using namespace mixr;

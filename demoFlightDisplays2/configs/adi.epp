@@ -16,7 +16,11 @@
                     components: {
                     ( Line
                             transform: ( Translation -0.341 0 )
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             color: white
                             linewidth: 3
                             vertices: {
@@ -54,7 +58,11 @@
                     transform: ( Translation 0.65 0 )
                     components: {
                     ( Line
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             color: white
                             transform: ( Translation 0.261 0 )
                             linewidth: 3
@@ -104,7 +112,11 @@
                 // flight director bank angle
                 fdirbnkang: 
                 ( GaugeSlider
+<<<<<<< HEAD
+                    vertical: false
+=======
                     vertical: 0
+>>>>>>> d91383e8
                     scalingTable: 
                         ( Table1
                             // degrees roll
@@ -124,7 +136,11 @@
                 // flight director pitch 
                 fdirpitch:
                 ( GaugeSlider
+<<<<<<< HEAD
+                    vertical: true
+=======
                     vertical: 1
+>>>>>>> d91383e8
                     scalingTable: 
                         ( Table1
                             // degrees pitch
@@ -219,7 +235,11 @@ bankscale:     ( Graphic
 
             
 bankangle: ( DialPointer
+<<<<<<< HEAD
+                allowComponentPass: false
+=======
                 allowComponentPass: 0
+>>>>>>> d91383e8
                 color: white
                 components: {
                     ( LineLoop
@@ -232,7 +252,11 @@ bankangle: ( DialPointer
                         }
                     )
         sideslip:   ( GaugeSlider
+<<<<<<< HEAD
+                        vertical: false
+=======
                         vertical: 0
+>>>>>>> d91383e8
                         transform: ( Translation 0 1.27 ) 
                         scalingTable:
                             ( Table1
@@ -323,7 +347,11 @@ bankangle: ( DialPointer
                                 components: {
                                     ( Line
                                         transform: ( Translation 0 0 0.2 )
+<<<<<<< HEAD
+                                        segment: true
+=======
                                         segment: 1
+>>>>>>> d91383e8
                                         vertices: {
                                             [ -2.0 0.0 ] [ -1.75625 0.0 ]
                                             [ -1.634375 0.0 ] [ -1.390625 0.0 ]

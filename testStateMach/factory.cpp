@@ -1,7 +1,11 @@
 
 #include "factory.hpp"
 
+<<<<<<< HEAD
+#include "mixr/base/IObject.hpp"
+=======
 #include "mixr/base/Object.hpp"
+>>>>>>> d91383e8
 
 #include "TestStateMachine01.hpp"
 #include "TestStateMachine02.hpp"
@@ -17,9 +21,15 @@
 
 using namespace mixr;
 
+<<<<<<< HEAD
+base::IObject* factory(const std::string& name)
+{
+    base::IObject* obj {};
+=======
 base::Object* factory(const std::string& name)
 {
     base::Object* obj {};
+>>>>>>> d91383e8
 
     // Test #1
     if ( name == TestStateMachine01::getFactoryName() ) {

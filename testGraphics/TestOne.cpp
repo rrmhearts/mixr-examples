@@ -1,6 +1,12 @@
 
 #include "TestOne.hpp"
+<<<<<<< HEAD
+
+#include "mixr/base/numeric/INumber.hpp"
+#include "mixr/base/qty/angles.hpp"
+=======
 #include "mixr/base/units/Angles.hpp"
+>>>>>>> d91383e8
 
 #include <cmath>
 
@@ -15,9 +21,15 @@ BEGIN_SLOTTABLE(TestOne)
 END_SLOTTABLE(TestOne)
 
 BEGIN_SLOT_MAP(TestOne)
+<<<<<<< HEAD
+    ON_SLOT(1, realSpeed, base::INumber)
+    ON_SLOT(2, setAngle,  base::IAngle)
+    ON_SLOT(2, setAngle,  base::INumber)
+=======
     ON_SLOT(1, realSpeed, base::Number)
     ON_SLOT(2, setAngle, base::Angle)
     ON_SLOT(2, setAngle, base::Number)
+>>>>>>> d91383e8
 END_SLOT_MAP()
 
 BEGIN_EVENT_HANDLER(TestOne)
@@ -65,8 +77,12 @@ void TestOne::reset()
     yPos =0;
     nTrails = 0;
     if (iangle != nullptr) {
+<<<<<<< HEAD
+        setStartAngle(iangle->getValueInRadians());
+=======
         base::Radians radians;
         setStartAngle(static_cast<double>(radians.convert(*iangle)));
+>>>>>>> d91383e8
     }
 }
 
@@ -155,21 +171,35 @@ void TestOne::drawFunc()
 //------------------------------------------------------------------------------
 // realSpeed() -- sets the starting real speed
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool TestOne::realSpeed(const base::INumber* const rsobj)
+{
+    if (rsobj != nullptr) setSpeed(rsobj->asDouble());
+=======
 bool TestOne::realSpeed(const base::Number* const rsobj)
 {
     if (rsobj != nullptr) setSpeed(rsobj->getReal());
+>>>>>>> d91383e8
     return true;
 }
 
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an base::Angle parameter
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool TestOne::setAngle(base::IAngle* x)
+{
+    if (x != nullptr) {
+        setStartAngle(x->getValueInRadians());
+        iangle = x;
+=======
 bool TestOne::setAngle(base::Angle* saobj)
 {
     if (saobj != nullptr) {
         base::Radians radians;
         setStartAngle(static_cast<double>(radians.convert(*saobj)));
         iangle = saobj;
+>>>>>>> d91383e8
         iangle->ref();
     }
     return true;
@@ -178,8 +208,14 @@ bool TestOne::setAngle(base::Angle* saobj)
 //------------------------------------------------------------------------------
 // setAngle() -- sets the starting angle using an base::Number parameter
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+bool TestOne::setAngle(const base::INumber* const saobj)
+{
+    setStartAngle(saobj->asDouble());
+=======
 bool TestOne::setAngle(const base::Number* const saobj)
 {
     setStartAngle(saobj->getReal());
+>>>>>>> d91383e8
     return true;
 }

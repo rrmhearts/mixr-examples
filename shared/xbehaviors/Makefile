@@ -1,7 +1,11 @@
 #
 include ../../makedefs
 
+<<<<<<< HEAD
+LIB = $(MIXR_SHARED_LIB_PATH)/libxbehaviors.a
+=======
 LIB = $(MIXR_EXAMPLES_LIB_PATH)/libxbehaviors.a
+>>>>>>> d91383e8
 
 OBJS += \
 	factory.o \

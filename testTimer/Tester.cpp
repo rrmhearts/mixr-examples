@@ -3,9 +3,16 @@
 
 #include "mixr/base/Pair.hpp"
 #include "mixr/base/PairStream.hpp"
+<<<<<<< HEAD
+#include "mixr/base/timers/ITimer.hpp"
+
+#include <cstdio>
+#include <string>
+=======
 #include "mixr/base/Timers.hpp"
 
 #include <cstdio>
+>>>>>>> d91383e8
 
 IMPLEMENT_SUBCLASS(Tester, "Tester")
 
@@ -43,10 +50,17 @@ bool Tester::areAllActiveTimerAlarmsOn() const
 
    if (timers != nullptr) {
 
+<<<<<<< HEAD
+      const mixr::base::IList::Item* item{timers->getFirstItem()};
+      while (item != nullptr && on) {
+         const auto pair = static_cast<const mixr::base::Pair*>(item->getValue());
+         const auto timer = static_cast<const mixr::base::ITimer*>(pair->object());
+=======
       const mixr::base::List::Item* item{timers->getFirstItem()};
       while (item != nullptr && on) {
          const auto pair = static_cast<const mixr::base::Pair*>(item->getValue());
          const auto timer = static_cast<const mixr::base::Timer*>(pair->object());
+>>>>>>> d91383e8
          on = timer->alarm() || timer->isNotRunning();
          item = item->getNext();
       }
@@ -62,6 +76,17 @@ void Tester::printTimers() const
 {
    if (timers != nullptr) {
 
+<<<<<<< HEAD
+      const mixr::base::IList::Item* item{timers->getFirstItem()};
+      while (item != nullptr) {
+         const auto pair = static_cast<const mixr::base::Pair*>(item->getValue());
+         const auto timer = static_cast<const mixr::base::ITimer*>(pair->object());
+
+         std::printf("  timer(%s)", pair->slot().c_str());
+         std::printf(" = %4.1f", timer->getCurrentTime());
+
+         if (timer->getType() == mixr::base::ITimer::Type::UP) std::printf(", up");
+=======
       const mixr::base::List::Item* item{timers->getFirstItem()};
       while (item != nullptr) {
          const auto pair = static_cast<const mixr::base::Pair*>(item->getValue());
@@ -71,6 +96,7 @@ void Tester::printTimers() const
          std::printf(" = %4.1f", timer->getCurrentTime());
 
          if (timer->getType() == mixr::base::Timer::Type::UP) std::printf(", up");
+>>>>>>> d91383e8
          else std::printf(", down");
 
          if (timer->isRunning()) std::printf(", active");
@@ -94,10 +120,17 @@ void Tester::restartAllTimers()
 {
    if (timers != nullptr) {
 
+<<<<<<< HEAD
+      mixr::base::IList::Item* item{timers->getFirstItem()};
+      while (item != nullptr) {
+         const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
+         const auto timer = static_cast<mixr::base::ITimer*>(pair->object());
+=======
       mixr::base::List::Item* item{timers->getFirstItem()};
       while (item != nullptr) {
          const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
          const auto timer = static_cast<mixr::base::Timer*>(pair->object());
+>>>>>>> d91383e8
          timer->restart();
          item = item->getNext();
       }
@@ -109,10 +142,17 @@ void Tester::reset()
    BaseClass::reset();
 
    if (timers != nullptr) {
+<<<<<<< HEAD
+      mixr::base::IList::Item* item{timers->getFirstItem()};
+      while (item != nullptr) {
+         const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
+         const auto timer = static_cast<mixr::base::ITimer*>(pair->object());
+=======
       mixr::base::List::Item* item{timers->getFirstItem()};
       while (item != nullptr) {
          const auto pair = static_cast<mixr::base::Pair*>(item->getValue());
          const auto timer = static_cast<mixr::base::Timer*>(pair->object());
+>>>>>>> d91383e8
          timer->reset();
          item = item->getNext();
       }
@@ -132,11 +172,19 @@ bool Tester::setSlotTimers(const mixr::base::PairStream* const msg)
       const auto newList = new mixr::base::PairStream();
 
       unsigned int n{};
+<<<<<<< HEAD
+      const mixr::base::IList::Item* item{msg->getFirstItem()};
+      while (item != nullptr) {
+         n++;
+         const auto pair = static_cast<const mixr::base::Pair*>(item->getValue());
+         const auto timer = dynamic_cast<const mixr::base::ITimer*>(pair->object());
+=======
       const mixr::base::List::Item* item{msg->getFirstItem()};
       while (item != nullptr) {
          n++;
          const auto pair = static_cast<const mixr::base::Pair*>(item->getValue());
          const auto timer = dynamic_cast<const mixr::base::Timer*>(pair->object());
+>>>>>>> d91383e8
          if (timer != nullptr) {
             mixr::base::Pair* newPair{pair->clone()};
             newList->put(newPair);

@@ -1,7 +1,11 @@
 #
 include ../../makedefs
 
+<<<<<<< HEAD
+LIB = $(MIXR_SHARED_LIB_PATH)/libxpanel.a
+=======
 LIB = $(MIXR_EXAMPLES_LIB_PATH)/libxpanel.a
+>>>>>>> d91383e8
 
 OBJS += \
 	DspRadar.o \

@@ -1,4 +1,14 @@
 
+<<<<<<< HEAD
+#ifndef __AdiDisplay_HPP__
+#define __AdiDisplay_HPP__
+
+#include "mixr/ui/glut/IGlutDisplay.hpp"
+
+namespace mixr {
+namespace models { class IAircraft; }
+namespace simulation { class IStation; }
+=======
 #ifndef __AdiDisplay_H__
 #define __AdiDisplay_H__
 
@@ -7,14 +17,21 @@
 namespace mixr {
 namespace models { class Aircraft; }
 namespace simulation { class Station; }
+>>>>>>> d91383e8
 }
 
 //------------------------------------------------------------------------------
 // Class: AdiDisplay
 //------------------------------------------------------------------------------
+<<<<<<< HEAD
+class AdiDisplay final: public mixr::glut::IGlutDisplay
+{
+   DECLARE_SUBCLASS(AdiDisplay, mixr::glut::IGlutDisplay)
+=======
 class AdiDisplay final: public mixr::glut::GlutDisplay
 {
    DECLARE_SUBCLASS(AdiDisplay, mixr::glut::GlutDisplay)
+>>>>>>> d91383e8
 
 public:
    AdiDisplay();
@@ -22,10 +39,17 @@ public:
    void updateData(const double dt = 0.0) final;
 
 private:
+<<<<<<< HEAD
+   mixr::models::IAircraft* getOwnship();
+   mixr::simulation::IStation* getStation();
+
+   mixr::base::safe_ptr<mixr::simulation::IStation> myStation;
+=======
    mixr::models::Aircraft* getOwnship();
    mixr::simulation::Station* getStation();
 
    mixr::base::safe_ptr<mixr::simulation::Station> myStation;
+>>>>>>> d91383e8
 
    //-----------------------------
    double psiRO{};     // [deg]

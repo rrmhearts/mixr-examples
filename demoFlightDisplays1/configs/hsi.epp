@@ -12,7 +12,11 @@
                         ( Line
                             linewidth: 2
                             color: cyan
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             vertices: {
                                 // top
                                 [ 0 1.25 ] [ -0.05 1.16 ]
@@ -42,7 +46,11 @@
                         ( Line
                             linewidth: 2
                             color: cyan
+<<<<<<< HEAD
+                            segment: true
+=======
                             segment: 1
+>>>>>>> d91383e8
                             vertices: {
                                 [ 0 1.25 ] [ 0  0.85 ]
                                 [ -0.1 1.1 ] [ 0 1.25 ]
@@ -60,8 +68,13 @@
                 // course pointer
                 ( CrsPntr 
                     numDots: 4
+<<<<<<< HEAD
+                    showCdi: true
+                    showCrsPntr: true
+=======
                     showCdi: 1
                     showCrsPntr: 1
+>>>>>>> d91383e8
                     components: {
                         // Cdi scale
                         ( Graphic
@@ -69,25 +82,41 @@
                             components: {
                                 ( Circle
                                     transform: ( Translation -0.88 0 ) 
+<<<<<<< HEAD
+                                    filled: true
+=======
                                     filled: 1
+>>>>>>> d91383e8
                                     slices: 1000
                                     radius: 0.1
                                 )
                                 ( Circle
                                     transform: ( Translation -0.44 0 ) 
+<<<<<<< HEAD
+                                    filled: true
+=======
                                     filled: 1
+>>>>>>> d91383e8
                                     slices: 1000
                                     radius: 0.1
                                 )
                                 ( Circle
                                     transform: ( Translation 0.88 0 ) 
+<<<<<<< HEAD
+                                    filled: true
+=======
                                     filled: 1
+>>>>>>> d91383e8
                                     slices: 1000
                                     radius: 0.1
                                 )
                                 ( Circle
                                     transform: ( Translation 0.44 0 ) 
+<<<<<<< HEAD
+                                    filled: true
+=======
                                     filled: 1
+>>>>>>> d91383e8
                                     slices: 1000
                                     radius: 0.1
                                 )                                
